@@ -45,6 +45,13 @@ validate-openai-evaluation-v2 = "tech_challenge_fase2.run_provider_real_evaluati
 prepare-openai-response-parsing-diagnosis = "tech_challenge_fase2.run_openai_response_parsing_diagnosis:prepare_main"
 run-openai-response-parsing-probe = "tech_challenge_fase2.run_openai_response_parsing_diagnosis:probe_main"
 validate-openai-response-parsing = "tech_challenge_fase2.run_openai_response_parsing_diagnosis:validate_main"
+prepare-openai-evaluation-v3 = "tech_challenge_fase2.run_provider_real_evaluation_v3:prepare_main"
+run-openai-scientific-v3 = "tech_challenge_fase2.run_provider_real_evaluation_v3:scientific_main"
+run-openai-adversarial-v3 = "tech_challenge_fase2.run_provider_real_evaluation_v3:adversarial_main"
+finalize-openai-evaluation-v3 = "tech_challenge_fase2.run_provider_real_evaluation_v3:finalize_main"
+validate-openai-evaluation-v3 = "tech_challenge_fase2.run_provider_real_evaluation_v3:validate_main"
+build-llm-contract-v2 = "tech_challenge_fase2.run_llm_contract_v2:build_main"
+validate-llm-contract-v2 = "tech_challenge_fase2.run_llm_contract_v2:validate_main"
 
 [dependency-groups]
 dev = [

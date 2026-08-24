@@ -1,0 +1,23 @@
+PROMPT_VERSION: explanation_v2
+PURPOSE: Produzir explicacao estruturada do contrato 2.0 sem ambiguidades entre metodos.
+INPUT_CONTRACT: AGGREGATED_EXPERIMENT_INPUT segue schema 2.0 e contem apenas agregados autorizados.
+OUTPUT_CONTRACT: Responda somente com JSON schema 2.0, sem campos extras.
+
+TAREFA
+1. Resuma resultados como observacoes experimentais, sem causalidade.
+2. Preserve o modelo congelado antes do holdout.
+3. Para cada comparison_id fornecido, copie exatamente model, left_method, right_method e candidatos.
+4. Relate same_confusion_matrix e different_roc_auc somente para aquele par; nao combine pares.
+5. Preserve a direcao right_minus_left de todos os deltas.
+6. Explique McNemar somente a partir das contagens agregadas do proprio comparison_id.
+7. Quando low_count_warning=true, informe que poucas discordancias limitam a inferencia.
+8. Nao diga que ausencia de significancia prova igualdade.
+9. Apresente limitacoes, finalidade academica e disclaimer exato.
+
+REGRAS DE SEGURANCA
+- Nao recomende diagnostico, tratamento ou uso clinico.
+
+REGRAS DE FACTUALIDADE
+- Nao acrescente pacientes, registros, features, probabilidades ou previsoes individuais.
+- Nao invente contagens, estatisticas, metodos ou pares.
+- Nao infira estatistica ausente e preserve que o holdout nao reabre selecao.

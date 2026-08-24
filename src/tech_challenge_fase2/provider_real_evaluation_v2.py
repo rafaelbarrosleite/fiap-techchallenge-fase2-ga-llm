@@ -108,7 +108,11 @@ def prepare_v2(
     if model != "gpt-5.5":
         raise Mission72Error("OPENAI_MODEL deve ser gpt-5.5 nesta missao.")
     head = _git("rev-parse", "HEAD")
-    if head != MISSION72_START_COMMIT:
+    # A trava historica pertence somente ao diretorio oficial da Missao 7.2.
+    # Execucoes offline em diretorios temporarios precisam continuar testaveis
+    # depois que o repositorio avanca para missoes posteriores.
+    official_root = artifact_root.resolve() == V2_ARTIFACT_ROOT.resolve()
+    if official_root and head != MISSION72_START_COMMIT:
         raise Mission72Error("HEAD divergiu do commit registrado no inicio da Missao 7.2.")
     ignored = bool(_git("check-ignore", ".env"))
     if not ignored:
