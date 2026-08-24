@@ -37,6 +37,14 @@ finalize-openai-provider-failure = "tech_challenge_fase2.run_provider_real_evalu
 diagnose-openai-request = "tech_challenge_fase2.run_openai_integration_diagnosis:diagnose_main"
 test-openai-structured-output = "tech_challenge_fase2.run_openai_integration_diagnosis:test_structured_output_main"
 validate-openai-diagnosis = "tech_challenge_fase2.run_openai_integration_diagnosis:validate_main"
+prepare-openai-evaluation-v2 = "tech_challenge_fase2.run_provider_real_evaluation_v2:prepare_main"
+run-openai-technical-probe-v2 = "tech_challenge_fase2.run_provider_real_evaluation_v2:probe_main"
+run-openai-scientific-v2 = "tech_challenge_fase2.run_provider_real_evaluation_v2:scientific_main"
+run-openai-adversarial-v2 = "tech_challenge_fase2.run_provider_real_evaluation_v2:adversarial_main"
+validate-openai-evaluation-v2 = "tech_challenge_fase2.run_provider_real_evaluation_v2:validate_main"
+prepare-openai-response-parsing-diagnosis = "tech_challenge_fase2.run_openai_response_parsing_diagnosis:prepare_main"
+run-openai-response-parsing-probe = "tech_challenge_fase2.run_openai_response_parsing_diagnosis:probe_main"
+validate-openai-response-parsing = "tech_challenge_fase2.run_openai_response_parsing_diagnosis:validate_main"
 
 [dependency-groups]
 dev = [

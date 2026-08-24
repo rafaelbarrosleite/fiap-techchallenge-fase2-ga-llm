@@ -27,6 +27,7 @@ from tech_challenge_fase2.llm.prompts import PromptBundle, load_prompt_bundle
 from tech_challenge_fase2.llm.providers import LLMRequest, load_env_value
 from tech_challenge_fase2.llm.safety import output_text, validate_safety
 from tech_challenge_fase2.llm.schemas import MODEL_NAMES, output_json_schema, validate_output
+from tech_challenge_fase2.responses_parsing import extract_response_text
 
 OPENAI_ARTIFACT_ROOT = PROJECT_ROOT / "artifacts" / "llm_evaluation_openai"
 FAKE_ARTIFACT_ROOT = PROJECT_ROOT / "artifacts" / "llm_evaluation"
@@ -154,13 +155,10 @@ class AuditedOpenAIResponsesProvider:
 
     @staticmethod
     def _output_text(payload: dict[str, Any]) -> str:
-        if isinstance(payload.get("output_text"), str):
-            return payload["output_text"]
-        for item in payload.get("output", []):
-            for content in item.get("content", []):
-                if content.get("type") == "output_text" and isinstance(content.get("text"), str):
-                    return content["text"]
-        raise ProviderRealEvaluationError("Resposta real nao contem output_text.")
+        try:
+            return extract_response_text(payload).text
+        except ValueError as error:
+            raise ProviderRealEvaluationError(str(error)) from error
 
     @staticmethod
     def request_body(request: LLMRequest, *, scenario_instruction: str | None = None) -> dict[str, Any]:
