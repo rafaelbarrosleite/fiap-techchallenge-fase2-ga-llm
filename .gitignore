@@ -1,0 +1,29 @@
+.DS_Store
+.env
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Saidas reproduziveis geradas pelo projeto
+artifacts/*
+!artifacts/.gitkeep
+reports/*
+!reports/.gitkeep
+logs/*
+!logs/.gitkeep
+
+# Modelos, notebooks executados e arquivos temporarios
+*.joblib
+*.pkl
+*.log
+.ipynb_checkpoints/
+notebooks/*-executed.ipynb
+
+# Credenciais de provedores e ferramentas
+.env.*
+!.env.example
+

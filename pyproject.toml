@@ -1,0 +1,51 @@
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fiap-techchallenge-fase2-ga-llm"
+version = "0.6.0"
+description = "GA, avaliacao protegida, LLM segura e entrega academica reproduzivel para o Tech Challenge da FIAP."
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "numpy==2.3.2",
+  "pandas==2.3.1",
+  "scikit-learn==1.7.1",
+  "matplotlib==3.10.5",
+  "joblib==1.5.3",
+]
+
+[project.scripts]
+run-baseline = "tech_challenge_fase2.baseline:main"
+run-ga-smoke = "tech_challenge_fase2.run_genetic:main"
+run-ga-experiment = "tech_challenge_fase2.run_official:experiment_main"
+run-ga-battery = "tech_challenge_fase2.run_official:battery_main"
+run-ga-analysis = "tech_challenge_fase2.run_official:analysis_main"
+prepare-final-evaluation = "tech_challenge_fase2.run_final_evaluation:prepare_main"
+run-final-evaluation = "tech_challenge_fase2.run_final_evaluation:run_main"
+prepare-llm-evaluation = "tech_challenge_fase2.run_llm_evaluation:prepare_main"
+run-llm-evaluation = "tech_challenge_fase2.run_llm_evaluation:run_main"
+evaluate-llm-output = "tech_challenge_fase2.run_llm_evaluation:evaluate_main"
+build-final-deliverable = "tech_challenge_fase2.run_deliverable:build_main"
+validate-deliverable = "tech_challenge_fase2.run_deliverable:validate_main"
+prepare-openai-evaluation = "tech_challenge_fase2.run_provider_real_evaluation:prepare_main"
+run-openai-provider-evaluation = "tech_challenge_fase2.run_provider_real_evaluation:run_main"
+run-openai-provider-adversarial = "tech_challenge_fase2.run_provider_real_evaluation:adversarial_main"
+validate-openai-provider-evaluation = "tech_challenge_fase2.run_provider_real_evaluation:validate_main"
+finalize-openai-provider-failure = "tech_challenge_fase2.run_provider_real_evaluation:finalize_failure_main"
+diagnose-openai-request = "tech_challenge_fase2.run_openai_integration_diagnosis:diagnose_main"
+test-openai-structured-output = "tech_challenge_fase2.run_openai_integration_diagnosis:test_structured_output_main"
+validate-openai-diagnosis = "tech_challenge_fase2.run_openai_integration_diagnosis:validate_main"
+
+[dependency-groups]
+dev = [
+  "pytest==8.4.1",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tech_challenge_fase2"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]

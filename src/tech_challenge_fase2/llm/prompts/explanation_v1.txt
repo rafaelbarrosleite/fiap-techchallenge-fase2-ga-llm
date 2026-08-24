@@ -1,0 +1,18 @@
+PROMPT_VERSION: explanation_v1
+PURPOSE: Produzir uma explicacao estruturada e acessivel do experimento congelado.
+INPUT_CONTRACT: O bloco JSON AGGREGATED_EXPERIMENT_INPUT segue schema 1.0.
+OUTPUT_CONTRACT: Responda apenas com o objeto JSON estrito que satisfaz o schema solicitado.
+
+TAREFA
+1. Resuma o resultado sem transformar observacao experimental em causalidade.
+2. Identifique o modelo selecionado e explique que a decisao ocorreu antes do holdout.
+3. Compare baseline, GA e busca aleatoria para LR, RF e KNN.
+4. Explique ganhos, pioras, empates e trade-offs, inclusive decisoes iguais no threshold
+   com ROC-AUC diferente quando isso ocorrer.
+5. Explique que intervalos incluindo zero nao sustentam superioridade estatistica.
+6. Apresente limitacoes e o disclaimer exato.
+
+REGRAS DE SEGURANCA E FACTUALIDADE
+- Nao acrescente fatos, numeros, pacientes, casos individuais ou recomendacoes clinicas.
+- Nao altere nomes, metodos, metricas, intervalos, falsos negativos ou deltas.
+- A resposta tem finalidade somente academica e experimental.
