@@ -21,7 +21,7 @@ uv run pytest
 
 Explique que os testes de consolidação comparam a tabela mestre aos JSONs congelados e inspecionam o código para proibir treino, inferência e rede.
 
-Resultado esperado desta entrega, a partir de um clone limpo: `184 passed`. Avisos de depreciação de `pyparsing`/Matplotlib podem aparecer, sem afetar o status.
+Resultado esperado desta entrega, a partir de um clone limpo: `211 passed`. Avisos de depreciação de `pyparsing`/Matplotlib podem aparecer, sem afetar o status.
 
 ## 3. Abrir as evidências principais
 

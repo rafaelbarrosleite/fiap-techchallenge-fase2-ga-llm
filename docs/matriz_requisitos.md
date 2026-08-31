@@ -18,8 +18,9 @@ Status usado: **concluído**, **parcial**, **não iniciado**, **condicional** ou
 | O1.3 | Definir fitness com métricas de desempenho | Composição centrada em recall, com F1, ROC-AUC e estabilidade em CV | Fórmula, código e resultados por dobra | Avaliador GA | Recalcular fitness em folds fixos | Concluído e testado em 5-fold CV |
 | O1.4 | Comparar modelos otimizados com originais | Mesma divisão e protocolo CV na seleção; avaliação confirmatória no teste congelado | Baseline + resultados GA | Pipeline de avaliação e relatório | Diferenças absolutas, recall, FN, incerteza e tempos | Concluído: baseline × GA no teste para LR, RF e KNN |
 | O1.5 | Pelo menos 3 configurações do GA | Três orçamentos/taxas documentados para cada modelo escolhido | Configurações, seeds, curvas e resultados | Configuração GA | Três execuções identificáveis e reproduzíveis | Concluído: A/B/C executados nos três modelos |
-| O2.1 | Monitoramento e logging para tracking de desempenho | Eventos estruturados por execução e geração, sem linhas de pacientes | Logs, identidades, tempos, métricas, erros e checkpoints | `logging_utils.py` + monitor GA | Inspeção de log e teste de campos | Concluído para GA local; observabilidade gerenciada não iniciada |
-| O2.2 | Documentar arquitetura e decisões | Diagrama, fluxos, decisões e alternativas | Documentos versionados | `decisoes_tecnicas.md` | Revisão contra o código | Concluído para baseline, GA e seleção por CV |
+| O2.0 | Configurar recursos de escalabilidade automática para variações de demanda | Pool autoescalável sobre o modelo congelado, com política de backlog, histerese e teto | Política, benchmark comparativo, relatório assinado e figura | `serving/autoscaling.py` + `serving/load_benchmark.py` | `run-load-benchmark` e `validate-scalability` | Concluído: p95 1,76x menor e vazão 1,70x maior sob o mesmo perfil; limiar de custo por pedido documentado |
+| O2.1 | Monitoramento e logging para tracking de desempenho | Eventos estruturados por execução, geração e ciclo de serviço, sem linhas de pacientes | Logs JSON Lines, identidades, tempos, métricas, erros e checkpoints | `logging_utils.py`, monitor GA e `serving/monitoring.py` | Inspeção de log, teste de campos e barreira aplicada na escrita | Concluído para GA e para a camada de serviço; observabilidade gerenciada permanece fora de escopo |
+| O2.2 | Documentar arquitetura e decisões | Diagrama, fluxos, decisões e alternativas | Documentos versionados | `decisoes_tecnicas.md` + `escalabilidade_e_monitoramento.md` | Revisão contra o código | Concluído para baseline, GA, seleção por CV, LLM e camada de serviço |
 | O3.1 | Integrar LLM pré-treinada | Adaptador de provedor, entrada estruturada e saída controlada | Código, exemplos e testes com mock/real | `llm/`, `llm_v2/` e `llm_individual/` | Mock oficial + providers reais opt-in | Concluído: agregados preservados e explicação individual OpenAI aprovada |
 | O3.1a | Gerar explicações em linguagem natural dos diagnósticos dos modelos | Explicar classificação individual desidentificada e resultados agregados; distinguir predição de diagnóstico clínico | Prompt, resposta, exemplo e 40 checks | `llm_individual/` + LLM V1/V2 | Factualidade, privacidade e segurança | Concluído: caso de desenvolvimento explicado pelo fake e OpenAI real, sem ID, índice, target ou linha bruta |
 | O3.1b | Transformar dados numéricos e estatísticos em insights acionáveis para médicos | Converter probabilidade e contribuições locais em ações de revisão humana, sem prescrição | `insights_acionaveis_para_medicos` auditáveis | Contrato individual 3.0 | Escopo obrigatório `human_review_only` | Concluído: revisão dos sinais, auditoria da entrada e confronto independente; decisão de cuidado sempre falsa |
@@ -51,20 +52,20 @@ Status usado: **concluído**, **parcial**, **não iniciado**, **condicional** ou
 | ID | Requisito oficial | Classificação | Evidência/decisão | Status |
 |---|---|---|---|---|
 | P1 | Documentação da API, se aplicável | Opcional condicional | Só será necessária se uma API for criada; não é necessária ao baseline/CLI | Condicional |
-| P2 | Arquivos de configuração para implantação, se houver nuvem | Opcional condicional | Incluir apenas após decisão explícita por cloud | Condicional |
-| P3 | Infraestrutura como código, se houver nuvem | Opcional condicional | IaC acompanha a arquitetura cloud escolhida | Condicional |
+| P2 | Arquivos de configuração para implantação, se houver nuvem | Opcional condicional | `Dockerfile` e `docker-compose.yml` versionados | Concluído |
+| P3 | Infraestrutura como código, se houver nuvem | Opcional condicional | `deploy/terraform/main.tf` com ECS Fargate e target tracking | Concluído como código; não aplicado |
 
 ## Possível pontuação extra
 
 | ID | Requisito oficial | Interpretação | Recomendação | Status |
 |---|---|---|---|---|
-| X1 | Implementação em nuvem é opcional e pode valer pontuação extra | Deploy, observabilidade e possivelmente autoscaling reais | Adiar até GA, testes, relatório e LLM estarem sólidos | Não iniciado por decisão de escopo |
+| X1 | Implementação em nuvem é opcional e pode valer pontuação extra | Deploy, observabilidade e possivelmente autoscaling reais | Container, orquestração local e IaC entregues; provisionamento real não executado | Parcial: `Dockerfile`, `docker-compose.yml` e `deploy/terraform/main.tf` versionados, com piso e teto de réplicas espelhando a política local; nenhum recurso pago foi criado |
 
 ## Pontos ambíguos a confirmar com o professor
 
 | ID | Ambiguidade | Leitura conservadora adotada | Pergunta sugerida |
 |---|---|---|---|
-| A1 | O título diz “configurar recursos de escalabilidade automática”, mas a observação diz que nuvem é opcional | Documentar componentes escaláveis e medir desempenho local; tratar autoscaling real como parte da nuvem opcional | É obrigatório demonstrar autoscaling fora da nuvem ou logging/arquitetura satisfazem esse item no projeto local? |
+| A1 | O título diz “configurar recursos de escalabilidade automática”, mas a observação diz que nuvem é opcional | Resolvido pela leitura mais exigente: autoscaling implementado, medido e documentado localmente, com container e IaC cobrindo a parte de nuvem sem provisionar recursos | Resolvido tecnicamente; a evidência local não depende de a nuvem ser exigida ou não |
 | A2 | “Modelos” aparece no plural, sem quantidade mínima explícita | Otimizar os três baselines para máxima cobertura; priorizar LR e RF se o custo ficar excessivo | É aceitável otimizar dois modelos e manter o terceiro apenas como baseline? |
 | A3 | “Explicações dos diagnósticos” pode significar explicação individual | Implementado caso individual de desenvolvimento desidentificado e não reconstruível; sem ID, índice, ground truth ou valores brutos | Resolvido tecnicamente com contrato 3.0 e exemplo auditável; continua não sendo diagnóstico clínico |
 | A4 | Não há rubrica objetiva para qualidade da LLM | Criar rubrica própria e avaliação humana documentada, com checagem automática de números | Existe rubrica oficial ou número mínimo de exemplos para a avaliação? |

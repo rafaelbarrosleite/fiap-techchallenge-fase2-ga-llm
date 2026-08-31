@@ -138,6 +138,27 @@ O fake offline e a OpenAI real foram aprovados em factualidade **40/40**, comple
 
 O gate científico permaneceu não aprovado porque três verificações lexicais de calibração exigiam frases específicas. O texto real empregou formulações semanticamente calibradas — observações experimentais, ausência de suporte para superioridade estatística e proibição de uso clínico — mas não as variantes literais esperadas. A evidência foi preservada como `methodologically_complete_not_approved`; prompts, schema e checker não foram ajustados depois da resposta, não houve retry e os adversariais reais ficaram bloqueados. O mock V2 continua sendo o caminho oficial de reprodução offline.
 
+## 7.2 Escalabilidade automática e monitoramento de desempenho
+
+O requisito 2 do enunciado pede recursos de escalabilidade automática para variações de demanda, monitoramento e logging de desempenho e documentação da arquitetura. A camada `serving/` atende a execução do modelo já congelado: ela não treina, não reabre seleção, não altera o limiar e não consulta o holdout.
+
+A política de dimensionamento é uma função pura do backlog observado, com histerese entre 2 e 6 pedidos por worker e cooldown opcional; separar decisão de execução a torna testável sem relógio nem threads. O servidor carrega o pipeline congelado uma única vez e confere o SHA-256 contra o manifesto assinado antes de servir. O monitoramento grava eventos JSON Lines com contagens, tempos e tamanhos, e recusa na escrita qualquer chave de identificação, alvo ou saída por registro — barreira que reprovou código deste próprio projeto e levou a renomear um campo em vez de afrouxar a regra.
+
+Sob o mesmo perfil de vale, rajada e drenagem, com 146 pedidos de 40.000 registros em 4 CPUs:
+
+| Cenário | p95 | p99 | Vazão | Trocas de tamanho |
+|---|---:|---:|---:|---:|
+| Pool fixo mínimo | 131,6 ms | 149,8 ms | 177,7 req/s | 0 |
+| Pool autoescalável | 74,6 ms | 78,5 ms | 301,9 req/s | 3 |
+
+O autoscaling reduziu a latência p95 em 1,76x e elevou a vazão em 1,70x.
+
+Dois achados negativos foram preservados porque mudaram o desenho. O primeiro: a medição inicial mostrou o pool autoescalável **mais lento** que o fixo, porque o BLAS paraleliza internamente e um worker já saturava as CPUs; fixar uma thread de BLAS por worker inverteu a relação e é a configuração aplicada no container e no IaC. O segundo: mesmo corrigido isso, escalar réplicas só compensa acima de aproximadamente 2 ms de custo por pedido — abaixo disso o despacho custa mais que o trabalho e adicionar workers piora o desempenho. A varredura por tamanho de lote foi incorporada à evidência em vez de se escolher um ponto favorável.
+
+![Escalabilidade automática](../reports/figures/final_presentation/07_escalabilidade_automatica.png)
+
+O detalhamento está em [`escalabilidade_e_monitoramento.md`](escalabilidade_e_monitoramento.md). `Dockerfile`, `docker-compose.yml` e `deploy/terraform/main.tf` cobrem a implantação opcional em nuvem; a infraestrutura é acadêmica e não foi provisionada.
+
 ## 8. Discussão — utilidade depende da família e do custo
 
 ![Fitness GA versus busca aleatória](../reports/figures/final_presentation/06_fitness_ga_vs_busca_aleatoria.png)
@@ -166,7 +187,7 @@ A robustez do projeto está mais forte na engenharia experimental do que na infe
 
 ## 10. Validação da entrega consolidada
 
-A suíte completa encerrou com **184 testes aprovados** em execução offline a partir de um clone limpo. Os testes validam as nove linhas da tabela mestre, a seleção global congelada, as seis figuras agregadas, a ausência de primitivas de treino/inferência/rede no consolidador, todos os links locais, os contratos V1/V2/3.0, o transporte raw-first, privacidade individual, factualidade, segurança e manifestos assinados. Os avisos emitidos são depreciação interna de `pyparsing`/Matplotlib; não houve falha funcional.
+A suíte completa encerrou com **211 testes aprovados** em execução offline a partir de um clone limpo. Os testes validam as nove linhas da tabela mestre, a seleção global congelada, as seis figuras agregadas, a ausência de primitivas de treino/inferência/rede no consolidador, todos os links locais, os contratos V1/V2/3.0, o transporte raw-first, privacidade individual, factualidade, segurança e manifestos assinados. Os avisos emitidos são depreciação interna de `pyparsing`/Matplotlib; não houve falha funcional.
 
 A execução idempotente da Missão 5 também foi repetida com `FakeLLMProvider` e retornou `approved=true`, sem rede. O validador consolidado confere adicionalmente o status não aprovado da execução real V2, 327/327 fatos, zero dados individuais e um único request sem retry. O validador final é somente leitura e confere assinaturas, hashes, métricas principais, divergências documentadas, QA visual e confirmações de escopo.
 

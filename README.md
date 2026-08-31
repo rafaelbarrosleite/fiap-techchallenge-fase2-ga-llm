@@ -71,7 +71,7 @@ Com os manifestos íntegros e status `completed`:
 - `evaluate-llm-output` recalcula as verificações determinísticas da execução mock congelada;
 - `validate-deliverable` é somente leitura.
 
-Estado validado da entrega em clone limpo: **184 testes aprovados**. Os avisos observados são de depreciação interna de `pyparsing`/Matplotlib e não representam falha funcional ou alteração de resultado.
+Estado validado da entrega em clone limpo: **211 testes aprovados**. Os avisos observados são de depreciação interna de `pyparsing`/Matplotlib e não representam falha funcional ou alteração de resultado.
 
 `run-llm-evaluation` não faz parte do fluxo oficial. A identidade da execução mock V1 inclui a assinatura do código que a produziu, e a adição posterior do contrato V2 ao pacote `llm/` alterou essa assinatura. O engine então se recusa a reaproveitar o artefato congelado e levanta `ManualInterventionRequired`. Esse é o comportamento pretendido: a salvaguarda existe para impedir que uma execução congelada seja silenciosamente sobrescrita depois que o código muda. A evidência não foi re-selada para contornar a verificação; consulte [docs/limitacoes_e_validade.md](docs/limitacoes_e_validade.md).
 
@@ -140,6 +140,21 @@ uv run evaluate-individual-explanation
 
 Consulte [docs/explicacao_individual_llm.md](docs/explicacao_individual_llm.md) e o [exemplo JSON versionado](docs/examples/individual_explanation_v1.json).
 
+## Escalabilidade automática e monitoramento
+
+A camada `serving/` executa o modelo congelado sob demanda variável. A política de dimensionamento é uma função pura do backlog, com histerese e cooldown; o servidor carrega o pipeline uma vez e confere o hash contra o manifesto assinado; o monitoramento grava eventos JSON Lines e recusa, na escrita, qualquer campo de identificação, alvo ou saída por registro.
+
+```bash
+uv run run-load-benchmark
+uv run validate-scalability
+```
+
+Sob o mesmo perfil de vale, rajada e drenagem em 4 CPUs, o pool autoescalável reduziu a latência p95 de 131,6 ms para 74,6 ms e elevou a vazão de 177,7 para 301,9 req/s. Dois achados negativos foram preservados: o BLAS paraleliza internamente e mascarava o efeito das réplicas até ser fixado em uma thread por worker, e escalar réplicas só compensa acima de cerca de 2 ms de custo por pedido.
+
+`Dockerfile`, `docker-compose.yml` e `deploy/terraform/main.tf` cobrem a implantação opcional em nuvem, com piso e teto de réplicas espelhando a política local. A infraestrutura é acadêmica e não foi provisionada.
+
+Detalhes em [docs/escalabilidade_e_monitoramento.md](docs/escalabilidade_e_monitoramento.md).
+
 ## Demonstração
 
 - roteiro de 10–15 minutos: [docs/roteiro_apresentacao.md](docs/roteiro_apresentacao.md);
@@ -180,6 +195,7 @@ Consulte [docs/explicacao_individual_llm.md](docs/explicacao_individual_llm.md) 
 - contrato LLM V2: [docs/contrato_llm_v2.md](docs/contrato_llm_v2.md);
 - avaliação OpenAI V2: [docs/avaliacao_provider_real_v4.md](docs/avaliacao_provider_real_v4.md);
 - explicação individual: [docs/explicacao_individual_llm.md](docs/explicacao_individual_llm.md);
+- escalabilidade e monitoramento: [docs/escalabilidade_e_monitoramento.md](docs/escalabilidade_e_monitoramento.md);
 - limitações: [docs/limitacoes_e_validade.md](docs/limitacoes_e_validade.md).
 
 ## Disclaimer acadêmico

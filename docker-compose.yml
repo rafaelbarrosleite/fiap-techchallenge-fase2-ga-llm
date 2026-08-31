@@ -1,0 +1,29 @@
+# Escalabilidade horizontal do servico de inferencia.
+#
+# `deploy.replicas` reproduz localmente o mesmo recurso que o autoscaling
+# controla em nuvem: numero de replicas do processo. Cada replica mantem uma
+# thread de BLAS, para que o paralelismo venha das replicas e nao da algebra
+# linear dentro de um processo.
+services:
+  inferencia:
+    build: .
+    image: fiap-techchallenge-fase2-inferencia:0.8.0
+    environment:
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    command: ["run-load-benchmark", "--min-workers", "1", "--max-workers", "4"]
+    volumes:
+      - ./artifacts/scalability:/app/artifacts/scalability
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 512M
+        reservations:
+          cpus: "0.25"
+          memory: 128M
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3

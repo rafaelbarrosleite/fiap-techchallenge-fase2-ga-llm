@@ -61,6 +61,8 @@ run-individual-explanation = "tech_challenge_fase2.run_individual_explanation:ru
 run-individual-explanation-openai = "tech_challenge_fase2.run_individual_explanation:run_openai_main"
 evaluate-individual-explanation = "tech_challenge_fase2.run_individual_explanation:evaluate_main"
 revalidate-individual-explanation = "tech_challenge_fase2.run_individual_explanation:revalidate_main"
+run-load-benchmark = "tech_challenge_fase2.run_serving:benchmark_main"
+validate-scalability = "tech_challenge_fase2.run_serving:validate_main"
 
 [dependency-groups]
 dev = [

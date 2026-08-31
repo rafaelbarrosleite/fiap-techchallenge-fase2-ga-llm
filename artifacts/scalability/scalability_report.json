@@ -1,0 +1,164 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "scalability_report",
+  "demand_profile": [
+    2,
+    2,
+    3,
+    2,
+    18,
+    24,
+    30,
+    28,
+    22,
+    8,
+    4,
+    2,
+    1
+  ],
+  "batch_size": 40000,
+  "request_frame_is_replicated_development": true,
+  "policy": {
+    "min_workers": 1,
+    "max_workers": 4,
+    "target_backlog_per_worker": 4,
+    "scale_up_backlog_per_worker": 6,
+    "scale_down_backlog_per_worker": 2,
+    "cooldown_seconds": 0.0
+  },
+  "frozen_model": {
+    "candidate_id": "logistic_regression__random_search",
+    "training_group_id": "a144f3a5ef7581cc",
+    "relative_path": "artifacts/final_evaluation/models/pipeline_a144f3a5ef7581cc.joblib",
+    "sha256": "78d3c6bb3bc53db1bb47f3ba52ff6b9a663c712f3ca814062bdaed999f23e590",
+    "threshold": 0.5
+  },
+  "model_load_seconds": 0.000797,
+  "scenarios": [
+    {
+      "label": "pool_fixo_minimo",
+      "autoscaling_enabled": false,
+      "total_requests": 146,
+      "total_records": 5840000,
+      "wall_seconds": 0.821697,
+      "throughput_requests_per_second": 177.681048,
+      "throughput_records_per_second": 7107241.906983,
+      "latency": {
+        "count": 146,
+        "min_ms": 6.26367,
+        "mean_ms": 60.464387,
+        "p50_ms": 54.672702,
+        "p95_ms": 131.562689,
+        "p99_ms": 149.80334,
+        "max_ms": 156.166375
+      },
+      "worker_timeline": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "max_workers_used": 1,
+      "scaling_events": 0
+    },
+    {
+      "label": "pool_autoescalavel",
+      "autoscaling_enabled": true,
+      "total_requests": 146,
+      "total_records": 5840000,
+      "wall_seconds": 0.483684,
+      "throughput_requests_per_second": 301.850074,
+      "throughput_records_per_second": 12074002.970086,
+      "latency": {
+        "count": 146,
+        "min_ms": 5.931458,
+        "mean_ms": 36.159534,
+        "p50_ms": 32.740102,
+        "p95_ms": 74.56561,
+        "p99_ms": 78.487905,
+        "max_ms": 81.412526
+      },
+      "worker_timeline": [
+        1,
+        1,
+        1,
+        1,
+        4,
+        4,
+        4,
+        4,
+        4,
+        2,
+        1,
+        1,
+        1
+      ],
+      "max_workers_used": 4,
+      "scaling_events": 3
+    }
+  ],
+  "batch_size_sweep": [
+    {
+      "batch_size": 2000,
+      "requests": 24,
+      "milliseconds_per_request_serial": 1.596444,
+      "elapsed_ms_one_worker": 38.314649,
+      "elapsed_ms_max_workers": 46.600634,
+      "workers_at_ceiling": 4,
+      "speedup": 0.822192
+    },
+    {
+      "batch_size": 8000,
+      "requests": 24,
+      "milliseconds_per_request_serial": 1.870021,
+      "elapsed_ms_one_worker": 44.880509,
+      "elapsed_ms_max_workers": 47.93814,
+      "workers_at_ceiling": 4,
+      "speedup": 0.936217
+    },
+    {
+      "batch_size": 20000,
+      "requests": 24,
+      "milliseconds_per_request_serial": 3.926245,
+      "elapsed_ms_one_worker": 94.229889,
+      "elapsed_ms_max_workers": 51.941316,
+      "workers_at_ceiling": 4,
+      "speedup": 1.814161
+    },
+    {
+      "batch_size": 40000,
+      "requests": 24,
+      "milliseconds_per_request_serial": 6.763867,
+      "elapsed_ms_one_worker": 162.332799,
+      "elapsed_ms_max_workers": 73.019578,
+      "workers_at_ceiling": 4,
+      "speedup": 2.223141
+    }
+  ],
+  "comparison": {
+    "p95_latency_reduction_factor": 1.764388,
+    "throughput_gain_factor": 1.698831
+  },
+  "scope_confirmations": {
+    "new_training_performed": false,
+    "selection_reopened": false,
+    "threshold_changed": false,
+    "individual_data_logged": false,
+    "network_required": false
+  },
+  "environment": {
+    "available_cpus": 4,
+    "blas_threads_per_worker": "1"
+  },
+  "measurement_is_environment_dependent": true,
+  "signature": "be479428a71858d5fece2b42720f724bd7193a4a31d0f5d818253dff6fa849a0"
+}

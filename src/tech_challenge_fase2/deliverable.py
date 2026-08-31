@@ -54,8 +54,13 @@ EXPECTED_DOCUMENTS = (
     "docs/contrato_llm_v2.md",
     "docs/avaliacao_provider_real_v4.md",
     "docs/explicacao_individual_llm.md",
+    "docs/escalabilidade_e_monitoramento.md",
     "docs/examples/individual_explanation_v1.json",
 )
+# artifacts/scalability/ nao entra no selo: a medicao depende do hardware e
+# mudaria de hash a cada execucao do benchmark, reprovando a validacao por um
+# motivo que nao indica perda de integridade. Ele tem validador proprio em
+# `validate-scalability`.
 EXPECTED_SOURCE_ARTIFACTS = (
     "artifacts/final_evaluation/final_test_results.json",
     "artifacts/final_evaluation/uncertainty_results.json",
