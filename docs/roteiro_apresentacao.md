@@ -1,145 +1,299 @@
-# Roteiro de apresentação — 10 a 15 minutos
+# Roteiro de gravação do vídeo — Tech Challenge Fase 2
 
-Convenção: Regressão Logística (LR), Random Forest (RF), KNN, baseline, GA, busca aleatória (`RandomizedSearchCV`), desenvolvimento, validação cruzada (CV), holdout (teste final) e modelo para demonstração.
+Roteiro de **screencast**: você grava a tela com o sistema rodando de verdade e lê a fala. Não há slides.
 
-## Orçamento de tempo
+O que o enunciado exige, e onde cada item é atendido:
 
-| Versão | Cenas | Duração |
-|---|---:|---:|
-| Completa | 13 | **14 min 20 s** |
-| Enxuta, sem o Slide 2 | 12 | **13 min 35 s** |
-
-O Slide 2 (auditoria da Fase 1) é o corte planejado: é a cena que menos participa das quatro exigências do vídeo. Se ainda faltar tempo, o corte seguinte é o Slide 8 (trade-offs). Grave a versão enxuta se estiver inseguro com o relógio — estourar 15 minutos custa mais que omitir a auditoria.
-
-## Cobertura das exigências do vídeo
-
-O enunciado pede quatro coisas explicitamente. Nenhuma pode faltar.
-
-| Exigência do enunciado | Onde é atendida |
+| Exigência | Bloco |
 |---|---|
-| Demonstração do sistema em execução | Slide 13 — comandos e painel em tela |
-| Explicação dos diferentes componentes | Slides 3, 4, 10 e 11 |
-| Resultados da otimização via algoritmos genéticos | Slides 5, 6, 7, 8 e 9 |
-| Demonstração da integração com LLMs | Slide 10, com saída real em tela |
+| Upload no YouTube ou Vimeo, até 15 minutos | ver *Publicação*, no fim |
+| Demonstração do sistema em execução | 2, 4, 5, 6, 7 |
+| Explicação dos diferentes componentes da solução | 1, 3, 5, 6 |
+| Apresentação dos resultados da otimização via algoritmos genéticos | 3, 4 |
+| Demonstração da integração com LLMs | 5, 6 |
 
-## Antes de gravar
+**Duração planejada: 13 min 30 s.** Sobra margem para pausas.
 
-1. Rode `uv run pytest`, `uv run validate-deliverable` e `uv run validate-scalability` e confirme que passam. A demonstração depende de os estados congelados estarem íntegros.
-2. **Deixe os comandos do Slide 13 já executados em um terminal aberto**, com a saída visível, e role a tela durante a fala. Executar ao vivo coloca 40 segundos de espera dentro de uma cena de 70 — e uma falha de ambiente no meio da gravação custa a tomada inteira.
-3. Abra `reports/dashboard/index.html` em outra aba do navegador, já na seção de verificação, para não navegar em tela.
+| Bloco | Assunto | Tempo |
+|---|---|---:|
+| 0 | Preparação (não grava) | — |
+| 1 | Abertura e o que é o projeto | 1 min 00 s |
+| 2 | O sistema rodando: suíte e validação | 1 min 30 s |
+| 3 | Componentes: o algoritmo genético no código | 2 min 00 s |
+| 4 | Resultados da otimização genética | 2 min 15 s |
+| 5 | Integração com LLM: contrato, prompt e execução | 2 min 45 s |
+| 6 | Explicação individual e as barreiras recusando | 2 min 00 s |
+| 7 | Escalabilidade automática rodando ao vivo | 1 min 30 s |
+| 8 | Fechamento e limitações | 30 s |
 
-## Slide 1 — Problema e pergunta acadêmica (45 s)
+---
 
-- **Mensagem principal:** otimizar três modelos sem contaminar o teste e explicar resultados sem criar diagnóstico.
-- **Dados:** 569 registros, 30 preditores, 212 malignos.
-- **Figura:** diagrama de arquitetura do relatório final.
-- **Fala sugerida:** “O desafio não foi apenas melhorar uma métrica; foi construir uma cadeia auditável de seleção, confirmação e explicação.”
-- **Risco:** parecer proposta clínica. Dizer explicitamente “acadêmico e experimental”.
+## Bloco 0 — Preparação (antes de apertar REC)
 
-## Slide 2 — Auditoria inicial (45 s, primeira cena a cortar)
-
-- **Mensagem principal:** a Fase 1 era reproduzível em partes, mas misturava etapas e usava validação repetidamente.
-- **Dados:** 60/20/20 histórico; dependências não congeladas; EDA supervisionada antes do corte.
-- **Figura:** fluxo antes/depois simples.
-- **Fala sugerida:** “Não encontramos vazamento direto de scaler, mas havia risco de processo e baixa reprodutibilidade.”
-- **Risco:** afirmar que a Fase 1 era inválida. Ela foi reproduzida; os riscos foram corrigidos.
-
-## Slide 3 — Arquitetura experimental protegida (60 s)
-
-- **Mensagem principal:** seleção nos 80% de desenvolvimento, holdout bloqueado até o congelamento.
-- **Dados:** 455 desenvolvimento, 114 holdout, seed 42, cinco dobras, threshold 0,5.
-- **Figura:** Mermaid da arquitetura consolidada.
-- **Fala sugerida:** “Toda escolha acontece à esquerda da barreira; o teste só confirma.”
-- **Risco:** dizer que o holdout era totalmente desconhecido. O baseline histórico já o havia registrado.
-
-## Slide 4 — Algoritmo Genético (75 s)
-
-- **Mensagem principal:** operadores implementados diretamente e genomas específicos por modelo.
-- **Dados:** fitness `0,60 recall + 0,25 F1 + 0,15 AUC − 0,10 std(recall)`.
-- **Figura:** ciclo população→torneio→crossover→mutação→reparo→elitismo.
-- **Fala sugerida:** “O indivíduo é uma configuração legível, não um vetor opaco.”
-- **Risco:** chamar fitness de utilidade clínica; é decisão acadêmica.
-
-## Slide 5 — Experimentos A/B/C e custo (65 s)
-
-- **Mensagem principal:** famílias responderam de maneira diferente ao orçamento.
-- **Dados:** 9 experimentos, 4.495 avaliações únicas, 22.475 fits, 51,12 min; RF 97,3% do tempo.
-- **Figura:** a tabela A/B/C da seção 5 do `relatorio_final.md`. Não existe figura de avaliações e duração no repositório: as versionadas vão de `01_` a `06_`, e `07_` é a de escalabilidade.
-- **Fala sugerida:** “KNN saturou cedo; RF precisou da busca exploratória; LR entrou em platô.”
-- **Risco:** sugerir que maior orçamento sempre melhora.
-
-## Slide 6 — GA versus busca aleatória (60 s)
-
-- **Mensagem principal:** GA não venceu universalmente o benchmark.
-- **Dados:** LR e KNN empatam nas métricas agregadas; RF fitness GA `0,961648` versus aleatória `0,958248`.
-- **Figura:** `06_fitness_ga_vs_busca_aleatoria.png`.
-- **Fala sugerida:** “O valor acadêmico está também em relatar empates e custo, não esconder resultado negativo.”
-- **Risco:** tratar soluções idênticas como evidências independentes.
-
-## Slide 7 — Avaliação final e resultados (75 s)
-
-- **Mensagem principal:** LR e RF reduziram falsos negativos; KNN não melhorou recall.
-- **Dados:** LR `3→1`, RF `4→3`, KNN `4→4`.
-- **Figura:** `02_falsos_negativos_baseline_vs_ga.png`.
-- **Fala sugerida:** “Este é o resultado confirmatório, não uma nova seleção.”
-- **Risco:** chamar LR GA de novo vencedor; o modelo congelado continua LR da busca aleatória.
-
-## Slide 8 — Métricas e trade-offs (50 s)
-
-- **Mensagem principal:** melhoria depende da métrica.
-- **Dados:** AUC GA caiu em RF e KNN; RF GA/aleatória têm mesma matriz e AUC distinta.
-- **Figura:** `03_roc_auc_por_metodo.png`.
-- **Fala sugerida:** “O threshold resume decisões binárias; AUC resume ordenação probabilística.”
-- **Risco:** dizer que AUC diferente contradiz a matriz igual.
-
-## Slide 9 — Incerteza (75 s)
-
-- **Mensagem principal:** a evidência não sustenta superioridade estatística ou clínica.
-- **Dados:** 42 malignos; ICs amplos; bootstrap inclui zero; McNemar 1–3 discordantes.
-- **Figura:** `05_intervalos_recall.png`.
-- **Fala sugerida:** “p alto não prova igualdade; um ganho observado não é validação clínica.”
-- **Risco:** usar “significativo” como sinônimo de importante.
-
-## Slide 10 — Camada LLM agregada e individual (90 s)
-
-- **Mensagem principal:** a LLM explica resultados agregados e uma classificação individual desidentificada sob contratos separados.
-- **Dados:** mock V1 com 139 checks; mock V2 com 327; contrato individual com 40/40 fatos no fake e na OpenAI real.
-- **Figura:** fluxo LLM de `camada_llm_segura.md`.
-- **Fala sugerida:** “O provider gera; código independente decide se a saída pode ser aprovada. No caso individual, a LLM recebe classe, probabilidade e cinco sinais, mas não recebe ID, índice, diagnóstico real ou valores brutos.”
-- **Risco:** sugerir que outro LLM valida a resposta; as barreiras oficiais são determinísticas.
-- **Onde cada número aparece:** o painel mostra os **139** checks do contrato agregado V1 e os **40/40** do individual. Os **327** do contrato V2 não estão no painel — vivem em `docs/contrato_llm_v2.md` e em `artifacts/llm_contract_v2/`. Cite o 327 pela documentação, não procurando em tela.
-
-## Slide 11 — Escalabilidade automática e monitoramento (75 s)
-
-- **Mensagem principal:** o requisito de escalabilidade foi implementado, medido e comparado — não apenas descrito.
-- **Dados:** mesmo perfil de vale, rajada e drenagem, 146 pedidos em 4 CPUs. Pool fixo mínimo: p95 `131,6 ms`, `177,7 req/s`. Pool autoescalável: p95 `74,6 ms`, `301,9 req/s`. Redução de p95 de `1,76x`, ganho de vazão de `1,70x`.
-- **Figura:** `07_escalabilidade_automatica.png` — a linha de workers acompanhando a demanda em cima, o limiar de custo por pedido embaixo.
-- **Fala sugerida:** “A primeira medição mostrou o autoscaling *mais lento* que o pool fixo. A causa não era a política: o BLAS já paralelizava internamente e um worker sozinho saturava as CPUs. Fixar uma thread de BLAS por worker inverteu a relação. E mesmo depois disso, escalar réplicas só compensa acima de cerca de 2 ms por pedido — abaixo disso o despacho custa mais que o trabalho. Mantivemos a varredura inteira na evidência em vez de escolher o tamanho de lote que favorecia a conclusão.”
-- **Risco:** apresentar os números como característica do modelo. São dependentes do hardware, e o relatório declara isso. Também não dizer que há autoscaling em nuvem rodando: o IaC existe e é validado no CI, mas nada foi provisionado.
-- **Se sobrar tempo:** mostrar que o monitoramento recusa dado individual na escrita — a barreira reprovou o próprio código do benchmark, que usava `label` para nomear cenário, e o campo foi renomeado em vez de a regra ser afrouxada.
-
-## Slide 12 — Segurança, divergências e limitações (75 s)
-
-- **Mensagem principal:** transparência sobre GA B/C, holdout histórico e ausência de validação clínica.
-- **Dados:** uma observação = 2,38 p.p. de recall; fonte única; sem validação externa.
-- **Figura:** quadro de limitações, sem novo gráfico.
-- **Fala sugerida:** “Não limpamos divergências históricas; registramos fonte e impacto.”
-- **Risco:** esconder que o baseline já conhecia o holdout.
-
-## Slide 13 — Demonstração e conclusão (70 s)
-
-- **Mensagem principal:** pronto para defesa acadêmica e reprodução offline, não para uso clínico.
-- **Em tela**, rolando a saída já produzida (ver *Antes de gravar*), nesta ordem:
+1. Terminal na raiz do projeto, fonte grande (14–16 pt), janela ocupando a tela toda.
+2. Rode uma vez, **sem gravar**, para aquecer cache e confirmar que tudo passa:
 
 ```bash
-uv run pytest                  # 230 testes a partir de um clone limpo
-uv run validate-deliverable    # hashes de documentos, artefatos e figuras
-uv run evaluate-llm-output     # factualidade, segurança e cinco dimensões
-uv run validate-scalability    # escopo e ausência de dado individual no log
+uv sync
+uv run pytest -q
+uv run validate-deliverable
 ```
 
-- **Em tela, o painel:** abra `reports/dashboard/index.html` e vá direto à aba *LLM agregada*, seção *Verificação independente*. Mostrar a resposta da LLM ao lado das 139 checagens que recalculam cada número é a forma mais rápida de tornar visível a tese do projeto.
-- **Alternativa:** `notebooks/demonstracao.ipynb` percorre o mesmo caminho em um artefato só, útil se preferir não alternar entre terminal e arquivos.
-- **Figura:** badge verde do CI mais o checklist da matriz de rastreabilidade.
-- **Fala sugerida:** “A contribuição é otimização reproduzível mais explicação segura, com limites explícitos. O CI roda essa mesma suíte em Python 3.11 e 3.13 a cada push, então a reprodutibilidade não depende da minha máquina.”
-- **Risco:** dizer que há serviço em nuvem no ar. O container e o IaC existem, são construídos e validados no CI, mas nenhum recurso foi provisionado. Também não executar `run-llm-evaluation` ao vivo: ele recusa reaproveitar a execução congelada por projeto, e a recusa parece falha para quem não conhece o motivo.
+3. Abra o editor com a pasta do projeto e deixe estes arquivos em abas, nesta ordem:
+   - `src/tech_challenge_fase2/genetic/genomes.py`
+   - `src/tech_challenge_fase2/genetic/fitness.py`
+   - `src/tech_challenge_fase2/genetic/operators.py`
+   - `src/tech_challenge_fase2/llm/prompts/system_v1.txt`
+   - `src/tech_challenge_fase2/llm/privacy.py`
+   - `src/tech_challenge_fase2/serving/autoscaling.py`
+4. Abra `reports/dashboard/index.html` no navegador, em outra aba.
+5. Abra a aba Actions do repositório no GitHub, mostrando o CI verde.
+6. Limpe o terminal (`clear`) e comece.
+
+> **Atenção:** o Bloco 7 roda o benchmark, que **sobrescreve** `artifacts/scalability/scalability_report.json` com números do seu hardware. Depois de gravar, rode `git checkout -- artifacts/scalability/ && uv run build-dashboard` para devolver o repositório ao estado publicado.
+
+---
+
+## Bloco 1 — Abertura (1 min 00 s)
+
+**Mostre:** o editor com a árvore do projeto aberta à esquerda.
+
+> Olá. Este é o Tech Challenge da Fase 2, Projeto 1: otimização de modelos de diagnóstico com algoritmos genéticos e interpretação de resultados com LLM.
+>
+> O ponto de partida é o classificador de tumores da Fase 1, treinado sobre o Breast Cancer Wisconsin: 569 registros, 30 preditores, 212 casos malignos. Três famílias de modelo — Regressão Logística, Random Forest e KNN.
+>
+> O trabalho tem duas metades. Na primeira, um algoritmo genético autoral busca hiperparâmetros para essas três famílias. Na segunda, uma camada de LLM transforma os resultados em explicação em linguagem natural, sob barreiras que impedem tanto invenção de número quanto vazamento de dado de paciente.
+>
+> Antes de tudo, um aviso que vale para o vídeo inteiro: este é um resultado acadêmico e experimental. Os modelos não foram validados para uso clínico e não devem ser usados para diagnóstico, tratamento ou decisão médica.
+
+**Ação na tela:** passe o mouse pela árvore mostrando `src/`, `docs/`, `artifacts/`, `tests/`.
+
+> A lógica fica em `src`, para ser testável. As evidências ficam em `artifacts`, versionadas: quem clonar este repositório reproduz tudo sem depender da minha máquina.
+
+---
+
+## Bloco 2 — O sistema em execução (1 min 30 s)
+
+**Comando 1** — a suíte completa:
+
+```bash
+uv run pytest -q
+```
+
+*(demora cerca de 30 segundos; fale durante)*
+
+> Estou rodando a suíte inteira a partir do repositório como ele está publicado. São 230 testes: operadores do algoritmo genético, reprodutibilidade com semente fixa, contratos da LLM, barreiras de privacidade, a camada de escalabilidade e a integridade dos artefatos.
+
+*(quando aparecer `230 passed`)*
+
+> Duzentos e trinta testes passando. Esses mesmos testes rodam no GitHub Actions a cada push, em Python 3.11 e 3.13.
+
+**Ação:** troque para a aba do GitHub Actions e mostre os jobs verdes por dois segundos.
+
+> Aqui está o CI: suíte nas duas versões de Python, benchmark de escalabilidade, construção do painel, e a imagem do container mais a validação do Terraform.
+
+**Comando 2** — a validação da entrega:
+
+```bash
+uv run validate-deliverable | head -12
+```
+
+> Este comando é somente leitura. Ele confere hash por hash os documentos, os artefatos e as figuras contra um manifesto assinado. São 57 verificações. Se qualquer número do relatório divergisse do artefato que o originou, isto falharia.
+
+---
+
+## Bloco 3 — Componentes: o algoritmo genético (2 min 00 s)
+
+**Ação:** abra `src/tech_challenge_fase2/genetic/genomes.py`, linhas 13 a 45.
+
+> O primeiro requisito é a codificação dos genes. Cada indivíduo é uma configuração legível, não um vetor opaco.
+>
+> A Regressão Logística tem `log10_c` — o parâmetro C representado em log de base 10, para cobrir várias ordens de grandeza —, o tipo de regularização e o peso de classe. O Random Forest tem número de árvores, profundidade, mínimos de amostras, `max_features` e peso de classe. O KNN tem vizinhos, pesos, métrica e o parâmetro `p`, que só existe quando a métrica é Minkowski.
+
+**Ação:** abra `src/tech_challenge_fase2/genetic/fitness.py`, função `calculate_fitness`, linha 59.
+
+> A função de fitness é esta. Sessenta por cento de recall da classe maligna, vinte e cinco por cento de F1, quinze por cento de ROC-AUC, menos dez por cento do desvio-padrão do recall entre as dobras.
+>
+> Recall pesa mais porque, neste problema, o erro caro é o falso negativo: deixar de sinalizar um caso maligno. O termo de desvio-padrão penaliza soluções instáveis entre dobras — uma configuração que vai muito bem em uma dobra e mal em outra não interessa.
+>
+> E um detalhe metodológico central: isto é calculado em cinco dobras **somente** sobre os dados de desenvolvimento. O conjunto de teste não participa da busca.
+
+**Ação:** abra `src/tech_challenge_fase2/genetic/operators.py` e role pelas funções `tournament_select` (58), `uniform_crossover` (71), `mutate_genome` (231) e `select_elites` (289).
+
+> Os operadores foram implementados diretamente, sem biblioteca de evolução. Seleção por torneio, crossover uniforme, mutação por tipo de gene — inteiro, real ou categórico, cada um com sua regra —, reparação de indivíduos inválidos e elitismo.
+>
+> Há também cache de avaliações, histórico por geração e checkpoints. Um ajuste que falha recebe fitness menos um e fica registrado, em vez de ser escondido.
+
+---
+
+## Bloco 4 — Resultados da otimização genética (2 min 15 s)
+
+**Ação:** vá para o navegador, no painel, aba **Visão geral**.
+
+> Este é o painel de resultados, gerado a partir dos artefatos assinados.
+>
+> Foram nove experimentos: três configurações do algoritmo genético — que variam tamanho de população, número de gerações e taxas de crossover e mutação — aplicadas às três famílias. A bateria fez 4.495 avaliações únicas e 22.475 ajustes de modelo, em 51 minutos.
+
+**Ação:** aponte para a tabela mestre.
+
+> Aqui estão as nove origens avaliadas no mesmo conjunto de teste. A linha destacada é o vencedor global, congelado **antes** de o teste ser aberto.
+>
+> Na Regressão Logística, o recall subiu de 0,9286 para 0,9762, e os falsos negativos caíram de três para um. No Random Forest, de quatro para três. No KNN, o recall não mudou: permaneceu em 0,9048, com quatro falsos negativos.
+
+**Ação:** aba **Algoritmo genético**, role até as figuras.
+
+> Vale dizer isso com clareza, porque é um resultado negativo que eu escolhi mostrar: o algoritmo genético **não** venceu universalmente. No KNN, o ganho que apareceu na validação cruzada não se confirmou no teste. E o ROC-AUC caiu no Random Forest e no KNN, mesmo com o recall melhorando.
+>
+> Comparado a uma busca aleatória com o mesmo orçamento, o genético empatou em duas famílias e ganhou em uma. O valor acadêmico está em relatar isso, não em esconder.
+
+**Ação:** role até a figura dos intervalos de recall.
+
+> E a incerteza. São apenas 42 casos malignos no teste, então uma observação muda o recall em 2,4 pontos percentuais. Os intervalos de confiança são amplos, o intervalo do delta inclui zero e o teste de McNemar tem entre um e três pares discordantes.
+>
+> Ou seja: houve ganho observado, mas não há evidência suficiente para afirmar superioridade estatística. Muito menos clínica.
+
+---
+
+## Bloco 5 — Integração com LLM (2 min 45 s)
+
+**Ação:** abra `src/tech_challenge_fase2/llm/prompts/system_v1.txt`.
+
+> Agora a segunda metade. O prompt é versionado e faz parte do contrato — ele tem hash, e mudá-lo muda a identidade da execução.
+>
+> Ele declara o propósito, o contrato de entrada, o contrato de saída e as regras de segurança: não diagnosticar, não recomendar tratamento, não indicar modelo para uso em pacientes e não afirmar aprovação médica.
+
+**Ação:** abra `src/tech_challenge_fase2/llm/privacy.py`, linha 16, `FORBIDDEN_KEY_PARTS`.
+
+> E esta é a barreira de entrada. A LLM recebe **apenas** resultados agregados. Identificador, índice, diagnóstico real, valores brutos de atributo — nada disso atravessa.
+
+**Comando 3** — a avaliação da saída da LLM:
+
+```bash
+uv run evaluate-llm-output
+```
+
+> Aprovado, nota 1,0. Mas o número sozinho não diz nada. Vou mostrar o que está por trás.
+
+**Ação:** navegador, aba **LLM agregada** do painel. Role até *Verificação independente* e abra a lista de checagens.
+
+> Aqui está a explicação que a LLM gerou: resumo executivo, interpretação do algoritmo genético, leitura da incerteza, comparação por família e as limitações que ela própria declara.
+>
+> E aqui está o que eu considero o ponto central do projeto. Cada afirmação numérica dessa explicação é conferida por código independente, que recalcula o valor a partir do artefato congelado e compara. São 139 verificações, uma para cada fato: métrica, contagem, intervalo, conclusão.
+>
+> Repare na coluna da direita: `esperado=0.9285714285714286`. Esse valor não veio da LLM — veio do artefato. Se a LLM tivesse escrito outro número, a linha ficaria vermelha e a saída seria reprovada.
+>
+> Quem julga a resposta é código determinístico, não outro modelo. Não existe LLM avaliando LLM aqui.
+
+**Ação:** role até o cartão de segurança.
+
+> Além da factualidade, um verificador de segurança procura linguagem de diagnóstico, de tratamento, de recomendação clínica e de certeza indevida. Zero violações, e o disclaimer obrigatório presente.
+>
+> A execução oficial usa um provider mock determinístico, para que a demonstração seja reproduzível offline. Mas houve também uma execução real com a OpenAI, preservada no repositório: ela passou 327 de 327 verificações factuais e não foi aprovada por três checagens lexicais de calibração. Eu mantive essa reprovação registrada em vez de ajustar o verificador depois da resposta.
+
+---
+
+## Bloco 6 — Explicação individual e as barreiras (2 min 00 s)
+
+**Comando 4** — a explicação de uma classificação individual:
+
+```bash
+uv run run-individual-explanation
+uv run evaluate-individual-explanation
+```
+
+> O enunciado pede explicações dos diagnósticos produzidos pelos modelos, não apenas dos agregados. Então existe um contrato separado para o caso individual.
+
+**Ação:** navegador, aba **LLM individual** do painel.
+
+> Este é um caso do conjunto de desenvolvimento, classificado pelo modelo congelado. A probabilidade estimada foi 0,74553, acima do limiar de 0,5, então a classe saiu como padrão maligno.
+>
+> A explicação lista os cinco sinais que mais influenciaram, com a faixa em que cada um caiu, a direção da influência e a importância relativa. O primeiro responde por quase 56 por cento.
+>
+> Agora o ponto delicado. A LLM recebe o nome do sinal, a faixa e a importância — sem isso não haveria explicação nenhuma. Mas ela **não** recebe o identificador, o índice, o diagnóstico real, nem os trinta valores medidos. O caso chega como uma referência opaca: `demo_case_001`.
+
+**Ação:** role até os insights.
+
+> E cada ação sugerida é estruturalmente limitada a revisão humana. O campo `patient_care_decision` é falso por contrato: a saída não pode representar decisão de cuidado.
+
+**Comando 5** — as barreiras recusando ao vivo:
+
+```bash
+uv run demo-barreiras
+```
+
+> Em vez de só afirmar que as barreiras existem, vou mostrá-las funcionando.
+>
+> Primeiro, o contrato agregado oficial passa. Depois, eu pego exatamente o mesmo contrato e acrescento um `patient_id` — a barreira recusa e nomeia o campo. E terceiro, tento gravar um evento de monitoramento com probabilidade por registro; recusado também.
+>
+> Essa terceira barreira já reprovou o meu próprio código durante o desenvolvimento: o benchmark usava a palavra `label` para nomear um cenário, e colidia com rótulo de classe. Eu renomeei o campo em vez de afrouxar a regra.
+
+---
+
+## Bloco 7 — Escalabilidade automática (1 min 30 s)
+
+**Ação:** abra `src/tech_challenge_fase2/serving/autoscaling.py`, método `decide`, linha 67.
+
+> O enunciado pede recursos de escalabilidade automática para lidar com variações de demanda. Esta é a política: uma função pura do backlog observado. Ela decide quantos workers manter, com histerese entre duas e seis requisições por worker, para não trocar de tamanho a cada oscilação.
+
+**Comando 6** — o benchmark ao vivo:
+
+```bash
+uv run run-load-benchmark
+```
+
+*(demora cerca de 3 segundos)*
+
+> Isto está medindo agora, nesta máquina. O mesmo perfil de demanda — vale, rajada e drenagem — servido de duas formas: com um pool fixo mínimo e com o pool autoescalável.
+
+*(leia os números que aparecerem na sua tela, não os do roteiro)*
+
+> Com o pool fixo, a latência p95 fica no valor de cima; com autoscaling, cai para o de baixo, e a vazão sobe. Os números variam conforme o hardware — o relatório declara isso explicitamente e não os apresenta como característica do modelo.
+
+**Ação:** navegador, aba **Escalabilidade**, mostre a figura.
+
+> Em cima, a linha laranja é o número de workers acompanhando a demanda: ocioso em um, sobe até quatro na rajada, drena de volta.
+>
+> Embaixo há um achado que eu mantive porque mudou o desenho. Escalar réplicas só compensa acima de cerca de dois milissegundos por pedido. Abaixo disso, o custo de despachar é maior que o trabalho, e adicionar workers **piora** o desempenho — as duas barras cinzas.
+>
+> E antes disso houve um achado ainda mais desconfortável: a primeira medição mostrou o autoscaling mais lento que o pool fixo. A causa não era a política. Era que a biblioteca de álgebra linear já paralelizava internamente, e um worker sozinho saturava as CPUs. Fixar uma thread por worker inverteu a relação. Preferi mostrar a varredura inteira a escolher o tamanho de lote que favorecia a conclusão.
+
+---
+
+## Bloco 8 — Fechamento (30 s)
+
+**Ação:** volte ao painel, aba **Visão geral**, seção *Garantias de escopo*.
+
+> Para encerrar. Estas são as garantias de escopo do manifesto assinado: nenhum treino novo, nenhuma otimização nova, seleção não reaberta, limiar não alterado, nenhum identificador de paciente enviado à LLM e nenhum recurso de nuvem provisionado.
+>
+> O container e a infraestrutura como código existem e são construídos e validados no CI a cada push, mas nada foi provisionado. Não há serviço no ar.
+>
+> Resumindo: o algoritmo genético reduziu falsos negativos em duas das três famílias, sem superioridade universal e sem significância estatística demonstrada. A camada de LLM explica os resultados sob verificação determinística de cada número e sob barreiras de privacidade que recusam dado individual.
+>
+> E encerro repetindo o que abri: isto é acadêmico e experimental. Não é validado para uso clínico e não deve orientar diagnóstico, tratamento ou decisão médica. Obrigado.
+
+---
+
+## Depois de gravar
+
+1. Devolva o repositório ao estado publicado, já que o Bloco 7 sobrescreveu a medição:
+
+```bash
+git checkout -- artifacts/scalability/
+uv run build-dashboard
+git status --short          # precisa sair vazio
+```
+
+2. Confira o vídeo: duração abaixo de 15 minutos, áudio audível, texto do terminal legível.
+3. Suba no YouTube ou Vimeo como **público ou não listado** — não deixe privado, a banca precisa abrir.
+4. Inclua o link na entrega e no `README.md`.
+
+## Se algo falhar durante a gravação
+
+| Sintoma | O que fazer |
+|---|---|
+| Um comando falha | Pare, rode `uv sync`, confirme `uv run pytest -q` e regrave o bloco |
+| `validate-deliverable` reprova | Não regrave por cima: algum artefato divergiu do manifesto. Investigue antes |
+| O painel abre desatualizado | `uv run build-dashboard` e recarregue a página |
+| O tempo estourou | Corte o Bloco 3 pela metade: mostre só `fitness.py`, sem `operators.py` |
+
+**Não execute `uv run run-llm-evaluation` durante a gravação.** Ele recusa reaproveitar a execução congelada, por projeto, e a recusa parece falha para quem não conhece o motivo. A explicação está em `docs/limitacoes_e_validade.md`.

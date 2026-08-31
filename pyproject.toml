@@ -30,6 +30,7 @@ validate-llm-contract-v2 = "tech_challenge_fase2.run_llm_contract_v2:validate_ma
 run-load-benchmark = "tech_challenge_fase2.run_serving:benchmark_main"
 validate-scalability = "tech_challenge_fase2.run_serving:validate_main"
 build-dashboard = "tech_challenge_fase2.run_dashboard:build_main"
+demo-barreiras = "tech_challenge_fase2.run_demo:barriers_main"
 
 # Reproducao metodologica deliberada: caros, sobrescrevem estado congelado ou
 # exigem credencial. Nao executar durante a demonstracao.
