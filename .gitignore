@@ -31,6 +31,7 @@ reports/**
 !reports/figures/
 !reports/figures/**/
 !reports/figures/**/*.png
+!reports/figures/**/*.json
 
 logs/*
 !logs/.gitkeep
