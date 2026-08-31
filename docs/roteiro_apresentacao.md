@@ -34,10 +34,12 @@ O que o enunciado exige, e onde cada item é atendido:
 2. Rode uma vez, **sem gravar**, para aquecer cache e confirmar que tudo passa:
 
 ```bash
-uv sync
+uv sync --reinstall
 uv run pytest -q
 uv run validate-deliverable
 ```
+
+O `--reinstall` reinstala o pacote do projeto no ambiente. É barato e elimina a única falha de ambiente já observada em gravação.
 
 3. Abra o editor com a pasta do projeto e deixe estes arquivos em abas, nesta ordem:
    - `src/tech_challenge_fase2/genetic/genomes.py`
@@ -291,7 +293,8 @@ git status --short          # precisa sair vazio
 
 | Sintoma | O que fazer |
 |---|---|
-| Um comando falha | Pare, rode `uv sync`, confirme `uv run pytest -q` e regrave o bloco |
+| `ModuleNotFoundError: No module named 'tech_challenge_fase2'` | O ambiente perdeu o install do pacote. Rode `uv sync --reinstall` e siga |
+| Um comando falha | Pare, rode `uv sync --reinstall`, confirme `uv run pytest -q` e regrave o bloco |
 | `validate-deliverable` reprova | Não regrave por cima: algum artefato divergiu do manifesto. Investigue antes |
 | O painel abre desatualizado | `uv run build-dashboard` e recarregue a página |
 | O tempo estourou | Corte o Bloco 3 pela metade: mostre só `fitness.py`, sem `operators.py` |
