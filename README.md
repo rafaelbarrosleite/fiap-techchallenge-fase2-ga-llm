@@ -6,7 +6,9 @@ Projeto acadêmico da Pós Tech FIAP que otimiza Regressão Logística, Random F
 
 O projeto está consolidado para reprodução e demonstração offline. Não oferece diagnóstico, tratamento ou recomendação médica.
 
-Estado da entrega: código, evidências, documentação e publicação técnica concluídos; permanece pendente apenas a gravação e inclusão do link do vídeo obrigatório de até 15 minutos.
+🎥 **Vídeo de demonstração:** https://youtu.be/9obBNc1XHmg
+
+Estado da entrega: código, evidências, documentação, publicação técnica e vídeo de demonstração concluídos.
 
 ## Objetivo e resultado
 

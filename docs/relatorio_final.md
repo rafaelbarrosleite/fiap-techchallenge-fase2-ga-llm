@@ -201,4 +201,4 @@ A camada LLM acrescentou explicação estruturada, privacidade, factualidade, se
 
 Com documentação consolidada, tabela mestre, mapa de evidências, figuras revisadas, manifesto e validador somente leitura, a pergunta central recebe resposta positiva: a entrega está suficientemente consolidada e demonstrável para avaliação acadêmica, desde que as limitações e divergências históricas permaneçam visíveis.
 
-O código, os relatórios e a publicação técnica estão concluídos. O único entregável externo ainda pendente é a gravação/publicação do vídeo de até 15 minutos e a inclusão de seu link na submissão.
+O código, os relatórios, a publicação técnica e o vídeo de demonstração estão concluídos. O vídeo está publicado em https://youtu.be/9obBNc1XHmg e cobre as quatro exigências do enunciado: sistema em execução, componentes da solução, resultados da otimização genética e integração com LLM.

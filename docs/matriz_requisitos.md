@@ -41,11 +41,11 @@ Status usado: **concluído**, **parcial**, **não iniciado**, **condicional** ou
 | E4 | Relatório: LLM, prompts e avaliação | Abordagem, templates, exemplos e avaliação | Relatório final + prompts | `docs/`, `prompts/` | Conferência com execuções | Concluído em `docs/camada_llm_segura.md` |
 | E5 | Relatório: comparativo original versus otimizado | Mesma metodologia e tabela com FN | Relatório final | Avaliação | Recalcular a partir dos artefatos | Concluído para LR, RF e KNN com incerteza e previsões pareadas |
 | E6 | Relatório: desafios e soluções | Limitações, falhas, decisões e correções | Seção crítica | Relatório final | Revisão por evidência | Concluído para otimização, avaliação final e LLM |
-| E7 | Vídeo no YouTube/Vimeo, público ou não listado, até 15 min | Roteiro e demonstração dentro do limite | Link e roteiro | Entrega final | Duração e acesso ao link | Não iniciado |
-| E7.1 | Demonstrar sistema em execução | Mostrar entrada segura, GA, avaliação e LLM | Captura contínua | Vídeo | Checklist de cenas | Não iniciado |
-| E7.2 | Explicar componentes | Arquitetura e responsabilidades | Diagrama no vídeo | Vídeo | Conferir contra arquitetura | Não iniciado |
-| E7.3 | Apresentar resultados do GA | Resultados reais dos três experimentos | Tabelas/curvas | Vídeo | Valores iguais ao relatório | Não iniciado |
-| E7.4 | Demonstrar integração com LLM | Explicação com entrada sintética/agregada | Demo segura | Vídeo | Sem dados pessoais e com disclaimer | Não iniciado |
+| E7 | Vídeo no YouTube/Vimeo, público ou não listado, até 15 min | Roteiro e demonstração dentro do limite | Link e roteiro | Entrega final | Duração e acesso ao link | Concluído: https://youtu.be/9obBNc1XHmg |
+| E7.1 | Demonstrar sistema em execução | Mostrar entrada segura, GA, avaliação e LLM | Captura contínua | Vídeo | Checklist de cenas | Concluído: suíte, validadores, explicação individual, barreiras e benchmark executados em tela |
+| E7.2 | Explicar componentes | Arquitetura e responsabilidades | Código em tela | Vídeo | Conferir contra arquitetura | Concluído: genomas, fitness, operadores, prompt, barreira de privacidade e política de escalabilidade |
+| E7.3 | Apresentar resultados do GA | Resultados reais dos três experimentos | Tabelas/curvas | Vídeo | Valores iguais ao relatório | Concluído: tabela mestre e figuras do painel, com os resultados negativos declarados |
+| E7.4 | Demonstrar integração com LLM | Explicação agregada e individual desidentificada | Demo segura | Vídeo | Sem dados pessoais e com disclaimer | Concluído: 139 verificações factuais em tela e barreiras recusando dado individual ao vivo |
 
 ## Opcionais ou condicionais
 

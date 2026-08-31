@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "artifact_type": "final_delivery_manifest",
-  "generated_at_utc": "2026-08-31T15:26:01.016489+00:00",
+  "generated_at_utc": "2026-08-31T16:30:56.587783+00:00",
   "status": "completed",
   "project_version": "0.7.0",
   "tests": {
@@ -72,13 +72,13 @@
     "documents": [
       {
         "relative_path": "README.md",
-        "sha256": "fce2bdcfa93ec95a1f0e0c0424cc24ed827b7a6371f99cdf5fc7dfe70553a6c0",
-        "bytes": 13640
+        "sha256": "1edf14188cf73275761d4a47f151cc16b59da40c1d647186e99318d42a07b25b",
+        "bytes": 13629
       },
       {
         "relative_path": "docs/relatorio_final.md",
-        "sha256": "062759e26c58b1b281bb9a255bb331fd4110184360165d6ba23d12e01ea86694",
-        "bytes": 23334
+        "sha256": "7f5d15845866bda745b89db1f8513fd8e0a7e3b05b62ff31991471869fee9439",
+        "bytes": 23430
       },
       {
         "relative_path": "docs/resumo_executivo.md",
@@ -102,8 +102,8 @@
       },
       {
         "relative_path": "docs/matriz_rastreabilidade_final.md",
-        "sha256": "96832ec245973f7718e4a379a77f70086aee311d6e3f49c7ba7f51c283d8af54",
-        "bytes": 5980
+        "sha256": "15295a645a9079a859d8a5495e0b06a71f47eb5f3bac36f7e94c5ca7b06430ec",
+        "bytes": 6121
       },
       {
         "relative_path": "docs/auditoria_documental_final.md",
@@ -365,5 +365,5 @@
     "status": "passed",
     "check_count": 55
   },
-  "signature": "c5fb25e32e48325d4b0814c4ba7aa13e1f6b828cfc84e0c23c38c2358b7e63a2"
+  "signature": "4dc6974b4d91ca9bbb5859a525969e6e08e19eb7e5a6fcc30691e3a1c2095683"
 }

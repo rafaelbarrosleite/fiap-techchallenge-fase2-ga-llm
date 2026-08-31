@@ -36,7 +36,8 @@
 | Tabela mestre derivada | 6 | `deliverable.py` | comparação com JSON fonte | `model_results.*` | Concluído |
 | Figuras agregadas com QA | 6 | seis gráficos estáticos | hashes + inspeção visual | `figure_qa_report.json` | Concluído |
 | Manifesto final | 6 | hashes e confirmações | `validate-deliverable` | `final_delivery_manifest.json` | Concluído |
-| Demonstração offline | 6 | fluxo idempotente | guia de 5/15 minutos | `demo_guide.md` | Concluído; gravação externa do vídeo pendente |
+| Demonstração offline | 6 | fluxo idempotente | guia de 5/15 minutos | `demo_guide.md` | Concluído |
+| Vídeo de demonstração | — | screencast do sistema em execução | roteiro de gravação | `roteiro_apresentacao.md` | Concluído e publicado: https://youtu.be/9obBNc1XHmg |
 | Escalabilidade e monitoramento | 8 | política de backlog, servidor congelado e eventos agregados | `validate-scalability` | `scalability_report.json` | Concluído; medição dependente de hardware |
 | Container e IaC | 8 | implantação opcional em nuvem | build da imagem e `terraform validate` no CI | `Dockerfile`, `deploy/terraform/` | Entregue como código e verificado; não provisionado |
 | API HTTP pública | — | fora do escopo aprovado | confirmação de ausência | manifesto final | Não implementado por decisão |
