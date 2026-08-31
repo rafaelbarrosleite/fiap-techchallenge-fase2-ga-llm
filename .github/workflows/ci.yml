@@ -85,6 +85,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # O driver padrao do docker nao exporta cache; o driver docker-container
+      # do buildx exporta, e e o que torna o cache entre execucoes possivel.
+      - name: Preparar o buildx
+        uses: docker/setup-buildx-action@v3
+
       # A imagem e o modulo Terraform sao entregaveis: se nao construirem ou
       # nao validarem, sao texto, nao configuracao de implantacao.
       - name: Construir a imagem do servico
