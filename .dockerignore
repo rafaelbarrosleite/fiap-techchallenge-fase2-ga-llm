@@ -1,0 +1,25 @@
+# O contexto de build e enviado inteiro ao daemon antes de qualquer COPY.
+# Sem estas exclusoes, .git e .venv sozinhos dominam o tempo de build.
+.git
+.github
+.venv
+__pycache__
+*.py[cod]
+.pytest_cache
+.ruff_cache
+.coverage
+htmlcov
+
+# Segredos nunca entram na imagem.
+.env
+.env.*
+!.env.example
+
+# Saidas de execucao e material que a imagem nao usa.
+logs
+reports
+notebooks
+docs
+deploy
+tests
+artifacts/scalability

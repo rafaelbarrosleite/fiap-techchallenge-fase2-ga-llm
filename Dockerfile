@@ -15,7 +15,7 @@ ENV PYTHONUNBUFFERED=1 \
 
 WORKDIR /app
 
-COPY --from=ghcr.io/astral-sh/uv:0.5.11 /uv /usr/local/bin/uv
+COPY --from=ghcr.io/astral-sh/uv:0.8.17 /uv /usr/local/bin/uv
 
 # As dependencias mudam menos que o codigo, entao resolvem-se antes para
 # aproveitar o cache de camadas entre builds.

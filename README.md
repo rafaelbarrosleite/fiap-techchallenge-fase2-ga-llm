@@ -155,7 +155,7 @@ uv run validate-scalability
 
 Sob o mesmo perfil de vale, rajada e drenagem em 4 CPUs, o pool autoescalável reduziu a latência p95 de 131,6 ms para 74,6 ms e elevou a vazão de 177,7 para 301,9 req/s. Dois achados negativos foram preservados: o BLAS paraleliza internamente e mascarava o efeito das réplicas até ser fixado em uma thread por worker, e escalar réplicas só compensa acima de cerca de 2 ms de custo por pedido.
 
-`Dockerfile`, `docker-compose.yml` e `deploy/terraform/main.tf` cobrem a implantação opcional em nuvem, com piso e teto de réplicas espelhando a política local. A infraestrutura é acadêmica e não foi provisionada.
+`Dockerfile`, `docker-compose.yml` e o módulo em `deploy/terraform/` cobrem a implantação opcional em nuvem, com piso e teto de réplicas espelhando a política local. A imagem é construída e o Terraform é formatado e validado a cada push no CI, então a configuração é verificada mesmo sem ser aplicada. A infraestrutura é acadêmica e **não foi provisionada**: nenhum recurso pago foi criado. Instruções em [deploy/README.md](deploy/README.md).
 
 Detalhes em [docs/escalabilidade_e_monitoramento.md](docs/escalabilidade_e_monitoramento.md).
 

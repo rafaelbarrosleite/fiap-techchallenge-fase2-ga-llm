@@ -2,6 +2,23 @@
 
 Convenção: Regressão Logística (LR), Random Forest (RF), KNN, baseline, GA, busca aleatória (`RandomizedSearchCV`), desenvolvimento, validação cruzada (CV), holdout (teste final) e modelo para demonstração.
 
+## Orçamento de tempo
+
+Treze cenas somam **13 min 55 s**, deixando cerca de um minuto de margem para o limite de 15 minutos. Se o tempo apertar, corte primeiro o Slide 2 (auditoria) e depois o Slide 8 (trade-offs): são os que menos participam das exigências do vídeo.
+
+## Cobertura das exigências do vídeo
+
+O enunciado pede quatro coisas explicitamente. Nenhuma pode faltar.
+
+| Exigência do enunciado | Onde é atendida |
+|---|---|
+| Demonstração do sistema em execução | Slide 13 — comandos rodando ao vivo |
+| Explicação dos diferentes componentes | Slides 3, 4, 10 e 11 |
+| Resultados da otimização via algoritmos genéticos | Slides 5, 6, 7, 8 e 9 |
+| Demonstração da integração com LLMs | Slide 10, com saída real em tela |
+
+**Antes de gravar:** rode `uv run pytest`, `uv run validate-deliverable` e `uv run validate-scalability` e confirme que passam. A demonstração ao vivo depende dos estados congelados estarem íntegros.
+
 ## Slide 1 — Problema e pergunta acadêmica (45 s)
 
 - **Mensagem principal:** otimizar três modelos sem contaminar o teste e explicar resultados sem criar diagnóstico.
@@ -10,7 +27,7 @@ Convenção: Regressão Logística (LR), Random Forest (RF), KNN, baseline, GA, 
 - **Fala sugerida:** “O desafio não foi apenas melhorar uma métrica; foi construir uma cadeia auditável de seleção, confirmação e explicação.”
 - **Risco:** parecer proposta clínica. Dizer explicitamente “acadêmico e experimental”.
 
-## Slide 2 — Auditoria inicial (55 s)
+## Slide 2 — Auditoria inicial (45 s)
 
 - **Mensagem principal:** a Fase 1 era reproduzível em partes, mas misturava etapas e usava validação repetidamente.
 - **Dados:** 60/20/20 histórico; dependências não congeladas; EDA supervisionada antes do corte.
@@ -34,7 +51,7 @@ Convenção: Regressão Logística (LR), Random Forest (RF), KNN, baseline, GA, 
 - **Fala sugerida:** “O indivíduo é uma configuração legível, não um vetor opaco.”
 - **Risco:** chamar fitness de utilidade clínica; é decisão acadêmica.
 
-## Slide 5 — Experimentos A/B/C e custo (75 s)
+## Slide 5 — Experimentos A/B/C e custo (65 s)
 
 - **Mensagem principal:** famílias responderam de maneira diferente ao orçamento.
 - **Dados:** 9 experimentos, 4.495 avaliações únicas, 22.475 fits, 51,12 min; RF 97,3% do tempo.
@@ -58,7 +75,7 @@ Convenção: Regressão Logística (LR), Random Forest (RF), KNN, baseline, GA, 
 - **Fala sugerida:** “Este é o resultado confirmatório, não uma nova seleção.”
 - **Risco:** chamar LR GA de novo vencedor; o modelo congelado continua LR da busca aleatória.
 
-## Slide 8 — Métricas e trade-offs (60 s)
+## Slide 8 — Métricas e trade-offs (50 s)
 
 - **Mensagem principal:** melhoria depende da métrica.
 - **Dados:** AUC GA caiu em RF e KNN; RF GA/aleatória têm mesma matriz e AUC distinta.
@@ -82,7 +99,16 @@ Convenção: Regressão Logística (LR), Random Forest (RF), KNN, baseline, GA, 
 - **Fala sugerida:** “O provider gera; código independente decide se a saída pode ser aprovada. No caso individual, a LLM recebe classe, probabilidade e cinco sinais, mas não recebe ID, índice, diagnóstico real ou valores brutos.”
 - **Risco:** sugerir que outro LLM valida a resposta; as barreiras oficiais são determinísticas.
 
-## Slide 11 — Segurança, divergências e limitações (75 s)
+## Slide 11 — Escalabilidade automática e monitoramento (75 s)
+
+- **Mensagem principal:** o requisito de escalabilidade foi implementado, medido e comparado — não apenas descrito.
+- **Dados:** mesmo perfil de vale, rajada e drenagem, 146 pedidos em 4 CPUs. Pool fixo mínimo: p95 `131,6 ms`, `177,7 req/s`. Pool autoescalável: p95 `74,6 ms`, `301,9 req/s`. Redução de p95 de `1,76x`, ganho de vazão de `1,70x`.
+- **Figura:** `07_escalabilidade_automatica.png` — a linha de workers acompanhando a demanda em cima, o limiar de custo por pedido embaixo.
+- **Fala sugerida:** “A primeira medição mostrou o autoscaling *mais lento* que o pool fixo. A causa não era a política: o BLAS já paralelizava internamente e um worker sozinho saturava as CPUs. Fixar uma thread de BLAS por worker inverteu a relação. E mesmo depois disso, escalar réplicas só compensa acima de cerca de 2 ms por pedido — abaixo disso o despacho custa mais que o trabalho. Mantivemos a varredura inteira na evidência em vez de escolher o tamanho de lote que favorecia a conclusão.”
+- **Risco:** apresentar os números como característica do modelo. São dependentes do hardware, e o relatório declara isso. Também não dizer que há autoscaling em nuvem rodando: o IaC existe e é validado no CI, mas nada foi provisionado.
+- **Se sobrar tempo:** mostrar que o monitoramento recusa dado individual na escrita — a barreira reprovou o próprio código do benchmark, que usava `label` para nomear cenário, e o campo foi renomeado em vez de a regra ser afrouxada.
+
+## Slide 12 — Segurança, divergências e limitações (75 s)
 
 - **Mensagem principal:** transparência sobre GA B/C, holdout histórico e ausência de validação clínica.
 - **Dados:** uma observação = 2,38 p.p. de recall; fonte única; sem validação externa.
@@ -90,10 +116,19 @@ Convenção: Regressão Logística (LR), Random Forest (RF), KNN, baseline, GA, 
 - **Fala sugerida:** “Não limpamos divergências históricas; registramos fonte e impacto.”
 - **Risco:** esconder que o baseline já conhecia o holdout.
 
-## Slide 12 — Conclusão e demonstração (45 s)
+## Slide 13 — Demonstração ao vivo e conclusão (45 s)
 
 - **Mensagem principal:** pronto para defesa acadêmica e reprodução offline, não para uso clínico.
-- **Dados:** testes finais, manifestos e exemplo individual versionado.
-- **Figura:** checklist da matriz de rastreabilidade.
-- **Fala sugerida:** “A contribuição é otimização reproduzível mais explicação segura, com limites explícitos.”
-- **Risco:** prometer API, cloud ou deploy; não fazem parte desta missão.
+- **Demonstração em tela**, nesta ordem:
+
+```bash
+uv run pytest                  # 212 testes a partir de um clone limpo
+uv run validate-deliverable    # hashes de documentos, artefatos e figuras
+uv run evaluate-llm-output     # factualidade, segurança e cinco dimensões
+uv run validate-scalability    # escopo e ausência de dado individual no log
+```
+
+- **Alternativa:** `notebooks/demonstracao.ipynb` percorre o mesmo caminho em um artefato só, útil se preferir não alternar entre terminal e arquivos.
+- **Figura:** badge verde do CI mais o checklist da matriz de rastreabilidade.
+- **Fala sugerida:** “A contribuição é otimização reproduzível mais explicação segura, com limites explícitos. O CI roda essa mesma suíte em Python 3.11 e 3.13 a cada push, então a reprodutibilidade não depende da minha máquina.”
+- **Risco:** dizer que há serviço em nuvem no ar. O container e o IaC existem, são construídos e validados no CI, mas nenhum recurso foi provisionado. Também não executar `run-llm-evaluation` ao vivo: ele recusa reaproveitar a execução congelada por projeto, e a recusa parece falha para quem não conhece o motivo.

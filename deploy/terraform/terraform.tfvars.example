@@ -1,0 +1,10 @@
+# Copie para terraform.tfvars e preencha com valores da sua conta.
+# Nao versione terraform.tfvars: ele carrega identificadores da infraestrutura.
+
+imagem             = "123456789012.dkr.ecr.us-east-1.amazonaws.com/fiap-fase2-inferencia:0.8.0"
+execution_role_arn = "arn:aws:iam::123456789012:role/ecsTaskExecutionRole"
+subnet_ids         = ["subnet-aaaaaaaaaaaaaaaaa", "subnet-bbbbbbbbbbbbbbbbb"]
+security_group_ids = ["sg-ccccccccccccccccc"]
+
+replicas_minimas = 1
+replicas_maximas = 4

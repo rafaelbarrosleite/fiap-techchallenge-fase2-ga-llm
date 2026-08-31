@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "artifact_type": "final_delivery_manifest",
-  "generated_at_utc": "2026-08-31T04:32:38.202054+00:00",
+  "generated_at_utc": "2026-08-31T04:48:49.520097+00:00",
   "status": "completed",
   "project_version": "0.7.0",
   "tests": {
@@ -69,13 +69,13 @@
     "documents": [
       {
         "relative_path": "README.md",
-        "sha256": "61fe40f9a058c39c2ce8f880558e6ed43f1134c4d06c8c5d68c22b1daad8cc15",
-        "bytes": 12547
+        "sha256": "ab0b9aa7faed4a0d88474cd74443719795dcabc936361667ff936b19cdcb7577",
+        "bytes": 12786
       },
       {
         "relative_path": "docs/relatorio_final.md",
-        "sha256": "6a8acb3b6b33acaeeda3888495b768b8c5a44a1c5ad3969157a0e234a53cf3ba",
-        "bytes": 22613
+        "sha256": "df941645cf464ea62d9504ab9342404627ec01be23a6b69e1a94305f7b871fed",
+        "bytes": 23149
       },
       {
         "relative_path": "docs/resumo_executivo.md",
@@ -84,8 +84,8 @@
       },
       {
         "relative_path": "docs/roteiro_apresentacao.md",
-        "sha256": "953d566eca4d68a972a0dc5e1cb5db4bb1eb176c0f1f83bff9a95a8eb3aefd3d",
-        "bytes": 6199
+        "sha256": "7f776aab6802959830ae44137b3c250b1680b6af851304463b1a8161044ac0df",
+        "bytes": 9561
       },
       {
         "relative_path": "docs/demo_guide.md",
@@ -139,8 +139,8 @@
       },
       {
         "relative_path": "docs/escalabilidade_e_monitoramento.md",
-        "sha256": "407bb26d291e6c952f69d4d4692a725e6be93f38ef215c48becb67a5fdbdfd30",
-        "bytes": 8777
+        "sha256": "25a477fd3c03d85f4e7941139da06a917c20c2ab352d9fd31f9bf399a1d6076f",
+        "bytes": 10809
       },
       {
         "relative_path": "docs/examples/individual_explanation_v1.json",
@@ -362,5 +362,5 @@
     "status": "passed",
     "check_count": 55
   },
-  "signature": "e9c0147c25376d10c50d5abffe8f48315caa1fa013696a7736c418954c1c8d0d"
+  "signature": "41932d88fc685758a79e1fe19608a7994907f50b27bb6be167cb03f703b7577e"
 }

@@ -51,15 +51,15 @@ Status usado: **concluído**, **parcial**, **não iniciado**, **condicional** ou
 
 | ID | Requisito oficial | Classificação | Evidência/decisão | Status |
 |---|---|---|---|---|
-| P1 | Documentação da API, se aplicável | Opcional condicional | Só será necessária se uma API for criada; não é necessária ao baseline/CLI | Condicional |
-| P2 | Arquivos de configuração para implantação, se houver nuvem | Opcional condicional | `Dockerfile` e `docker-compose.yml` versionados | Concluído |
-| P3 | Infraestrutura como código, se houver nuvem | Opcional condicional | `deploy/terraform/main.tf` com ECS Fargate e target tracking | Concluído como código; não aplicado |
+| P1 | Documentação da API, se aplicável | Opcional condicional | Não há API HTTP: o serviço processa lotes, não requisições de terceiros. A interface de serviço está documentada em `escalabilidade_e_monitoramento.md` | Não aplicável |
+| P2 | Arquivos de configuração para implantação, se houver nuvem | Opcional condicional | `Dockerfile` e `docker-compose.yml` versionados; imagem construída no CI | Concluído e verificado |
+| P3 | Infraestrutura como código, se houver nuvem | Opcional condicional | Módulo em `deploy/terraform/` com ECS Fargate e target tracking; `fmt` e `validate` no CI | Concluído como código e validado; não aplicado |
 
 ## Possível pontuação extra
 
 | ID | Requisito oficial | Interpretação | Recomendação | Status |
 |---|---|---|---|---|
-| X1 | Implementação em nuvem é opcional e pode valer pontuação extra | Deploy, observabilidade e possivelmente autoscaling reais | Container, orquestração local e IaC entregues; provisionamento real não executado | Parcial: `Dockerfile`, `docker-compose.yml` e `deploy/terraform/main.tf` versionados, com piso e teto de réplicas espelhando a política local; nenhum recurso pago foi criado |
+| X1 | Implementação em nuvem é opcional e pode valer pontuação extra | Deploy, observabilidade e possivelmente autoscaling reais | Container, orquestração local, IaC e arquitetura da solução entregues e verificados no CI; provisionamento real não executado | Parcial e verificado: imagem construída e Terraform validado a cada push; arquitetura documentada em `escalabilidade_e_monitoramento.md`; nenhum recurso pago foi criado |
 
 ## Pontos ambíguos a confirmar com o professor
 

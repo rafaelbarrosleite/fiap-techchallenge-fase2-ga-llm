@@ -78,3 +78,42 @@ jobs:
           name: relatorio-de-escalabilidade
           path: artifacts/scalability/
           retention-days: 14
+
+  implantacao:
+    name: Container e infraestrutura como codigo
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # A imagem e o modulo Terraform sao entregaveis: se nao construirem ou
+      # nao validarem, sao texto, nao configuracao de implantacao.
+      - name: Construir a imagem do servico
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          load: true
+          tags: fiap-techchallenge-fase2-inferencia:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Conferir a integridade do modelo congelado dentro da imagem
+        run: |
+          docker run --rm --entrypoint uv \
+            fiap-techchallenge-fase2-inferencia:ci \
+            run python -c "from tech_challenge_fase2.serving import resolve_frozen_model; \
+            print('modelo congelado conferido:', resolve_frozen_model().candidate_id)"
+
+      - name: Instalar Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.9.8"
+          terraform_wrapper: false
+
+      - name: Conferir formatacao do IaC
+        run: terraform -chdir=deploy/terraform fmt -check -recursive -diff
+
+      - name: Validar o modulo Terraform
+        run: |
+          terraform -chdir=deploy/terraform init -backend=false -input=false
+          terraform -chdir=deploy/terraform validate

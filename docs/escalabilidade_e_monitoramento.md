@@ -104,11 +104,51 @@ uv run validate-scalability
 
 O primeiro comando mede e escreve `artifacts/scalability/`. O segundo é somente leitura: confere assinatura, coerência entre cenários, teto respeitado, confirmações de escopo e ausência de dado individual no log.
 
-## 7. Nuvem
+## 7. Arquitetura da solução em nuvem
 
-`Dockerfile` e `docker-compose.yml` reproduzem localmente o recurso que o autoscaling controla: réplicas do processo. `deploy/terraform/main.tf` provisiona o serviço em ECS Fargate com `aws_appautoscaling_target` e uma política de target tracking cujo piso e teto espelham `min_workers` e `max_workers`, com cooldowns assimétricos — descer depressa demais devolve a fila ao gargalo que acabou de ser aliviado.
+```mermaid
+flowchart TD
+    subgraph VPC["VPC — subnets privadas, sem IP público"]
+        S[ECS Service<br/>launch type FARGATE]
+        T1[Tarefa 1<br/>OMP_NUM_THREADS=1]
+        T2[Tarefa 2]
+        TN[Tarefa N ≤ teto]
+        S --> T1
+        S --> T2
+        S --> TN
+    end
+    AS[Application Auto Scaling<br/>target tracking de CPU] -->|ajusta desired_count| S
+    CW[(CloudWatch Logs<br/>/ecs/nome)] -.métrica de CPU.-> AS
+    T1 --> CW
+    T2 --> CW
+    TN --> CW
+    ECR[(Registro de imagem)] --> S
+    T1 -->|healthcheck: SHA-256 do pipeline<br/>contra o manifesto assinado| HC{integridade}
+    HC -->|divergente| K[tarefa derrubada]
+```
 
-A infraestrutura é acadêmica e não foi provisionada: nenhum recurso pago foi criado, e nenhum endpoint público existe.
+| Recurso | Papel |
+|---|---|
+| `aws_ecs_cluster` | Cluster Fargate, com Container Insights habilitado |
+| `aws_ecs_task_definition` | Tarefa com BLAS fixado em uma thread e healthcheck de integridade do modelo |
+| `aws_ecs_service` | Serviço em subnets privadas, sem IP público e sem balanceador |
+| `aws_appautoscaling_target` | Piso e teto de tarefas, espelhando `min_workers` e `max_workers` |
+| `aws_appautoscaling_policy` | Target tracking de CPU, com cooldowns assimétricos |
+| `aws_cloudwatch_log_group` | Recebe os eventos de desempenho |
+
+Três decisões merecem nota.
+
+**O recurso escalado é o mesmo nos dois planos.** Na nuvem é `desired_count` de tarefas; localmente é o número de workers. Manter o piso e o teto alinhados faz o benchmark local medir o comportamento que o IaC provisiona, em vez de duas coisas diferentes com o mesmo nome.
+
+**Os cooldowns são assimétricos:** 60 s para subir, 300 s para descer. É o equivalente na nuvem da histerese da política local — descer depressa demais devolve a fila ao gargalo que acabou de ser aliviado.
+
+**O autoscaling passa a ser dono de `desired_count`.** O serviço declara `ignore_changes = [desired_count]`; sem isso, cada `apply` devolveria o serviço ao piso, desfazendo a decisão do autoscaling.
+
+O `Dockerfile` fixa uma thread de BLAS por réplica e confere o SHA-256 do pipeline congelado no `HEALTHCHECK`: hash divergente derruba a tarefa em vez de servir um modelo desconhecido. O `docker-compose.yml` reproduz localmente o mesmo recurso, via `deploy.replicas`.
+
+A imagem é construída e o módulo Terraform é formatado e validado no CI a cada push, então a configuração é verificada mesmo sem ser aplicada.
+
+A infraestrutura é acadêmica e **não foi provisionada**: nenhum recurso pago foi criado e nenhum endpoint público existe. Instruções em [`../deploy/README.md`](../deploy/README.md).
 
 ## 8. Limitações
 

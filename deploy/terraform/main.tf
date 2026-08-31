@@ -1,69 +1,30 @@
-# Infraestrutura como codigo para o servico de inferencia com autoscaling.
+# Execucao do modelo congelado em ECS Fargate, com autoscaling de tarefas.
 #
 # O recurso escalado e o numero de tarefas do servico, o mesmo que a politica
-# local controla como workers. As metricas de alvo espelham a politica de
-# src/tech_challenge_fase2/serving/autoscaling.py: subir sob pressao, descer na
-# ociosidade e respeitar um teto explicito.
+# local controla como workers. Manter os dois alinhados e proposital: o
+# benchmark local mede o comportamento que esta configuracao provisiona.
 #
-# Escopo academico. Este modulo provisiona a execucao do modelo ja congelado;
-# ele nao treina, nao versiona dados de paciente e nao expoe endpoint publico.
-
-terraform {
-  required_version = ">= 1.6.0"
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
-  }
-}
+# Escopo academico. Este modulo provisiona apenas a execucao de um modelo ja
+# treinado e congelado. Ele nao treina, nao versiona dados de paciente e nao
+# expoe endpoint publico: as tarefas correm em subnets privadas, sem IP
+# publico e sem balanceador.
 
 provider "aws" {
   region = var.regiao
 }
 
-variable "regiao" {
-  description = "Regiao AWS onde o servico e provisionado."
-  type        = string
-  default     = "us-east-1"
-}
-
-variable "nome" {
-  description = "Prefixo de nome dos recursos."
-  type        = string
-  default     = "fiap-fase2-inferencia"
-}
-
-variable "imagem" {
-  description = "Imagem do container publicada em um registro acessivel ao cluster."
-  type        = string
-}
-
-variable "replicas_minimas" {
-  description = "Piso de tarefas; espelha min_workers da politica local."
-  type        = number
-  default     = 1
-}
-
-variable "replicas_maximas" {
-  description = "Teto de tarefas; espelha max_workers da politica local."
-  type        = number
-  default     = 4
-}
-
-variable "cpu_alvo_percentual" {
-  description = "Utilizacao de CPU perseguida pelo autoscaling."
-  type        = number
-  default     = 60
-}
-
 resource "aws_ecs_cluster" "this" {
   name = var.nome
+
+  setting {
+    name  = "containerInsights"
+    value = "enabled"
+  }
 }
 
 resource "aws_cloudwatch_log_group" "this" {
   name              = "/ecs/${var.nome}"
-  retention_in_days = 30
+  retention_in_days = var.retencao_de_logs_em_dias
 }
 
 resource "aws_ecs_task_definition" "this" {
@@ -74,17 +35,39 @@ resource "aws_ecs_task_definition" "this" {
   memory                   = "2048"
   execution_role_arn       = var.execution_role_arn
 
+  runtime_platform {
+    operating_system_family = "LINUX"
+    cpu_architecture        = "X86_64"
+  }
+
   container_definitions = jsonencode([
     {
       name      = "inferencia"
       image     = var.imagem
       essential = true
-      # Uma thread de BLAS por replica: o paralelismo vem do autoscaling.
+
+      # Uma thread de BLAS por replica. Sem isso a algebra linear paraleliza
+      # dentro do processo, satura as CPUs da tarefa e anula o efeito de
+      # escalar tarefas -- o mesmo achado registrado no benchmark local.
       environment = [
         { name = "OMP_NUM_THREADS", value = "1" },
         { name = "OPENBLAS_NUM_THREADS", value = "1" },
         { name = "MKL_NUM_THREADS", value = "1" }
       ]
+
+      # Falha cedo se o pipeline congelado nao conferir com o manifesto
+      # assinado, em vez de servir um modelo desconhecido.
+      healthCheck = {
+        command = [
+          "CMD-SHELL",
+          "uv run python -c 'from tech_challenge_fase2.serving import resolve_frozen_model; resolve_frozen_model()'"
+        ]
+        interval    = 30
+        timeout     = 10
+        retries     = 3
+        startPeriod = 15
+      }
+
       logConfiguration = {
         logDriver = "awslogs"
         options = {
@@ -95,21 +78,6 @@ resource "aws_ecs_task_definition" "this" {
       }
     }
   ])
-}
-
-variable "execution_role_arn" {
-  description = "Role de execucao das tarefas ECS."
-  type        = string
-}
-
-variable "subnet_ids" {
-  description = "Subnets privadas onde as tarefas correm."
-  type        = list(string)
-}
-
-variable "security_group_ids" {
-  description = "Security groups aplicados as tarefas."
-  type        = list(string)
 }
 
 resource "aws_ecs_service" "this" {
@@ -124,6 +92,12 @@ resource "aws_ecs_service" "this" {
     security_groups  = var.security_group_ids
     assign_public_ip = false
   }
+
+  # O autoscaling passa a ser dono de desired_count depois do provisionamento;
+  # sem isso, cada apply devolveria o servico ao piso.
+  lifecycle {
+    ignore_changes = [desired_count]
+  }
 }
 
 resource "aws_appautoscaling_target" "this" {
@@ -134,8 +108,9 @@ resource "aws_appautoscaling_target" "this" {
   max_capacity       = var.replicas_maximas
 }
 
-# Subida sob pressao e descida na ociosidade, com cooldowns distintos: descer
-# depressa demais devolve a fila ao mesmo gargalo que acabou de ser aliviado.
+# Cooldowns assimetricos sao o equivalente na nuvem da histerese da politica
+# local: descer depressa demais devolve a fila ao gargalo que acabou de ser
+# aliviado, entao a descida espera cinco vezes mais que a subida.
 resource "aws_appautoscaling_policy" "cpu" {
   name               = "${var.nome}-cpu"
   policy_type        = "TargetTrackingScaling"
@@ -152,14 +127,4 @@ resource "aws_appautoscaling_policy" "cpu" {
       predefined_metric_type = "ECSServiceAverageCPUUtilization"
     }
   }
-}
-
-output "cluster" {
-  description = "Cluster ECS provisionado."
-  value       = aws_ecs_cluster.this.name
-}
-
-output "faixa_de_replicas" {
-  description = "Piso e teto de tarefas sob autoscaling."
-  value       = "${var.replicas_minimas}-${var.replicas_maximas}"
 }

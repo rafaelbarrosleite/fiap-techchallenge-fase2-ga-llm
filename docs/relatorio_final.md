@@ -157,7 +157,9 @@ Dois achados negativos foram preservados porque mudaram o desenho. O primeiro: a
 
 ![Escalabilidade automática](../reports/figures/final_presentation/07_escalabilidade_automatica.png)
 
-O detalhamento está em [`escalabilidade_e_monitoramento.md`](escalabilidade_e_monitoramento.md). `Dockerfile`, `docker-compose.yml` e `deploy/terraform/main.tf` cobrem a implantação opcional em nuvem; a infraestrutura é acadêmica e não foi provisionada.
+O detalhamento, incluindo a arquitetura da solução em nuvem, está em [`escalabilidade_e_monitoramento.md`](escalabilidade_e_monitoramento.md).
+
+Sobre a implantação opcional: o `Dockerfile` fixa uma thread de BLAS por réplica e confere o SHA-256 do pipeline congelado no `HEALTHCHECK`; o `docker-compose.yml` reproduz localmente o recurso escalado; e o módulo em `deploy/terraform/` provisiona ECS Fargate com target tracking cujo piso e teto espelham a política local, com cooldowns assimétricos e `ignore_changes` em `desired_count` para que o autoscaling seja o dono desse valor. A imagem é construída e o módulo é formatado e validado a cada push no CI. A infraestrutura é acadêmica e **não foi provisionada**: nenhum recurso pago foi criado e nenhum endpoint público existe.
 
 ## 8. Discussão — utilidade depende da família e do custo
 
