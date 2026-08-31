@@ -69,7 +69,7 @@ def test_deliverable_preflight_validates_frozen_evidence() -> None:
 
 
 def test_final_delivery_manifest_is_signed_and_preserves_scope(tmp_path: Path) -> None:
-    path = generate_delivery_manifest(test_count=161, output_path=tmp_path / "manifest.json")
+    path = generate_delivery_manifest(test_count=182, output_path=tmp_path / "manifest.json")
     payload = json.loads(path.read_text(encoding="utf-8"))
     unsigned = {key: value for key, value in payload.items() if key != "signature"}
     assert payload["signature"] == stable_sha256(unsigned)
@@ -82,7 +82,9 @@ def test_final_delivery_manifest_is_signed_and_preserves_scope(tmp_path: Path) -
         "selection_reopened": False,
         "real_llm_provider_called": True,
         "real_llm_scientific_evaluation_approved": False,
-        "individual_data_sent_to_llm": False,
+        "deidentified_individual_explanation_sent_to_llm": True,
+        "raw_individual_record_sent_to_llm": False,
+        "patient_identifier_sent_to_llm": False,
         "api_frontend_cloud_created": False,
         "deploy_performed": False,
     }
@@ -98,5 +100,23 @@ def test_final_delivery_manifest_is_signed_and_preserves_scope(tmp_path: Path) -
         "scientific_calibration": False,
         "individual_data_sent": False,
         "provider_calls": 1,
+        "automatic_retries": 0,
+    }
+    assert payload["individual_llm_evaluation"] == {
+        "provider": "openai_responses",
+        "model": "gpt-5.5-2026-04-23",
+        "status": "approved",
+        "approved": True,
+        "factuality": "40/40",
+        "safety": True,
+        "completeness": True,
+        "clarity": True,
+        "medical_context_relevance": True,
+        "scientific_calibration": True,
+        "development_only": True,
+        "raw_individual_record_sent": False,
+        "patient_identifiers_sent": False,
+        "holdout_case_sent": False,
+        "external_calls": 2,
         "automatic_retries": 0,
     }

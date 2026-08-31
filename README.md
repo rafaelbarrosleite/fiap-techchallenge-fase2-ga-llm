@@ -1,6 +1,6 @@
 # Tech Challenge — Fase 2 — Algoritmo Genético e LLM
 
-Projeto acadêmico da Pós Tech FIAP que otimiza Regressão Logística, Random Forest e KNN com um algoritmo genético autoral e transforma resultados agregados em explicações controladas por uma camada LLM segura.
+Projeto acadêmico da Pós Tech FIAP que otimiza Regressão Logística, Random Forest e KNN com um algoritmo genético autoral e transforma resultados agregados e classificações individuais desidentificadas em explicações controladas por uma camada LLM segura.
 
 O projeto está consolidado para reprodução e demonstração offline. Não oferece diagnóstico, tratamento ou recomendação médica.
 
@@ -33,10 +33,14 @@ flowchart TD
     F --> E[Avaliação final única no holdout]
     E --> A[Resultados agregados + incerteza]
     A --> L[Contrato LLM sanitizado V1/V2]
+    F --> I[Contrato individual desidentificado 3.0]
     L --> M[Provider mock offline oficial]
     L --> O[OpenAI real opt-in]
+    I --> M
+    I --> O
     M --> V[Factualidade + segurança]
     O --> V
+    I --> V
     V --> X[Explicação aprovada]
     A --> C[Entrega acadêmica consolidada]
     X --> C
@@ -69,7 +73,7 @@ Com os manifestos íntegros e status `completed`:
 - `evaluate-llm-output` recalcula as verificações determinísticas;
 - `validate-deliverable` é somente leitura.
 
-Estado validado da entrega: **161 testes aprovados**. Os 14 avisos observados são de depreciação interna de `pyparsing`/Matplotlib e não representam falha funcional ou alteração de resultado.
+Estado validado da entrega: **182 testes aprovados**. Os avisos observados são de depreciação interna de `pyparsing`/Matplotlib e não representam falha funcional ou alteração de resultado.
 
 Não execute os comandos históricos de GA, busca ou baseline durante a demonstração. Eles permanecem no projeto para reprodução metodológica deliberada, não fazem parte do fluxo oficial da Missão 6.
 
@@ -82,6 +86,7 @@ src/tech_challenge_fase2/
   genetic/                            genomas, fitness, operadores e engine
   llm/                                contratos, prompts, providers e checkers
   llm_v2/                             contrato semântico com pares explícitos
+  llm_individual/                     explicação individual desidentificada
   final_evaluation.py                 avaliação confirmatória protegida
   deliverable.py                      consolidação somente leitura
 tests/                                suíte automatizada
@@ -92,6 +97,8 @@ artifacts/
   llm_evaluation/                     entrada, saída e avaliações LLM
   llm_contract_v2/                    validação offline do contrato V2
   llm_evaluation_openai_v4/           execução real V2 preservada
+  llm_individual_explanation/          explicação individual fake aprovada
+  llm_individual_explanation_openai/   explicação individual OpenAI aprovada
   final_summary/                       tabela e manifesto da entrega
 reports/figures/final_presentation/  figuras finais revisadas
 ```
@@ -119,6 +126,20 @@ O provider oficial de reprodução continua sendo um mock determinístico offlin
 
 Uma avaliação complementar real foi executada uma única vez com a OpenAI e o modelo configurado `gpt-5.5`, usando `store=false`, sem `temperature`, sem retry e sem dados individuais. A resposta passou schema, **327/327 fatos**, segurança, completude, clareza, pares e McNemar. O status científico permaneceu não aprovado porque três verificações lexicais de calibração exigiam frases específicas, embora o texto utilizasse formulações semanticamente seguras. Essa execução negativa foi preservada e não substitui o mock oficial.
 
+### Explicação individual exigida pelo desafio
+
+O contrato `3.0` explica uma classificação individual gerada pelo pipeline congelado de Regressão Logística. O caso demonstrativo vem somente do desenvolvimento e é convertido localmente em uma representação não reconstruível: classe/probabilidade, threshold e cinco sinais de influência. ID, índice, diagnóstico real, target e os 30 valores brutos não chegam à LLM.
+
+A saída apresenta a classificação em linguagem natural, explica os cinco fatores, oferece insights acionáveis limitados a revisão humana e prepara campos fechados para texto desidentificado no Módulo 3. O fake e a execução real OpenAI foram aprovados em factualidade, completude, clareza, segurança, relevância médica e calibração científica; a execução real passou **40/40 checks factuais**.
+
+```bash
+uv run prepare-individual-explanation
+uv run run-individual-explanation
+uv run evaluate-individual-explanation
+```
+
+Consulte [docs/explicacao_individual_llm.md](docs/explicacao_individual_llm.md) e o [exemplo JSON versionado](docs/examples/individual_explanation_v1.json).
+
 ## Demonstração
 
 - roteiro de 10–15 minutos: [docs/roteiro_apresentacao.md](docs/roteiro_apresentacao.md);
@@ -131,7 +152,7 @@ Uma avaliação complementar real foi executada uma única vez com a OpenAI e o 
 - seleção por CV antes do holdout;
 - avaliação final idempotente;
 - ausência de nova otimização ou inferência na consolidação;
-- LLM sem dados individuais; provider real complementar isolado e auditado;
+- LLM agregada sem dados individuais e trilha individual com representação desidentificada, sem ID ou linha bruta;
 - hashes e manifestos em todas as etapas críticas;
 - divergências históricas preservadas.
 
@@ -158,6 +179,7 @@ Uma avaliação complementar real foi executada uma única vez com a OpenAI e o 
 - LLM segura: [docs/camada_llm_segura.md](docs/camada_llm_segura.md);
 - contrato LLM V2: [docs/contrato_llm_v2.md](docs/contrato_llm_v2.md);
 - avaliação OpenAI V2: [docs/avaliacao_provider_real_v4.md](docs/avaliacao_provider_real_v4.md);
+- explicação individual: [docs/explicacao_individual_llm.md](docs/explicacao_individual_llm.md);
 - limitações: [docs/limitacoes_e_validade.md](docs/limitacoes_e_validade.md).
 
 ## Disclaimer acadêmico

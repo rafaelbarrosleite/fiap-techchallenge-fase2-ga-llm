@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "fiap-techchallenge-fase2-ga-llm"
-version = "0.6.0"
+version = "0.7.0"
 description = "GA, avaliacao protegida, LLM segura e entrega academica reproduzivel para o Tech Challenge da FIAP."
 readme = "README.md"
 requires-python = ">=3.11,<3.14"
@@ -56,6 +56,11 @@ prepare-openai-evaluation-v4 = "tech_challenge_fase2.run_provider_real_evaluatio
 run-openai-scientific-v4 = "tech_challenge_fase2.run_provider_real_evaluation_v4:scientific_main"
 run-openai-adversarial-v4 = "tech_challenge_fase2.run_provider_real_evaluation_v4:adversarial_main"
 validate-openai-evaluation-v4 = "tech_challenge_fase2.run_provider_real_evaluation_v4:validate_main"
+prepare-individual-explanation = "tech_challenge_fase2.run_individual_explanation:prepare_main"
+run-individual-explanation = "tech_challenge_fase2.run_individual_explanation:run_main"
+run-individual-explanation-openai = "tech_challenge_fase2.run_individual_explanation:run_openai_main"
+evaluate-individual-explanation = "tech_challenge_fase2.run_individual_explanation:evaluate_main"
+revalidate-individual-explanation = "tech_challenge_fase2.run_individual_explanation:revalidate_main"
 
 [dependency-groups]
 dev = [

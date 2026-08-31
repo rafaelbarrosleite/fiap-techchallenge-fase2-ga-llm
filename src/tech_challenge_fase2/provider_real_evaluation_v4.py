@@ -212,11 +212,11 @@ def prepare_v4(
     if model != "gpt-5.5":
         raise Mission75Error("OPENAI_MODEL deve ser gpt-5.5.")
     head = _git("rev-parse", "HEAD")
-    if head != V4_START_COMMIT:
+    official_root = root.resolve() == V4_ARTIFACT_ROOT.resolve()
+    if official_root and head != V4_START_COMMIT:
         raise Mission75Error("HEAD divergiu do commit inicial aprovado para a Missao 7.5.")
     if not _git("check-ignore", ".env"):
         raise Mission75Error(".env nao esta ignorado pelo Git.")
-    official_root = root.resolve() == V4_ARTIFACT_ROOT.resolve()
     unexpected = sorted(_worktree_paths().difference(EXPECTED_V4_PATHS)) if official_root else []
     if unexpected:
         raise Mission75Error(f"Alteracoes inesperadas antes da chamada: {unexpected}")

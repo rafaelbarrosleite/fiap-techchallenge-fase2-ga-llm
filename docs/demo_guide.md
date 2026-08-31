@@ -11,7 +11,7 @@ uv sync
 uv run validate-deliverable
 ```
 
-Mostre a versão `0.6.0`, o status `passed` e a ausência de downloads/chamadas externas durante a validação. `validate-deliverable` é somente leitura.
+Mostre a versão `0.7.0`, o status `passed` e a ausência de downloads/chamadas externas durante a validação. `validate-deliverable` é somente leitura.
 
 ## 2. Executar a suíte
 
@@ -21,7 +21,7 @@ uv run pytest
 
 Explique que os testes de consolidação comparam a tabela mestre aos JSONs congelados e inspecionam o código para proibir treino, inferência e rede.
 
-Resultado esperado desta entrega: `120 passed`. Avisos de depreciação de `pyparsing`/Matplotlib podem aparecer, sem afetar o status.
+Resultado esperado desta entrega: `182 passed`. Avisos de depreciação de `pyparsing`/Matplotlib podem aparecer, sem afetar o status.
 
 ## 3. Abrir as evidências principais
 
@@ -63,6 +63,16 @@ python -m json.tool artifacts/llm_evaluation/evaluation_report.json | less
 
 Destaque 139 checks factuais, zero violações, disclaimer válido e score geral `1.0`.
 
+### Explicação individual
+
+```bash
+uv run run-individual-explanation
+uv run evaluate-individual-explanation
+python -m json.tool artifacts/llm_individual_explanation/individual_output.json | less
+```
+
+Mostre a classe e a probabilidade, os cinco fatores, os insights com `scope=human_review_only`, o bloco do Módulo 3 e o disclaimer. Em seguida, abra `docs/examples/individual_explanation_v1.json` para mostrar que há uma saída completa versionada. A execução OpenAI real já está preservada em `artifacts/llm_individual_explanation_openai/`; não a repita durante a apresentação.
+
 ## 6. Demonstrar idempotência
 
 ```bash
@@ -96,7 +106,7 @@ Não execute `run-ga-battery`, `run-ga-experiment`, `run-ga-analysis`, `run-base
 2. Abrir `model_results.csv` — localizar as nove linhas e o vencedor global.
 3. Abrir `02_falsos_negativos_baseline_vs_ga.png` — explicar `3→1`, `4→3`, `4→4`.
 4. `uv run run-final-evaluation` — mostrar carregamento do estado concluído.
-5. `uv run run-llm-evaluation` e `uv run evaluate-llm-output` — mostrar mock e score `1.0`.
+5. `uv run run-individual-explanation` e `uv run evaluate-individual-explanation` — mostrar explicação individual e score `1.0`.
 6. Abrir `final_delivery_manifest.json` — encerrar com as confirmações de escopo.
 
 ## Plano de contingência

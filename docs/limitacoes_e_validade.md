@@ -62,6 +62,8 @@ Nenhuma avaliação LLM — fake ou real — acrescenta validade clínica, nova 
 
 Este projeto é acadêmico. Não substitui profissional de saúde, não emite diagnóstico, não foi validado para decisão clínica e não estabelece segurança, eficácia médica ou conformidade regulatória.
 
+A explicação individual usa um registro do desenvolvimento convertido em cinco sinais derivados. A representação reduz risco de exposição, mas não demonstra utilidade clínica da explicação nem substitui estudos com médicos. Os percentuais são importâncias relativas locais entre os cinco sinais exibidos, não probabilidades causais ou importância global.
+
 ## Próxima evidência necessária
 
 Antes de qualquer pretensão de uso real seriam necessários, no mínimo:

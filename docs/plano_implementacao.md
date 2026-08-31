@@ -151,6 +151,19 @@ O provider fake V2 continua sendo o caminho oficial de reprodução offline. A e
 - código e documentação versionados e publicados sem segredos;
 - vídeo de até 15 minutos permanece como único entregável externo pendente.
 
+### Etapa 9 - Explicação individual do requisito LLM: concluída
+
+- pipeline congelado reutilizado sem treino;
+- caso de desenvolvimento convertido em representação desidentificada e não reconstruível;
+- contrato fechado 3.0, prompts médicos versionados e Structured Output;
+- explicação da classe, probabilidade e cinco contribuições locais;
+- insights acionáveis restritos a revisão humana;
+- base contratual para notas e laudos textuais futuros;
+- fake offline e OpenAI real avaliados em seis dimensões;
+- 40/40 checks factuais e zero violação clínica;
+- falha intermediária de parsing e revalidação semântica preservadas;
+- nenhum caso do holdout, novo treino, GA, busca ou alteração de threshold.
+
 ### Extras opcionais
 
 - API, se trouxer valor à demonstração;

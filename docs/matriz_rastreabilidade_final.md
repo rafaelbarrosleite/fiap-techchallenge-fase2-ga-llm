@@ -19,13 +19,17 @@
 | Bootstrap pareado | 4 | 5.000 réplicas, seed 42 | teste determinístico | `uncertainty_results.json` | Concluído |
 | McNemar exato | 4 | comparação pareada | teste sintético | `uncertainty_results.json` | Concluído |
 | Modelos serializados e assinados | 4 | joblib local | round trip + hashes | `final_manifest.json` | Concluído |
-| LLM sem dados individuais | 5 | contrato + privacy gate | injeções proibidas | `llm_input_snapshot.json` | Concluído |
+| LLM agregada sem dados individuais | 5 | contrato + privacy gate | injeções proibidas | `llm_input_snapshot.json` | Concluído |
 | Prompts versionados | 5/7.4 | system/explanation V1 e V2 | hashes/cabeçalhos | manifestos LLM | Concluído |
 | Provider fake offline | 5 | `FakeLLMProvider` | rede bloqueada nos testes | manifesto LLM | Concluído |
 | Contrato semântico V2 | 7.4 | nove pares explícitos + McNemar agregado | 327 checks fake | `llm_contract_v2/` | Concluído offline |
 | Provider real opt-in | 5/7.5 | Responses raw-first configurável | uma chamada V2 sem retry | `llm_evaluation_openai_v4/` | Concluído tecnicamente; avaliação científica não aprovada pelo gate lexical |
 | Factualidade automática | 5 | checker independente | número/modelo/IC incorretos | `factuality_report.json` | Concluído |
 | Safety checker | 5 | regras determinísticas | diagnóstico, certeza, disclaimer | `safety_report.json` | Concluído |
+| Explicação individual | requisito 3 | pipeline congelado + contrato 3.0 | caso de desenvolvimento desidentificado | `individual_output.json` + exemplo versionado | Concluído |
+| Insights para médicos | requisito 3 | `insights_acionaveis_para_medicos` | somente revisão humana, sem decisão de cuidado | schema + safety checker | Concluído |
+| Integração textual futura | requisito 3 / Módulo 3 | campos reservados e salvaguardas | nenhum texto usado nesta fase | input/output 3.0 | Concluído como base arquitetural |
+| Qualidade individual | requisito 3 | seis dimensões + 40 fatos | fake e OpenAI real | relatórios individuais | Concluído |
 | Avaliação em 5 dimensões | 5 | `evaluation.py` | casos A–I | `evaluation_report.json` | Concluído |
 | Idempotência LLM | 5 | identidade e hashes | provider não chamado duas vezes | manifesto LLM | Concluído |
 | Relatório e resumo acadêmicos | 6/7.5 | documentos finais consolidados | validador de links/números/status | `relatorio_final.md` | Concluído |

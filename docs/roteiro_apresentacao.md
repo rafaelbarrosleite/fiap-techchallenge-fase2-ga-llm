@@ -74,12 +74,12 @@ Convenção: Regressão Logística (LR), Random Forest (RF), KNN, baseline, GA, 
 - **Fala sugerida:** “p alto não prova igualdade; um ganho observado não é validação clínica.”
 - **Risco:** usar “significativo” como sinônimo de importante.
 
-## Slide 10 — Camada LLM (70 s)
+## Slide 10 — Camada LLM agregada e individual (90 s)
 
-- **Mensagem principal:** a LLM explica apenas agregados sob contrato.
-- **Dados:** mock V1 com 139 checks; mock V2 com 327; execução real V2 com 327/327 fatos, mas gate lexical de calibração não aprovado.
+- **Mensagem principal:** a LLM explica resultados agregados e uma classificação individual desidentificada sob contratos separados.
+- **Dados:** mock V1 com 139 checks; mock V2 com 327; contrato individual com 40/40 fatos no fake e na OpenAI real.
 - **Figura:** fluxo LLM de `camada_llm_segura.md`.
-- **Fala sugerida:** “O provider gera; código independente decide se a saída pode ser aprovada. A execução real acertou todos os fatos, mas foi preservada como não aprovada porque o gate lexical é conservador.”
+- **Fala sugerida:** “O provider gera; código independente decide se a saída pode ser aprovada. No caso individual, a LLM recebe classe, probabilidade e cinco sinais, mas não recebe ID, índice, diagnóstico real ou valores brutos.”
 - **Risco:** sugerir que outro LLM valida a resposta; as barreiras oficiais são determinísticas.
 
 ## Slide 11 — Segurança, divergências e limitações (75 s)
@@ -93,7 +93,7 @@ Convenção: Regressão Logística (LR), Random Forest (RF), KNN, baseline, GA, 
 ## Slide 12 — Conclusão e demonstração (45 s)
 
 - **Mensagem principal:** pronto para defesa acadêmica e reprodução offline, não para uso clínico.
-- **Dados:** testes finais e manifesto da entrega.
+- **Dados:** testes finais, manifestos e exemplo individual versionado.
 - **Figura:** checklist da matriz de rastreabilidade.
 - **Fala sugerida:** “A contribuição é otimização reproduzível mais explicação segura, com limites explícitos.”
 - **Risco:** prometer API, cloud ou deploy; não fazem parte desta missão.

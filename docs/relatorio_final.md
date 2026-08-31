@@ -2,7 +2,7 @@
 
 ## Resumo técnico
 
-O projeto está consolidado para entrega acadêmica e demonstração offline: a seleção ocorreu somente nas 455 linhas de desenvolvimento, os candidatos foram congelados antes do holdout (teste final), a avaliação confirmatória não reabriu decisões e a camada LLM explica apenas agregados sob validação factual e de segurança. O GA foi útil no objetivo prioritário de recall para Regressão Logística e Random Forest no holdout, reduzindo falsos negativos de 3 para 1 e de 4 para 3. No KNN, o ganho observado em validação cruzada não se confirmou: recall e falsos negativos permaneceram em `0,904762` e 4.
+O projeto está consolidado para entrega acadêmica e demonstração offline: a seleção ocorreu somente nas 455 linhas de desenvolvimento, os candidatos foram congelados antes do holdout (teste final), a avaliação confirmatória não reabriu decisões e a camada LLM explica resultados agregados e uma classificação individual desidentificada sob validação factual e de segurança. O GA foi útil no objetivo prioritário de recall para Regressão Logística e Random Forest no holdout, reduzindo falsos negativos de 3 para 1 e de 4 para 3. No KNN, o ganho observado em validação cruzada não se confirmou: recall e falsos negativos permaneceram em `0,904762` e 4.
 
 Esses resultados são descritivos e experimentais. Os intervalos são amplos, os deltas de recall incluem zero no limite ou interior dos intervalos bootstrap e McNemar tem somente 1–3 pares discordantes. Portanto, não há evidência suficiente para afirmar superioridade estatística universal, superioridade clínica ou aptidão para diagnóstico.
 
@@ -114,7 +114,7 @@ O ganho de recall observado na CV apareceu no holdout para LR e RF, mas não par
 
 ## 7. Missão 5 — LLM agrega explicação com duas barreiras independentes
 
-A LLM existe para traduzir resultados experimentais agregados, não casos individuais. O input schema `1.0` contém resumo, comparação, incerteza, seleção, limitações, segurança e proveniência. O privacy gate rejeita campos extras, registros, features, índices, diagnósticos, previsões e probabilidades individuais.
+A trilha LLM agregada traduz resultados experimentais e rejeita casos individuais. O input schema `1.0` contém resumo, comparação, incerteza, seleção, limitações, segurança e proveniência. A trilha individual 3.0 é separada e recebe apenas uma representação desidentificada e não reconstruível do desenvolvimento, sem ID, índice, target ou valores brutos.
 
 Prompts `system_v1` e `explanation_v1` definem contrato, factualidade, disclaimer e linguagem científica. `FakeLLMProvider` é o caminho oficial offline; `OpenAIResponsesProvider` existe somente como opt-in e não foi chamado na Missão 5 ou 6. A saída é JSON fechado, com métricas estruturadas, incerteza, conclusões e disclaimer obrigatório.
 
@@ -127,6 +127,14 @@ Nove cenários adversariais cobrem ganho, piora, IC incluindo zero, trade-offs, 
 As Missões 7.1–7.3 diagnosticaram parâmetros incompatíveis e o parsing da Responses API e preservaram uma primeira resposta real V1 que obteve 138/139 checks. A falha revelou que um booleano sobre matriz de confusão e AUC não identificava explicitamente qual par de métodos estava sendo comparado; o resultado histórico não foi reclassificado.
 
 A Missão 7.4 criou o contrato `2.0`, validado offline, com nove `comparison_id`, deltas `right_minus_left` e contagens agregadas de McNemar. Na Missão 7.5, uma única chamada científica real com `gpt-5.5` retornou HTTP 200 e `completed`, sem `temperature`, com `store=false`, zero retry e zero dado individual. A resposta passou schema, factualidade **327/327**, segurança, completude, clareza, todos os pares, McNemar, disclaimer e as 14 conclusões críticas.
+
+### Explicação individual exigida pelo enunciado
+
+O contrato adicional `3.0` fecha a lacuna entre “explicar resultados agregados” e “explicar os diagnósticos produzidos pelos modelos”. O pipeline congelado `logistic_regression__random_search` classifica um caso demonstrativo escolhido deterministicamente nos 455 registros de desenvolvimento, sem novo treino e sem inferência no holdout. A explicação local usa as contribuições `valor padronizado × coeficiente` da Regressão Logística.
+
+Antes do provider, a linha é descartada. A LLM recebe apenas uma referência opaca, classe/probabilidade, threshold e cinco sinais com faixa, direção e importância relativa. Não recebe ID, índice, diagnóstico real, target, valores brutos ou vetor de features. A resposta explica a classificação, cinco fatores, ações de revisão humana, limitações e preparação do Módulo 3. Cada ação é estruturalmente limitada a `human_review_only` e não pode representar decisão de cuidado.
+
+O fake offline e a OpenAI real foram aprovados em factualidade **40/40**, completude, clareza, segurança, relevância médica e calibração científica. A execução real usou `gpt-5.5`, retornou `gpt-5.5-2026-04-23`, HTTP 200, 3.827 tokens e `store=false`. Uma falha de parsing anterior e a primeira reprovação lexical de uma paráfrase não causal foram preservadas; a saída aprovada não foi reescrita e a revalidação final foi inteiramente offline.
 
 O gate científico permaneceu não aprovado porque três verificações lexicais de calibração exigiam frases específicas. O texto real empregou formulações semanticamente calibradas — observações experimentais, ausência de suporte para superioridade estatística e proibição de uso clínico — mas não as variantes literais esperadas. A evidência foi preservada como `methodologically_complete_not_approved`; prompts, schema e checker não foram ajustados depois da resposta, não houve retry e os adversariais reais ficaram bloqueados. O mock V2 continua sendo o caminho oficial de reprodução offline.
 
@@ -158,7 +166,7 @@ A robustez do projeto está mais forte na engenharia experimental do que na infe
 
 ## 10. Validação da entrega consolidada
 
-A suíte completa encerrou com **161 testes aprovados** em execução offline. Os testes validam as nove linhas da tabela mestre, a seleção global congelada, as seis figuras agregadas, a ausência de primitivas de treino/inferência/rede no consolidador, todos os links locais, o preflight das evidências, os contratos V1/V2, o transporte raw-first e os manifestos assinados. Os 14 avisos emitidos são de depreciação interna de `pyparsing`/Matplotlib; não houve falha funcional.
+A suíte completa encerrou com **182 testes aprovados** em execução offline. Os testes validam as nove linhas da tabela mestre, a seleção global congelada, as seis figuras agregadas, a ausência de primitivas de treino/inferência/rede no consolidador, todos os links locais, os contratos V1/V2/3.0, o transporte raw-first, privacidade individual, factualidade, segurança e manifestos assinados. Os avisos emitidos são depreciação interna de `pyparsing`/Matplotlib; não houve falha funcional.
 
 A execução idempotente da Missão 5 também foi repetida com `FakeLLMProvider` e retornou `approved=true`, sem rede. O validador consolidado confere adicionalmente o status não aprovado da execução real V2, 327/327 fatos, zero dados individuais e um único request sem retry. O validador final é somente leitura e confere assinaturas, hashes, métricas principais, divergências documentadas, QA visual e confirmações de escopo.
 

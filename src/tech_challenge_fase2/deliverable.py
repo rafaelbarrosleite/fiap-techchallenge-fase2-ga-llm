@@ -24,6 +24,8 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 FINAL_EVALUATION_ROOT = PROJECT_ROOT / "artifacts" / "final_evaluation"
 LLM_EVALUATION_ROOT = PROJECT_ROOT / "artifacts" / "llm_evaluation"
 LLM_V4_ROOT = PROJECT_ROOT / "artifacts" / "llm_evaluation_openai_v4"
+INDIVIDUAL_LLM_ROOT = PROJECT_ROOT / "artifacts" / "llm_individual_explanation"
+INDIVIDUAL_LLM_OPENAI_ROOT = PROJECT_ROOT / "artifacts" / "llm_individual_explanation_openai"
 SELECTION_ROOT = PROJECT_ROOT / "artifacts" / "selection"
 SUMMARY_ROOT = PROJECT_ROOT / "artifacts" / "final_summary"
 PRESENTATION_FIGURE_ROOT = PROJECT_ROOT / "reports" / "figures" / "final_presentation"
@@ -51,6 +53,8 @@ EXPECTED_DOCUMENTS = (
     "docs/limitacoes_e_validade.md",
     "docs/contrato_llm_v2.md",
     "docs/avaliacao_provider_real_v4.md",
+    "docs/explicacao_individual_llm.md",
+    "docs/examples/individual_explanation_v1.json",
 )
 EXPECTED_SOURCE_ARTIFACTS = (
     "artifacts/final_evaluation/final_test_results.json",
@@ -68,6 +72,14 @@ EXPECTED_SOURCE_ARTIFACTS = (
     "artifacts/llm_evaluation_openai_v4/safety_report.json",
     "artifacts/llm_evaluation_openai_v4/evaluation_report.json",
     "artifacts/llm_evaluation_openai_v4/hallucination_report.json",
+    "artifacts/llm_individual_explanation/individual_explanation_manifest.json",
+    "artifacts/llm_individual_explanation/evaluation_report.json",
+    "artifacts/llm_individual_explanation_openai/individual_explanation_manifest.json",
+    "artifacts/llm_individual_explanation_openai/individual_output.json",
+    "artifacts/llm_individual_explanation_openai/privacy_report.json",
+    "artifacts/llm_individual_explanation_openai/factuality_report.json",
+    "artifacts/llm_individual_explanation_openai/safety_report.json",
+    "artifacts/llm_individual_explanation_openai/evaluation_report.json",
 )
 
 
@@ -123,6 +135,30 @@ def load_authoritative_sources() -> dict[str, dict[str, Any]]:
     llm_v4 = _load_signed(
         LLM_V4_ROOT / "llm_evaluation_manifest.json", "openai_v4_evaluation_manifest",
     )
+    individual_fake = _load_signed(
+        INDIVIDUAL_LLM_ROOT / "individual_explanation_manifest.json",
+        "individual_explanation_manifest",
+    )
+    individual_real = _load_signed(
+        INDIVIDUAL_LLM_OPENAI_ROOT / "individual_explanation_manifest.json",
+        "individual_explanation_manifest",
+    )
+    individual_factuality = _load_signed(
+        INDIVIDUAL_LLM_OPENAI_ROOT / "factuality_report.json",
+        "individual_factuality_report",
+    )
+    individual_safety = _load_signed(
+        INDIVIDUAL_LLM_OPENAI_ROOT / "safety_report.json",
+        "individual_safety_report",
+    )
+    individual_evaluation = _load_signed(
+        INDIVIDUAL_LLM_OPENAI_ROOT / "evaluation_report.json",
+        "individual_evaluation_report",
+    )
+    individual_privacy = _load_signed(
+        INDIVIDUAL_LLM_OPENAI_ROOT / "privacy_report.json",
+        "individual_privacy_report",
+    )
     if results["plan_signature"] != plan["signature"] or uncertainty["plan_signature"] != plan["signature"]:
         raise DeliverableError("Resultados finais nao pertencem ao plano assinado.")
     if final_manifest["plan_signature"] != plan["signature"]:
@@ -153,11 +189,40 @@ def load_authoritative_sources() -> dict[str, dict[str, Any]]:
         and llm_v4.get("privacy", {}).get("individual_data_sent") is False
     ):
         raise DeliverableError("A evidencia complementar OpenAI V2 diverge do status congelado.")
+    if not (
+        individual_fake.get("status") == "approved"
+        and individual_fake.get("approved") is True
+        and individual_fake.get("execution_scope", {}).get("external_calls") == 0
+        and individual_real.get("status") == "approved"
+        and individual_real.get("approved") is True
+        and individual_real.get("quality", {}).get("factuality") is True
+        and individual_real.get("quality", {}).get("safety") is True
+        and individual_real.get("quality", {}).get("completeness") is True
+        and individual_real.get("quality", {}).get("clarity") is True
+        and individual_real.get("quality", {}).get("medical_context_relevance") is True
+        and individual_real.get("quality", {}).get("scientific_calibration") is True
+        and individual_factuality.get("passed_checks") == 40
+        and individual_factuality.get("total_checks") == 40
+        and individual_safety.get("passed") is True
+        and individual_evaluation.get("approved") is True
+        and individual_privacy.get("passed") is True
+        and individual_real.get("privacy", {}).get("patient_identifiers_sent") is False
+        and individual_real.get("privacy", {}).get("raw_feature_values_sent") is False
+        and individual_real.get("privacy", {}).get("holdout_case_sent") is False
+        and individual_real.get("execution_scope", {}).get("new_training") is False
+        and individual_real.get("execution_scope", {}).get("holdout_inference") is False
+    ):
+        raise DeliverableError("A explicacao individual nao esta integralmente aprovada.")
     return {
         "results": results, "uncertainty": uncertainty, "plan": plan,
         "final_manifest": final_manifest, "frozen": frozen, "llm_manifest": llm_manifest,
         "factuality": factuality, "safety": safety, "evaluation": evaluation,
         "contract_v2": contract_v2, "llm_v4": llm_v4,
+        "individual_fake": individual_fake, "individual_real": individual_real,
+        "individual_factuality": individual_factuality,
+        "individual_safety": individual_safety,
+        "individual_evaluation": individual_evaluation,
+        "individual_privacy": individual_privacy,
     }
 
 
@@ -582,7 +647,22 @@ def validate_deliverable(*, require_manifest: bool = True) -> dict[str, Any]:
         and llm_v4["privacy"]["individual_data_sent"] is False,
         "327/327; zero dados individuais",
     )
-    add("project_version", __version__ == "0.6.0", f"version={__version__}")
+    individual = sources["individual_real"]
+    add(
+        "individual_explanation_approved",
+        individual["approved"] is True
+        and sources["individual_factuality"]["passed_checks"] == 40
+        and sources["individual_evaluation"]["approved"] is True,
+        "40/40 fatos; seis dimensoes aprovadas",
+    )
+    add(
+        "individual_explanation_privacy",
+        individual["privacy"]["patient_identifiers_sent"] is False
+        and individual["privacy"]["raw_feature_values_sent"] is False
+        and individual["privacy"]["holdout_case_sent"] is False,
+        "sem ID, linha bruta ou caso do holdout",
+    )
+    add("project_version", __version__ == "0.7.0", f"version={__version__}")
 
     if require_manifest:
         manifest_path = SUMMARY_ROOT / "final_delivery_manifest.json"
@@ -614,6 +694,8 @@ def generate_delivery_manifest(
         SUMMARY_ROOT / "model_results.csv", SUMMARY_ROOT / "model_results.json",
         PRESENTATION_FIGURE_ROOT / "figure_qa_report.json",
         *sorted(LLM_V4_ROOT.glob("*.json")),
+        *sorted(INDIVIDUAL_LLM_ROOT.glob("*.json")),
+        *sorted(INDIVIDUAL_LLM_OPENAI_ROOT.glob("*.json")),
     ]
     figure_paths = sorted(PRESENTATION_FIGURE_ROOT.glob("*.png"))
     records = lambda paths: [
@@ -632,6 +714,8 @@ def generate_delivery_manifest(
             "mission5_manifest_signature": sources["llm_manifest"]["signature"],
             "mission74_contract_signature": sources["contract_v2"]["signature"],
             "mission75_manifest_signature": sources["llm_v4"]["signature"],
+            "individual_fake_manifest_signature": sources["individual_fake"]["signature"],
+            "individual_openai_manifest_signature": sources["individual_real"]["signature"],
             "frozen_candidates_signature": sources["frozen"]["signature"],
         },
         "scope_confirmations": {
@@ -642,7 +726,9 @@ def generate_delivery_manifest(
             "selection_reopened": False,
             "real_llm_provider_called": True,
             "real_llm_scientific_evaluation_approved": False,
-            "individual_data_sent_to_llm": False,
+            "deidentified_individual_explanation_sent_to_llm": True,
+            "raw_individual_record_sent_to_llm": False,
+            "patient_identifier_sent_to_llm": False,
             "api_frontend_cloud_created": False,
             "deploy_performed": False,
         },
@@ -658,6 +744,24 @@ def generate_delivery_manifest(
             "scientific_calibration": False,
             "individual_data_sent": False,
             "provider_calls": 1,
+            "automatic_retries": 0,
+        },
+        "individual_llm_evaluation": {
+            "provider": sources["individual_real"]["provider"],
+            "model": sources["individual_real"]["model"],
+            "status": sources["individual_real"]["status"],
+            "approved": True,
+            "factuality": "40/40",
+            "safety": True,
+            "completeness": True,
+            "clarity": True,
+            "medical_context_relevance": True,
+            "scientific_calibration": True,
+            "development_only": True,
+            "raw_individual_record_sent": False,
+            "patient_identifiers_sent": False,
+            "holdout_case_sent": False,
+            "external_calls": sources["individual_real"]["execution_scope"]["external_calls"],
             "automatic_retries": 0,
         },
         "files": {

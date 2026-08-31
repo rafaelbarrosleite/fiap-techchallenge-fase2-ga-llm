@@ -2,7 +2,7 @@
 
 ## 1. Objetivo e escopo
 
-A quinta missão transforma resultados finais agregados em uma explicação para pessoas não especialistas. Ela não treina modelos, não executa GA ou `RandomizedSearchCV`, não muda hiperparâmetros ou limiar, não reabre a seleção e não lê previsões individuais. Também não oferece diagnóstico, tratamento ou recomendação médica.
+A camada original transforma resultados finais agregados em uma explicação para pessoas não especialistas. A extensão individual 3.0 explica também uma classificação de desenvolvimento desidentificada, sem expor ID, índice, target, diagnóstico real ou linha bruta. Nenhuma das trilhas treina modelos, executa GA ou `RandomizedSearchCV`, muda hiperparâmetros ou limiar ou reabre a seleção. Também não oferece diagnóstico, tratamento ou decisão médica.
 
 O provider mock é a execução oficial desta missão porque permite validar toda a arquitetura offline, de forma determinística e sem custo. O provider real foi implementado como opção explícita, mas não foi chamado nesta missão.
 
@@ -175,7 +175,7 @@ O mock determinístico V1 produziu saída aprovada nas cinco dimensões, com not
 
 A avaliação complementar real V2 fez uma única chamada ao provider OpenAI. Ela retornou HTTP 200, status `completed`, 327/327 fatos, segurança, completude e clareza aprovadas, zero números inesperados, zero claims clínicos, zero violações de seleção/par/McNemar e disclaimer correto. A calibração científica foi reprovada em três checks lexicais que não reconheceram paráfrases semanticamente adequadas. O resultado original permaneceu não aprovado; não houve retry, adversariais ou alteração posterior de prompt, schema ou checker.
 
-A suíte consolidada aprovou 161 testes. Os 14 avisos são depreciações já existentes em dependências do Matplotlib durante testes de figuras; não houve falha. A repetição das execuções offline com a mesma identidade preserva os artefatos sem chamar provider.
+A suíte consolidada aprovou 182 testes. Os avisos são depreciações já existentes em dependências do Matplotlib durante testes de figuras; não houve falha. A repetição das execuções offline com a mesma identidade preserva os artefatos sem chamar provider.
 
 ## 14. Limitações
 
@@ -185,7 +185,13 @@ A suíte consolidada aprovou 161 testes. Os 14 avisos são depreciações já ex
 - critérios lexicais determinísticos podem reprovar formulações semanticamente equivalentes;
 - o estudo de origem tem holdout pequeno e não é validação clínica;
 - a ausência de `selected_model` explícito nos quatro artefatos estruturados da Missão 4 permanece documentada;
-- a camada explica o experimento, não casos individuais.
+- a explicação individual cobre um caso demonstrativo do desenvolvimento, mas não valida utilidade clínica nem expõe a linha original.
+
+## 15. Contrato individual 3.0
+
+O requisito de explicação individual é atendido por `llm_individual/`, separadamente dos contratos agregados. O builder carrega o pipeline congelado, faz inferência somente em desenvolvimento e reduz o caso a uma representação não reconstruível. A LLM recebe classe, probabilidade e cinco sinais derivados; não recebe ID, índice, ground truth ou valores brutos.
+
+A saída inclui explicação natural, fatores, insights acionáveis com `scope=human_review_only`, limitações, disclaimer e preparação para os campos textuais futuros `clinical_note_summary` e `exam_report_summary`. O fake e a OpenAI real foram aprovados com 40/40 fatos e seis dimensões. Detalhes e exemplo completo: `docs/explicacao_individual_llm.md` e `docs/examples/individual_explanation_v1.json`.
 
 ## 15. Reprodução
 
@@ -206,4 +212,4 @@ uv run validate-openai-evaluation-v4
 
 Esse validador retorna status científico não aprovado por desenho. O comando de execução real não faz parte da demonstração e não deve ser repetido sobre a evidência congelada.
 
-Esta camada não executa diagnóstico, não produz recomendação médica, não recebe dados individuais, não altera modelos, não altera seleção, não reabre o holdout e não substitui validação clínica.
+Esta camada não executa diagnóstico, não produz recomendação médica, não altera modelos, não altera seleção, não reabre o holdout e não substitui validação clínica. Na trilha individual, recebe somente uma representação desidentificada e não reconstruível de desenvolvimento, nunca a linha original.

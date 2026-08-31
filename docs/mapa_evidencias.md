@@ -36,6 +36,13 @@ As afirmações quantitativas devem ser auditadas nos artefatos estruturados. Do
 | Resposta real reproduziu todos os fatos | `artifacts/llm_evaluation_openai_v4/factuality_report.json` | `passed_checks=327`, `check_count=327` |
 | Resposta real permaneceu não aprovada | `artifacts/llm_evaluation_openai_v4/llm_evaluation_manifest.json` | `status=methodologically_complete_not_approved`, `scientific_evaluation_approved=false` |
 | Nenhum dado individual foi enviado ao provider real | `artifacts/llm_evaluation_openai_v4/llm_evaluation_manifest.json` | `privacy.individual_data_sent=false` |
+| Classificação individual foi explicada | `artifacts/llm_individual_explanation_openai/individual_output.json` | `structured_output` |
+| Caso individual veio somente do desenvolvimento | `individual_input_snapshot.json` | `source_scope=development_only`, `test_or_holdout_case_used=false` |
+| Nenhuma linha ou identificador foi enviado | `privacy_report.json` | IDs, índice, target e valores brutos ausentes |
+| Explicação individual reproduziu os fatos | `factuality_report.json` | `passed_checks=40`, `total_checks=40` |
+| Qualidade individual passou seis dimensões | `evaluation_report.json` | `approved=true`, `overall_score=1.0` |
+| Insights não decidem cuidado | `individual_output.json` | `scope=human_review_only`, `patient_care_decision=false` |
+| Base textual do Módulo 3 está preparada | `individual_output.json` | `preparacao_modulo3.ready_for_future_text=true` |
 | Tabela mestre não executou modelagem | `artifacts/final_summary/model_results.json` | `data_scope` |
 | Figuras usam somente agregados | `reports/figures/final_presentation/figure_qa_report.json` | `source_scope` |
 | Consolidação não fez treino, inferência ou deploy; provider real foi isolado | `artifacts/final_summary/final_delivery_manifest.json` | `scope_confirmations`, `supplementary_real_llm_evaluation` |
@@ -50,5 +57,7 @@ As afirmações quantitativas devem ser auditadas nos artefatos estruturados. Do
 - [`llm_evaluation_manifest.json`](../artifacts/llm_evaluation/llm_evaluation_manifest.json)
 - [`contract_v2_manifest.json`](../artifacts/llm_contract_v2/contract_v2_manifest.json)
 - [`llm_evaluation_manifest.json` V4](../artifacts/llm_evaluation_openai_v4/llm_evaluation_manifest.json)
+- [`individual_output.json`](../artifacts/llm_individual_explanation_openai/individual_output.json)
+- [`exemplo individual versionado`](examples/individual_explanation_v1.json)
 - [`model_results.json`](../artifacts/final_summary/model_results.json)
 - `artifacts/final_summary/final_delivery_manifest.json` (gerado somente após a aprovação da suíte final)

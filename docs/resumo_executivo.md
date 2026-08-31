@@ -31,7 +31,7 @@ O modelo para demonstração continua sendo a Regressão Logística da busca ale
 
 ## Contribuição da LLM
 
-A LLM recebe somente resultados agregados. Nenhuma linha, feature, índice, previsão ou probabilidade individual é enviada. O provider oficial de reprodução é um mock determinístico offline: V1 passou 139 checks e V2 passou 327 checks.
+A trilha LLM agregada recebe somente resultados agregados: nenhuma linha, feature, índice, previsão ou probabilidade individual é enviada. A trilha individual 3.0 recebe uma representação de desenvolvimento desidentificada e não reconstruível, com classe, probabilidade e cinco sinais derivados, mas sem ID, índice, target ou valores brutos. O provider oficial de reprodução continua sendo um mock determinístico offline.
 
 Uma chamada complementar real com `gpt-5.5` e contrato V2 passou schema, 327/327 fatos, segurança, completude, clareza, pares explícitos e McNemar. Ela permaneceu cientificamente não aprovada porque três checks lexicais de calibração não reconheceram paráfrases semanticamente adequadas. A evidência negativa foi preservada, sem retry ou mudança posterior de prompt/schema/checker, e não substitui o caminho offline oficial.
 
@@ -39,4 +39,4 @@ Uma chamada complementar real com `gpt-5.5` e contrato V2 passou schema, 327/327
 
 Há somente 42 casos malignos no holdout; uma observação muda recall em cerca de 2,38 pontos percentuais. Os intervalos são amplos, o bootstrap inclui zero e McNemar tem poucos discordantes. O dataset é pequeno, de fonte única e sem validação externa, prospectiva ou clínica. O baseline histórico já havia registrado métricas do mesmo holdout, embora não tenha participado da seleção.
 
-Conclusão: o GA foi útil em duas famílias no objetivo prioritário e como demonstração de engenharia reproduzível, mas não houve superioridade universal ou evidência clínica. A camada LLM acrescentou explicação segura e auditável sem criar nova evidência; a avaliação real também tornou visível a limitação dos critérios lexicais. O projeto está tecnicamente pronto para apresentação acadêmica e demonstração offline, não para diagnóstico ou decisão médica.
+Conclusão: o GA foi útil em duas famílias no objetivo prioritário e como demonstração de engenharia reproduzível, mas não houve superioridade universal ou evidência clínica. A camada LLM acrescentou explicação agregada e individual segura sem criar nova evidência. O contrato individual 3.0 usa uma classificação de desenvolvimento desidentificada, explica cinco sinais e gera ações de revisão humana; fake e OpenAI real passaram 40/40 fatos e seis dimensões. O projeto está tecnicamente pronto para apresentação acadêmica, não para diagnóstico ou decisão médica.
