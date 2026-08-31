@@ -21,7 +21,7 @@ uv run pytest
 
 Explique que os testes de consolidação comparam a tabela mestre aos JSONs congelados e inspecionam o código para proibir treino, inferência e rede.
 
-Resultado esperado desta entrega, a partir de um clone limpo: `212 passed`. Avisos de depreciação de `pyparsing`/Matplotlib podem aparecer, sem afetar o status.
+Resultado esperado desta entrega, a partir de um clone limpo: `230 passed`. Avisos de depreciação de `pyparsing`/Matplotlib podem aparecer, sem afetar o status.
 
 ## 3. Abrir as evidências principais
 
@@ -102,6 +102,17 @@ PY
 ```
 
 Não execute `run-ga-battery`, `run-ga-experiment`, `run-ga-analysis`, `run-baseline` ou provider `openai_responses` durante a apresentação.
+
+## Alternativa: painel de resultados
+
+```bash
+uv run build-dashboard
+```
+
+Abra `reports/dashboard/index.html` no navegador. As cinco abas cobrem visão geral,
+algoritmo genético, LLM agregada, LLM individual e escalabilidade. Para a banca, a aba
+mais forte é a de verificação independente: as 139 checagens factuais listadas uma a
+uma, cada qual com o valor recalculado do artefato congelado.
 
 ## Alternativa: notebook somente leitura
 

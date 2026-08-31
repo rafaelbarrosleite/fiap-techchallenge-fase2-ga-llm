@@ -734,7 +734,16 @@ def generate_delivery_manifest(
             "deidentified_individual_explanation_sent_to_llm": True,
             "raw_individual_record_sent_to_llm": False,
             "patient_identifier_sent_to_llm": False,
-            "api_frontend_cloud_created": False,
+            # Substitui a antiga confirmacao unica "api_frontend_cloud_created".
+            # Ela dizia False e deixou de ser verdadeira quando a camada de
+            # servico, o container, o IaC e o painel entraram no repositorio.
+            # Uma confirmacao agregada que mistura coisas criadas com coisas nao
+            # criadas nao pode ser honesta; estas separam o que existe do que
+            # nunca foi provisionado.
+            "http_api_created": False,
+            "cloud_configuration_created": True,
+            "cloud_resources_provisioned": False,
+            "read_only_dashboard_created": True,
             "deploy_performed": False,
         },
         "supplementary_real_llm_evaluation": {

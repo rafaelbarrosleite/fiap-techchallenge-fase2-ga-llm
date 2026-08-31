@@ -79,6 +79,32 @@ jobs:
           path: artifacts/scalability/
           retention-days: 14
 
+  painel:
+    name: Painel estatico
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.8.17"
+          enable-cache: true
+
+      - name: Sincronizar dependencias travadas
+        run: uv sync --frozen
+
+      # A barreira de privacidade roda na construcao: se o HTML carregasse dado
+      # individual, o comando falha em vez de escrever o arquivo.
+      - name: Construir o painel
+        run: uv run build-dashboard
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: painel-estatico
+          path: reports/dashboard/
+          retention-days: 14
+
   implantacao:
     name: Container e infraestrutura como codigo
     runs-on: ubuntu-latest

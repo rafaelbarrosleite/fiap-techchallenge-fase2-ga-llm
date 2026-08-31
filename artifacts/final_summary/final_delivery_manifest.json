@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
   "artifact_type": "final_delivery_manifest",
-  "generated_at_utc": "2026-08-31T04:48:49.520097+00:00",
+  "generated_at_utc": "2026-08-31T11:57:25.327465+00:00",
   "status": "completed",
   "project_version": "0.7.0",
   "tests": {
     "command": "uv run pytest",
     "status": "passed",
-    "passed_count": 212
+    "passed_count": 230
   },
   "authority_references": {
     "mission4_plan_signature": "b94cbc663473ab040e89961144c69600062a03a09803c73027ca4163bc4fe1f7",
@@ -30,7 +30,10 @@
     "deidentified_individual_explanation_sent_to_llm": true,
     "raw_individual_record_sent_to_llm": false,
     "patient_identifier_sent_to_llm": false,
-    "api_frontend_cloud_created": false,
+    "http_api_created": false,
+    "cloud_configuration_created": true,
+    "cloud_resources_provisioned": false,
+    "read_only_dashboard_created": true,
     "deploy_performed": false
   },
   "supplementary_real_llm_evaluation": {
@@ -69,13 +72,13 @@
     "documents": [
       {
         "relative_path": "README.md",
-        "sha256": "ab0b9aa7faed4a0d88474cd74443719795dcabc936361667ff936b19cdcb7577",
-        "bytes": 12786
+        "sha256": "fce2bdcfa93ec95a1f0e0c0424cc24ed827b7a6371f99cdf5fc7dfe70553a6c0",
+        "bytes": 13640
       },
       {
         "relative_path": "docs/relatorio_final.md",
-        "sha256": "df941645cf464ea62d9504ab9342404627ec01be23a6b69e1a94305f7b871fed",
-        "bytes": 23149
+        "sha256": "062759e26c58b1b281bb9a255bb331fd4110184360165d6ba23d12e01ea86694",
+        "bytes": 23334
       },
       {
         "relative_path": "docs/resumo_executivo.md",
@@ -84,13 +87,13 @@
       },
       {
         "relative_path": "docs/roteiro_apresentacao.md",
-        "sha256": "7f776aab6802959830ae44137b3c250b1680b6af851304463b1a8161044ac0df",
-        "bytes": 9561
+        "sha256": "81a0093d41e5e704209f4ae36f0b6461fd101fdbe82018ffb25c36fd5254b3c2",
+        "bytes": 9838
       },
       {
         "relative_path": "docs/demo_guide.md",
-        "sha256": "1fb9f88dc63e524c1a93c1257e682f975da17e36be8406ceb96db3d311d22b44",
-        "bytes": 6206
+        "sha256": "a815a4014f6d3812e40bb9ae9fa3e42100b99ec21be51a91839f9c04f5d7996d",
+        "bytes": 6604
       },
       {
         "relative_path": "docs/mapa_evidencias.md",
@@ -99,8 +102,8 @@
       },
       {
         "relative_path": "docs/matriz_rastreabilidade_final.md",
-        "sha256": "1d9225f6b2a0f2a013919d1b3a2124b0312512dc3e7193da2dc57c2c1d48d79d",
-        "bytes": 5589
+        "sha256": "96832ec245973f7718e4a379a77f70086aee311d6e3f49c7ba7f51c283d8af54",
+        "bytes": 5980
       },
       {
         "relative_path": "docs/auditoria_documental_final.md",
@@ -109,7 +112,7 @@
       },
       {
         "relative_path": "docs/camada_llm_segura.md",
-        "sha256": "3fa96a319d2f2dc728b67803a502073351185074c31c462b62e87a9d8acd606f",
+        "sha256": "4d5e3d0a70f72be363aa088ad37eff20021bbb0fba940422dc9a93eeb96e543b",
         "bytes": 13675
       },
       {
@@ -362,5 +365,5 @@
     "status": "passed",
     "check_count": 55
   },
-  "signature": "41932d88fc685758a79e1fe19608a7994907f50b27bb6be167cb03f703b7577e"
+  "signature": "59617d45ed96b725a1cd84285ecb1a074d7f89b1159f73e11d81ed7a73ccfa78"
 }

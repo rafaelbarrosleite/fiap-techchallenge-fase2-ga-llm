@@ -122,12 +122,13 @@ O enunciado pede quatro coisas explicitamente. Nenhuma pode faltar.
 - **Demonstração em tela**, nesta ordem:
 
 ```bash
-uv run pytest                  # 212 testes a partir de um clone limpo
+uv run pytest                  # 230 testes a partir de um clone limpo
 uv run validate-deliverable    # hashes de documentos, artefatos e figuras
 uv run evaluate-llm-output     # factualidade, segurança e cinco dimensões
 uv run validate-scalability    # escopo e ausência de dado individual no log
 ```
 
+- **Em tela, o painel:** abra `reports/dashboard/index.html` e vá direto à aba *LLM agregada*, seção *Verificação independente*. Mostrar a resposta da LLM ao lado das 139 checagens que recalculam cada número é a forma mais rápida de tornar visível a tese do projeto.
 - **Alternativa:** `notebooks/demonstracao.ipynb` percorre o mesmo caminho em um artefato só, útil se preferir não alternar entre terminal e arquivos.
 - **Figura:** badge verde do CI mais o checklist da matriz de rastreabilidade.
 - **Fala sugerida:** “A contribuição é otimização reproduzível mais explicação segura, com limites explícitos. O CI roda essa mesma suíte em Python 3.11 e 3.13 a cada push, então a reprodutibilidade não depende da minha máquina.”

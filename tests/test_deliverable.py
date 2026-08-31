@@ -85,7 +85,10 @@ def test_final_delivery_manifest_is_signed_and_preserves_scope(tmp_path: Path) -
         "deidentified_individual_explanation_sent_to_llm": True,
         "raw_individual_record_sent_to_llm": False,
         "patient_identifier_sent_to_llm": False,
-        "api_frontend_cloud_created": False,
+        "http_api_created": False,
+        "cloud_configuration_created": True,
+        "cloud_resources_provisioned": False,
+        "read_only_dashboard_created": True,
         "deploy_performed": False,
     }
     assert payload["supplementary_real_llm_evaluation"] == {

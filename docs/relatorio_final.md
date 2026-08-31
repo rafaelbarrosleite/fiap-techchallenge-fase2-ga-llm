@@ -10,7 +10,7 @@ Esses resultados são descritivos e experimentais. Os intervalos são amplos, os
 
 O trabalho parte de um classificador de tumores da Fase 1 e responde a duas questões acadêmicas: se um algoritmo genético (GA) autoral consegue buscar hiperparâmetros de três famílias com controle metodológico e se uma LLM consegue explicar resultados agregados sem inventar fatos ou transformar evidência experimental em recomendação médica.
 
-O escopo cobre auditoria, baseline, GA, experimentos A/B/C, benchmark com busca aleatória (`RandomizedSearchCV`), seleção por validação cruzada, avaliação final protegida e LLM segura. API, frontend, cloud e deploy não fazem parte da solução. A contribuição principal não é apenas obter métricas: é tornar a cadeia inteira rastreável, reproduzível e defensável.
+O escopo cobre auditoria, baseline, GA, experimentos A/B/C, benchmark com busca aleatória (`RandomizedSearchCV`), seleção por validação cruzada, avaliação final protegida, LLM segura e uma camada de serviço escalável sobre o modelo congelado. Container e infraestrutura como código acompanham essa camada e são construídos e validados no CI, mas nenhum recurso foi provisionado. Não há API HTTP nem serviço em nuvem no ar. A contribuição principal não é apenas obter métricas: é tornar a cadeia inteira rastreável, reproduzível e defensável.
 
 ## 2. Dataset e problema de classificação
 
@@ -189,7 +189,7 @@ A robustez do projeto está mais forte na engenharia experimental do que na infe
 
 ## 10. Validação da entrega consolidada
 
-A suíte completa encerrou com **212 testes aprovados** em execução offline a partir de um clone limpo. Os testes validam as nove linhas da tabela mestre, a seleção global congelada, as seis figuras agregadas, a ausência de primitivas de treino/inferência/rede no consolidador, todos os links locais, os contratos V1/V2/3.0, o transporte raw-first, privacidade individual, factualidade, segurança e manifestos assinados. Os avisos emitidos são depreciação interna de `pyparsing`/Matplotlib; não houve falha funcional.
+A suíte completa encerrou com **230 testes aprovados** em execução offline a partir de um clone limpo. Os testes validam as nove linhas da tabela mestre, a seleção global congelada, as seis figuras agregadas, a ausência de primitivas de treino/inferência/rede no consolidador, todos os links locais, os contratos V1/V2/3.0, o transporte raw-first, privacidade individual, factualidade, segurança e manifestos assinados. Os avisos emitidos são depreciação interna de `pyparsing`/Matplotlib; não houve falha funcional.
 
 A execução idempotente da Missão 5 também foi repetida com `FakeLLMProvider` e retornou `approved=true`, sem rede. O validador consolidado confere adicionalmente o status não aprovado da execução real V2, 327/327 fatos, zero dados individuais e um único request sem retry. O validador final é somente leitura e confere assinaturas, hashes, métricas principais, divergências documentadas, QA visual e confirmações de escopo.
 

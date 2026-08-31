@@ -33,6 +33,12 @@ reports/**
 !reports/figures/**/*.png
 !reports/figures/**/*.json
 
+# O painel e derivado, mas e versionado para que a banca o abra a partir de um
+# clone sem executar nada. Um teste garante que o arquivo comitado corresponde a
+# uma construcao nova, entao ele nao pode ficar defasado em silencio.
+!reports/dashboard/
+!reports/dashboard/index.html
+
 logs/*
 !logs/.gitkeep
 

@@ -73,7 +73,7 @@ Com os manifestos íntegros e status `completed`:
 - `evaluate-llm-output` recalcula as verificações determinísticas da execução mock congelada;
 - `validate-deliverable` é somente leitura.
 
-Estado validado da entrega em clone limpo: **212 testes aprovados**. Os avisos observados são de depreciação interna de `pyparsing`/Matplotlib e não representam falha funcional ou alteração de resultado.
+Estado validado da entrega em clone limpo: **230 testes aprovados**. Os avisos observados são de depreciação interna de `pyparsing`/Matplotlib e não representam falha funcional ou alteração de resultado.
 
 `run-llm-evaluation` não faz parte do fluxo oficial. A identidade da execução mock V1 inclui a assinatura do código que a produziu, e a adição posterior do contrato V2 ao pacote `llm/` alterou essa assinatura. O engine então se recusa a reaproveitar o artefato congelado e levanta `ManualInterventionRequired`. Esse é o comportamento pretendido: a salvaguarda existe para impedir que uma execução congelada seja silenciosamente sobrescrita depois que o código muda. A evidência não foi re-selada para contornar a verificação; consulte [docs/limitacoes_e_validade.md](docs/limitacoes_e_validade.md).
 
@@ -158,6 +158,26 @@ Sob o mesmo perfil de vale, rajada e drenagem em 4 CPUs, o pool autoescalável r
 `Dockerfile`, `docker-compose.yml` e o módulo em `deploy/terraform/` cobrem a implantação opcional em nuvem, com piso e teto de réplicas espelhando a política local. A imagem é construída e o Terraform é formatado e validado a cada push no CI, então a configuração é verificada mesmo sem ser aplicada. A infraestrutura é acadêmica e **não foi provisionada**: nenhum recurso pago foi criado. Instruções em [deploy/README.md](deploy/README.md).
 
 Detalhes em [docs/escalabilidade_e_monitoramento.md](docs/escalabilidade_e_monitoramento.md).
+
+## Painel de resultados
+
+Um documento HTML único e autocontido reúne os resultados, as respostas da LLM e a
+verificação determinística de cada afirmação delas.
+
+```bash
+uv run build-dashboard
+```
+
+O painel é gerado a partir dos artefatos assinados e é estritamente somente leitura:
+não treina, não reabre seleção, não altera o limiar, não carrega modelo e não faz
+nenhuma chamada de rede — as figuras entram embutidas. Não existe campo de entrada
+de dados: um formulário de paciente romperia a barreira de privacidade que o resto
+do projeto sustenta.
+
+O painel mais útil é o de verificação: cada número que a LLM afirmou aparece ao lado
+do valor recalculado a partir do artefato congelado. A construção falha se o HTML
+renderizado carregar qualquer marca de registro individual, e regerar o documento
+produz bytes idênticos.
 
 ## Demonstração
 

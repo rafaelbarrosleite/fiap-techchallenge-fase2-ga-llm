@@ -37,7 +37,9 @@
 | Figuras agregadas com QA | 6 | seis gráficos estáticos | hashes + inspeção visual | `figure_qa_report.json` | Concluído |
 | Manifesto final | 6 | hashes e confirmações | `validate-deliverable` | `final_delivery_manifest.json` | Concluído |
 | Demonstração offline | 6 | fluxo idempotente | guia de 5/15 minutos | `demo_guide.md` | Concluído; gravação externa do vídeo pendente |
-| API/frontend/cloud/deploy | — | fora do escopo aprovado | confirmação de ausência | manifesto final | Não implementado por decisão |
+| Escalabilidade e monitoramento | 8 | política de backlog, servidor congelado e eventos agregados | `validate-scalability` | `scalability_report.json` | Concluído; medição dependente de hardware |
+| Container e IaC | 8 | implantação opcional em nuvem | build da imagem e `terraform validate` no CI | `Dockerfile`, `deploy/terraform/` | Entregue como código e verificado; não provisionado |
+| API HTTP pública | — | fora do escopo aprovado | confirmação de ausência | manifesto final | Não implementado por decisão |
 
 ## Arquitetura consolidada
 
