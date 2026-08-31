@@ -4,7 +4,12 @@ Convenção: Regressão Logística (LR), Random Forest (RF), KNN, baseline, GA, 
 
 ## Orçamento de tempo
 
-Treze cenas somam **13 min 55 s**, deixando cerca de um minuto de margem para o limite de 15 minutos. Se o tempo apertar, corte primeiro o Slide 2 (auditoria) e depois o Slide 8 (trade-offs): são os que menos participam das exigências do vídeo.
+| Versão | Cenas | Duração |
+|---|---:|---:|
+| Completa | 13 | **14 min 20 s** |
+| Enxuta, sem o Slide 2 | 12 | **13 min 35 s** |
+
+O Slide 2 (auditoria da Fase 1) é o corte planejado: é a cena que menos participa das quatro exigências do vídeo. Se ainda faltar tempo, o corte seguinte é o Slide 8 (trade-offs). Grave a versão enxuta se estiver inseguro com o relógio — estourar 15 minutos custa mais que omitir a auditoria.
 
 ## Cobertura das exigências do vídeo
 
@@ -12,12 +17,16 @@ O enunciado pede quatro coisas explicitamente. Nenhuma pode faltar.
 
 | Exigência do enunciado | Onde é atendida |
 |---|---|
-| Demonstração do sistema em execução | Slide 13 — comandos rodando ao vivo |
+| Demonstração do sistema em execução | Slide 13 — comandos e painel em tela |
 | Explicação dos diferentes componentes | Slides 3, 4, 10 e 11 |
 | Resultados da otimização via algoritmos genéticos | Slides 5, 6, 7, 8 e 9 |
 | Demonstração da integração com LLMs | Slide 10, com saída real em tela |
 
-**Antes de gravar:** rode `uv run pytest`, `uv run validate-deliverable` e `uv run validate-scalability` e confirme que passam. A demonstração ao vivo depende dos estados congelados estarem íntegros.
+## Antes de gravar
+
+1. Rode `uv run pytest`, `uv run validate-deliverable` e `uv run validate-scalability` e confirme que passam. A demonstração depende de os estados congelados estarem íntegros.
+2. **Deixe os comandos do Slide 13 já executados em um terminal aberto**, com a saída visível, e role a tela durante a fala. Executar ao vivo coloca 40 segundos de espera dentro de uma cena de 70 — e uma falha de ambiente no meio da gravação custa a tomada inteira.
+3. Abra `reports/dashboard/index.html` em outra aba do navegador, já na seção de verificação, para não navegar em tela.
 
 ## Slide 1 — Problema e pergunta acadêmica (45 s)
 
@@ -27,7 +36,7 @@ O enunciado pede quatro coisas explicitamente. Nenhuma pode faltar.
 - **Fala sugerida:** “O desafio não foi apenas melhorar uma métrica; foi construir uma cadeia auditável de seleção, confirmação e explicação.”
 - **Risco:** parecer proposta clínica. Dizer explicitamente “acadêmico e experimental”.
 
-## Slide 2 — Auditoria inicial (45 s)
+## Slide 2 — Auditoria inicial (45 s, primeira cena a cortar)
 
 - **Mensagem principal:** a Fase 1 era reproduzível em partes, mas misturava etapas e usava validação repetidamente.
 - **Dados:** 60/20/20 histórico; dependências não congeladas; EDA supervisionada antes do corte.
@@ -55,7 +64,7 @@ O enunciado pede quatro coisas explicitamente. Nenhuma pode faltar.
 
 - **Mensagem principal:** famílias responderam de maneira diferente ao orçamento.
 - **Dados:** 9 experimentos, 4.495 avaliações únicas, 22.475 fits, 51,12 min; RF 97,3% do tempo.
-- **Figura:** figura histórica `07_avaliacoes_e_duracao.png` ou tabela A/B/C.
+- **Figura:** a tabela A/B/C da seção 5 do `relatorio_final.md`. Não existe figura de avaliações e duração no repositório: as versionadas vão de `01_` a `06_`, e `07_` é a de escalabilidade.
 - **Fala sugerida:** “KNN saturou cedo; RF precisou da busca exploratória; LR entrou em platô.”
 - **Risco:** sugerir que maior orçamento sempre melhora.
 
@@ -98,6 +107,7 @@ O enunciado pede quatro coisas explicitamente. Nenhuma pode faltar.
 - **Figura:** fluxo LLM de `camada_llm_segura.md`.
 - **Fala sugerida:** “O provider gera; código independente decide se a saída pode ser aprovada. No caso individual, a LLM recebe classe, probabilidade e cinco sinais, mas não recebe ID, índice, diagnóstico real ou valores brutos.”
 - **Risco:** sugerir que outro LLM valida a resposta; as barreiras oficiais são determinísticas.
+- **Onde cada número aparece:** o painel mostra os **139** checks do contrato agregado V1 e os **40/40** do individual. Os **327** do contrato V2 não estão no painel — vivem em `docs/contrato_llm_v2.md` e em `artifacts/llm_contract_v2/`. Cite o 327 pela documentação, não procurando em tela.
 
 ## Slide 11 — Escalabilidade automática e monitoramento (75 s)
 
@@ -116,10 +126,10 @@ O enunciado pede quatro coisas explicitamente. Nenhuma pode faltar.
 - **Fala sugerida:** “Não limpamos divergências históricas; registramos fonte e impacto.”
 - **Risco:** esconder que o baseline já conhecia o holdout.
 
-## Slide 13 — Demonstração ao vivo e conclusão (45 s)
+## Slide 13 — Demonstração e conclusão (70 s)
 
 - **Mensagem principal:** pronto para defesa acadêmica e reprodução offline, não para uso clínico.
-- **Demonstração em tela**, nesta ordem:
+- **Em tela**, rolando a saída já produzida (ver *Antes de gravar*), nesta ordem:
 
 ```bash
 uv run pytest                  # 230 testes a partir de um clone limpo
