@@ -39,7 +39,9 @@ uv run pytest -q
 uv run validate-deliverable
 ```
 
-O `--reinstall` reinstala o pacote do projeto no ambiente. É barato e elimina a única falha de ambiente já observada em gravação.
+O `--reinstall` reinstala o pacote do projeto no ambiente.
+
+**Regra:** rode `uv sync --reinstall` depois de qualquer `git pull`. Alterações em `pyproject.toml` obrigam o uv a reinstalar o projeto, e um install pela metade derruba tanto o `pytest` quanto os comandos como `validate-deliverable`, com `ModuleNotFoundError`. O `uv run` **não** conserta isso sozinho: ele considera o projeto instalado e não refaz a instalação. Só o `--reinstall` resolve.
 
 3. Abra o editor com a pasta do projeto e deixe estes arquivos em abas, nesta ordem:
    - `src/tech_challenge_fase2/genetic/genomes.py`

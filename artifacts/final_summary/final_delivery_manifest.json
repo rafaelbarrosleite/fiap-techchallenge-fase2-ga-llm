@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "artifact_type": "final_delivery_manifest",
-  "generated_at_utc": "2026-08-31T15:07:48.500253+00:00",
+  "generated_at_utc": "2026-08-31T15:26:01.016489+00:00",
   "status": "completed",
   "project_version": "0.7.0",
   "tests": {
@@ -87,8 +87,8 @@
       },
       {
         "relative_path": "docs/roteiro_apresentacao.md",
-        "sha256": "2d65d812cfd4cda38e38d7a6c364d0f9afd93d32fb6c0f64ee3905378860dd4a",
-        "bytes": 17917
+        "sha256": "4a17d126a08ff9e869efa74f7a6725bcf720d0d8b55bb452d7b8a36553bbd345",
+        "bytes": 18241
       },
       {
         "relative_path": "docs/demo_guide.md",
@@ -365,5 +365,5 @@
     "status": "passed",
     "check_count": 55
   },
-  "signature": "890f37ef55f3ed4039d2eea6b8565b58f6bd6a8ebafdf591a471b52e8ee6c51e"
+  "signature": "c5fb25e32e48325d4b0814c4ba7aa13e1f6b828cfc84e0c23c38c2358b7e63a2"
 }
