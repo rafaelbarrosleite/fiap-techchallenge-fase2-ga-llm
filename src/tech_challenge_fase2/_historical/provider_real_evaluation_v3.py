@@ -22,12 +22,12 @@ from tech_challenge_fase2.llm.privacy import validate_sanitized_input
 from tech_challenge_fase2.llm.prompts import load_prompt_bundle
 from tech_challenge_fase2.llm.providers import LLMRequest
 from tech_challenge_fase2.llm.schemas import validate_input
-from tech_challenge_fase2.openai_response_parsing_diagnosis import (
+from tech_challenge_fase2._historical.openai_response_parsing_diagnosis import (
     PARSING_DIAGNOSIS_ROOT,
     _assert_response_safe,
     _usage,
 )
-from tech_challenge_fase2.provider_real_evaluation import (
+from tech_challenge_fase2._historical.provider_real_evaluation import (
     ADVERSARIAL_NAME,
     COMPARISON_NAME,
     EVALUATION_NAME,
@@ -72,7 +72,7 @@ PREVIOUS_ROOTS = {
 EXPECTED_V3_PATHS = {
     "pyproject.toml",
     "README.md",
-    "docs/avaliacao_provider_real_v3.md",
+    "docs/historico/avaliacao_provider_real_v3.md",
     "docs/relatorio_final.md",
     "docs/resumo_executivo.md",
     "docs/matriz_rastreabilidade_final.md",

@@ -16,7 +16,7 @@ from tech_challenge_fase2.llm.input_builder import PROJECT_ROOT, file_sha256
 from tech_challenge_fase2.llm.prompts import load_prompt_bundle
 from tech_challenge_fase2.llm.providers import LLMRequest
 from tech_challenge_fase2.llm.schemas import output_json_schema
-from tech_challenge_fase2.provider_real_evaluation import (
+from tech_challenge_fase2._historical.provider_real_evaluation import (
     OPENAI_ARTIFACT_ROOT,
     AuditedOpenAIResponsesProvider,
     ProviderCallError,

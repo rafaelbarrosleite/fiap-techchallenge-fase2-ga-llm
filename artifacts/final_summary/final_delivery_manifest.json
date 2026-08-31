@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "artifact_type": "final_delivery_manifest",
-  "generated_at_utc": "2026-08-31T02:28:43.718515+00:00",
+  "generated_at_utc": "2026-08-31T04:27:02.961342+00:00",
   "status": "completed",
   "project_version": "0.7.0",
   "tests": {
@@ -69,8 +69,8 @@
     "documents": [
       {
         "relative_path": "README.md",
-        "sha256": "59cbde7e6d7d48c7653af269486b03c36eaccea2b3e5b7389675f4765b4adaa5",
-        "bytes": 11947
+        "sha256": "19743167a6140170cccb2c5e538bb1e82db15d534aa847a21bba158ebfa668eb",
+        "bytes": 12248
       },
       {
         "relative_path": "docs/relatorio_final.md",
@@ -362,5 +362,5 @@
     "status": "passed",
     "check_count": 55
   },
-  "signature": "c6cdf7c532b1170bf1e9cf806aa961b39e0354a611c4bd7edd831b65e804c660"
+  "signature": "bf22b55edd7b1952c0612f4f1563c98440022cd41a06d60544c9246eca02f8d5"
 }

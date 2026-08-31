@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from tech_challenge_fase2.openai_response_parsing_diagnosis import run_parsing_probe
+from tech_challenge_fase2._historical.openai_response_parsing_diagnosis import run_parsing_probe
 from tech_challenge_fase2.responses_parsing import (
     ResponseContentError,
     ResponseStateError,

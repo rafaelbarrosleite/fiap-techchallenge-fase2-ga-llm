@@ -15,8 +15,8 @@ from tech_challenge_fase2.llm.input_builder import PROJECT_ROOT, file_sha256
 from tech_challenge_fase2.llm.privacy import validate_sanitized_input
 from tech_challenge_fase2.llm.prompts import load_prompt_bundle
 from tech_challenge_fase2.llm.providers import LLMRequest
-from tech_challenge_fase2.openai_integration_diagnosis import minimal_request_body
-from tech_challenge_fase2.provider_real_evaluation import (
+from tech_challenge_fase2._historical.openai_integration_diagnosis import minimal_request_body
+from tech_challenge_fase2._historical.provider_real_evaluation import (
     ADVERSARIAL_NAME,
     EVALUATION_NAME,
     FACTUALITY_NAME,

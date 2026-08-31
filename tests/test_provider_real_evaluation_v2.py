@@ -6,8 +6,8 @@ from pathlib import Path
 import pytest
 
 from tech_challenge_fase2.llm.providers import LLMRequest, build_deterministic_output
-from tech_challenge_fase2.provider_real_evaluation import RawProviderResponse
-from tech_challenge_fase2.provider_real_evaluation_v2 import (
+from tech_challenge_fase2._historical.provider_real_evaluation import RawProviderResponse
+from tech_challenge_fase2._historical.provider_real_evaluation_v2 import (
     Mission72Error,
     finalize_v2_manifest,
     prepare_v2,

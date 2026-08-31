@@ -11,7 +11,7 @@ from tech_challenge_fase2.llm_v2.input_builder import build_llm_input_v2
 from tech_challenge_fase2.llm_v2.privacy import validate_sanitized_input_v2
 from tech_challenge_fase2.llm_v2.providers import build_deterministic_output_v2
 from tech_challenge_fase2.llm_v2.schemas import SchemaV2Error
-from tech_challenge_fase2.provider_real_evaluation_v4 import (
+from tech_challenge_fase2._historical.provider_real_evaluation_v4 import (
     ADVERSARIAL_NAME,
     RAW_NAME,
     RawFirstOpenAIResponsesProviderV2,

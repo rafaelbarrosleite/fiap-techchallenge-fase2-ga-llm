@@ -7,7 +7,7 @@ from tech_challenge_fase2.llm.input_builder import build_llm_input
 from tech_challenge_fase2.llm.prompts import load_prompt_bundle
 from tech_challenge_fase2.llm.providers import LLMRequest, build_deterministic_output
 from tech_challenge_fase2.llm.schemas import output_json_schema
-from tech_challenge_fase2.provider_real_evaluation import (
+from tech_challenge_fase2._historical.provider_real_evaluation import (
     ADVERSARIAL_NAME, COMPARISON_NAME, FAILURE_NAME, HALLUCINATION_NAME,
     MANIFEST_NAME, OUTPUT_NAME, PREFLIGHT_NAME, USAGE_NAME,
     AuditedOpenAIResponsesProvider, ProviderCallError, RawProviderResponse,

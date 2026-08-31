@@ -7,13 +7,13 @@ import pytest
 
 from tech_challenge_fase2.genetic.serialization import stable_sha256
 from tech_challenge_fase2.llm.schemas import output_json_schema
-from tech_challenge_fase2.openai_integration_diagnosis import (
+from tech_challenge_fase2._historical.openai_integration_diagnosis import (
     inspect_schema,
     minimal_request_body,
     minimal_schema,
     prepare_diagnosis,
 )
-from tech_challenge_fase2.provider_real_evaluation import (
+from tech_challenge_fase2._historical.provider_real_evaluation import (
     AuditedOpenAIResponsesProvider,
     ProviderCallError,
 )

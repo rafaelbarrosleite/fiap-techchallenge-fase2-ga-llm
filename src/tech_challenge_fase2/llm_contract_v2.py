@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 from collections import Counter
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -15,7 +16,6 @@ from tech_challenge_fase2.llm_v2.input_builder import build_llm_input_v2
 from tech_challenge_fase2.llm_v2.prompts import load_prompt_bundle_v2
 from tech_challenge_fase2.llm_v2.providers import FakeLLMProviderV2
 from tech_challenge_fase2.llm_v2.schemas import output_json_schema_v2, validate_input_v2, validate_output_v2
-from tech_challenge_fase2.provider_real_evaluation import utc_now
 
 CONTRACT_V2_ROOT = PROJECT_ROOT / "artifacts" / "llm_contract_v2"
 CONTRACT_NAME = "contract_v2.json"
@@ -25,6 +25,11 @@ COMPARISON_NAME = "v1_vs_v2_comparison.json"
 HISTORICAL_NAME = "historical_v3_reinterpretation.json"
 FAKE_NAME = "fake_v2_evaluation.json"
 MANIFEST_NAME = "contract_v2_manifest.json"
+
+
+def utc_now() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
 
 HISTORICAL_ROOTS = {
     "mission5": PROJECT_ROOT / "artifacts" / "llm_evaluation",

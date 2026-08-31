@@ -4,8 +4,8 @@ from pathlib import Path
 import pytest
 
 from tech_challenge_fase2.llm.providers import LLMRequest, build_deterministic_output
-from tech_challenge_fase2.provider_real_evaluation import RawProviderResponse
-from tech_challenge_fase2.provider_real_evaluation_v3 import (
+from tech_challenge_fase2._historical.provider_real_evaluation import RawProviderResponse
+from tech_challenge_fase2._historical.provider_real_evaluation_v3 import (
     RAW_NAME,
     RawFirstOpenAIResponsesProvider,
     finalize_v3_manifest,

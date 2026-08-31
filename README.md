@@ -87,6 +87,8 @@ src/tech_challenge_fase2/
   llm/                                contratos, prompts, providers e checkers
   llm_v2/                             contrato semântico com pares explícitos
   llm_individual/                     explicação individual desidentificada
+  serving/                            autoscaling, servidor congelado e monitoramento
+  _historical/                        trilha preservada da integração real, fora do fluxo oficial
   final_evaluation.py                 avaliação confirmatória protegida
   deliverable.py                      consolidação somente leitura
 tests/                                suíte automatizada
@@ -194,6 +196,7 @@ Detalhes em [docs/escalabilidade_e_monitoramento.md](docs/escalabilidade_e_monit
 - LLM segura: [docs/camada_llm_segura.md](docs/camada_llm_segura.md);
 - contrato LLM V2: [docs/contrato_llm_v2.md](docs/contrato_llm_v2.md);
 - avaliação OpenAI V2: [docs/avaliacao_provider_real_v4.md](docs/avaliacao_provider_real_v4.md);
+- histórico da integração real: [docs/historico_integracao_llm_real.md](docs/historico_integracao_llm_real.md);
 - explicação individual: [docs/explicacao_individual_llm.md](docs/explicacao_individual_llm.md);
 - escalabilidade e monitoramento: [docs/escalabilidade_e_monitoramento.md](docs/escalabilidade_e_monitoramento.md);
 - limitações: [docs/limitacoes_e_validade.md](docs/limitacoes_e_validade.md).

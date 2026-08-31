@@ -17,52 +17,26 @@ dependencies = [
 ]
 
 [project.scripts]
+# Fluxo oficial da entrega. A trilha historica da integracao com o provider
+# real vive em `tech_challenge_fase2._historical` e continua executavel por
+# modulo; ela saiu daqui para que a vitrine mostre o caminho demonstravel.
+validate-deliverable = "tech_challenge_fase2.run_deliverable:validate_main"
+run-final-evaluation = "tech_challenge_fase2.run_final_evaluation:run_main"
+evaluate-llm-output = "tech_challenge_fase2.run_llm_evaluation:evaluate_main"
+prepare-individual-explanation = "tech_challenge_fase2.run_individual_explanation:prepare_main"
+run-individual-explanation = "tech_challenge_fase2.run_individual_explanation:run_main"
+evaluate-individual-explanation = "tech_challenge_fase2.run_individual_explanation:evaluate_main"
+validate-llm-contract-v2 = "tech_challenge_fase2.run_llm_contract_v2:validate_main"
+run-load-benchmark = "tech_challenge_fase2.run_serving:benchmark_main"
+validate-scalability = "tech_challenge_fase2.run_serving:validate_main"
+
+# Reproducao metodologica deliberada: caros, sobrescrevem estado congelado ou
+# exigem credencial. Nao executar durante a demonstracao.
 run-baseline = "tech_challenge_fase2.baseline:main"
-run-ga-smoke = "tech_challenge_fase2.run_genetic:main"
 run-ga-experiment = "tech_challenge_fase2.run_official:experiment_main"
 run-ga-battery = "tech_challenge_fase2.run_official:battery_main"
 run-ga-analysis = "tech_challenge_fase2.run_official:analysis_main"
-prepare-final-evaluation = "tech_challenge_fase2.run_final_evaluation:prepare_main"
-run-final-evaluation = "tech_challenge_fase2.run_final_evaluation:run_main"
-prepare-llm-evaluation = "tech_challenge_fase2.run_llm_evaluation:prepare_main"
-run-llm-evaluation = "tech_challenge_fase2.run_llm_evaluation:run_main"
-evaluate-llm-output = "tech_challenge_fase2.run_llm_evaluation:evaluate_main"
 build-final-deliverable = "tech_challenge_fase2.run_deliverable:build_main"
-validate-deliverable = "tech_challenge_fase2.run_deliverable:validate_main"
-prepare-openai-evaluation = "tech_challenge_fase2.run_provider_real_evaluation:prepare_main"
-run-openai-provider-evaluation = "tech_challenge_fase2.run_provider_real_evaluation:run_main"
-run-openai-provider-adversarial = "tech_challenge_fase2.run_provider_real_evaluation:adversarial_main"
-validate-openai-provider-evaluation = "tech_challenge_fase2.run_provider_real_evaluation:validate_main"
-finalize-openai-provider-failure = "tech_challenge_fase2.run_provider_real_evaluation:finalize_failure_main"
-diagnose-openai-request = "tech_challenge_fase2.run_openai_integration_diagnosis:diagnose_main"
-test-openai-structured-output = "tech_challenge_fase2.run_openai_integration_diagnosis:test_structured_output_main"
-validate-openai-diagnosis = "tech_challenge_fase2.run_openai_integration_diagnosis:validate_main"
-prepare-openai-evaluation-v2 = "tech_challenge_fase2.run_provider_real_evaluation_v2:prepare_main"
-run-openai-technical-probe-v2 = "tech_challenge_fase2.run_provider_real_evaluation_v2:probe_main"
-run-openai-scientific-v2 = "tech_challenge_fase2.run_provider_real_evaluation_v2:scientific_main"
-run-openai-adversarial-v2 = "tech_challenge_fase2.run_provider_real_evaluation_v2:adversarial_main"
-validate-openai-evaluation-v2 = "tech_challenge_fase2.run_provider_real_evaluation_v2:validate_main"
-prepare-openai-response-parsing-diagnosis = "tech_challenge_fase2.run_openai_response_parsing_diagnosis:prepare_main"
-run-openai-response-parsing-probe = "tech_challenge_fase2.run_openai_response_parsing_diagnosis:probe_main"
-validate-openai-response-parsing = "tech_challenge_fase2.run_openai_response_parsing_diagnosis:validate_main"
-prepare-openai-evaluation-v3 = "tech_challenge_fase2.run_provider_real_evaluation_v3:prepare_main"
-run-openai-scientific-v3 = "tech_challenge_fase2.run_provider_real_evaluation_v3:scientific_main"
-run-openai-adversarial-v3 = "tech_challenge_fase2.run_provider_real_evaluation_v3:adversarial_main"
-finalize-openai-evaluation-v3 = "tech_challenge_fase2.run_provider_real_evaluation_v3:finalize_main"
-validate-openai-evaluation-v3 = "tech_challenge_fase2.run_provider_real_evaluation_v3:validate_main"
-build-llm-contract-v2 = "tech_challenge_fase2.run_llm_contract_v2:build_main"
-validate-llm-contract-v2 = "tech_challenge_fase2.run_llm_contract_v2:validate_main"
-prepare-openai-evaluation-v4 = "tech_challenge_fase2.run_provider_real_evaluation_v4:prepare_main"
-run-openai-scientific-v4 = "tech_challenge_fase2.run_provider_real_evaluation_v4:scientific_main"
-run-openai-adversarial-v4 = "tech_challenge_fase2.run_provider_real_evaluation_v4:adversarial_main"
-validate-openai-evaluation-v4 = "tech_challenge_fase2.run_provider_real_evaluation_v4:validate_main"
-prepare-individual-explanation = "tech_challenge_fase2.run_individual_explanation:prepare_main"
-run-individual-explanation = "tech_challenge_fase2.run_individual_explanation:run_main"
-run-individual-explanation-openai = "tech_challenge_fase2.run_individual_explanation:run_openai_main"
-evaluate-individual-explanation = "tech_challenge_fase2.run_individual_explanation:evaluate_main"
-revalidate-individual-explanation = "tech_challenge_fase2.run_individual_explanation:revalidate_main"
-run-load-benchmark = "tech_challenge_fase2.run_serving:benchmark_main"
-validate-scalability = "tech_challenge_fase2.run_serving:validate_main"
 
 [dependency-groups]
 dev = [

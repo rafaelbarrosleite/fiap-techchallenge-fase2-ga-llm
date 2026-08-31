@@ -102,8 +102,8 @@ O resultado positivo é de engenharia de segurança: o preflight funcionou, o pa
 
 Artefatos prioritários:
 
-- [`failure_report.json`](../artifacts/llm_evaluation_openai/failure_report.json)
-- [`provider_usage.json`](../artifacts/llm_evaluation_openai/provider_usage.json)
-- [`comparison_with_fake.json`](../artifacts/llm_evaluation_openai/comparison_with_fake.json)
-- [`llm_evaluation_manifest.json`](../artifacts/llm_evaluation_openai/llm_evaluation_manifest.json)
+- [`failure_report.json`](../../artifacts/llm_evaluation_openai/failure_report.json)
+- [`provider_usage.json`](../../artifacts/llm_evaluation_openai/provider_usage.json)
+- [`comparison_with_fake.json`](../../artifacts/llm_evaluation_openai/comparison_with_fake.json)
+- [`llm_evaluation_manifest.json`](../../artifacts/llm_evaluation_openai/llm_evaluation_manifest.json)
 

@@ -37,8 +37,8 @@ from tech_challenge_fase2.llm_v2.schemas import (
     validate_input_v2,
     validate_output_v2,
 )
-from tech_challenge_fase2.openai_response_parsing_diagnosis import _assert_response_safe, _usage
-from tech_challenge_fase2.provider_real_evaluation import (
+from tech_challenge_fase2._historical.openai_response_parsing_diagnosis import _assert_response_safe, _usage
+from tech_challenge_fase2._historical.provider_real_evaluation import (
     ProviderCallError,
     RawProviderResponse,
     _configured_credentials,
