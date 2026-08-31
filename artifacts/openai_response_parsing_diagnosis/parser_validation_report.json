@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "responses_parser_validation_report",
+  "generated_at_utc": "2026-08-24T20:11:40.711096+00:00",
+  "local_tests_required": [
+    "message_output_text",
+    "reasoning_then_message",
+    "refusal_without_text",
+    "incomplete_status",
+    "completed_empty_output",
+    "invalid_json",
+    "schema_mismatch"
+  ],
+  "parser_supports_output_array": true,
+  "position_independent": true,
+  "reasoning_content_exposed": false,
+  "response_states_supported": [
+    "completed",
+    "incomplete",
+    "failed",
+    "cancelled",
+    "queued",
+    "in_progress"
+  ],
+  "test_execution_status": "passed",
+  "test_count": 8,
+  "updated_at_utc": "2026-08-24T20:11:45.619477+00:00",
+  "signature": "9e3f7cb7fd998068e9a7bf60d7e9663ae46d06659de40ad3a4dc71cdd9507409"
+}

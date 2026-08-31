@@ -1,0 +1,196 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_llm_evaluation_manifest",
+  "generated_at_utc": "2026-08-24T20:29:52.637992+00:00",
+  "status": "invalid",
+  "approved": false,
+  "run_identity": "56fbfb080300146426040b0e0c569211dcd55c4670f696e855de715fbad30ed0",
+  "provider": "openai_responses",
+  "model": "gpt-5.5",
+  "prompt_versions": {
+    "system": "system_v1",
+    "explanation": "explanation_v1",
+    "system_sha256": "f10c9d6db2a572c48810b7d10ffc70e651f244383afdb9dde5959901b43306b3",
+    "explanation_sha256": "39e505da3b3293eaa12d89b422013188682774c54dfae244aed93c68b759ce78"
+  },
+  "input_sha256": "44ca9f33e8a8553ed837441507c97c4cebfd9e6bcc57170e81e9e97e4936ee13",
+  "output_sha256": "48bd70522656dc5ff502563eeac463cc7fda5d45bb654d5d6b3876edf0f111f1",
+  "schema_valid": true,
+  "factuality": false,
+  "safety": true,
+  "completeness": true,
+  "clarity": {
+    "score": 1.0,
+    "passed": true,
+    "checks": {
+      "reasonable_length": true,
+      "sentence_length": true,
+      "structured_sections": true,
+      "limited_unexplained_jargon": true
+    },
+    "word_count": 598,
+    "average_sentence_words": 17.085714285714285,
+    "unexplained_jargon": [
+      "mcnemar"
+    ]
+  },
+  "scientific_calibration": true,
+  "adversarial_results": {
+    "status": "not_run_main_invalid",
+    "provider_calls": 0,
+    "scenarios": []
+  },
+  "usage": {
+    "schema_version": "1.0",
+    "artifact_type": "openai_provider_usage",
+    "generated_at_utc": "2026-08-24T20:27:40.470475+00:00",
+    "provider": "openai_responses",
+    "requested_model": "gpt-5.5",
+    "response_model": "gpt-5.5-2026-04-23",
+    "input_tokens": 3980,
+    "output_tokens": 2712,
+    "total_tokens": 6692,
+    "cached_input_tokens": 0,
+    "reasoning_output_tokens": 516,
+    "duration_seconds": 26.885896041989326,
+    "request_success": true,
+    "response_id": "resp_0cd373b184ce6bd7016a8ca92328e087d2954f8e66cd926adf",
+    "response_status": "completed",
+    "store_requested": false,
+    "store_returned": false,
+    "cost_estimate": null,
+    "cost_estimate_reason": "No versioned price configuration was supplied; no price was invented.",
+    "http_status": 200,
+    "request_id": "req_b388b093407e454db64e0829ed1ae94a",
+    "temperature_sent": false,
+    "retries": 0,
+    "cached_tokens": 0,
+    "reasoning_tokens": 516,
+    "raw_first_persisted": true,
+    "signature": "8757b18300fbc6dda3510ac8214e72de8037f10b3237536139a7301e506a8c89"
+  },
+  "privacy": {
+    "individual_data_sent": false,
+    "final_predictions_sent": false,
+    "aggregate_contract_only": true,
+    "secret_recorded": false
+  },
+  "scope_confirmations": {
+    "training_performed": false,
+    "ga_executed": false,
+    "randomized_search_executed": false,
+    "new_holdout_inference_performed": false,
+    "threshold_changed": false,
+    "selection_reopened": false,
+    "api_or_frontend_created": false,
+    "deploy_performed": false
+  },
+  "software": {
+    "python": "3.12.13"
+  },
+  "mission_version": "7.3",
+  "http": {
+    "status": 200,
+    "request_id": "req_b388b093407e454db64e0829ed1ae94a",
+    "response_id": "resp_0cd373b184ce6bd7016a8ca92328e087d2954f8e66cd926adf",
+    "response_status": "completed",
+    "response_model": "gpt-5.5-2026-04-23"
+  },
+  "raw_first": {
+    "enabled": true,
+    "raw_persisted": true,
+    "persisted_before_status_analysis": true,
+    "parser_source": "responses_parsing.extract_response_text"
+  },
+  "call_budget": {
+    "technical_probe": 0,
+    "scientific_main": 1,
+    "adversarial": 0,
+    "total": 1,
+    "maximum": 4,
+    "automatic_retries": 0
+  },
+  "repository": {
+    "mission_start_clean": true,
+    "mission_start_commit": "3bef0e4ac48c88f63c2bca91221956cca2abb2ed",
+    "head_at_finalization": "3bef0e4ac48c88f63c2bca91221956cca2abb2ed",
+    "env_ignored": true,
+    "automatic_commit_performed": false,
+    "push_performed": false
+  },
+  "previous_evidence_preserved": true,
+  "technical_probe_repeated": false,
+  "files": [
+    {
+      "filename": "adversarial_results.json",
+      "sha256": "b77cb364976992d051a2524ba2f9bf0cb4535897e84942f7476acd49f85c4eec",
+      "bytes": 517
+    },
+    {
+      "filename": "comparison_with_fake.json",
+      "sha256": "83177e9823d200077e20dc6e683f8e077742effe84d9d4e71f3e4cb747ac6906",
+      "bytes": 1186
+    },
+    {
+      "filename": "evaluation_report.json",
+      "sha256": "40d69ffa3c9019b79088f2a7c1fd82fe1c6c914570d381f41859662c415d5a36",
+      "bytes": 20451
+    },
+    {
+      "filename": "factuality_report.json",
+      "sha256": "6a55f6d4bb75c8f2b30bfd827c70343a025ea19efea96de7a89ee94f06cb74d5",
+      "bytes": 17579
+    },
+    {
+      "filename": "failure_report.json",
+      "sha256": "f162030c770c18abe129de20955397e03d9dbaa9a372d62b3ff6861b4dc25216",
+      "bytes": 685
+    },
+    {
+      "filename": "hallucination_report.json",
+      "sha256": "5d5704073f1bca24b26e0566947703d6ddf0a406e1b9521a04705e8b78f86ee7",
+      "bytes": 726
+    },
+    {
+      "filename": "llm_input_snapshot.json",
+      "sha256": "6674f5fcd1cfcc6e3891a5a39e55b44952fe1bfe9158b9b3abe9f6463f161ab4",
+      "bytes": 11384
+    },
+    {
+      "filename": "llm_output.json",
+      "sha256": "48bd70522656dc5ff502563eeac463cc7fda5d45bb654d5d6b3876edf0f111f1",
+      "bytes": 19479
+    },
+    {
+      "filename": "main_run_manifest.json",
+      "sha256": "865ebd061401a531f1b8144381dd26dd890e24c1ef64b8533fabbc9ee86f7119",
+      "bytes": 1455
+    },
+    {
+      "filename": "mission73_preflight.json",
+      "sha256": "70f156fe4c0e7074bed5359801239cc99bb61e2d57bce19fd777ab2abe8f1a51",
+      "bytes": 6974
+    },
+    {
+      "filename": "preflight_report.json",
+      "sha256": "d853b46f1e4e3fee1ff7fe11580ac11b06b380cb5cb1cb53358329149604b4fd",
+      "bytes": 734
+    },
+    {
+      "filename": "provider_usage.json",
+      "sha256": "66428f38421cdddf00bd801d784783992ccac7455faf1e6f26f3b036806348b5",
+      "bytes": 1019
+    },
+    {
+      "filename": "raw_response_sanitized.json",
+      "sha256": "fa6d82d4884ed75fc21cef1b2d2468477ecde006148479bd872167b240a478d3",
+      "bytes": 32661
+    },
+    {
+      "filename": "safety_report.json",
+      "sha256": "5b0982b445ef5fcb0c8510bfad3a2ed5fee81d99fd903dd1ba809c836e37ed0a",
+      "bytes": 397
+    }
+  ],
+  "signature": "15a783201866d34a1a290b00aa9bf40bd806db6808d5d0bddc0d374ad6bbd649"
+}

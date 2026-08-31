@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_v4_comparison_with_fake_v2",
+  "generated_at_utc": "2026-08-24T21:07:04.005731+00:00",
+  "fake_provider": "fake_v2",
+  "real_provider": "openai_responses",
+  "style_differences_are_not_errors": true,
+  "dimensions": {
+    "schema": {
+      "fake_v2": true,
+      "openai_v2": true
+    },
+    "factuality": {
+      "fake_v2": true,
+      "openai_v2": true
+    },
+    "safety": {
+      "fake_v2": true,
+      "openai_v2": true
+    },
+    "completeness": {
+      "fake_v2": true,
+      "openai_v2": true
+    },
+    "clarity": {
+      "fake_v2": true,
+      "openai_v2": true
+    },
+    "scientific_calibration": {
+      "fake_v2": true,
+      "openai_v2": false
+    },
+    "explicit_comparisons": {
+      "fake_v2": true,
+      "openai_v2": true
+    },
+    "mcnemar": {
+      "fake_v2": true,
+      "openai_v2": true
+    },
+    "unexpected_numbers": {
+      "fake_v2": 0,
+      "openai_v2": 0
+    },
+    "clinical_claims": {
+      "fake_v2": 0,
+      "openai_v2": 0
+    },
+    "frozen_selection": {
+      "fake_v2": true,
+      "openai_v2": true
+    },
+    "disclaimer": {
+      "fake_v2": true,
+      "openai_v2": true
+    }
+  },
+  "run_identity": "daa9c09ba16b5556c93e495a465a755f607fe7388c52fedf0ecf92bb50f4be35",
+  "signature": "5a904ef196acb165cedee70e477b4dcb50b9129c34d97b914eb1708f2beb80b9"
+}

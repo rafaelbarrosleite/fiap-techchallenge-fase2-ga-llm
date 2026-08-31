@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_evaluation_report",
+  "generated_at_utc": "2026-08-24T20:01:24.694074+00:00",
+  "run_identity": "56fbfb080300146426040b0e0c569211dcd55c4670f696e855de715fbad30ed0",
+  "status": "not_evaluated",
+  "approved": false,
+  "overall_score": null,
+  "dimensions": {
+    "factuality": {
+      "status": "not_evaluated",
+      "score": null,
+      "passed": false
+    },
+    "completeness": {
+      "status": "not_evaluated",
+      "score": null,
+      "passed": false
+    },
+    "clarity": {
+      "status": "not_evaluated",
+      "score": null,
+      "passed": false
+    },
+    "safety": {
+      "status": "not_evaluated",
+      "score": null,
+      "passed": false
+    },
+    "scientific_calibration": {
+      "status": "not_evaluated",
+      "score": null,
+      "passed": false
+    }
+  },
+  "reason": "No structured output was returned.",
+  "evaluation_is_deterministic": true,
+  "llm_judge_used": false,
+  "signature": "7aa981bcabf83186c765020c6c06bcb8794e4f85aa92ef041a9f1585c22b0045"
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "fake_vs_openai_comparison",
+  "generated_at_utc": "2026-08-24T18:43:22.587229+00:00",
+  "run_identity": "56fbfb080300146426040b0e0c569211dcd55c4670f696e855de715fbad30ed0",
+  "focus": "factual_content_and_safety_not_style",
+  "openai_status": "not_evaluated",
+  "rows": {
+    "schema_valid": {
+      "fake": true,
+      "openai": false
+    },
+    "factuality": {
+      "fake": true,
+      "openai": "not_evaluated"
+    },
+    "completeness": {
+      "fake": true,
+      "openai": "not_evaluated"
+    },
+    "safety": {
+      "fake": true,
+      "openai": "not_evaluated"
+    },
+    "scientific_calibration": {
+      "fake": true,
+      "openai": "not_evaluated"
+    },
+    "clarity": {
+      "fake": {
+        "score": 1.0,
+        "passed": true,
+        "checks": {
+          "reasonable_length": true,
+          "sentence_length": true,
+          "structured_sections": true,
+          "limited_unexplained_jargon": true
+        },
+        "word_count": 275,
+        "average_sentence_words": 14.473684210526315,
+        "unexplained_jargon": []
+      },
+      "openai": "not_evaluated"
+    },
+    "unexpected_numbers": {
+      "fake": [],
+      "openai": "not_evaluated"
+    },
+    "violations": {
+      "fake": [],
+      "openai": "not_evaluated"
+    },
+    "disclaimer_correct": {
+      "fake": true,
+      "openai": "not_evaluated"
+    },
+    "frozen_selection_respected": {
+      "fake": true,
+      "openai": "not_evaluated"
+    }
+  },
+  "reason": "Provider real retornou HTTP 400; nenhuma repeticao automatica foi feita.",
+  "signature": "1457a6405178d914aebbca83b3d484f474aabf7ab4c118f3d7ae486d1d81f588"
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_integration_diagnosis_manifest",
+  "generated_at_utc": "2026-08-24T19:44:50.619660+00:00",
+  "status": "cause_identified_request_rejected_no_retry",
+  "provider": "openai_responses",
+  "model": "gpt-5.5",
+  "request_hash": "4d925f6a52f6b75d8009305a97152224e4c128529ca013a8a0039b7d279c6976",
+  "root_cause": "unsupported_parameter",
+  "responsible_parameter": "temperature",
+  "minimal_correction_applied": true,
+  "correction_revalidated_remotely": false,
+  "api_calls": 1,
+  "automatic_retries": 0,
+  "scientific_evaluation_performed": false,
+  "experiment_data_sent": false,
+  "individual_data_sent": false,
+  "mission7_artifacts_preserved": true,
+  "files": [
+    {
+      "filename": "diagnostic_request.json",
+      "sha256": "e95ff63f733755d73ae274fc6fe20753fdf3db6628f751edcdb1483bc51c957e",
+      "bytes": 3224
+    },
+    {
+      "filename": "diagnostic_result.json",
+      "sha256": "528c4aa0b03c9d98af5b8a3b3cdcb6d87fb62ad460d6365b84707e19815fa4fc",
+      "bytes": 489
+    },
+    {
+      "filename": "error_capture_report.json",
+      "sha256": "d9a8d7143bf58677f372913870959b35b5524671ad24eaca76154b15ee1c59a8",
+      "bytes": 800
+    },
+    {
+      "filename": "schema_validation_report.json",
+      "sha256": "2e157e04362a704f8e46adaf7aa4216fe3dbd1d56a94e549a29ff38bf98e89f8",
+      "bytes": 1840
+    },
+    {
+      "filename": "sdk_environment.json",
+      "sha256": "c101bcafbdb137c2e783487e78d2b4ef37fc05604297b67eb04d8912119998d9",
+      "bytes": 484
+    },
+    {
+      "filename": "root_cause_report.json",
+      "sha256": "66fd3091d9e3a8d023e75714fe2713ec7202568e4e525d145dc2d6fb4670b17e",
+      "bytes": 950
+    }
+  ],
+  "signature": "22a74666099a3bec65d0e24e3bc6a7cc3a132ce19abb0d37bdd85107cfc64b8a"
+}

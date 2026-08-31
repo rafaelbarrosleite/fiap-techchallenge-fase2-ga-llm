@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "fake_vs_openai_comparison",
+  "generated_at_utc": "2026-08-24T20:27:40.486717+00:00",
+  "focus": "factual_content_and_safety_not_style",
+  "rows": {
+    "schema_valid": {
+      "fake": true,
+      "openai": true
+    },
+    "factuality": {
+      "fake": true,
+      "openai": false
+    },
+    "completeness": {
+      "fake": true,
+      "openai": true
+    },
+    "safety": {
+      "fake": true,
+      "openai": true
+    },
+    "scientific_calibration": {
+      "fake": true,
+      "openai": true
+    },
+    "clarity": {
+      "fake": {
+        "passed": true,
+        "score": 1.0
+      },
+      "openai": {
+        "passed": true,
+        "score": 1.0
+      }
+    },
+    "unexpected_numbers": {
+      "fake": [],
+      "openai": []
+    },
+    "violations": {
+      "fake": [],
+      "openai": []
+    },
+    "disclaimer_correct": {
+      "fake": true,
+      "openai": true
+    },
+    "frozen_selection_respected": {
+      "fake": true,
+      "openai": true
+    }
+  },
+  "run_identity": "56fbfb080300146426040b0e0c569211dcd55c4670f696e855de715fbad30ed0",
+  "signature": "948a70c73f7a829fb6eb52a9b7761589231aecf2cb6deb3df2386aac3ffe98ee"
+}

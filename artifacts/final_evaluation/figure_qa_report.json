@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "final_figure_visual_qa",
+  "generated_at_utc": "2026-08-24T17:13:05.352214+00:00",
+  "plan_signature": "b94cbc663473ab040e89961144c69600062a03a09803c73027ca4163bc4fe1f7",
+  "scope": "visual_layout_only_after_completed_evaluation",
+  "data_or_model_recalculation": false,
+  "fit_calls": 0,
+  "prediction_calls": 0,
+  "metric_changes": 0,
+  "findings": [
+    "Sobreposicao vertical entre rotulos nas matrizes de confusao.",
+    "Sobreposicao de anotacoes em metricas numericamente proximas."
+  ],
+  "corrections": [
+    "Maior espacamento e constrained layout nas matrizes.",
+    "Barras agrupadas com escala integral de zero a 1,08 e rotulos separados."
+  ],
+  "approved_unchanged_figures": [
+    "03_falsos_negativos.png",
+    "04_curvas_roc.png",
+    "05_recall_cv_vs_teste.png",
+    "06_intervalos_recall.png"
+  ],
+  "old_hashes": {
+    "reports/figures/final_evaluation/01_matrizes_confusao_baseline_ga.png": "ecce3afd9d046cf78569bba7a5cead809acb639391e3536f86ba2f0963678b90",
+    "reports/figures/final_evaluation/02_metricas_teste_final.png": "a30d7b2466c1b6cd16b56c714ea3be1beaa6465d8eeaf5603bed0bd3224e5239"
+  },
+  "new_hashes": {
+    "reports/figures/final_evaluation/01_matrizes_confusao_baseline_ga.png": "4e3b6412e536fc962d2a8c66bb2108036edfef24cde5d54868fb67a42504e853",
+    "reports/figures/final_evaluation/02_metricas_teste_final.png": "6ef35d8680ec15f0fe501f49851225cd35e9e942696afb54875af6ffa325eedd"
+  },
+  "signature": "989640eb163a145c8f833a5886b2bdb107a8afa57b8b9308816e2671fd3e6dd5"
+}

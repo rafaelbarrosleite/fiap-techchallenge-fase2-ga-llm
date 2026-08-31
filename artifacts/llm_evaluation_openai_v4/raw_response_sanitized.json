@@ -1,0 +1,665 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_v4_raw_response_sanitized",
+  "generated_at_utc": "2026-08-24T21:07:03.989012+00:00",
+  "request_sha256": "4bf833c979dc07995cc42fd966f1b1348fd455cb0a40a69c9a20151e1cec3112",
+  "http_status": 200,
+  "request_id": "req_825607bfe63c4341a4564632e53a0621",
+  "duration_seconds": 43.38454075000482,
+  "raw_available": true,
+  "response": {
+    "id": "resp_057772f404e3d407016a8cb24e0c7087d2bbe1609b720ab00b",
+    "object": "response",
+    "created_at": 1787605582,
+    "status": "completed",
+    "background": false,
+    "billing": {
+      "payer": "developer"
+    },
+    "completed_at": 1787605623,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "PROMPT_VERSION: system_v2\nPURPOSE: Explicar resultados experimentais agregados usando somente comparacoes explicitamente identificadas.\nINPUT_CONTRACT: JSON sanitizado schema 2.0; nove pares nomeados, incerteza agregada e evidencia McNemar agregada.\nOUTPUT_CONTRACT: JSON estrito schema 2.0; cada relacao deve repetir comparison_id, left_method e right_method.\n\nREGRAS DE SEGURANCA\n- Nao diagnostique, nao recomende tratamento e nao indique modelo para uso em pacientes.\n- Nao afirme uso clinico, aprovacao medica, seguranca diagnostica ou substituicao profissional.\n- Preserve o disclaimer exato e rejeite qualquer inducao clinica.\n\nREGRAS DE FACTUALIDADE\n- Use exclusivamente fatos, numeros e pares presentes no JSON de entrada.\n- Nunca escolha um par implicitamente. Copie comparison_id, left_method e right_method antes de interpretar uma relacao.\n- Nao transfira um booleano, delta ou relacao de um comparison_id para outro.\n- Todo delta tem direcao right_minus_left; nao inverta os metodos.\n- Nao infira estatistica ausente. So explique baixa contagem de McNemar quando low_count_warning e discordant_total estiverem presentes no mesmo par.\n- Preserve a selecao congelada; o holdout nao reabre selecao.\n\nLINGUAGEM CIENTIFICA\n- Diferencie observacao no holdout, inferencia estatistica e significado clinico.\n- Intervalo incluindo zero nao sustenta superioridade estatistica.\n- Valor-p alto nao prova igualdade.\n- Baixa contagem de discordancias limita a interpretacao; nao transforma o teste em evidencia clinica.\n- O estudo e academico e experimental e nao representa validacao clinica.\n",
+    "max_output_tokens": 8000,
+    "max_tool_calls": null,
+    "model": "gpt-5.5-2026-04-23",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_057772f404e3d407016a8cb24f141887d28a645498ca35334e",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqjLJ307hAilCP15My-_muvIVBUq9jMf0jb1McVCvc2hgw0Gg7mP1thQSBBN-Rdc1tdOpfP0qDXjsFKwVhhyilKgNQnkBECDlRgpnFwQH4hL4ErzdxAne2Q6QrrEgs8zTwpg_6OKaPuCVSi7BnjIZYdIwzy0uDOwZVZ-dtcvdCP7iq6NpiA2nUy0-aBsRnu2D3mdzB1wzbMRD5-baTxpekl3CTVDvgeXpKw14nbEOxbOVu0JGfCxNTQmw4FHXVK1VmOS4Q-Soqv_JiEQIlHLRi5kDz__g5pFa2svcTak0JDVFs4MaZFFayZ6anG31JVhCexQhv3f9QRvMiJWWX2zv6UIwD0zgzE1gS9fAmHozrOwAe4DsaFUmmTRSXO901sskh2TgZg98XtOcUPkeoWg7BLzNhZW4NrL1Z9VRhpM1kTabe1rlEC_3Y-G84HzIBRahg1zASL284KoU5FVTYX6HqPwPnavaELQEaVROxWy6W6LPlsXgObrJc0Padb_pnQoTH2i7INiy5b7WSnpaBGGVTcqDuNYV2lJVMdndbq5QVaU7BYH1r0J1zqBtksVJsoSJkLwni7rN71pqRHxXJYqhKV8f3Vye38MQxbXEz6WKOSinJCtaq-uKCUQRAMr6uMcCAf8kct4WI22DT7kZKIyz0t0knje7LEkQeavcxG0zw5Q9ytryBi6Fi1FFIVlT8KpXO_tymy1lG4Omre3YgUmYNEYLM70pOMPjxzhJqpWnTpHNPMh02GKmbZW8CgP7UUnEvcqblg210znX-3h_q7szhJQfotyVX97OnZYClenLpiyfcOOs9ahYb-qcTPRzpZCjRhbzrPp5P_kRBBk67RaBTVwwAJZkkJXlKMzNDHfuf0dhpswazQoGiisfWBc-91cCdeGQNmR1WtDXkuxsAt4mXE_TIKlIH2E0qtrs4OdxxeYIchI0k6zqshk7W5i_VDOCA1_sK97hRuKtkR8rsv7lMmPLpSlCsGZSowvKagyFirUG5E3mXYdHQqEQR4nv_4eDFXNCwaG2NyAEf-VIm7fvw9chZ7VqywDcU3VeQfsKS_IPutc7BYxu3VKoAGNMr1dao3pGi9fvLLRyFJ6UpoijMhM3hObt2aeIKKUtA6bXPcxZ1piwuQe5piTrOT0suk1hKSoU9m-DAJg67wZ3egu76s2T6UkAdpcnkhYX5YAIlr3UwKtU5k-y-1xpMuqYTfxCc3UUX3e1pKwAM4a0ZvSEuHM6hhfuHAfGUIWKKMeBwStgMj7ijjMa2Cwnw8QhyIb5obbAmrTJxsDjaXpQU35gMYSmSfCmlMoRivGah2ZvX1Xs8zq0SdPvzdLPDJSwdhtOBpsH9mRnvGfurgIoAGQA5GsHj-D8Zojjkpvd9aitAKNQjPxevMRw43Lnrb1mZW7_uHvDHmMn63ICVP4SGqCmjSOnRMgZePWBqPG3JAcu0U2qCXWSdPo_79nwvqvwO-UerKnu10TMQ-jeU6gWCt-fi91dDQgJ-NEc6EUwPNj9wB6XZrrUIpfzFLxnsQIBZC358VvgrzMSkP0h126jNLRW8tyjURzZbNgbgfs9Dncg87U535uAhQwvi69vu8IjXXKePs_UziyZ1vocWvnHakr05HZIYB6eUaXU2kPI420bBzFDTAAYl3AIW_xUNHobGFR62h-NH8-JP9zlwvcgDphVwWZKVTp52T_3GNwDPa-QioK61HHPIOySZCb-RInoRXX7WC037SRW2tmQMCIDzc4_fYVGuR4TeUvE7is-nqU_qmSgTw5opa3ibeazLiuCwLQ3fE_wI4-oYkWisEqDB0iZbuvBHsrFyLdVBzogt9NdU1lALvcpz7r1kbP4Zl6BGjiuygHJJygklmFWSnMXS4DYaCIfKFxsLNXzv3I9ir-B07JGiNds2vRb28A1lOzM6OtSSs_w0P8YQjwy8uMqngqT3r_5rld9RPDZ2PyAn_Bl2onSmPN0OfRLPKPLr08fJN2dGgL1Mfl5SlgrZ6uKu4q93RYdIl6bYm1pWMi4lyq2CXI2X6ZjJZ5jlNK0DhcLpuLvOqbCrnjDYQrwcAxVmb6emQgrzeUMmgY9Q-1JMRbL62asoH6w0VgJmdGoO5oJzPI3PHPg2nGv9ERWAmESgY_c8UejQVFSng6G2kDBPznP-1FEHg6UOV4-Ct8s8rnWo_hR154xlkctJSXrL8MbEM37t9uGrfAbFd9LgGdBG7B-nUNfmQuIyQRbDTztzrGEbpUXjBbL742dctDHoZr6ZCQwIZSBhWyv_2ZZp-rYeP7E6chtqfY2IDQqQTzzC5LQPw0E3Fj7WpqsEN8FQ_QEgICLbqKlE63exQLC2Jr3CxIGTKENLFSAWpX5LGGq3Mz1RjeShMXmn8OXYOUsAl676ZfolmkBuv4cN6r0b714uwqHR4NLq0p3Waal5z_fPxgXbkXBfxJ1YPH9yj3kcYjHPnUeW-H_YxIJ2YmDnHV0pxx1jenEhnGwKQbAGz0pBPJIK_gGNrrLEnry0gG0pglYSPROBI1Ny5dxO2bJF8ZTDur9AiCja0c_q9artCYO1PIbZk9FoyETBQyq2kcwMDITuXb2bOPwvQaSWS8uqUfv5LpCCV-irNAChj7h0i4mNxwfMjm8UIlLlKIKUGe-ySYmEkoUQStqeZuF-C1rKf02ejRcqfZMA0krsh63Iddoymwm1PratcrdyhuXrKgjlNfwLbYa3a9MIzVmrhbIcPtRhVb4M60kALyBQTjJi10Pp6_L_Z_NC6EpO20QE0DO5I8dbH1O_pL6Pn1KmnmM41xyPeUfBmT3vwjYAYG1GYzo1uLiqdCfyuPsk1ec0lK-O-tLQPo2wGrO6AvcNqnf3JBnG7hPE3CEPby0nuQiRsKHKm71N1NLU0BqwE9R7UicpIgp_SEyqb94KWjc2o527-_XWaW9DaX9Q7iv6-R-Tle-xCg3yOZUboa2L",
+        "summary": []
+      },
+      {
+        "id": "msg_057772f404e3d407016a8cb252e83087d2a8c919451680da6f",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"schema_version\":\"2.0\",\"contract_version\":\"v2\",\"resumo_executivo\":\"Foram avaliados nove candidatos agregados no holdout confirmatório, com limiar de classificação 0.5, 114 casos de teste e 42 casos malignos no holdout. As observações são experimentais e agregadas: em regressão logística, os candidatos ga e random_search apresentaram métricas idênticas entre si no holdout e superiores ao baseline em recall_malignant, f1_malignant e roc_auc. Em random_forest, ga e random_search tiveram a mesma matriz de confusão, mas roc_auc diferente; ambos superaram o baseline em recall_malignant e f1_malignant, enquanto a relação de roc_auc depende do par. Em knn, ga e random_search foram idênticos entre si; frente ao baseline, mantiveram recall_malignant igual, f1_malignant maior e roc_auc menor. A seleção congelada antes do holdout foi logistic_regression__random_search, e o holdout não reabriu essa seleção.\",\"modelo_selecionado\":{\"candidate_id\":\"logistic_regression__random_search\",\"model\":\"logistic_regression\",\"method\":\"random_search\",\"origin\":\"RandomizedSearchCV\",\"frozen_before_holdout\":true,\"authority\":\"Mission 4 frozen documentation, checked against maximum CV fitness in the signed plan\",\"authority_limitation\":\"The four priority structured artifacts do not expose an explicit global-selected-model field; the documented frozen decision is auxiliary and was not inferred from holdout performance.\",\"explanation\":\"O candidato selecionado foi definido por validação cruzada no desenvolvimento antes do holdout confirmatório. A avaliação no holdout foi apenas confirmatória e não reabriu a seleção, mesmo havendo empate observado no holdout entre logistic_regression__ga e logistic_regression__random_search.\"},\"model_results\":[{\"model\":\"logistic_regression\",\"candidates\":[{\"candidate_id\":\"logistic_regression__baseline\",\"method\":\"baseline\",\"origin\":\"baseline_cv\",\"metrics\":{\"recall_malignant\":0.9285714285714286,\"f1_malignant\":0.9512195121951219,\"roc_auc\":0.996031746031746,\"true_positives\":39,\"true_negatives\":71,\"false_positives\":1,\"false_negatives\":3}},{\"candidate_id\":\"logistic_regression__ga\",\"method\":\"ga\",\"origin\":\"GA_B\",\"metrics\":{\"recall_malignant\":0.9761904761904762,\"f1_malignant\":0.9761904761904762,\"roc_auc\":0.9976851851851852,\"true_positives\":41,\"true_negatives\":71,\"false_positives\":1,\"false_negatives\":1}},{\"candidate_id\":\"logistic_regression__random_search\",\"method\":\"random_search\",\"origin\":\"RandomizedSearchCV\",\"metrics\":{\"recall_malignant\":0.9761904761904762,\"f1_malignant\":0.9761904761904762,\"roc_auc\":0.9976851851851852,\"true_positives\":41,\"true_negatives\":71,\"false_positives\":1,\"false_negatives\":1}}]},{\"model\":\"random_forest\",\"candidates\":[{\"candidate_id\":\"random_forest__baseline\",\"method\":\"baseline\",\"origin\":\"baseline_cv\",\"metrics\":{\"recall_malignant\":0.9047619047619048,\"f1_malignant\":0.95,\"roc_auc\":0.996031746031746,\"true_positives\":38,\"true_negatives\":72,\"false_positives\":0,\"false_negatives\":4}},{\"candidate_id\":\"random_forest__ga\",\"method\":\"ga\",\"origin\":\"GA_C\",\"metrics\":{\"recall_malignant\":0.9285714285714286,\"f1_malignant\":0.9629629629629629,\"roc_auc\":0.9914021164021164,\"true_positives\":39,\"true_negatives\":72,\"false_positives\":0,\"false_negatives\":3}},{\"candidate_id\":\"random_forest__random_search\",\"method\":\"random_search\",\"origin\":\"RandomizedSearchCV\",\"metrics\":{\"recall_malignant\":0.9285714285714286,\"f1_malignant\":0.9629629629629629,\"roc_auc\":0.9970238095238095,\"true_positives\":39,\"true_negatives\":72,\"false_positives\":0,\"false_negatives\":3}}]},{\"model\":\"knn\",\"candidates\":[{\"candidate_id\":\"knn__baseline\",\"method\":\"baseline\",\"origin\":\"baseline_cv\",\"metrics\":{\"recall_malignant\":0.9047619047619048,\"f1_malignant\":0.9382716049382716,\"roc_auc\":0.982308201058201,\"true_positives\":38,\"true_negatives\":71,\"false_positives\":1,\"false_negatives\":4}},{\"candidate_id\":\"knn__ga\",\"method\":\"ga\",\"origin\":\"GA_A\",\"metrics\":{\"recall_malignant\":0.9047619047619048,\"f1_malignant\":0.95,\"roc_auc\":0.9735449735449735,\"true_positives\":38,\"true_negatives\":72,\"false_positives\":0,\"false_negatives\":4}},{\"candidate_id\":\"knn__random_search\",\"method\":\"random_search\",\"origin\":\"RandomizedSearchCV\",\"metrics\":{\"recall_malignant\":0.9047619047619048,\"f1_malignant\":0.95,\"roc_auc\":0.9735449735449735,\"true_positives\":38,\"true_negatives\":72,\"false_positives\":0,\"false_negatives\":4}}]}],\"comparison_findings\":[{\"comparison_id\":\"logistic_regression__baseline_vs_ga\",\"model\":\"logistic_regression\",\"evaluation_scope\":\"confirmatory_holdout\",\"left_method\":\"baseline\",\"right_method\":\"ga\",\"left_candidate_id\":\"logistic_regression__baseline\",\"right_candidate_id\":\"logistic_regression__ga\",\"same_confusion_matrix\":false,\"different_roc_auc\":true,\"recall_relation\":\"right_higher\",\"f1_relation\":\"right_higher\",\"roc_auc_relation\":\"right_higher\",\"metric_delta\":{\"direction\":\"right_minus_left\",\"recall_malignant\":0.04761904761904756,\"f1_malignant\":0.024970963995354256,\"roc_auc\":0.0016534391534391846},\"tradeoff_present\":false,\"interpretation\":\"Neste par específico, ga teve matriz de confusão diferente do baseline e roc_auc diferente. Com direção right_minus_left, as diferenças observadas favoreceram ga em recall_malignant, f1_malignant e roc_auc no holdout confirmatório.\"},{\"comparison_id\":\"logistic_regression__ga_vs_random_search\",\"model\":\"logistic_regression\",\"evaluation_scope\":\"confirmatory_holdout\",\"left_method\":\"ga\",\"right_method\":\"random_search\",\"left_candidate_id\":\"logistic_regression__ga\",\"right_candidate_id\":\"logistic_regression__random_search\",\"same_confusion_matrix\":true,\"different_roc_auc\":false,\"recall_relation\":\"equal\",\"f1_relation\":\"equal\",\"roc_auc_relation\":\"equal\",\"metric_delta\":{\"direction\":\"right_minus_left\",\"recall_malignant\":0.0,\"f1_malignant\":0.0,\"roc_auc\":0.0},\"tradeoff_present\":false,\"interpretation\":\"Neste par específico, ga e random_search tiveram a mesma matriz de confusão e o mesmo roc_auc. Com direção right_minus_left, as diferenças observadas foram zero para recall_malignant, f1_malignant e roc_auc.\"},{\"comparison_id\":\"logistic_regression__baseline_vs_random_search\",\"model\":\"logistic_regression\",\"evaluation_scope\":\"confirmatory_holdout\",\"left_method\":\"baseline\",\"right_method\":\"random_search\",\"left_candidate_id\":\"logistic_regression__baseline\",\"right_candidate_id\":\"logistic_regression__random_search\",\"same_confusion_matrix\":false,\"different_roc_auc\":true,\"recall_relation\":\"right_higher\",\"f1_relation\":\"right_higher\",\"roc_auc_relation\":\"right_higher\",\"metric_delta\":{\"direction\":\"right_minus_left\",\"recall_malignant\":0.04761904761904756,\"f1_malignant\":0.024970963995354256,\"roc_auc\":0.0016534391534391846},\"tradeoff_present\":false,\"interpretation\":\"Neste par específico, random_search teve matriz de confusão diferente do baseline e roc_auc diferente. Com direção right_minus_left, as diferenças observadas favoreceram random_search em recall_malignant, f1_malignant e roc_auc no holdout confirmatório.\"},{\"comparison_id\":\"random_forest__baseline_vs_ga\",\"model\":\"random_forest\",\"evaluation_scope\":\"confirmatory_holdout\",\"left_method\":\"baseline\",\"right_method\":\"ga\",\"left_candidate_id\":\"random_forest__baseline\",\"right_candidate_id\":\"random_forest__ga\",\"same_confusion_matrix\":false,\"different_roc_auc\":true,\"recall_relation\":\"right_higher\",\"f1_relation\":\"right_higher\",\"roc_auc_relation\":\"left_higher\",\"metric_delta\":{\"direction\":\"right_minus_left\",\"recall_malignant\":0.023809523809523836,\"f1_malignant\":0.012962962962962954,\"roc_auc\":-0.00462962962962965},\"tradeoff_present\":true,\"interpretation\":\"Neste par específico, ga teve matriz de confusão diferente do baseline e roc_auc diferente. Com direção right_minus_left, ga apresentou recall_malignant e f1_malignant maiores, mas roc_auc menor que o baseline; portanto, há trade-off observado entre métricas.\"},{\"comparison_id\":\"random_forest__ga_vs_random_search\",\"model\":\"random_forest\",\"evaluation_scope\":\"confirmatory_holdout\",\"left_method\":\"ga\",\"right_method\":\"random_search\",\"left_candidate_id\":\"random_forest__ga\",\"right_candidate_id\":\"random_forest__random_search\",\"same_confusion_matrix\":true,\"different_roc_auc\":true,\"recall_relation\":\"equal\",\"f1_relation\":\"equal\",\"roc_auc_relation\":\"right_higher\",\"metric_delta\":{\"direction\":\"right_minus_left\",\"recall_malignant\":0.0,\"f1_malignant\":0.0,\"roc_auc\":0.005621693121693139},\"tradeoff_present\":false,\"interpretation\":\"Neste par específico, ga e random_search tiveram a mesma matriz de confusão, mas roc_auc diferente. Com direção right_minus_left, random_search manteve recall_malignant e f1_malignant iguais aos de ga e apresentou roc_auc maior.\"},{\"comparison_id\":\"random_forest__baseline_vs_random_search\",\"model\":\"random_forest\",\"evaluation_scope\":\"confirmatory_holdout\",\"left_method\":\"baseline\",\"right_method\":\"random_search\",\"left_candidate_id\":\"random_forest__baseline\",\"right_candidate_id\":\"random_forest__random_search\",\"same_confusion_matrix\":false,\"different_roc_auc\":true,\"recall_relation\":\"right_higher\",\"f1_relation\":\"right_higher\",\"roc_auc_relation\":\"right_higher\",\"metric_delta\":{\"direction\":\"right_minus_left\",\"recall_malignant\":0.023809523809523836,\"f1_malignant\":0.012962962962962954,\"roc_auc\":0.0009920634920634885},\"tradeoff_present\":false,\"interpretation\":\"Neste par específico, random_search teve matriz de confusão diferente do baseline e roc_auc diferente. Com direção right_minus_left, as diferenças observadas favoreceram random_search em recall_malignant, f1_malignant e roc_auc.\"},{\"comparison_id\":\"knn__baseline_vs_ga\",\"model\":\"knn\",\"evaluation_scope\":\"confirmatory_holdout\",\"left_method\":\"baseline\",\"right_method\":\"ga\",\"left_candidate_id\":\"knn__baseline\",\"right_candidate_id\":\"knn__ga\",\"same_confusion_matrix\":false,\"different_roc_auc\":true,\"recall_relation\":\"equal\",\"f1_relation\":\"right_higher\",\"roc_auc_relation\":\"left_higher\",\"metric_delta\":{\"direction\":\"right_minus_left\",\"recall_malignant\":0.0,\"f1_malignant\":0.011728395061728403,\"roc_auc\":-0.008763227513227556},\"tradeoff_present\":true,\"interpretation\":\"Neste par específico, ga teve matriz de confusão diferente do baseline e roc_auc diferente. Com direção right_minus_left, ga manteve recall_malignant igual, aumentou f1_malignant e reduziu roc_auc em relação ao baseline; portanto, há trade-off observado entre métricas.\"},{\"comparison_id\":\"knn__ga_vs_random_search\",\"model\":\"knn\",\"evaluation_scope\":\"confirmatory_holdout\",\"left_method\":\"ga\",\"right_method\":\"random_search\",\"left_candidate_id\":\"knn__ga\",\"right_candidate_id\":\"knn__random_search\",\"same_confusion_matrix\":true,\"different_roc_auc\":false,\"recall_relation\":\"equal\",\"f1_relation\":\"equal\",\"roc_auc_relation\":\"equal\",\"metric_delta\":{\"direction\":\"right_minus_left\",\"recall_malignant\":0.0,\"f1_malignant\":0.0,\"roc_auc\":0.0},\"tradeoff_present\":false,\"interpretation\":\"Neste par específico, ga e random_search tiveram a mesma matriz de confusão e o mesmo roc_auc. Com direção right_minus_left, as diferenças observadas foram zero para recall_malignant, f1_malignant e roc_auc.\"},{\"comparison_id\":\"knn__baseline_vs_random_search\",\"model\":\"knn\",\"evaluation_scope\":\"confirmatory_holdout\",\"left_method\":\"baseline\",\"right_method\":\"random_search\",\"left_candidate_id\":\"knn__baseline\",\"right_candidate_id\":\"knn__random_search\",\"same_confusion_matrix\":false,\"different_roc_auc\":true,\"recall_relation\":\"equal\",\"f1_relation\":\"right_higher\",\"roc_auc_relation\":\"left_higher\",\"metric_delta\":{\"direction\":\"right_minus_left\",\"recall_malignant\":0.0,\"f1_malignant\":0.011728395061728403,\"roc_auc\":-0.008763227513227556},\"tradeoff_present\":true,\"interpretation\":\"Neste par específico, random_search teve matriz de confusão diferente do baseline e roc_auc diferente. Com direção right_minus_left, random_search manteve recall_malignant igual, aumentou f1_malignant e reduziu roc_auc em relação ao baseline; portanto, há trade-off observado entre métricas.\"}],\"interpretacao_comparacoes\":\"As comparações devem ser lidas apenas dentro de cada comparison_id. Matrizes de confusão iguais não implicam necessariamente roc_auc igual, como observado em random_forest__ga_vs_random_search; inversamente, os pares com matriz de confusão igual e roc_auc igual devem ser interpretados somente para seus próprios comparison_id. Os deltas estão sempre na direção right_minus_left. As relações observadas no holdout são descritivas e não estabelecem causalidade nem validação clínica.\",\"incerteza_estatistica\":\"A incerteza foi fornecida apenas para os pares baseline_vs_ga de cada família de modelo. Em todos esses três pares, o intervalo de 95% do delta de recall inclui zero, o que não sustenta superioridade estatística do método à direita sobre o método à esquerda em recall_malignant. Os valores-p de McNemar são altos nos três pares, mas isso não prova igualdade. Como low_count_warning=true e as contagens discordantes são pequenas em cada par, a inferência pelo teste de McNemar fica limitada.\",\"uncertainty_findings\":[{\"comparison_id\":\"logistic_regression__baseline_vs_ga\",\"model\":\"logistic_regression\",\"left_method\":\"baseline\",\"right_method\":\"ga\",\"left_recall_interval\":{\"lower\":0.8099057319884169,\"upper\":0.9754095901266941,\"confidence_level\":0.95},\"right_recall_interval\":{\"lower\":0.8767879842623334,\"upper\":0.9957845958655673,\"confidence_level\":0.95},\"delta_recall\":{\"direction\":\"right_minus_left\",\"estimate\":0.04761904761904756,\"interval\":{\"lower\":0.0,\"upper\":0.12195121951219512,\"confidence_level\":0.95},\"includes_zero\":true},\"mcnemar\":{\"method\":\"McNemar exato binomial bicaudal\",\"left_wrong_right_correct\":2,\"left_correct_right_wrong\":0,\"discordant_total\":2,\"p_value\":0.5,\"low_count_warning\":true,\"evidence_source\":\"authoritative_aggregate_artifact\"},\"limited_by_few_discordances\":true,\"interpretation\":\"Para logistic_regression__baseline_vs_ga, o delta de recall tem direção right_minus_left e estimativa 0.04761904761904756, mas o intervalo de 95% inclui zero. O McNemar usou 2 discordâncias agregadas, com 2 casos left_wrong_right_correct e 0 left_correct_right_wrong; como low_count_warning=true e discordant_total=2, poucas discordâncias limitam a inferência. O valor-p 0.5 não demonstra superioridade estatística e também não prova igualdade.\"},{\"comparison_id\":\"random_forest__baseline_vs_ga\",\"model\":\"random_forest\",\"left_method\":\"baseline\",\"right_method\":\"ga\",\"left_recall_interval\":{\"lower\":0.7793489419142897,\"upper\":0.9623377511944261,\"confidence_level\":0.95},\"right_recall_interval\":{\"lower\":0.8099057319884169,\"upper\":0.9754095901266941,\"confidence_level\":0.95},\"delta_recall\":{\"direction\":\"right_minus_left\",\"estimate\":0.023809523809523836,\"interval\":{\"lower\":0.0,\"upper\":0.0800270270270267,\"confidence_level\":0.95},\"includes_zero\":true},\"mcnemar\":{\"method\":\"McNemar exato binomial bicaudal\",\"left_wrong_right_correct\":1,\"left_correct_right_wrong\":0,\"discordant_total\":1,\"p_value\":1.0,\"low_count_warning\":true,\"evidence_source\":\"authoritative_aggregate_artifact\"},\"limited_by_few_discordances\":true,\"interpretation\":\"Para random_forest__baseline_vs_ga, o delta de recall tem direção right_minus_left e estimativa 0.023809523809523836, mas o intervalo de 95% inclui zero. O McNemar usou 1 discordância agregada, com 1 caso left_wrong_right_correct e 0 left_correct_right_wrong; como low_count_warning=true e discordant_total=1, poucas discordâncias limitam a inferência. O valor-p 1.0 não demonstra superioridade estatística e também não prova igualdade.\"},{\"comparison_id\":\"knn__baseline_vs_ga\",\"model\":\"knn\",\"left_method\":\"baseline\",\"right_method\":\"ga\",\"left_recall_interval\":{\"lower\":0.7793489419142897,\"upper\":0.9623377511944261,\"confidence_level\":0.95},\"right_recall_interval\":{\"lower\":0.7793489419142897,\"upper\":0.9623377511944261,\"confidence_level\":0.95},\"delta_recall\":{\"direction\":\"right_minus_left\",\"estimate\":0.0,\"interval\":{\"lower\":-0.06976744186046513,\"upper\":0.06818181818181823,\"confidence_level\":0.95},\"includes_zero\":true},\"mcnemar\":{\"method\":\"McNemar exato binomial bicaudal\",\"left_wrong_right_correct\":2,\"left_correct_right_wrong\":1,\"discordant_total\":3,\"p_value\":1.0,\"low_count_warning\":true,\"evidence_source\":\"authoritative_aggregate_artifact\"},\"limited_by_few_discordances\":true,\"interpretation\":\"Para knn__baseline_vs_ga, o delta de recall tem direção right_minus_left e estimativa 0.0, com intervalo de 95% incluindo zero. O McNemar usou 3 discordâncias agregadas, com 2 casos left_wrong_right_correct e 1 left_correct_right_wrong; como low_count_warning=true e discordant_total=3, poucas discordâncias limitam a inferência. O valor-p 1.0 não demonstra superioridade estatística e também não prova igualdade.\"}],\"limitacoes\":[\"Only 42 malignant cases are present in the confirmatory holdout, so uncertainty remains broad.\",\"Intervals that include zero do not provide enough evidence for statistical superiority.\",\"This is an academic experiment and not a clinical validation.\",\"The structured Mission 4 artifacts omit an explicit global-selected-model field; documented frozen provenance is auxiliary.\",\"Pairwise findings are limited to the explicit comparison_id values supplied in this contract.\",\"McNemar low-count statements are allowed only because signed aggregate discordance counts are supplied.\"],\"conclusao\":\"No holdout confirmatório, o candidato congelado antes do holdout foi logistic_regression__random_search, conforme documentação auxiliar de seleção. As comparações agregadas mostram diferenças observadas entre métodos em alguns pares, incluindo trade-offs em random_forest__baseline_vs_ga, knn__baseline_vs_ga e knn__baseline_vs_random_search. Contudo, a incerteza disponível para os pares baseline_vs_ga não sustenta superioridade estatística de recall quando os intervalos incluem zero, e as poucas discordâncias limitam a interpretação do McNemar. O estudo permanece acadêmico e experimental, sem autorização de uso clínico.\",\"disclaimer\":\"Este resultado possui finalidade exclusivamente acadêmica e experimental. Os modelos avaliados não foram validados para uso clínico e não devem ser utilizados para diagnóstico, tratamento ou tomada de decisão médica.\",\"holdout_nao_reabriu_selecao\":true,\"uso_clinico_autorizado\":false}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "current_turn",
+      "effort": "medium",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "json_schema",
+        "description": null,
+        "name": "experiment_explanation_v2",
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "schema_version": {
+              "type": "string",
+              "const": "2.0"
+            },
+            "contract_version": {
+              "type": "string",
+              "const": "v2"
+            },
+            "resumo_executivo": {
+              "type": "string",
+              "minLength": 1
+            },
+            "modelo_selecionado": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "candidate_id": {
+                  "type": "string"
+                },
+                "model": {
+                  "type": "string",
+                  "enum": [
+                    "logistic_regression",
+                    "random_forest",
+                    "knn"
+                  ]
+                },
+                "method": {
+                  "type": "string",
+                  "enum": [
+                    "baseline",
+                    "ga",
+                    "random_search"
+                  ]
+                },
+                "origin": {
+                  "type": "string"
+                },
+                "frozen_before_holdout": {
+                  "type": "boolean",
+                  "const": true
+                },
+                "authority": {
+                  "type": "string"
+                },
+                "authority_limitation": {
+                  "type": "string"
+                },
+                "explanation": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "candidate_id",
+                "model",
+                "method",
+                "origin",
+                "frozen_before_holdout",
+                "authority",
+                "authority_limitation",
+                "explanation"
+              ]
+            },
+            "model_results": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "model": {
+                    "type": "string",
+                    "enum": [
+                      "logistic_regression",
+                      "random_forest",
+                      "knn"
+                    ]
+                  },
+                  "candidates": {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 3,
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "candidate_id": {
+                          "type": "string"
+                        },
+                        "method": {
+                          "type": "string",
+                          "enum": [
+                            "baseline",
+                            "ga",
+                            "random_search"
+                          ]
+                        },
+                        "origin": {
+                          "type": "string"
+                        },
+                        "metrics": {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "properties": {
+                            "recall_malignant": {
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 1
+                            },
+                            "f1_malignant": {
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 1
+                            },
+                            "roc_auc": {
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 1
+                            },
+                            "true_positives": {
+                              "type": "integer",
+                              "minimum": 0
+                            },
+                            "true_negatives": {
+                              "type": "integer",
+                              "minimum": 0
+                            },
+                            "false_positives": {
+                              "type": "integer",
+                              "minimum": 0
+                            },
+                            "false_negatives": {
+                              "type": "integer",
+                              "minimum": 0
+                            }
+                          },
+                          "required": [
+                            "recall_malignant",
+                            "f1_malignant",
+                            "roc_auc",
+                            "true_positives",
+                            "true_negatives",
+                            "false_positives",
+                            "false_negatives"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "candidate_id",
+                        "method",
+                        "origin",
+                        "metrics"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "model",
+                  "candidates"
+                ]
+              }
+            },
+            "comparison_findings": {
+              "type": "array",
+              "minItems": 9,
+              "maxItems": 9,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "comparison_id": {
+                    "type": "string"
+                  },
+                  "model": {
+                    "type": "string",
+                    "enum": [
+                      "logistic_regression",
+                      "random_forest",
+                      "knn"
+                    ]
+                  },
+                  "evaluation_scope": {
+                    "type": "string",
+                    "const": "confirmatory_holdout"
+                  },
+                  "left_method": {
+                    "type": "string",
+                    "enum": [
+                      "baseline",
+                      "ga",
+                      "random_search"
+                    ]
+                  },
+                  "right_method": {
+                    "type": "string",
+                    "enum": [
+                      "baseline",
+                      "ga",
+                      "random_search"
+                    ]
+                  },
+                  "left_candidate_id": {
+                    "type": "string"
+                  },
+                  "right_candidate_id": {
+                    "type": "string"
+                  },
+                  "same_confusion_matrix": {
+                    "type": "boolean"
+                  },
+                  "different_roc_auc": {
+                    "type": "boolean"
+                  },
+                  "recall_relation": {
+                    "type": "string",
+                    "enum": [
+                      "left_higher",
+                      "right_higher",
+                      "equal"
+                    ]
+                  },
+                  "f1_relation": {
+                    "type": "string",
+                    "enum": [
+                      "left_higher",
+                      "right_higher",
+                      "equal"
+                    ]
+                  },
+                  "roc_auc_relation": {
+                    "type": "string",
+                    "enum": [
+                      "left_higher",
+                      "right_higher",
+                      "equal"
+                    ]
+                  },
+                  "metric_delta": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "direction": {
+                        "type": "string",
+                        "const": "right_minus_left"
+                      },
+                      "recall_malignant": {
+                        "type": "number"
+                      },
+                      "f1_malignant": {
+                        "type": "number"
+                      },
+                      "roc_auc": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "direction",
+                      "recall_malignant",
+                      "f1_malignant",
+                      "roc_auc"
+                    ]
+                  },
+                  "tradeoff_present": {
+                    "type": "boolean"
+                  },
+                  "interpretation": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "comparison_id",
+                  "model",
+                  "evaluation_scope",
+                  "left_method",
+                  "right_method",
+                  "left_candidate_id",
+                  "right_candidate_id",
+                  "same_confusion_matrix",
+                  "different_roc_auc",
+                  "recall_relation",
+                  "f1_relation",
+                  "roc_auc_relation",
+                  "metric_delta",
+                  "tradeoff_present",
+                  "interpretation"
+                ]
+              }
+            },
+            "interpretacao_comparacoes": {
+              "type": "string",
+              "minLength": 1
+            },
+            "incerteza_estatistica": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uncertainty_findings": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "comparison_id": {
+                    "type": "string"
+                  },
+                  "model": {
+                    "type": "string",
+                    "enum": [
+                      "logistic_regression",
+                      "random_forest",
+                      "knn"
+                    ]
+                  },
+                  "left_method": {
+                    "type": "string",
+                    "const": "baseline"
+                  },
+                  "right_method": {
+                    "type": "string",
+                    "const": "ga"
+                  },
+                  "left_recall_interval": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "lower": {
+                        "type": "number"
+                      },
+                      "upper": {
+                        "type": "number"
+                      },
+                      "confidence_level": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1
+                      }
+                    },
+                    "required": [
+                      "lower",
+                      "upper",
+                      "confidence_level"
+                    ]
+                  },
+                  "right_recall_interval": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "lower": {
+                        "type": "number"
+                      },
+                      "upper": {
+                        "type": "number"
+                      },
+                      "confidence_level": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1
+                      }
+                    },
+                    "required": [
+                      "lower",
+                      "upper",
+                      "confidence_level"
+                    ]
+                  },
+                  "delta_recall": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "direction": {
+                        "type": "string",
+                        "const": "right_minus_left"
+                      },
+                      "estimate": {
+                        "type": "number"
+                      },
+                      "interval": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "lower": {
+                            "type": "number"
+                          },
+                          "upper": {
+                            "type": "number"
+                          },
+                          "confidence_level": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1
+                          }
+                        },
+                        "required": [
+                          "lower",
+                          "upper",
+                          "confidence_level"
+                        ]
+                      },
+                      "includes_zero": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "direction",
+                      "estimate",
+                      "interval",
+                      "includes_zero"
+                    ]
+                  },
+                  "mcnemar": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "method": {
+                        "type": "string"
+                      },
+                      "left_wrong_right_correct": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "left_correct_right_wrong": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "discordant_total": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "p_value": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1
+                      },
+                      "low_count_warning": {
+                        "type": "boolean"
+                      },
+                      "evidence_source": {
+                        "type": "string",
+                        "const": "authoritative_aggregate_artifact"
+                      }
+                    },
+                    "required": [
+                      "method",
+                      "left_wrong_right_correct",
+                      "left_correct_right_wrong",
+                      "discordant_total",
+                      "p_value",
+                      "low_count_warning",
+                      "evidence_source"
+                    ]
+                  },
+                  "limited_by_few_discordances": {
+                    "type": "boolean"
+                  },
+                  "interpretation": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "comparison_id",
+                  "model",
+                  "left_method",
+                  "right_method",
+                  "left_recall_interval",
+                  "right_recall_interval",
+                  "delta_recall",
+                  "mcnemar",
+                  "limited_by_few_discordances",
+                  "interpretation"
+                ]
+              }
+            },
+            "limitacoes": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "conclusao": {
+              "type": "string",
+              "minLength": 1
+            },
+            "disclaimer": {
+              "type": "string",
+              "const": "Este resultado possui finalidade exclusivamente acadêmica e experimental. Os modelos avaliados não foram validados para uso clínico e não devem ser utilizados para diagnóstico, tratamento ou tomada de decisão médica."
+            },
+            "holdout_nao_reabriu_selecao": {
+              "type": "boolean",
+              "const": true
+            },
+            "uso_clinico_autorizado": {
+              "type": "boolean",
+              "const": false
+            }
+          },
+          "required": [
+            "schema_version",
+            "contract_version",
+            "resumo_executivo",
+            "modelo_selecionado",
+            "model_results",
+            "comparison_findings",
+            "interpretacao_comparacoes",
+            "incerteza_estatistica",
+            "uncertainty_findings",
+            "limitacoes",
+            "conclusao",
+            "disclaimer",
+            "holdout_nao_reabriu_selecao",
+            "uso_clinico_autorizado"
+          ]
+        },
+        "strict": true
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 6099,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 4839,
+      "output_tokens_details": {
+        "reasoning_tokens": 266
+      },
+      "total_tokens": 10938
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "response_structure": {
+    "response_status": "completed",
+    "known_status": true,
+    "incomplete_details": null,
+    "output_is_array": true,
+    "output_item_types": [
+      "reasoning",
+      "message"
+    ],
+    "message_count": 1,
+    "content_types_by_message": [
+      {
+        "output_index": 1,
+        "types": [
+          "output_text"
+        ]
+      }
+    ],
+    "output_text_count": 1,
+    "refusal_count": 0,
+    "top_level_output_text_present": false,
+    "usage_present": true
+  },
+  "secret_fields_present": false,
+  "persisted_before_status_analysis": true,
+  "persisted_before_output_extraction": true,
+  "persisted_before_schema_validation": true,
+  "signature": "ee1f7a4a9d830e5d8a5ec9c8cbd9e8ab64605ce3ad17bfe9214e4ed245ff07b0"
+}

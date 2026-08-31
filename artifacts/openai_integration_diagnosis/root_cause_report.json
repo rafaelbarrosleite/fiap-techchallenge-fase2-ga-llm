@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_root_cause_report",
+  "generated_at_utc": "2026-08-24T19:44:50.619311+00:00",
+  "classification": "unsupported_parameter",
+  "identified": true,
+  "responsible_structure": "temperature",
+  "sanitized_api_evidence": {
+    "type": "invalid_request_error",
+    "code": null,
+    "param": "temperature",
+    "message": "Unsupported parameter: 'temperature' is not supported with this model."
+  },
+  "minimal_correction": "Omit temperature when model is gpt-5.5.",
+  "correction_applied_to_code": true,
+  "correction_revalidated_remotely": false,
+  "revalidation_reason": "The mission authorized one diagnostic call and prohibited automatic retry.",
+  "model_invalid_ruled_out": true,
+  "sdk_incompatibility_ruled_out": true,
+  "json_schema_not_classified_as_cause": true,
+  "scientific_request_reexecuted": false,
+  "signature": "2cb33da4c0aed6c5a92643a9a2d7b9c8662c910e4e2b603ec7742f67a17d5812"
+}

@@ -1,0 +1,223 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "llm_output",
+  "generated_at_utc": "2026-08-24T17:52:57.481356+00:00",
+  "run_identity": "5f94b3568689b01be5a413d449a898efe1fe4c702724348d520eddd5e52fbe66",
+  "approved": true,
+  "provider": "fake",
+  "model": "deterministic-explainer-v1",
+  "response_id": "offline-deterministic-response",
+  "usage": {
+    "paid_tokens": 0
+  },
+  "structured_output": {
+    "schema_version": "1.0",
+    "resumo_executivo": "Os resultados agregados sugerem ganhos observados em algumas comparações e ausência de confirmação em outras. A leitura é descritiva, com incerteza explícita, e não representa validação clínica.",
+    "modelo_selecionado": {
+      "candidate_id": "logistic_regression__random_search",
+      "model": "logistic_regression",
+      "method": "random_search",
+      "explanation": "A escolha foi congelada por validação cruzada antes do holdout; o teste confirmatório não reabriu a seleção."
+    },
+    "comparacao_modelos": [
+      {
+        "model": "logistic_regression",
+        "baseline": {
+          "method": "baseline",
+          "recall_malignant": 0.9285714285714286,
+          "f1_malignant": 0.9512195121951219,
+          "roc_auc": 0.996031746031746,
+          "true_positives": 39,
+          "true_negatives": 71,
+          "false_positives": 1,
+          "false_negatives": 3
+        },
+        "ga": {
+          "method": "ga",
+          "recall_malignant": 0.9761904761904762,
+          "f1_malignant": 0.9761904761904762,
+          "roc_auc": 0.9976851851851852,
+          "true_positives": 41,
+          "true_negatives": 71,
+          "false_positives": 1,
+          "false_negatives": 1
+        },
+        "random_search": {
+          "method": "random_search",
+          "recall_malignant": 0.9761904761904762,
+          "f1_malignant": 0.9761904761904762,
+          "roc_auc": 0.9976851851851852,
+          "true_positives": 41,
+          "true_negatives": 71,
+          "false_positives": 1,
+          "false_negatives": 1
+        },
+        "ga_recall_change": "improved",
+        "ga_f1_change": "improved",
+        "ga_auc_change": "improved",
+        "tradeoff_present": false,
+        "cv_gain_confirmed_on_holdout": true,
+        "same_threshold_outcomes_different_auc": false,
+        "interpretation": "No Regressão Logística, foi observado aumento de recall no holdout, sem atribuir causalidade ou significado clínico."
+      },
+      {
+        "model": "random_forest",
+        "baseline": {
+          "method": "baseline",
+          "recall_malignant": 0.9047619047619048,
+          "f1_malignant": 0.95,
+          "roc_auc": 0.996031746031746,
+          "true_positives": 38,
+          "true_negatives": 72,
+          "false_positives": 0,
+          "false_negatives": 4
+        },
+        "ga": {
+          "method": "ga",
+          "recall_malignant": 0.9285714285714286,
+          "f1_malignant": 0.9629629629629629,
+          "roc_auc": 0.9914021164021164,
+          "true_positives": 39,
+          "true_negatives": 72,
+          "false_positives": 0,
+          "false_negatives": 3
+        },
+        "random_search": {
+          "method": "random_search",
+          "recall_malignant": 0.9285714285714286,
+          "f1_malignant": 0.9629629629629629,
+          "roc_auc": 0.9970238095238095,
+          "true_positives": 39,
+          "true_negatives": 72,
+          "false_positives": 0,
+          "false_negatives": 3
+        },
+        "ga_recall_change": "improved",
+        "ga_f1_change": "improved",
+        "ga_auc_change": "worsened",
+        "tradeoff_present": true,
+        "cv_gain_confirmed_on_holdout": true,
+        "same_threshold_outcomes_different_auc": false,
+        "interpretation": "No Random Forest, foi observado aumento de recall no holdout, sem atribuir causalidade ou significado clínico."
+      },
+      {
+        "model": "knn",
+        "baseline": {
+          "method": "baseline",
+          "recall_malignant": 0.9047619047619048,
+          "f1_malignant": 0.9382716049382716,
+          "roc_auc": 0.982308201058201,
+          "true_positives": 38,
+          "true_negatives": 71,
+          "false_positives": 1,
+          "false_negatives": 4
+        },
+        "ga": {
+          "method": "ga",
+          "recall_malignant": 0.9047619047619048,
+          "f1_malignant": 0.95,
+          "roc_auc": 0.9735449735449735,
+          "true_positives": 38,
+          "true_negatives": 72,
+          "false_positives": 0,
+          "false_negatives": 4
+        },
+        "random_search": {
+          "method": "random_search",
+          "recall_malignant": 0.9047619047619048,
+          "f1_malignant": 0.95,
+          "roc_auc": 0.9735449735449735,
+          "true_positives": 38,
+          "true_negatives": 72,
+          "false_positives": 0,
+          "false_negatives": 4
+        },
+        "ga_recall_change": "unchanged",
+        "ga_f1_change": "improved",
+        "ga_auc_change": "worsened",
+        "tradeoff_present": true,
+        "cv_gain_confirmed_on_holdout": false,
+        "same_threshold_outcomes_different_auc": false,
+        "interpretation": "No KNN, o recall no holdout permaneceu igual ao baseline."
+      }
+    ],
+    "interpretacao_ga": "O algoritmo genético foi comparado com o baseline e com a busca aleatória. Ganhos observados não demonstram causalidade, superioridade estatística ou relevância clínica.",
+    "incerteza_estatistica": "Os intervalos dos deltas de recall incluem zero. Portanto, não há evidência suficiente para afirmar superioridade estatística; um valor p acima de 0,05 também não prova igualdade entre métodos.",
+    "incerteza_por_modelo": [
+      {
+        "model": "logistic_regression",
+        "baseline_recall_ci": {
+          "lower": 0.8099057319884169,
+          "upper": 0.9754095901266941,
+          "confidence_level": 0.95
+        },
+        "ga_recall_ci": {
+          "lower": 0.8767879842623334,
+          "upper": 0.9957845958655673,
+          "confidence_level": 0.95
+        },
+        "delta_recall": 0.04761904761904756,
+        "delta_recall_ci": {
+          "lower": 0.0,
+          "upper": 0.12195121951219512,
+          "confidence_level": 0.95
+        },
+        "delta_ci_includes_zero": true,
+        "mcnemar_p_value": 0.5
+      },
+      {
+        "model": "random_forest",
+        "baseline_recall_ci": {
+          "lower": 0.7793489419142897,
+          "upper": 0.9623377511944261,
+          "confidence_level": 0.95
+        },
+        "ga_recall_ci": {
+          "lower": 0.8099057319884169,
+          "upper": 0.9754095901266941,
+          "confidence_level": 0.95
+        },
+        "delta_recall": 0.023809523809523836,
+        "delta_recall_ci": {
+          "lower": 0.0,
+          "upper": 0.0800270270270267,
+          "confidence_level": 0.95
+        },
+        "delta_ci_includes_zero": true,
+        "mcnemar_p_value": 1.0
+      },
+      {
+        "model": "knn",
+        "baseline_recall_ci": {
+          "lower": 0.7793489419142897,
+          "upper": 0.9623377511944261,
+          "confidence_level": 0.95
+        },
+        "ga_recall_ci": {
+          "lower": 0.7793489419142897,
+          "upper": 0.9623377511944261,
+          "confidence_level": 0.95
+        },
+        "delta_recall": 0.0,
+        "delta_recall_ci": {
+          "lower": -0.06976744186046513,
+          "upper": 0.06818181818181823,
+          "confidence_level": 0.95
+        },
+        "delta_ci_includes_zero": true,
+        "mcnemar_p_value": 1.0
+      }
+    ],
+    "limitacoes": [
+      "Only 42 malignant cases are present in the confirmatory holdout, so uncertainty remains broad.",
+      "Intervals that include zero do not provide enough evidence for statistical superiority.",
+      "This is an academic experiment and not a clinical validation.",
+      "The structured Mission 4 artifacts omit an explicit global-selected-model field; documented frozen provenance is auxiliary."
+    ],
+    "conclusao": "Foi observado desempenho confirmatório compatível com a análise agregada, mas a amostra é limitada e os intervalos permanecem amplos. O estudo tem caráter acadêmico e experimental.",
+    "disclaimer": "Este resultado possui finalidade exclusivamente acadêmica e experimental. Os modelos avaliados não foram validados para uso clínico e não devem ser utilizados para diagnóstico, tratamento ou tomada de decisão médica.",
+    "holdout_nao_reabriu_selecao": true,
+    "uso_clinico_autorizado": false
+  },
+  "signature": "1f00dd989730af3059d624b741ca6393a18a0b24fc98879494e02946fb54a225"
+}

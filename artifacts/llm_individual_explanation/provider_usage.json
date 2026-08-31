@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "individual_provider_usage",
+  "generated_at_utc": "2026-08-31T00:53:23.054306+00:00",
+  "provider": "fake_individual",
+  "model": "deterministic-individual-explainer-v1",
+  "request_id": "offline-individual-v1",
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "total_tokens": 0,
+  "duration_seconds": 2.2583059035241604e-05,
+  "http_status": null,
+  "request_success": true,
+  "store": false,
+  "temperature_sent": false,
+  "automatic_retries": 0,
+  "signature": "5a54afabdc69eadff7ea875f1e5de4d301786938de7f915d582947d23990ca03"
+}

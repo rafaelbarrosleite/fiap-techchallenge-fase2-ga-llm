@@ -1,0 +1,513 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "final_uncertainty_results",
+  "generated_at_utc": "2026-08-24T15:09:05.119082+00:00",
+  "plan_signature": "b94cbc663473ab040e89961144c69600062a03a09803c73027ca4163bc4fe1f7",
+  "candidate_intervals": {
+    "logistic_regression__baseline": {
+      "recall_malignant": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 39,
+        "total": 42,
+        "estimate": 0.9285714285714286,
+        "lower": 0.8099057319884169,
+        "upper": 0.9754095901266941
+      },
+      "precision_malignant": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 39,
+        "total": 40,
+        "estimate": 0.975,
+        "lower": 0.8711863103652591,
+        "upper": 0.9955731684973186
+      },
+      "specificity": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 71,
+        "total": 72,
+        "estimate": 0.9861111111111112,
+        "lower": 0.9254339785252386,
+        "upper": 0.9975440481170943
+      },
+      "accuracy": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 110,
+        "total": 114,
+        "estimate": 0.9649122807017544,
+        "lower": 0.9132415849113642,
+        "upper": 0.9862720587655025
+      }
+    },
+    "logistic_regression__ga": {
+      "recall_malignant": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 41,
+        "total": 42,
+        "estimate": 0.9761904761904762,
+        "lower": 0.8767879842623334,
+        "upper": 0.9957845958655673
+      },
+      "precision_malignant": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 41,
+        "total": 42,
+        "estimate": 0.9761904761904762,
+        "lower": 0.8767879842623334,
+        "upper": 0.9957845958655673
+      },
+      "specificity": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 71,
+        "total": 72,
+        "estimate": 0.9861111111111112,
+        "lower": 0.9254339785252386,
+        "upper": 0.9975440481170943
+      },
+      "accuracy": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 112,
+        "total": 114,
+        "estimate": 0.9824561403508771,
+        "lower": 0.9382819735400814,
+        "upper": 0.9951755812189311
+      }
+    },
+    "logistic_regression__random_search": {
+      "recall_malignant": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 41,
+        "total": 42,
+        "estimate": 0.9761904761904762,
+        "lower": 0.8767879842623334,
+        "upper": 0.9957845958655673
+      },
+      "precision_malignant": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 41,
+        "total": 42,
+        "estimate": 0.9761904761904762,
+        "lower": 0.8767879842623334,
+        "upper": 0.9957845958655673
+      },
+      "specificity": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 71,
+        "total": 72,
+        "estimate": 0.9861111111111112,
+        "lower": 0.9254339785252386,
+        "upper": 0.9975440481170943
+      },
+      "accuracy": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 112,
+        "total": 114,
+        "estimate": 0.9824561403508771,
+        "lower": 0.9382819735400814,
+        "upper": 0.9951755812189311
+      }
+    },
+    "random_forest__baseline": {
+      "recall_malignant": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 38,
+        "total": 42,
+        "estimate": 0.9047619047619048,
+        "lower": 0.7793489419142897,
+        "upper": 0.9623377511944261
+      },
+      "precision_malignant": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 38,
+        "total": 38,
+        "estimate": 1.0,
+        "lower": 0.908190131774416,
+        "upper": 0.9999999999999999
+      },
+      "specificity": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 72,
+        "total": 72,
+        "estimate": 1.0,
+        "lower": 0.9493488274035422,
+        "upper": 1.0
+      },
+      "accuracy": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 110,
+        "total": 114,
+        "estimate": 0.9649122807017544,
+        "lower": 0.9132415849113642,
+        "upper": 0.9862720587655025
+      }
+    },
+    "random_forest__ga": {
+      "recall_malignant": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 39,
+        "total": 42,
+        "estimate": 0.9285714285714286,
+        "lower": 0.8099057319884169,
+        "upper": 0.9754095901266941
+      },
+      "precision_malignant": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 39,
+        "total": 39,
+        "estimate": 1.0,
+        "lower": 0.9103331462924287,
+        "upper": 1.0
+      },
+      "specificity": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 72,
+        "total": 72,
+        "estimate": 1.0,
+        "lower": 0.9493488274035422,
+        "upper": 1.0
+      },
+      "accuracy": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 111,
+        "total": 114,
+        "estimate": 0.9736842105263158,
+        "lower": 0.9254751605265878,
+        "upper": 0.9910104386913519
+      }
+    },
+    "random_forest__random_search": {
+      "recall_malignant": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 39,
+        "total": 42,
+        "estimate": 0.9285714285714286,
+        "lower": 0.8099057319884169,
+        "upper": 0.9754095901266941
+      },
+      "precision_malignant": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 39,
+        "total": 39,
+        "estimate": 1.0,
+        "lower": 0.9103331462924287,
+        "upper": 1.0
+      },
+      "specificity": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 72,
+        "total": 72,
+        "estimate": 1.0,
+        "lower": 0.9493488274035422,
+        "upper": 1.0
+      },
+      "accuracy": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 111,
+        "total": 114,
+        "estimate": 0.9736842105263158,
+        "lower": 0.9254751605265878,
+        "upper": 0.9910104386913519
+      }
+    },
+    "knn__baseline": {
+      "recall_malignant": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 38,
+        "total": 42,
+        "estimate": 0.9047619047619048,
+        "lower": 0.7793489419142897,
+        "upper": 0.9623377511944261
+      },
+      "precision_malignant": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 38,
+        "total": 39,
+        "estimate": 0.9743589743589743,
+        "lower": 0.8681900983014993,
+        "upper": 0.99545929689901
+      },
+      "specificity": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 71,
+        "total": 72,
+        "estimate": 0.9861111111111112,
+        "lower": 0.9254339785252386,
+        "upper": 0.9975440481170943
+      },
+      "accuracy": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 109,
+        "total": 114,
+        "estimate": 0.956140350877193,
+        "lower": 0.9014191976891217,
+        "upper": 0.981122490446672
+      }
+    },
+    "knn__ga": {
+      "recall_malignant": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 38,
+        "total": 42,
+        "estimate": 0.9047619047619048,
+        "lower": 0.7793489419142897,
+        "upper": 0.9623377511944261
+      },
+      "precision_malignant": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 38,
+        "total": 38,
+        "estimate": 1.0,
+        "lower": 0.908190131774416,
+        "upper": 0.9999999999999999
+      },
+      "specificity": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 72,
+        "total": 72,
+        "estimate": 1.0,
+        "lower": 0.9493488274035422,
+        "upper": 1.0
+      },
+      "accuracy": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 110,
+        "total": 114,
+        "estimate": 0.9649122807017544,
+        "lower": 0.9132415849113642,
+        "upper": 0.9862720587655025
+      }
+    },
+    "knn__random_search": {
+      "recall_malignant": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 38,
+        "total": 42,
+        "estimate": 0.9047619047619048,
+        "lower": 0.7793489419142897,
+        "upper": 0.9623377511944261
+      },
+      "precision_malignant": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 38,
+        "total": 38,
+        "estimate": 1.0,
+        "lower": 0.908190131774416,
+        "upper": 0.9999999999999999
+      },
+      "specificity": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 72,
+        "total": 72,
+        "estimate": 1.0,
+        "lower": 0.9493488274035422,
+        "upper": 1.0
+      },
+      "accuracy": {
+        "method": "Wilson score",
+        "confidence_level": 0.95,
+        "successes": 110,
+        "total": 114,
+        "estimate": 0.9649122807017544,
+        "lower": 0.9132415849113642,
+        "upper": 0.9862720587655025
+      }
+    }
+  },
+  "paired_baseline_vs_ga": {
+    "logistic_regression": {
+      "candidate_a": "logistic_regression__baseline",
+      "candidate_b": "logistic_regression__ga",
+      "mcnemar": {
+        "method": "McNemar exato binomial bicaudal",
+        "a_wrong_b_right": 2,
+        "a_right_b_wrong": 0,
+        "discordant_total": 2,
+        "p_value": 0.5,
+        "low_count_warning": true,
+        "interpretation": "Nao prova igualdade nem relevancia clinica; descreve erros pareados."
+      },
+      "bootstrap": {
+        "method": "bootstrap pareado por registro, intervalo percentil",
+        "seed": 42,
+        "requested_replicates": 5000,
+        "valid_replicates": 5000,
+        "skipped_single_class_replicates": 0,
+        "confidence_level": 0.95,
+        "intervals": {
+          "accuracy": {
+            "estimate_delta_b_minus_a": 0.01754385964912275,
+            "lower": 0.0,
+            "upper": 0.04385964912280704
+          },
+          "recall_malignant": {
+            "estimate_delta_b_minus_a": 0.04761904761904756,
+            "lower": 0.0,
+            "upper": 0.12195121951219512
+          },
+          "f1_malignant": {
+            "estimate_delta_b_minus_a": 0.024970963995354256,
+            "lower": 0.0,
+            "upper": 0.06660168940870692
+          },
+          "roc_auc": {
+            "estimate_delta_b_minus_a": 0.0016534391534391846,
+            "lower": -1.1102230246251565e-16,
+            "upper": 0.006154220779220904
+          },
+          "specificity": {
+            "estimate_delta_b_minus_a": 0.0,
+            "lower": 0.0,
+            "upper": 0.0
+          },
+          "balanced_accuracy": {
+            "estimate_delta_b_minus_a": 0.023809523809523836,
+            "lower": 0.0,
+            "upper": 0.060975609756097615
+          }
+        }
+      }
+    },
+    "random_forest": {
+      "candidate_a": "random_forest__baseline",
+      "candidate_b": "random_forest__ga",
+      "mcnemar": {
+        "method": "McNemar exato binomial bicaudal",
+        "a_wrong_b_right": 1,
+        "a_right_b_wrong": 0,
+        "discordant_total": 1,
+        "p_value": 1.0,
+        "low_count_warning": true,
+        "interpretation": "Nao prova igualdade nem relevancia clinica; descreve erros pareados."
+      },
+      "bootstrap": {
+        "method": "bootstrap pareado por registro, intervalo percentil",
+        "seed": 42,
+        "requested_replicates": 5000,
+        "valid_replicates": 5000,
+        "skipped_single_class_replicates": 0,
+        "confidence_level": 0.95,
+        "intervals": {
+          "accuracy": {
+            "estimate_delta_b_minus_a": 0.00877192982456143,
+            "lower": 0.0,
+            "upper": 0.026315789473684292
+          },
+          "recall_malignant": {
+            "estimate_delta_b_minus_a": 0.023809523809523836,
+            "lower": 0.0,
+            "upper": 0.0800270270270267
+          },
+          "f1_malignant": {
+            "estimate_delta_b_minus_a": 0.012962962962962954,
+            "lower": 0.0,
+            "upper": 0.04534412955465583
+          },
+          "roc_auc": {
+            "estimate_delta_b_minus_a": -0.00462962962962965,
+            "lower": -0.013384230503795601,
+            "upper": 0.0
+          },
+          "specificity": {
+            "estimate_delta_b_minus_a": 0.0,
+            "lower": 0.0,
+            "upper": 0.0
+          },
+          "balanced_accuracy": {
+            "estimate_delta_b_minus_a": 0.011904761904761973,
+            "lower": 0.0,
+            "upper": 0.04001351351351335
+          }
+        }
+      }
+    },
+    "knn": {
+      "candidate_a": "knn__baseline",
+      "candidate_b": "knn__ga",
+      "mcnemar": {
+        "method": "McNemar exato binomial bicaudal",
+        "a_wrong_b_right": 2,
+        "a_right_b_wrong": 1,
+        "discordant_total": 3,
+        "p_value": 1.0,
+        "low_count_warning": true,
+        "interpretation": "Nao prova igualdade nem relevancia clinica; descreve erros pareados."
+      },
+      "bootstrap": {
+        "method": "bootstrap pareado por registro, intervalo percentil",
+        "seed": 42,
+        "requested_replicates": 5000,
+        "valid_replicates": 5000,
+        "skipped_single_class_replicates": 0,
+        "confidence_level": 0.95,
+        "intervals": {
+          "accuracy": {
+            "estimate_delta_b_minus_a": 0.00877192982456143,
+            "lower": -0.01754385964912286,
+            "upper": 0.04385964912280693
+          },
+          "recall_malignant": {
+            "estimate_delta_b_minus_a": 0.0,
+            "lower": -0.06976744186046513,
+            "upper": 0.06818181818181823
+          },
+          "f1_malignant": {
+            "estimate_delta_b_minus_a": 0.011728395061728403,
+            "lower": -0.03003324753324763,
+            "upper": 0.0596638655462185
+          },
+          "roc_auc": {
+            "estimate_delta_b_minus_a": -0.008763227513227556,
+            "lower": -0.03479744597352612,
+            "upper": 0.006691347012112397
+          },
+          "specificity": {
+            "estimate_delta_b_minus_a": 0.01388888888888884,
+            "lower": 0.0,
+            "upper": 0.045454545454545414
+          },
+          "balanced_accuracy": {
+            "estimate_delta_b_minus_a": 0.00694444444444442,
+            "lower": -0.02941176470588236,
+            "upper": 0.04464416894967074
+          }
+        }
+      }
+    }
+  },
+  "interpretation_warning": "ICs refletem apenas este holdout pequeno; p-valores nao provam equivalencia nem validade clinica.",
+  "signature": "3ad8d9f100a62c963cdba05265eb2539b91a625fd19b5c7a6b7cc45460fbf067"
+}

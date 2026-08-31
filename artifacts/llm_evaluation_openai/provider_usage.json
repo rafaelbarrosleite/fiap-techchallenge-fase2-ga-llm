@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_provider_usage",
+  "generated_at_utc": "2026-08-24T18:41:18.451207+00:00",
+  "provider": "openai_responses",
+  "model": "gpt-5.5",
+  "input_tokens": null,
+  "output_tokens": null,
+  "total_tokens": null,
+  "duration_seconds": 2.0481077089789324,
+  "request_success": false,
+  "response_id": "req_c06505f920e84cb3adc296f7c6768097",
+  "store_requested": false,
+  "cost_estimate": null,
+  "signature": "c30f073e032e9d3cc16f8cc701621ad8f2d07e4ad96fc1948593567eb617dad5"
+}

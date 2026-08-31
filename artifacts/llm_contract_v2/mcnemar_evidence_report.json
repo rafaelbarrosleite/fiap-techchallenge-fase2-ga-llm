@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "llm_v2_mcnemar_evidence_report",
+  "generated_at_utc": "2026-08-24T20:45:13.254868+00:00",
+  "strategy": "A",
+  "strategy_preferred": true,
+  "source": {
+    "filename": "uncertainty_results.json",
+    "artifact_signature": "3ad8d9f100a62c963cdba05265eb2539b91a625fd19b5c7a6b7cc45460fbf067",
+    "fields_reused": [
+      "a_wrong_b_right",
+      "a_right_b_wrong",
+      "discordant_total",
+      "p_value",
+      "low_count_warning",
+      "method"
+    ],
+    "individual_predictions_used": false,
+    "statistic_recomputed": false
+  },
+  "statistic_recomputed": false,
+  "dataset_read": false,
+  "individual_predictions_read": false,
+  "comparisons": [
+    {
+      "comparison_id": "logistic_regression__baseline_vs_ga",
+      "model": "logistic_regression",
+      "left_method": "baseline",
+      "right_method": "ga",
+      "method": "McNemar exato binomial bicaudal",
+      "left_wrong_right_correct": 2,
+      "left_correct_right_wrong": 0,
+      "discordant_total": 2,
+      "p_value": 0.5,
+      "low_count_warning": true,
+      "evidence_source": "authoritative_aggregate_artifact"
+    },
+    {
+      "comparison_id": "random_forest__baseline_vs_ga",
+      "model": "random_forest",
+      "left_method": "baseline",
+      "right_method": "ga",
+      "method": "McNemar exato binomial bicaudal",
+      "left_wrong_right_correct": 1,
+      "left_correct_right_wrong": 0,
+      "discordant_total": 1,
+      "p_value": 1.0,
+      "low_count_warning": true,
+      "evidence_source": "authoritative_aggregate_artifact"
+    },
+    {
+      "comparison_id": "knn__baseline_vs_ga",
+      "model": "knn",
+      "left_method": "baseline",
+      "right_method": "ga",
+      "method": "McNemar exato binomial bicaudal",
+      "left_wrong_right_correct": 2,
+      "left_correct_right_wrong": 1,
+      "discordant_total": 3,
+      "p_value": 1.0,
+      "low_count_warning": true,
+      "evidence_source": "authoritative_aggregate_artifact"
+    }
+  ],
+  "low_power_statement_supported": true,
+  "signature": "a5456cb58da0c85e7bef00180a8cb73290ade8ed040e7b0c057cd755fedfed3a"
+}

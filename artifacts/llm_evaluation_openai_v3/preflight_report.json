@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_preflight_report",
+  "generated_at_utc": "2026-08-24T20:26:48.788240+00:00",
+  "run_identity": "56fbfb080300146426040b0e0c569211dcd55c4670f696e855de715fbad30ed0",
+  "passed": true,
+  "checks": {
+    "mission4_sources_signed": true,
+    "same_payload_as_fake": true,
+    "input_schema_valid": true,
+    "privacy_checker_passed": true,
+    "individual_data_absent": true,
+    "final_predictions_absent": true,
+    "prompt_versions_match_fake": true,
+    "model_configured": true,
+    "credential_present_without_disclosure": true,
+    "store_false": true
+  },
+  "provider_call_performed": false,
+  "signature": "c44941380ab1b41ffd8ad28fcca9f37cb0a72721de4d2026d294d82566671260"
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_diagnostic_result",
+  "generated_at_utc": "2026-08-24T19:41:56.382412+00:00",
+  "status": "rejected",
+  "request_success": false,
+  "provider": "openai_responses",
+  "requested_model": "gpt-5.5",
+  "duration_seconds": 1.4144977910327725,
+  "structured_output": null,
+  "scientific_or_medical_data_sent": false,
+  "automatic_retry_performed": false,
+  "signature": "28f9a4e7d832b0c33bd6c6e83f8dd40634ccbece23e2b2c132a612d1276c558c"
+}

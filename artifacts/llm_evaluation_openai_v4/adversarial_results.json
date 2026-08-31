@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_v4_adversarial_results",
+  "generated_at_utc": "2026-08-24T21:07:04.015349+00:00",
+  "status": "not_run_main_invalid",
+  "blocked_by": "scientific_main",
+  "provider_calls": 0,
+  "maximum_authorized_calls": 3,
+  "retries": 0,
+  "all_inputs_aggregate_or_synthetic": true,
+  "individual_data_sent": false,
+  "scenarios": [],
+  "signature": "cc5dc442c3dd51e3d3a0a720d765a7ce2a04ab926f5b4f410daa1f295f6a50cb"
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_v2_preflight",
+  "generated_at_utc": "2026-08-24T19:59:07.358220+00:00",
+  "passed": true,
+  "repository": {
+    "mission_start_clean": true,
+    "mission_start_commit": "1ed89fa4f3034a0f6f480d10c88c72f46aaa8525",
+    "head_before_calls": "1ed89fa4f3034a0f6f480d10c88c72f46aaa8525",
+    "head_unchanged": true,
+    "env_ignored": true,
+    "automatic_commit_performed": false
+  },
+  "configuration": {
+    "provider": "openai_responses",
+    "model": "gpt-5.5",
+    "store": false,
+    "temperature_sent": false,
+    "retry_count": 0,
+    "credential_present": true,
+    "credential_recorded": false
+  },
+  "schema_valid": true,
+  "privacy_valid": true,
+  "individual_data_included": false,
+  "final_predictions_included": false,
+  "input_sha256": "44ca9f33e8a8553ed837441507c97c4cebfd9e6bcc57170e81e9e97e4936ee13",
+  "prompt_versions": {
+    "system": "system_v1",
+    "explanation": "explanation_v1",
+    "system_sha256": "f10c9d6db2a572c48810b7d10ffc70e651f244383afdb9dde5959901b43306b3",
+    "explanation_sha256": "39e505da3b3293eaa12d89b422013188682774c54dfae244aed93c68b759ce78"
+  },
+  "probe_request_hash": "7f67db09f75ccf8169281b52a57031d8113a47b7e7a622a41893346bfe047bb9",
+  "scientific_request_hash": "7b19ea99d1daaad0fe5d51f4eec40254c55418ae3e874ae0fb52f5c486ebaa48",
+  "previous_evidence_hashes": {
+    "mission7": {
+      "comparison_with_fake.json": "1d9c4002dc67dfdf005118e57732758f3fc7ef57ce31a6bad0afff93463f2c3e",
+      "evaluation_report.json": "5d7adb140b6326c50502d3ded0e3157cf01044f691bdcd63bc8115bf1b684ce5",
+      "factuality_report.json": "4c8563d35b97e2371504ab1aeb42064493462527054f237796cb8a8d70a0f95a",
+      "failure_report.json": "fd539b84da7b9724cfe09c319f5ea7fbd14be8f2a2346000160d9d4a4026e156",
+      "hallucination_report.json": "2e50c3b7d1ba003ce92969befcdb6913efa38ab7c9a496141cb7ad169d2d41ca",
+      "llm_evaluation_manifest.json": "d454649ebf0bd4ebcec2782261cd738d33fa662509d5d75b38993850142606e0",
+      "llm_evaluation_status.json": "4d6884ba7b75affa04c97ba0436f3f79582b2c73e3287f24a54b8e6c70156021",
+      "llm_input_snapshot.json": "ca50c9d00ffd588a355d9bfd284d96d3e2de51859d10011468693d32818abf13",
+      "llm_output.json": "d35ee158f91d4dd1f3e5fdc22da91512451e3c111360c1a96ce9f722607585bb",
+      "preflight_report.json": "20360f76257c76c9a6646c540f00b9fa8e8d2bfd5b7eb376b736366f4021d21d",
+      "provider_usage.json": "7a5ba4eb9fcbf2cbc5eab3de185ecd35ac27325fac6d25fd60a7335b80a47679",
+      "safety_report.json": "5d631de0b39c4fa65951a4b58cedfc2a7913485357f241f452e899ef18ad8d3f"
+    },
+    "mission71": {
+      "diagnosis_manifest.json": "8f97aec6fc33aaae85003491ce142621c58dff6ec57c5195330cd120de21f8c5",
+      "diagnostic_request.json": "e95ff63f733755d73ae274fc6fe20753fdf3db6628f751edcdb1483bc51c957e",
+      "diagnostic_result.json": "528c4aa0b03c9d98af5b8a3b3cdcb6d87fb62ad460d6365b84707e19815fa4fc",
+      "error_capture_report.json": "d9a8d7143bf58677f372913870959b35b5524671ad24eaca76154b15ee1c59a8",
+      "root_cause_report.json": "66fd3091d9e3a8d023e75714fe2713ec7202568e4e525d145dc2d6fb4670b17e",
+      "schema_validation_report.json": "2e157e04362a704f8e46adaf7aa4216fe3dbd1d56a94e549a29ff38bf98e89f8",
+      "sdk_environment.json": "c101bcafbdb137c2e783487e78d2b4ef37fc05604297b67eb04d8912119998d9"
+    }
+  },
+  "api_calls_performed": 0,
+  "signature": "0114b6b81456214a7e4ef0e2944f98e23ba5d37e683631692f3cd79ac2ac6968"
+}

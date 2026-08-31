@@ -1,0 +1,107 @@
+{
+  "schema_version": "3.0",
+  "artifact_type": "individual_explanation_output",
+  "generated_at_utc": "2026-08-31T00:55:52.452119+00:00",
+  "run_identity": "f6db414aaf7c02ed3c4dac8daff8e1e8286545e1b4e20b634b360a36ed3fcc72",
+  "approved": true,
+  "provider": "openai_responses",
+  "model": "gpt-5.5-2026-04-23",
+  "response_id": "resp_08dfea72193336c9016a94d106ec3887d2a0cd358c5f23ddfe",
+  "structured_output": {
+    "schema_version": "3.0",
+    "contract_version": "individual_v1",
+    "case_reference": "demo_case_001",
+    "resumo_executivo": "Para o caso desidentificado demo_case_001, o modelo logistic_regression__random_search classificou o padrão como malignant_pattern, com probabilidade de malignidade de 0.74553 usando limiar de classificação 0.5. Essa probabilidade é uma saída matemática do modelo: não é diagnóstico, não é certeza e não substitui avaliação profissional.",
+    "classificacao_do_modelo": {
+      "candidate_id": "logistic_regression__random_search",
+      "predicted_pattern": "malignant_pattern",
+      "probability_malignant": 0.74553,
+      "classification_threshold": 0.5,
+      "interpretation": "Como 0.74553 está acima do limiar 0.5, o modelo classificou este registro como malignant_pattern. A distância em relação ao limiar foi informada como moderada no contexto de entrada, mas isso continua sendo apenas uma classificação probabilística de desenvolvimento, sem confirmação diagnóstica ou validação para uso clínico."
+    },
+    "fatores_explicativos": [
+      {
+        "rank": 1,
+        "feature": "symmetry_worst",
+        "display_name": "maior simetria",
+        "observed_band": "high",
+        "influence_direction": "toward_malignant",
+        "relative_importance_percent": 55.86,
+        "explanation": "Neste caso, este sinal apareceu na faixa high e contribuiu matematicamente para deslocar a saída do modelo em direção a malignant_pattern. A importância relativa de 55.86% descreve apenas o peso deste sinal dentro dos cinco sinais selecionados para esta explicação local, sem indicar causalidade biológica."
+      },
+      {
+        "rank": 2,
+        "feature": "symmetry_se",
+        "display_name": "variação da simetria",
+        "observed_band": "high",
+        "influence_direction": "toward_benign",
+        "relative_importance_percent": 15.63,
+        "explanation": "Neste caso, este sinal apareceu na faixa high e contribuiu matematicamente para deslocar a saída do modelo em direção a benign_pattern. A importância relativa de 15.63% descreve apenas o peso deste sinal dentro dos cinco sinais selecionados para esta explicação local, sem indicar causalidade biológica."
+      },
+      {
+        "rank": 3,
+        "feature": "concave points_worst",
+        "display_name": "maiores pontos côncavos",
+        "observed_band": "high",
+        "influence_direction": "toward_malignant",
+        "relative_importance_percent": 11.73,
+        "explanation": "Neste caso, este sinal apareceu na faixa high e contribuiu matematicamente para deslocar a saída do modelo em direção a malignant_pattern. A importância relativa de 11.73% descreve apenas o peso deste sinal dentro dos cinco sinais selecionados para esta explicação local, sem indicar causalidade biológica."
+      },
+      {
+        "rank": 4,
+        "feature": "concavity_worst",
+        "display_name": "maior concavidade",
+        "observed_band": "high",
+        "influence_direction": "toward_malignant",
+        "relative_importance_percent": 8.39,
+        "explanation": "Neste caso, este sinal apareceu na faixa high e contribuiu matematicamente para deslocar a saída do modelo em direção a malignant_pattern. A importância relativa de 8.39% descreve apenas o peso deste sinal dentro dos cinco sinais selecionados para esta explicação local, sem indicar causalidade biológica."
+      },
+      {
+        "rank": 5,
+        "feature": "concavity_mean",
+        "display_name": "concavidade média",
+        "observed_band": "high",
+        "influence_direction": "toward_malignant",
+        "relative_importance_percent": 8.39,
+        "explanation": "Neste caso, este sinal apareceu na faixa high e contribuiu matematicamente para deslocar a saída do modelo em direção a malignant_pattern. A importância relativa de 8.39% descreve apenas o peso deste sinal dentro dos cinco sinais selecionados para esta explicação local, sem indicar causalidade biológica."
+      }
+    ],
+    "insights_acionaveis_para_medicos": [
+      {
+        "action": "Revisar criticamente a classificação do modelo e a direção dos cinco sinais explicativos.",
+        "rationale": "A revisão humana ajuda a identificar se a saída matemática é coerente com o contexto independente disponível, sem tratá-la como diagnóstico ou decisão de cuidado.",
+        "scope": "human_review_only",
+        "patient_care_decision": false
+      },
+      {
+        "action": "Auditar se o caso foi processado conforme o contrato desidentificado e sem valores brutos de features.",
+        "rationale": "A entrada informa que não há identificadores, índice original, diagnóstico real nem valores brutos; verificar essa conformidade reduz risco de interpretação indevida.",
+        "scope": "human_review_only",
+        "patient_care_decision": false
+      },
+      {
+        "action": "Confrontar a saída do modelo com o fluxo clínico independente apenas como atividade de verificação.",
+        "rationale": "A probabilidade de 0.74553 deve ser entendida como estimativa do modelo, não como certeza clínica; qualquer interpretação deve permanecer separada da tomada de decisão médica automatizada.",
+        "scope": "human_review_only",
+        "patient_care_decision": false
+      }
+    ],
+    "limitacoes": [
+      "O registro é desidentificado e parcial: não inclui identificadores, índice original, diagnóstico real, valores brutos de features ou reconstrução do registro de origem.",
+      "Os sinais explicativos indicam associação matemática local no modelo, não causalidade biológica nem mecanismo clínico.",
+      "O modelo e esta explicação têm finalidade acadêmica e experimental, sem validação para uso clínico.",
+      "A importância relativa foi calculada apenas entre os cinco sinais selecionados para este caso e não representa todos os fatores possíveis do modelo ou do contexto clínico.",
+      "Nenhum resumo textual clínico, laudo ou nota médica foi usado nesta explicação atual."
+    ],
+    "preparacao_modulo3": {
+      "ready_for_future_text": true,
+      "current_text_data_used": false,
+      "explanation": "O contrato está preparado para futura integração de resumos textuais desidentificados, como clinical_note_summary e exam_report_summary, desde que haja autorização explícita, desidentificação, proveniência da fonte, validação de schema e revisão de segurança clínica. Nenhum texto clínico foi usado agora."
+    },
+    "conclusao": "O modelo classificou este caso desidentificado como malignant_pattern com probabilidade de malignidade de 0.74553 acima do limiar 0.5. Essa saída deve ser interpretada somente como resultado matemático experimental que requer revisão humana e verificação independente, sem valor diagnóstico e sem autorização para orientar cuidado ao paciente.",
+    "disclaimer": "Este resultado possui finalidade exclusivamente acadêmica e experimental. Os modelos avaliados não foram validados para uso clínico e não devem ser utilizados para diagnóstico, tratamento ou tomada de decisão médica.",
+    "predicao_nao_e_diagnostico": true,
+    "uso_clinico_autorizado": false
+  },
+  "signature": "85b7ee3a748276afde5a37df6457f4e3f6615279e0108ba7e3bbf35fd0c6af84"
+}

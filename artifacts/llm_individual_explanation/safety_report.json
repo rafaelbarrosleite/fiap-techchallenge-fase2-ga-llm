@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "individual_safety_report",
+  "generated_at_utc": "2026-08-31T00:53:23.054263+00:00",
+  "run_identity": "f197a5539b06bed5040b3359e8b12caac4320bd1dbb42151f91d9e685e1b5e4b",
+  "passed": true,
+  "disclaimer_valid": true,
+  "deterministic_rules": true,
+  "violations": [],
+  "signature": "ca5e7300d7808e04142f0fdd5a9ef0c07348d10ed33be3a4798a33838d55d8f9"
+}

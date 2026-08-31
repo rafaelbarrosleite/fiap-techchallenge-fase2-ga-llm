@@ -1,0 +1,501 @@
+{
+  "schema_version": "2.0",
+  "artifact_type": "openai_v4_llm_output",
+  "generated_at_utc": "2026-08-24T21:07:04.013051+00:00",
+  "run_identity": "daa9c09ba16b5556c93e495a465a755f607fe7388c52fedf0ecf92bb50f4be35",
+  "provider": "openai_responses",
+  "requested_model": "gpt-5.5",
+  "response_model": "gpt-5.5-2026-04-23",
+  "response_id": "resp_057772f404e3d407016a8cb24e0c7087d2bbe1609b720ab00b",
+  "response_status": "completed",
+  "raw_output_text": "{\"schema_version\":\"2.0\",\"contract_version\":\"v2\",\"resumo_executivo\":\"Foram avaliados nove candidatos agregados no holdout confirmatório, com limiar de classificação 0.5, 114 casos de teste e 42 casos malignos no holdout. As observações são experimentais e agregadas: em regressão logística, os candidatos ga e random_search apresentaram métricas idênticas entre si no holdout e superiores ao baseline em recall_malignant, f1_malignant e roc_auc. Em random_forest, ga e random_search tiveram a mesma matriz de confusão, mas roc_auc diferente; ambos superaram o baseline em recall_malignant e f1_malignant, enquanto a relação de roc_auc depende do par. Em knn, ga e random_search foram idênticos entre si; frente ao baseline, mantiveram recall_malignant igual, f1_malignant maior e roc_auc menor. A seleção congelada antes do holdout foi logistic_regression__random_search, e o holdout não reabriu essa seleção.\",\"modelo_selecionado\":{\"candidate_id\":\"logistic_regression__random_search\",\"model\":\"logistic_regression\",\"method\":\"random_search\",\"origin\":\"RandomizedSearchCV\",\"frozen_before_holdout\":true,\"authority\":\"Mission 4 frozen documentation, checked against maximum CV fitness in the signed plan\",\"authority_limitation\":\"The four priority structured artifacts do not expose an explicit global-selected-model field; the documented frozen decision is auxiliary and was not inferred from holdout performance.\",\"explanation\":\"O candidato selecionado foi definido por validação cruzada no desenvolvimento antes do holdout confirmatório. A avaliação no holdout foi apenas confirmatória e não reabriu a seleção, mesmo havendo empate observado no holdout entre logistic_regression__ga e logistic_regression__random_search.\"},\"model_results\":[{\"model\":\"logistic_regression\",\"candidates\":[{\"candidate_id\":\"logistic_regression__baseline\",\"method\":\"baseline\",\"origin\":\"baseline_cv\",\"metrics\":{\"recall_malignant\":0.9285714285714286,\"f1_malignant\":0.9512195121951219,\"roc_auc\":0.996031746031746,\"true_positives\":39,\"true_negatives\":71,\"false_positives\":1,\"false_negatives\":3}},{\"candidate_id\":\"logistic_regression__ga\",\"method\":\"ga\",\"origin\":\"GA_B\",\"metrics\":{\"recall_malignant\":0.9761904761904762,\"f1_malignant\":0.9761904761904762,\"roc_auc\":0.9976851851851852,\"true_positives\":41,\"true_negatives\":71,\"false_positives\":1,\"false_negatives\":1}},{\"candidate_id\":\"logistic_regression__random_search\",\"method\":\"random_search\",\"origin\":\"RandomizedSearchCV\",\"metrics\":{\"recall_malignant\":0.9761904761904762,\"f1_malignant\":0.9761904761904762,\"roc_auc\":0.9976851851851852,\"true_positives\":41,\"true_negatives\":71,\"false_positives\":1,\"false_negatives\":1}}]},{\"model\":\"random_forest\",\"candidates\":[{\"candidate_id\":\"random_forest__baseline\",\"method\":\"baseline\",\"origin\":\"baseline_cv\",\"metrics\":{\"recall_malignant\":0.9047619047619048,\"f1_malignant\":0.95,\"roc_auc\":0.996031746031746,\"true_positives\":38,\"true_negatives\":72,\"false_positives\":0,\"false_negatives\":4}},{\"candidate_id\":\"random_forest__ga\",\"method\":\"ga\",\"origin\":\"GA_C\",\"metrics\":{\"recall_malignant\":0.9285714285714286,\"f1_malignant\":0.9629629629629629,\"roc_auc\":0.9914021164021164,\"true_positives\":39,\"true_negatives\":72,\"false_positives\":0,\"false_negatives\":3}},{\"candidate_id\":\"random_forest__random_search\",\"method\":\"random_search\",\"origin\":\"RandomizedSearchCV\",\"metrics\":{\"recall_malignant\":0.9285714285714286,\"f1_malignant\":0.9629629629629629,\"roc_auc\":0.9970238095238095,\"true_positives\":39,\"true_negatives\":72,\"false_positives\":0,\"false_negatives\":3}}]},{\"model\":\"knn\",\"candidates\":[{\"candidate_id\":\"knn__baseline\",\"method\":\"baseline\",\"origin\":\"baseline_cv\",\"metrics\":{\"recall_malignant\":0.9047619047619048,\"f1_malignant\":0.9382716049382716,\"roc_auc\":0.982308201058201,\"true_positives\":38,\"true_negatives\":71,\"false_positives\":1,\"false_negatives\":4}},{\"candidate_id\":\"knn__ga\",\"method\":\"ga\",\"origin\":\"GA_A\",\"metrics\":{\"recall_malignant\":0.9047619047619048,\"f1_malignant\":0.95,\"roc_auc\":0.9735449735449735,\"true_positives\":38,\"true_negatives\":72,\"false_positives\":0,\"false_negatives\":4}},{\"candidate_id\":\"knn__random_search\",\"method\":\"random_search\",\"origin\":\"RandomizedSearchCV\",\"metrics\":{\"recall_malignant\":0.9047619047619048,\"f1_malignant\":0.95,\"roc_auc\":0.9735449735449735,\"true_positives\":38,\"true_negatives\":72,\"false_positives\":0,\"false_negatives\":4}}]}],\"comparison_findings\":[{\"comparison_id\":\"logistic_regression__baseline_vs_ga\",\"model\":\"logistic_regression\",\"evaluation_scope\":\"confirmatory_holdout\",\"left_method\":\"baseline\",\"right_method\":\"ga\",\"left_candidate_id\":\"logistic_regression__baseline\",\"right_candidate_id\":\"logistic_regression__ga\",\"same_confusion_matrix\":false,\"different_roc_auc\":true,\"recall_relation\":\"right_higher\",\"f1_relation\":\"right_higher\",\"roc_auc_relation\":\"right_higher\",\"metric_delta\":{\"direction\":\"right_minus_left\",\"recall_malignant\":0.04761904761904756,\"f1_malignant\":0.024970963995354256,\"roc_auc\":0.0016534391534391846},\"tradeoff_present\":false,\"interpretation\":\"Neste par específico, ga teve matriz de confusão diferente do baseline e roc_auc diferente. Com direção right_minus_left, as diferenças observadas favoreceram ga em recall_malignant, f1_malignant e roc_auc no holdout confirmatório.\"},{\"comparison_id\":\"logistic_regression__ga_vs_random_search\",\"model\":\"logistic_regression\",\"evaluation_scope\":\"confirmatory_holdout\",\"left_method\":\"ga\",\"right_method\":\"random_search\",\"left_candidate_id\":\"logistic_regression__ga\",\"right_candidate_id\":\"logistic_regression__random_search\",\"same_confusion_matrix\":true,\"different_roc_auc\":false,\"recall_relation\":\"equal\",\"f1_relation\":\"equal\",\"roc_auc_relation\":\"equal\",\"metric_delta\":{\"direction\":\"right_minus_left\",\"recall_malignant\":0.0,\"f1_malignant\":0.0,\"roc_auc\":0.0},\"tradeoff_present\":false,\"interpretation\":\"Neste par específico, ga e random_search tiveram a mesma matriz de confusão e o mesmo roc_auc. Com direção right_minus_left, as diferenças observadas foram zero para recall_malignant, f1_malignant e roc_auc.\"},{\"comparison_id\":\"logistic_regression__baseline_vs_random_search\",\"model\":\"logistic_regression\",\"evaluation_scope\":\"confirmatory_holdout\",\"left_method\":\"baseline\",\"right_method\":\"random_search\",\"left_candidate_id\":\"logistic_regression__baseline\",\"right_candidate_id\":\"logistic_regression__random_search\",\"same_confusion_matrix\":false,\"different_roc_auc\":true,\"recall_relation\":\"right_higher\",\"f1_relation\":\"right_higher\",\"roc_auc_relation\":\"right_higher\",\"metric_delta\":{\"direction\":\"right_minus_left\",\"recall_malignant\":0.04761904761904756,\"f1_malignant\":0.024970963995354256,\"roc_auc\":0.0016534391534391846},\"tradeoff_present\":false,\"interpretation\":\"Neste par específico, random_search teve matriz de confusão diferente do baseline e roc_auc diferente. Com direção right_minus_left, as diferenças observadas favoreceram random_search em recall_malignant, f1_malignant e roc_auc no holdout confirmatório.\"},{\"comparison_id\":\"random_forest__baseline_vs_ga\",\"model\":\"random_forest\",\"evaluation_scope\":\"confirmatory_holdout\",\"left_method\":\"baseline\",\"right_method\":\"ga\",\"left_candidate_id\":\"random_forest__baseline\",\"right_candidate_id\":\"random_forest__ga\",\"same_confusion_matrix\":false,\"different_roc_auc\":true,\"recall_relation\":\"right_higher\",\"f1_relation\":\"right_higher\",\"roc_auc_relation\":\"left_higher\",\"metric_delta\":{\"direction\":\"right_minus_left\",\"recall_malignant\":0.023809523809523836,\"f1_malignant\":0.012962962962962954,\"roc_auc\":-0.00462962962962965},\"tradeoff_present\":true,\"interpretation\":\"Neste par específico, ga teve matriz de confusão diferente do baseline e roc_auc diferente. Com direção right_minus_left, ga apresentou recall_malignant e f1_malignant maiores, mas roc_auc menor que o baseline; portanto, há trade-off observado entre métricas.\"},{\"comparison_id\":\"random_forest__ga_vs_random_search\",\"model\":\"random_forest\",\"evaluation_scope\":\"confirmatory_holdout\",\"left_method\":\"ga\",\"right_method\":\"random_search\",\"left_candidate_id\":\"random_forest__ga\",\"right_candidate_id\":\"random_forest__random_search\",\"same_confusion_matrix\":true,\"different_roc_auc\":true,\"recall_relation\":\"equal\",\"f1_relation\":\"equal\",\"roc_auc_relation\":\"right_higher\",\"metric_delta\":{\"direction\":\"right_minus_left\",\"recall_malignant\":0.0,\"f1_malignant\":0.0,\"roc_auc\":0.005621693121693139},\"tradeoff_present\":false,\"interpretation\":\"Neste par específico, ga e random_search tiveram a mesma matriz de confusão, mas roc_auc diferente. Com direção right_minus_left, random_search manteve recall_malignant e f1_malignant iguais aos de ga e apresentou roc_auc maior.\"},{\"comparison_id\":\"random_forest__baseline_vs_random_search\",\"model\":\"random_forest\",\"evaluation_scope\":\"confirmatory_holdout\",\"left_method\":\"baseline\",\"right_method\":\"random_search\",\"left_candidate_id\":\"random_forest__baseline\",\"right_candidate_id\":\"random_forest__random_search\",\"same_confusion_matrix\":false,\"different_roc_auc\":true,\"recall_relation\":\"right_higher\",\"f1_relation\":\"right_higher\",\"roc_auc_relation\":\"right_higher\",\"metric_delta\":{\"direction\":\"right_minus_left\",\"recall_malignant\":0.023809523809523836,\"f1_malignant\":0.012962962962962954,\"roc_auc\":0.0009920634920634885},\"tradeoff_present\":false,\"interpretation\":\"Neste par específico, random_search teve matriz de confusão diferente do baseline e roc_auc diferente. Com direção right_minus_left, as diferenças observadas favoreceram random_search em recall_malignant, f1_malignant e roc_auc.\"},{\"comparison_id\":\"knn__baseline_vs_ga\",\"model\":\"knn\",\"evaluation_scope\":\"confirmatory_holdout\",\"left_method\":\"baseline\",\"right_method\":\"ga\",\"left_candidate_id\":\"knn__baseline\",\"right_candidate_id\":\"knn__ga\",\"same_confusion_matrix\":false,\"different_roc_auc\":true,\"recall_relation\":\"equal\",\"f1_relation\":\"right_higher\",\"roc_auc_relation\":\"left_higher\",\"metric_delta\":{\"direction\":\"right_minus_left\",\"recall_malignant\":0.0,\"f1_malignant\":0.011728395061728403,\"roc_auc\":-0.008763227513227556},\"tradeoff_present\":true,\"interpretation\":\"Neste par específico, ga teve matriz de confusão diferente do baseline e roc_auc diferente. Com direção right_minus_left, ga manteve recall_malignant igual, aumentou f1_malignant e reduziu roc_auc em relação ao baseline; portanto, há trade-off observado entre métricas.\"},{\"comparison_id\":\"knn__ga_vs_random_search\",\"model\":\"knn\",\"evaluation_scope\":\"confirmatory_holdout\",\"left_method\":\"ga\",\"right_method\":\"random_search\",\"left_candidate_id\":\"knn__ga\",\"right_candidate_id\":\"knn__random_search\",\"same_confusion_matrix\":true,\"different_roc_auc\":false,\"recall_relation\":\"equal\",\"f1_relation\":\"equal\",\"roc_auc_relation\":\"equal\",\"metric_delta\":{\"direction\":\"right_minus_left\",\"recall_malignant\":0.0,\"f1_malignant\":0.0,\"roc_auc\":0.0},\"tradeoff_present\":false,\"interpretation\":\"Neste par específico, ga e random_search tiveram a mesma matriz de confusão e o mesmo roc_auc. Com direção right_minus_left, as diferenças observadas foram zero para recall_malignant, f1_malignant e roc_auc.\"},{\"comparison_id\":\"knn__baseline_vs_random_search\",\"model\":\"knn\",\"evaluation_scope\":\"confirmatory_holdout\",\"left_method\":\"baseline\",\"right_method\":\"random_search\",\"left_candidate_id\":\"knn__baseline\",\"right_candidate_id\":\"knn__random_search\",\"same_confusion_matrix\":false,\"different_roc_auc\":true,\"recall_relation\":\"equal\",\"f1_relation\":\"right_higher\",\"roc_auc_relation\":\"left_higher\",\"metric_delta\":{\"direction\":\"right_minus_left\",\"recall_malignant\":0.0,\"f1_malignant\":0.011728395061728403,\"roc_auc\":-0.008763227513227556},\"tradeoff_present\":true,\"interpretation\":\"Neste par específico, random_search teve matriz de confusão diferente do baseline e roc_auc diferente. Com direção right_minus_left, random_search manteve recall_malignant igual, aumentou f1_malignant e reduziu roc_auc em relação ao baseline; portanto, há trade-off observado entre métricas.\"}],\"interpretacao_comparacoes\":\"As comparações devem ser lidas apenas dentro de cada comparison_id. Matrizes de confusão iguais não implicam necessariamente roc_auc igual, como observado em random_forest__ga_vs_random_search; inversamente, os pares com matriz de confusão igual e roc_auc igual devem ser interpretados somente para seus próprios comparison_id. Os deltas estão sempre na direção right_minus_left. As relações observadas no holdout são descritivas e não estabelecem causalidade nem validação clínica.\",\"incerteza_estatistica\":\"A incerteza foi fornecida apenas para os pares baseline_vs_ga de cada família de modelo. Em todos esses três pares, o intervalo de 95% do delta de recall inclui zero, o que não sustenta superioridade estatística do método à direita sobre o método à esquerda em recall_malignant. Os valores-p de McNemar são altos nos três pares, mas isso não prova igualdade. Como low_count_warning=true e as contagens discordantes são pequenas em cada par, a inferência pelo teste de McNemar fica limitada.\",\"uncertainty_findings\":[{\"comparison_id\":\"logistic_regression__baseline_vs_ga\",\"model\":\"logistic_regression\",\"left_method\":\"baseline\",\"right_method\":\"ga\",\"left_recall_interval\":{\"lower\":0.8099057319884169,\"upper\":0.9754095901266941,\"confidence_level\":0.95},\"right_recall_interval\":{\"lower\":0.8767879842623334,\"upper\":0.9957845958655673,\"confidence_level\":0.95},\"delta_recall\":{\"direction\":\"right_minus_left\",\"estimate\":0.04761904761904756,\"interval\":{\"lower\":0.0,\"upper\":0.12195121951219512,\"confidence_level\":0.95},\"includes_zero\":true},\"mcnemar\":{\"method\":\"McNemar exato binomial bicaudal\",\"left_wrong_right_correct\":2,\"left_correct_right_wrong\":0,\"discordant_total\":2,\"p_value\":0.5,\"low_count_warning\":true,\"evidence_source\":\"authoritative_aggregate_artifact\"},\"limited_by_few_discordances\":true,\"interpretation\":\"Para logistic_regression__baseline_vs_ga, o delta de recall tem direção right_minus_left e estimativa 0.04761904761904756, mas o intervalo de 95% inclui zero. O McNemar usou 2 discordâncias agregadas, com 2 casos left_wrong_right_correct e 0 left_correct_right_wrong; como low_count_warning=true e discordant_total=2, poucas discordâncias limitam a inferência. O valor-p 0.5 não demonstra superioridade estatística e também não prova igualdade.\"},{\"comparison_id\":\"random_forest__baseline_vs_ga\",\"model\":\"random_forest\",\"left_method\":\"baseline\",\"right_method\":\"ga\",\"left_recall_interval\":{\"lower\":0.7793489419142897,\"upper\":0.9623377511944261,\"confidence_level\":0.95},\"right_recall_interval\":{\"lower\":0.8099057319884169,\"upper\":0.9754095901266941,\"confidence_level\":0.95},\"delta_recall\":{\"direction\":\"right_minus_left\",\"estimate\":0.023809523809523836,\"interval\":{\"lower\":0.0,\"upper\":0.0800270270270267,\"confidence_level\":0.95},\"includes_zero\":true},\"mcnemar\":{\"method\":\"McNemar exato binomial bicaudal\",\"left_wrong_right_correct\":1,\"left_correct_right_wrong\":0,\"discordant_total\":1,\"p_value\":1.0,\"low_count_warning\":true,\"evidence_source\":\"authoritative_aggregate_artifact\"},\"limited_by_few_discordances\":true,\"interpretation\":\"Para random_forest__baseline_vs_ga, o delta de recall tem direção right_minus_left e estimativa 0.023809523809523836, mas o intervalo de 95% inclui zero. O McNemar usou 1 discordância agregada, com 1 caso left_wrong_right_correct e 0 left_correct_right_wrong; como low_count_warning=true e discordant_total=1, poucas discordâncias limitam a inferência. O valor-p 1.0 não demonstra superioridade estatística e também não prova igualdade.\"},{\"comparison_id\":\"knn__baseline_vs_ga\",\"model\":\"knn\",\"left_method\":\"baseline\",\"right_method\":\"ga\",\"left_recall_interval\":{\"lower\":0.7793489419142897,\"upper\":0.9623377511944261,\"confidence_level\":0.95},\"right_recall_interval\":{\"lower\":0.7793489419142897,\"upper\":0.9623377511944261,\"confidence_level\":0.95},\"delta_recall\":{\"direction\":\"right_minus_left\",\"estimate\":0.0,\"interval\":{\"lower\":-0.06976744186046513,\"upper\":0.06818181818181823,\"confidence_level\":0.95},\"includes_zero\":true},\"mcnemar\":{\"method\":\"McNemar exato binomial bicaudal\",\"left_wrong_right_correct\":2,\"left_correct_right_wrong\":1,\"discordant_total\":3,\"p_value\":1.0,\"low_count_warning\":true,\"evidence_source\":\"authoritative_aggregate_artifact\"},\"limited_by_few_discordances\":true,\"interpretation\":\"Para knn__baseline_vs_ga, o delta de recall tem direção right_minus_left e estimativa 0.0, com intervalo de 95% incluindo zero. O McNemar usou 3 discordâncias agregadas, com 2 casos left_wrong_right_correct e 1 left_correct_right_wrong; como low_count_warning=true e discordant_total=3, poucas discordâncias limitam a inferência. O valor-p 1.0 não demonstra superioridade estatística e também não prova igualdade.\"}],\"limitacoes\":[\"Only 42 malignant cases are present in the confirmatory holdout, so uncertainty remains broad.\",\"Intervals that include zero do not provide enough evidence for statistical superiority.\",\"This is an academic experiment and not a clinical validation.\",\"The structured Mission 4 artifacts omit an explicit global-selected-model field; documented frozen provenance is auxiliary.\",\"Pairwise findings are limited to the explicit comparison_id values supplied in this contract.\",\"McNemar low-count statements are allowed only because signed aggregate discordance counts are supplied.\"],\"conclusao\":\"No holdout confirmatório, o candidato congelado antes do holdout foi logistic_regression__random_search, conforme documentação auxiliar de seleção. As comparações agregadas mostram diferenças observadas entre métodos em alguns pares, incluindo trade-offs em random_forest__baseline_vs_ga, knn__baseline_vs_ga e knn__baseline_vs_random_search. Contudo, a incerteza disponível para os pares baseline_vs_ga não sustenta superioridade estatística de recall quando os intervalos incluem zero, e as poucas discordâncias limitam a interpretação do McNemar. O estudo permanece acadêmico e experimental, sem autorização de uso clínico.\",\"disclaimer\":\"Este resultado possui finalidade exclusivamente acadêmica e experimental. Os modelos avaliados não foram validados para uso clínico e não devem ser utilizados para diagnóstico, tratamento ou tomada de decisão médica.\",\"holdout_nao_reabriu_selecao\":true,\"uso_clinico_autorizado\":false}",
+  "structured_output": {
+    "schema_version": "2.0",
+    "contract_version": "v2",
+    "resumo_executivo": "Foram avaliados nove candidatos agregados no holdout confirmatório, com limiar de classificação 0.5, 114 casos de teste e 42 casos malignos no holdout. As observações são experimentais e agregadas: em regressão logística, os candidatos ga e random_search apresentaram métricas idênticas entre si no holdout e superiores ao baseline em recall_malignant, f1_malignant e roc_auc. Em random_forest, ga e random_search tiveram a mesma matriz de confusão, mas roc_auc diferente; ambos superaram o baseline em recall_malignant e f1_malignant, enquanto a relação de roc_auc depende do par. Em knn, ga e random_search foram idênticos entre si; frente ao baseline, mantiveram recall_malignant igual, f1_malignant maior e roc_auc menor. A seleção congelada antes do holdout foi logistic_regression__random_search, e o holdout não reabriu essa seleção.",
+    "modelo_selecionado": {
+      "candidate_id": "logistic_regression__random_search",
+      "model": "logistic_regression",
+      "method": "random_search",
+      "origin": "RandomizedSearchCV",
+      "frozen_before_holdout": true,
+      "authority": "Mission 4 frozen documentation, checked against maximum CV fitness in the signed plan",
+      "authority_limitation": "The four priority structured artifacts do not expose an explicit global-selected-model field; the documented frozen decision is auxiliary and was not inferred from holdout performance.",
+      "explanation": "O candidato selecionado foi definido por validação cruzada no desenvolvimento antes do holdout confirmatório. A avaliação no holdout foi apenas confirmatória e não reabriu a seleção, mesmo havendo empate observado no holdout entre logistic_regression__ga e logistic_regression__random_search."
+    },
+    "model_results": [
+      {
+        "model": "logistic_regression",
+        "candidates": [
+          {
+            "candidate_id": "logistic_regression__baseline",
+            "method": "baseline",
+            "origin": "baseline_cv",
+            "metrics": {
+              "recall_malignant": 0.9285714285714286,
+              "f1_malignant": 0.9512195121951219,
+              "roc_auc": 0.996031746031746,
+              "true_positives": 39,
+              "true_negatives": 71,
+              "false_positives": 1,
+              "false_negatives": 3
+            }
+          },
+          {
+            "candidate_id": "logistic_regression__ga",
+            "method": "ga",
+            "origin": "GA_B",
+            "metrics": {
+              "recall_malignant": 0.9761904761904762,
+              "f1_malignant": 0.9761904761904762,
+              "roc_auc": 0.9976851851851852,
+              "true_positives": 41,
+              "true_negatives": 71,
+              "false_positives": 1,
+              "false_negatives": 1
+            }
+          },
+          {
+            "candidate_id": "logistic_regression__random_search",
+            "method": "random_search",
+            "origin": "RandomizedSearchCV",
+            "metrics": {
+              "recall_malignant": 0.9761904761904762,
+              "f1_malignant": 0.9761904761904762,
+              "roc_auc": 0.9976851851851852,
+              "true_positives": 41,
+              "true_negatives": 71,
+              "false_positives": 1,
+              "false_negatives": 1
+            }
+          }
+        ]
+      },
+      {
+        "model": "random_forest",
+        "candidates": [
+          {
+            "candidate_id": "random_forest__baseline",
+            "method": "baseline",
+            "origin": "baseline_cv",
+            "metrics": {
+              "recall_malignant": 0.9047619047619048,
+              "f1_malignant": 0.95,
+              "roc_auc": 0.996031746031746,
+              "true_positives": 38,
+              "true_negatives": 72,
+              "false_positives": 0,
+              "false_negatives": 4
+            }
+          },
+          {
+            "candidate_id": "random_forest__ga",
+            "method": "ga",
+            "origin": "GA_C",
+            "metrics": {
+              "recall_malignant": 0.9285714285714286,
+              "f1_malignant": 0.9629629629629629,
+              "roc_auc": 0.9914021164021164,
+              "true_positives": 39,
+              "true_negatives": 72,
+              "false_positives": 0,
+              "false_negatives": 3
+            }
+          },
+          {
+            "candidate_id": "random_forest__random_search",
+            "method": "random_search",
+            "origin": "RandomizedSearchCV",
+            "metrics": {
+              "recall_malignant": 0.9285714285714286,
+              "f1_malignant": 0.9629629629629629,
+              "roc_auc": 0.9970238095238095,
+              "true_positives": 39,
+              "true_negatives": 72,
+              "false_positives": 0,
+              "false_negatives": 3
+            }
+          }
+        ]
+      },
+      {
+        "model": "knn",
+        "candidates": [
+          {
+            "candidate_id": "knn__baseline",
+            "method": "baseline",
+            "origin": "baseline_cv",
+            "metrics": {
+              "recall_malignant": 0.9047619047619048,
+              "f1_malignant": 0.9382716049382716,
+              "roc_auc": 0.982308201058201,
+              "true_positives": 38,
+              "true_negatives": 71,
+              "false_positives": 1,
+              "false_negatives": 4
+            }
+          },
+          {
+            "candidate_id": "knn__ga",
+            "method": "ga",
+            "origin": "GA_A",
+            "metrics": {
+              "recall_malignant": 0.9047619047619048,
+              "f1_malignant": 0.95,
+              "roc_auc": 0.9735449735449735,
+              "true_positives": 38,
+              "true_negatives": 72,
+              "false_positives": 0,
+              "false_negatives": 4
+            }
+          },
+          {
+            "candidate_id": "knn__random_search",
+            "method": "random_search",
+            "origin": "RandomizedSearchCV",
+            "metrics": {
+              "recall_malignant": 0.9047619047619048,
+              "f1_malignant": 0.95,
+              "roc_auc": 0.9735449735449735,
+              "true_positives": 38,
+              "true_negatives": 72,
+              "false_positives": 0,
+              "false_negatives": 4
+            }
+          }
+        ]
+      }
+    ],
+    "comparison_findings": [
+      {
+        "comparison_id": "logistic_regression__baseline_vs_ga",
+        "model": "logistic_regression",
+        "evaluation_scope": "confirmatory_holdout",
+        "left_method": "baseline",
+        "right_method": "ga",
+        "left_candidate_id": "logistic_regression__baseline",
+        "right_candidate_id": "logistic_regression__ga",
+        "same_confusion_matrix": false,
+        "different_roc_auc": true,
+        "recall_relation": "right_higher",
+        "f1_relation": "right_higher",
+        "roc_auc_relation": "right_higher",
+        "metric_delta": {
+          "direction": "right_minus_left",
+          "recall_malignant": 0.04761904761904756,
+          "f1_malignant": 0.024970963995354256,
+          "roc_auc": 0.0016534391534391846
+        },
+        "tradeoff_present": false,
+        "interpretation": "Neste par específico, ga teve matriz de confusão diferente do baseline e roc_auc diferente. Com direção right_minus_left, as diferenças observadas favoreceram ga em recall_malignant, f1_malignant e roc_auc no holdout confirmatório."
+      },
+      {
+        "comparison_id": "logistic_regression__ga_vs_random_search",
+        "model": "logistic_regression",
+        "evaluation_scope": "confirmatory_holdout",
+        "left_method": "ga",
+        "right_method": "random_search",
+        "left_candidate_id": "logistic_regression__ga",
+        "right_candidate_id": "logistic_regression__random_search",
+        "same_confusion_matrix": true,
+        "different_roc_auc": false,
+        "recall_relation": "equal",
+        "f1_relation": "equal",
+        "roc_auc_relation": "equal",
+        "metric_delta": {
+          "direction": "right_minus_left",
+          "recall_malignant": 0.0,
+          "f1_malignant": 0.0,
+          "roc_auc": 0.0
+        },
+        "tradeoff_present": false,
+        "interpretation": "Neste par específico, ga e random_search tiveram a mesma matriz de confusão e o mesmo roc_auc. Com direção right_minus_left, as diferenças observadas foram zero para recall_malignant, f1_malignant e roc_auc."
+      },
+      {
+        "comparison_id": "logistic_regression__baseline_vs_random_search",
+        "model": "logistic_regression",
+        "evaluation_scope": "confirmatory_holdout",
+        "left_method": "baseline",
+        "right_method": "random_search",
+        "left_candidate_id": "logistic_regression__baseline",
+        "right_candidate_id": "logistic_regression__random_search",
+        "same_confusion_matrix": false,
+        "different_roc_auc": true,
+        "recall_relation": "right_higher",
+        "f1_relation": "right_higher",
+        "roc_auc_relation": "right_higher",
+        "metric_delta": {
+          "direction": "right_minus_left",
+          "recall_malignant": 0.04761904761904756,
+          "f1_malignant": 0.024970963995354256,
+          "roc_auc": 0.0016534391534391846
+        },
+        "tradeoff_present": false,
+        "interpretation": "Neste par específico, random_search teve matriz de confusão diferente do baseline e roc_auc diferente. Com direção right_minus_left, as diferenças observadas favoreceram random_search em recall_malignant, f1_malignant e roc_auc no holdout confirmatório."
+      },
+      {
+        "comparison_id": "random_forest__baseline_vs_ga",
+        "model": "random_forest",
+        "evaluation_scope": "confirmatory_holdout",
+        "left_method": "baseline",
+        "right_method": "ga",
+        "left_candidate_id": "random_forest__baseline",
+        "right_candidate_id": "random_forest__ga",
+        "same_confusion_matrix": false,
+        "different_roc_auc": true,
+        "recall_relation": "right_higher",
+        "f1_relation": "right_higher",
+        "roc_auc_relation": "left_higher",
+        "metric_delta": {
+          "direction": "right_minus_left",
+          "recall_malignant": 0.023809523809523836,
+          "f1_malignant": 0.012962962962962954,
+          "roc_auc": -0.00462962962962965
+        },
+        "tradeoff_present": true,
+        "interpretation": "Neste par específico, ga teve matriz de confusão diferente do baseline e roc_auc diferente. Com direção right_minus_left, ga apresentou recall_malignant e f1_malignant maiores, mas roc_auc menor que o baseline; portanto, há trade-off observado entre métricas."
+      },
+      {
+        "comparison_id": "random_forest__ga_vs_random_search",
+        "model": "random_forest",
+        "evaluation_scope": "confirmatory_holdout",
+        "left_method": "ga",
+        "right_method": "random_search",
+        "left_candidate_id": "random_forest__ga",
+        "right_candidate_id": "random_forest__random_search",
+        "same_confusion_matrix": true,
+        "different_roc_auc": true,
+        "recall_relation": "equal",
+        "f1_relation": "equal",
+        "roc_auc_relation": "right_higher",
+        "metric_delta": {
+          "direction": "right_minus_left",
+          "recall_malignant": 0.0,
+          "f1_malignant": 0.0,
+          "roc_auc": 0.005621693121693139
+        },
+        "tradeoff_present": false,
+        "interpretation": "Neste par específico, ga e random_search tiveram a mesma matriz de confusão, mas roc_auc diferente. Com direção right_minus_left, random_search manteve recall_malignant e f1_malignant iguais aos de ga e apresentou roc_auc maior."
+      },
+      {
+        "comparison_id": "random_forest__baseline_vs_random_search",
+        "model": "random_forest",
+        "evaluation_scope": "confirmatory_holdout",
+        "left_method": "baseline",
+        "right_method": "random_search",
+        "left_candidate_id": "random_forest__baseline",
+        "right_candidate_id": "random_forest__random_search",
+        "same_confusion_matrix": false,
+        "different_roc_auc": true,
+        "recall_relation": "right_higher",
+        "f1_relation": "right_higher",
+        "roc_auc_relation": "right_higher",
+        "metric_delta": {
+          "direction": "right_minus_left",
+          "recall_malignant": 0.023809523809523836,
+          "f1_malignant": 0.012962962962962954,
+          "roc_auc": 0.0009920634920634885
+        },
+        "tradeoff_present": false,
+        "interpretation": "Neste par específico, random_search teve matriz de confusão diferente do baseline e roc_auc diferente. Com direção right_minus_left, as diferenças observadas favoreceram random_search em recall_malignant, f1_malignant e roc_auc."
+      },
+      {
+        "comparison_id": "knn__baseline_vs_ga",
+        "model": "knn",
+        "evaluation_scope": "confirmatory_holdout",
+        "left_method": "baseline",
+        "right_method": "ga",
+        "left_candidate_id": "knn__baseline",
+        "right_candidate_id": "knn__ga",
+        "same_confusion_matrix": false,
+        "different_roc_auc": true,
+        "recall_relation": "equal",
+        "f1_relation": "right_higher",
+        "roc_auc_relation": "left_higher",
+        "metric_delta": {
+          "direction": "right_minus_left",
+          "recall_malignant": 0.0,
+          "f1_malignant": 0.011728395061728403,
+          "roc_auc": -0.008763227513227556
+        },
+        "tradeoff_present": true,
+        "interpretation": "Neste par específico, ga teve matriz de confusão diferente do baseline e roc_auc diferente. Com direção right_minus_left, ga manteve recall_malignant igual, aumentou f1_malignant e reduziu roc_auc em relação ao baseline; portanto, há trade-off observado entre métricas."
+      },
+      {
+        "comparison_id": "knn__ga_vs_random_search",
+        "model": "knn",
+        "evaluation_scope": "confirmatory_holdout",
+        "left_method": "ga",
+        "right_method": "random_search",
+        "left_candidate_id": "knn__ga",
+        "right_candidate_id": "knn__random_search",
+        "same_confusion_matrix": true,
+        "different_roc_auc": false,
+        "recall_relation": "equal",
+        "f1_relation": "equal",
+        "roc_auc_relation": "equal",
+        "metric_delta": {
+          "direction": "right_minus_left",
+          "recall_malignant": 0.0,
+          "f1_malignant": 0.0,
+          "roc_auc": 0.0
+        },
+        "tradeoff_present": false,
+        "interpretation": "Neste par específico, ga e random_search tiveram a mesma matriz de confusão e o mesmo roc_auc. Com direção right_minus_left, as diferenças observadas foram zero para recall_malignant, f1_malignant e roc_auc."
+      },
+      {
+        "comparison_id": "knn__baseline_vs_random_search",
+        "model": "knn",
+        "evaluation_scope": "confirmatory_holdout",
+        "left_method": "baseline",
+        "right_method": "random_search",
+        "left_candidate_id": "knn__baseline",
+        "right_candidate_id": "knn__random_search",
+        "same_confusion_matrix": false,
+        "different_roc_auc": true,
+        "recall_relation": "equal",
+        "f1_relation": "right_higher",
+        "roc_auc_relation": "left_higher",
+        "metric_delta": {
+          "direction": "right_minus_left",
+          "recall_malignant": 0.0,
+          "f1_malignant": 0.011728395061728403,
+          "roc_auc": -0.008763227513227556
+        },
+        "tradeoff_present": true,
+        "interpretation": "Neste par específico, random_search teve matriz de confusão diferente do baseline e roc_auc diferente. Com direção right_minus_left, random_search manteve recall_malignant igual, aumentou f1_malignant e reduziu roc_auc em relação ao baseline; portanto, há trade-off observado entre métricas."
+      }
+    ],
+    "interpretacao_comparacoes": "As comparações devem ser lidas apenas dentro de cada comparison_id. Matrizes de confusão iguais não implicam necessariamente roc_auc igual, como observado em random_forest__ga_vs_random_search; inversamente, os pares com matriz de confusão igual e roc_auc igual devem ser interpretados somente para seus próprios comparison_id. Os deltas estão sempre na direção right_minus_left. As relações observadas no holdout são descritivas e não estabelecem causalidade nem validação clínica.",
+    "incerteza_estatistica": "A incerteza foi fornecida apenas para os pares baseline_vs_ga de cada família de modelo. Em todos esses três pares, o intervalo de 95% do delta de recall inclui zero, o que não sustenta superioridade estatística do método à direita sobre o método à esquerda em recall_malignant. Os valores-p de McNemar são altos nos três pares, mas isso não prova igualdade. Como low_count_warning=true e as contagens discordantes são pequenas em cada par, a inferência pelo teste de McNemar fica limitada.",
+    "uncertainty_findings": [
+      {
+        "comparison_id": "logistic_regression__baseline_vs_ga",
+        "model": "logistic_regression",
+        "left_method": "baseline",
+        "right_method": "ga",
+        "left_recall_interval": {
+          "lower": 0.8099057319884169,
+          "upper": 0.9754095901266941,
+          "confidence_level": 0.95
+        },
+        "right_recall_interval": {
+          "lower": 0.8767879842623334,
+          "upper": 0.9957845958655673,
+          "confidence_level": 0.95
+        },
+        "delta_recall": {
+          "direction": "right_minus_left",
+          "estimate": 0.04761904761904756,
+          "interval": {
+            "lower": 0.0,
+            "upper": 0.12195121951219512,
+            "confidence_level": 0.95
+          },
+          "includes_zero": true
+        },
+        "mcnemar": {
+          "method": "McNemar exato binomial bicaudal",
+          "left_wrong_right_correct": 2,
+          "left_correct_right_wrong": 0,
+          "discordant_total": 2,
+          "p_value": 0.5,
+          "low_count_warning": true,
+          "evidence_source": "authoritative_aggregate_artifact"
+        },
+        "limited_by_few_discordances": true,
+        "interpretation": "Para logistic_regression__baseline_vs_ga, o delta de recall tem direção right_minus_left e estimativa 0.04761904761904756, mas o intervalo de 95% inclui zero. O McNemar usou 2 discordâncias agregadas, com 2 casos left_wrong_right_correct e 0 left_correct_right_wrong; como low_count_warning=true e discordant_total=2, poucas discordâncias limitam a inferência. O valor-p 0.5 não demonstra superioridade estatística e também não prova igualdade."
+      },
+      {
+        "comparison_id": "random_forest__baseline_vs_ga",
+        "model": "random_forest",
+        "left_method": "baseline",
+        "right_method": "ga",
+        "left_recall_interval": {
+          "lower": 0.7793489419142897,
+          "upper": 0.9623377511944261,
+          "confidence_level": 0.95
+        },
+        "right_recall_interval": {
+          "lower": 0.8099057319884169,
+          "upper": 0.9754095901266941,
+          "confidence_level": 0.95
+        },
+        "delta_recall": {
+          "direction": "right_minus_left",
+          "estimate": 0.023809523809523836,
+          "interval": {
+            "lower": 0.0,
+            "upper": 0.0800270270270267,
+            "confidence_level": 0.95
+          },
+          "includes_zero": true
+        },
+        "mcnemar": {
+          "method": "McNemar exato binomial bicaudal",
+          "left_wrong_right_correct": 1,
+          "left_correct_right_wrong": 0,
+          "discordant_total": 1,
+          "p_value": 1.0,
+          "low_count_warning": true,
+          "evidence_source": "authoritative_aggregate_artifact"
+        },
+        "limited_by_few_discordances": true,
+        "interpretation": "Para random_forest__baseline_vs_ga, o delta de recall tem direção right_minus_left e estimativa 0.023809523809523836, mas o intervalo de 95% inclui zero. O McNemar usou 1 discordância agregada, com 1 caso left_wrong_right_correct e 0 left_correct_right_wrong; como low_count_warning=true e discordant_total=1, poucas discordâncias limitam a inferência. O valor-p 1.0 não demonstra superioridade estatística e também não prova igualdade."
+      },
+      {
+        "comparison_id": "knn__baseline_vs_ga",
+        "model": "knn",
+        "left_method": "baseline",
+        "right_method": "ga",
+        "left_recall_interval": {
+          "lower": 0.7793489419142897,
+          "upper": 0.9623377511944261,
+          "confidence_level": 0.95
+        },
+        "right_recall_interval": {
+          "lower": 0.7793489419142897,
+          "upper": 0.9623377511944261,
+          "confidence_level": 0.95
+        },
+        "delta_recall": {
+          "direction": "right_minus_left",
+          "estimate": 0.0,
+          "interval": {
+            "lower": -0.06976744186046513,
+            "upper": 0.06818181818181823,
+            "confidence_level": 0.95
+          },
+          "includes_zero": true
+        },
+        "mcnemar": {
+          "method": "McNemar exato binomial bicaudal",
+          "left_wrong_right_correct": 2,
+          "left_correct_right_wrong": 1,
+          "discordant_total": 3,
+          "p_value": 1.0,
+          "low_count_warning": true,
+          "evidence_source": "authoritative_aggregate_artifact"
+        },
+        "limited_by_few_discordances": true,
+        "interpretation": "Para knn__baseline_vs_ga, o delta de recall tem direção right_minus_left e estimativa 0.0, com intervalo de 95% incluindo zero. O McNemar usou 3 discordâncias agregadas, com 2 casos left_wrong_right_correct e 1 left_correct_right_wrong; como low_count_warning=true e discordant_total=3, poucas discordâncias limitam a inferência. O valor-p 1.0 não demonstra superioridade estatística e também não prova igualdade."
+      }
+    ],
+    "limitacoes": [
+      "Only 42 malignant cases are present in the confirmatory holdout, so uncertainty remains broad.",
+      "Intervals that include zero do not provide enough evidence for statistical superiority.",
+      "This is an academic experiment and not a clinical validation.",
+      "The structured Mission 4 artifacts omit an explicit global-selected-model field; documented frozen provenance is auxiliary.",
+      "Pairwise findings are limited to the explicit comparison_id values supplied in this contract.",
+      "McNemar low-count statements are allowed only because signed aggregate discordance counts are supplied."
+    ],
+    "conclusao": "No holdout confirmatório, o candidato congelado antes do holdout foi logistic_regression__random_search, conforme documentação auxiliar de seleção. As comparações agregadas mostram diferenças observadas entre métodos em alguns pares, incluindo trade-offs em random_forest__baseline_vs_ga, knn__baseline_vs_ga e knn__baseline_vs_random_search. Contudo, a incerteza disponível para os pares baseline_vs_ga não sustenta superioridade estatística de recall quando os intervalos incluem zero, e as poucas discordâncias limitam a interpretação do McNemar. O estudo permanece acadêmico e experimental, sem autorização de uso clínico.",
+    "disclaimer": "Este resultado possui finalidade exclusivamente acadêmica e experimental. Os modelos avaliados não foram validados para uso clínico e não devem ser utilizados para diagnóstico, tratamento ou tomada de decisão médica.",
+    "holdout_nao_reabriu_selecao": true,
+    "uso_clinico_autorizado": false
+  },
+  "schema_valid": true,
+  "scientific_evaluation_approved": false,
+  "approved": false,
+  "signature": "5a3a37287c484bf7265f8764b20a31da31367295ef6abc5a27c91c55f50aefab"
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "official_ga_status",
+  "status": "completed",
+  "identity": {
+    "model": "random_forest",
+    "config_label": "C",
+    "configuration": {
+      "name": "C_exploratory",
+      "population_size": 60,
+      "max_generations": 30,
+      "crossover_rate": 0.75,
+      "mutation_rate": 0.3,
+      "elite_count": 4,
+      "tournament_size": 4,
+      "seed": 42,
+      "cv_splits": 5,
+      "cv_seed": 42,
+      "estimator_seed": 42,
+      "instability_weight": 0.1,
+      "stagnation_generations": null,
+      "min_improvement": 1e-12
+    },
+    "dataset_sha256": "1425d9affa78ba8e53afc81d0ef8a19069ee10c4b21fe89b3cf514071b12ee33",
+    "development_indices_sha256": "e7b0bfbc870a7cb2f8a61d9918d994dfa3a05878b82f4f8e475fc4e225ec7f75",
+    "code_sha256": "ba729d4dc48958ad8c35e105804790c259dd739d9752d08d4b7c8edb12149c31",
+    "project_version": "0.3.0",
+    "official_schema_version": "1.0",
+    "sha256": "d82a4e4681d4a9039d47b6d4e98788d66bac0bd9d0ff30cdda0fb9da099bfb23"
+  },
+  "started_at_utc": "2026-08-19T12:07:49.663915+00:00",
+  "updated_at_utc": "2026-08-19T12:40:32.050628+00:00",
+  "ended_at_utc": "2026-08-19T12:40:32.050625+00:00",
+  "duration_seconds": 1962.2849183750004,
+  "completed_generation": 30,
+  "reason": "max_generations"
+}

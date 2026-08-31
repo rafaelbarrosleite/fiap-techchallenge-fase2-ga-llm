@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "llm_evaluation_manifest",
+  "generated_at_utc": "2026-08-24T17:52:57.482896+00:00",
+  "status": "approved",
+  "run_identity": "5f94b3568689b01be5a413d449a898efe1fe4c702724348d520eddd5e52fbe66",
+  "prompt_versions": {
+    "system": "system_v1",
+    "explanation": "explanation_v1",
+    "system_sha256": "f10c9d6db2a572c48810b7d10ffc70e651f244383afdb9dde5959901b43306b3",
+    "explanation_sha256": "39e505da3b3293eaa12d89b422013188682774c54dfae244aed93c68b759ce78"
+  },
+  "provider": "fake",
+  "model": "deterministic-explainer-v1",
+  "generation_configuration": {
+    "provider": "fake",
+    "model": "deterministic-explainer-v1",
+    "temperature": 0.0,
+    "max_output_tokens": 3000,
+    "network_required": false
+  },
+  "hashes": {
+    "input_sha256": "44ca9f33e8a8553ed837441507c97c4cebfd9e6bcc57170e81e9e97e4936ee13",
+    "llm_code_sha256": "df7d5ef3766920f24f696d116136e8bfb29d5e7294f2d1f4649cb7798a768146"
+  },
+  "factuality_passed": true,
+  "safety_passed": true,
+  "evaluation_approved": true,
+  "individual_data_sent": false,
+  "provider_received_aggregate_contract_only": true,
+  "secrets_recorded": false,
+  "new_training_performed": false,
+  "ga_executed": false,
+  "randomized_search_executed": false,
+  "threshold_changed": false,
+  "selection_reopened": false,
+  "files": [
+    {
+      "filename": "llm_input_snapshot.json",
+      "sha256": "0b50addf49ddb7ef31b5db54d097abf8baf03589cd541c0d9d9315d3408ac1d4",
+      "bytes": 11497
+    },
+    {
+      "filename": "llm_output.json",
+      "sha256": "e3bfcdbb1b97c8ecd38f0a13f96a5104771dafde3c988c82aa42d1574a2c66dd",
+      "bytes": 8541
+    },
+    {
+      "filename": "factuality_report.json",
+      "sha256": "e8d61ece05eb5eabee008e03eb97ebab06e85687e600da25343568d1be939c5d",
+      "bytes": 17574
+    },
+    {
+      "filename": "safety_report.json",
+      "sha256": "e139bf49c2a689cb6f151c6a5222178171c7658d3288a4c860dabef18c8b2bb1",
+      "bytes": 394
+    },
+    {
+      "filename": "evaluation_report.json",
+      "sha256": "492b8c90237ebb25871de43f9f5953eb7f5989c474ab979d48638224d29fbd6a",
+      "bytes": 20419
+    }
+  ],
+  "software": {
+    "python": "3.12.13"
+  },
+  "signature": "31979041778531e488586204a5cdabc712350bd66051c2d0ed8ca94e02d1f6cf"
+}

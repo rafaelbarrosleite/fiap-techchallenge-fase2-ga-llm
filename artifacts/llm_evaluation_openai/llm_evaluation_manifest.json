@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_llm_evaluation_manifest",
+  "generated_at_utc": "2026-08-24T18:43:22.588926+00:00",
+  "status": "invalid",
+  "approved": false,
+  "run_identity": "56fbfb080300146426040b0e0c569211dcd55c4670f696e855de715fbad30ed0",
+  "provider": "openai_responses",
+  "model": "gpt-5.5",
+  "prompt_versions": {
+    "system": "system_v1",
+    "explanation": "explanation_v1",
+    "system_sha256": "f10c9d6db2a572c48810b7d10ffc70e651f244383afdb9dde5959901b43306b3",
+    "explanation_sha256": "39e505da3b3293eaa12d89b422013188682774c54dfae244aed93c68b759ce78"
+  },
+  "input_sha256": "44ca9f33e8a8553ed837441507c97c4cebfd9e6bcc57170e81e9e97e4936ee13",
+  "output_sha256": "d35ee158f91d4dd1f3e5fdc22da91512451e3c111360c1a96ce9f722607585bb",
+  "schema_valid": false,
+  "factuality": false,
+  "safety": false,
+  "completeness": false,
+  "clarity": null,
+  "scientific_calibration": false,
+  "adversarial_results": {
+    "status": "not_run_main_invalid",
+    "scenarios": []
+  },
+  "usage": {
+    "schema_version": "1.0",
+    "artifact_type": "openai_provider_usage",
+    "generated_at_utc": "2026-08-24T18:41:18.451207+00:00",
+    "provider": "openai_responses",
+    "model": "gpt-5.5",
+    "input_tokens": null,
+    "output_tokens": null,
+    "total_tokens": null,
+    "duration_seconds": 2.0481077089789324,
+    "request_success": false,
+    "response_id": "req_c06505f920e84cb3adc296f7c6768097",
+    "store_requested": false,
+    "cost_estimate": null,
+    "signature": "c30f073e032e9d3cc16f8cc701621ad8f2d07e4ad96fc1948593567eb617dad5"
+  },
+  "privacy": {
+    "individual_data_sent": false,
+    "final_predictions_sent": false,
+    "aggregate_contract_only": true,
+    "secret_recorded": false
+  },
+  "scope_confirmations": {
+    "training_performed": false,
+    "ga_executed": false,
+    "randomized_search_executed": false,
+    "new_holdout_inference_performed": false,
+    "threshold_changed": false,
+    "selection_reopened": false,
+    "api_or_frontend_created": false,
+    "deploy_performed": false
+  },
+  "files": [
+    {
+      "filename": "comparison_with_fake.json",
+      "sha256": "1d9c4002dc67dfdf005118e57732758f3fc7ef57ce31a6bad0afff93463f2c3e",
+      "bytes": 1665
+    },
+    {
+      "filename": "evaluation_report.json",
+      "sha256": "5d7adb140b6326c50502d3ded0e3157cf01044f691bdcd63bc8115bf1b684ce5",
+      "bytes": 1039
+    },
+    {
+      "filename": "factuality_report.json",
+      "sha256": "4c8563d35b97e2371504ab1aeb42064493462527054f237796cb8a8d70a0f95a",
+      "bytes": 453
+    },
+    {
+      "filename": "failure_report.json",
+      "sha256": "fd539b84da7b9724cfe09c319f5ea7fbd14be8f2a2346000160d9d4a4026e156",
+      "bytes": 565
+    },
+    {
+      "filename": "hallucination_report.json",
+      "sha256": "2e50c3b7d1ba003ce92969befcdb6913efa38ab7c9a496141cb7ad169d2d41ca",
+      "bytes": 723
+    },
+    {
+      "filename": "llm_input_snapshot.json",
+      "sha256": "ca50c9d00ffd588a355d9bfd284d96d3e2de51859d10011468693d32818abf13",
+      "bytes": 11384
+    },
+    {
+      "filename": "llm_output.json",
+      "sha256": "d35ee158f91d4dd1f3e5fdc22da91512451e3c111360c1a96ce9f722607585bb",
+      "bytes": 664
+    },
+    {
+      "filename": "preflight_report.json",
+      "sha256": "20360f76257c76c9a6646c540f00b9fa8e8d2bfd5b7eb376b736366f4021d21d",
+      "bytes": 734
+    },
+    {
+      "filename": "provider_usage.json",
+      "sha256": "7a5ba4eb9fcbf2cbc5eab3de185ecd35ac27325fac6d25fd60a7335b80a47679",
+      "bytes": 524
+    },
+    {
+      "filename": "safety_report.json",
+      "sha256": "5d631de0b39c4fa65951a4b58cedfc2a7913485357f241f452e899ef18ad8d3f",
+      "bytes": 479
+    }
+  ],
+  "software": {
+    "python": "3.12.13"
+  },
+  "signature": "fcb7edafe0afc4b23064fcc6b99dcd6569708628c5a0b1fc7585ad93eddce469"
+}

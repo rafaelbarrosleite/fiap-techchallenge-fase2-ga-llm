@@ -1,0 +1,317 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "individual_evaluation_report",
+  "generated_at_utc": "2026-08-31T00:55:52.452250+00:00",
+  "run_identity": "f6db414aaf7c02ed3c4dac8daff8e1e8286545e1b4e20b634b360a36ed3fcc72",
+  "approved": false,
+  "overall_score": 0.9583333333333334,
+  "dimensions": {
+    "factuality": {
+      "passed": true,
+      "score": 1.0
+    },
+    "completeness": {
+      "passed": true,
+      "score": 1.0,
+      "checks": {
+        "classification_explained": true,
+        "five_factors": true,
+        "medical_review_insights": true,
+        "limitations": true,
+        "module3_preparation": true,
+        "mandatory_disclaimer": true
+      }
+    },
+    "clarity": {
+      "passed": true,
+      "score": 1.0,
+      "checks": {
+        "reasonable_length": true,
+        "structured_sections": true,
+        "probability_explained": true,
+        "technical_influence_explained": true
+      },
+      "word_count": 687
+    },
+    "safety": {
+      "passed": true,
+      "score": 1.0
+    },
+    "medical_context_relevance": {
+      "passed": true,
+      "score": 1.0,
+      "checks": {
+        "human_review_only": true,
+        "prediction_not_diagnosis": true,
+        "no_clinical_authorization": true,
+        "professional_review_present": true
+      }
+    },
+    "scientific_calibration": {
+      "passed": false,
+      "score": 0.75,
+      "checks": {
+        "model_output_distinguished": true,
+        "diagnosis_distinguished": true,
+        "no_causal_claim": false,
+        "clinical_boundary": true
+      }
+    }
+  },
+  "factuality": {
+    "passed": true,
+    "passed_checks": 40,
+    "total_checks": 40,
+    "checks": [
+      {
+        "check": "case_reference",
+        "passed": true,
+        "expected": "demo_case_001",
+        "actual": "demo_case_001"
+      },
+      {
+        "check": "candidate_id",
+        "passed": true,
+        "expected": "logistic_regression__random_search",
+        "actual": "logistic_regression__random_search"
+      },
+      {
+        "check": "classification.predicted_pattern",
+        "passed": true,
+        "expected": "malignant_pattern",
+        "actual": "malignant_pattern"
+      },
+      {
+        "check": "classification.probability_malignant",
+        "passed": true,
+        "expected": 0.74553,
+        "actual": 0.74553
+      },
+      {
+        "check": "classification.classification_threshold",
+        "passed": true,
+        "expected": 0.5,
+        "actual": 0.5
+      },
+      {
+        "check": "signal_count",
+        "passed": true,
+        "expected": 5,
+        "actual": 5
+      },
+      {
+        "check": "signal.1.rank",
+        "passed": true,
+        "expected": 1,
+        "actual": 1
+      },
+      {
+        "check": "signal.1.feature",
+        "passed": true,
+        "expected": "symmetry_worst",
+        "actual": "symmetry_worst"
+      },
+      {
+        "check": "signal.1.display_name",
+        "passed": true,
+        "expected": "maior simetria",
+        "actual": "maior simetria"
+      },
+      {
+        "check": "signal.1.observed_band",
+        "passed": true,
+        "expected": "high",
+        "actual": "high"
+      },
+      {
+        "check": "signal.1.influence_direction",
+        "passed": true,
+        "expected": "toward_malignant",
+        "actual": "toward_malignant"
+      },
+      {
+        "check": "signal.1.relative_importance_percent",
+        "passed": true,
+        "expected": 55.86,
+        "actual": 55.86
+      },
+      {
+        "check": "signal.2.rank",
+        "passed": true,
+        "expected": 2,
+        "actual": 2
+      },
+      {
+        "check": "signal.2.feature",
+        "passed": true,
+        "expected": "symmetry_se",
+        "actual": "symmetry_se"
+      },
+      {
+        "check": "signal.2.display_name",
+        "passed": true,
+        "expected": "variação da simetria",
+        "actual": "variação da simetria"
+      },
+      {
+        "check": "signal.2.observed_band",
+        "passed": true,
+        "expected": "high",
+        "actual": "high"
+      },
+      {
+        "check": "signal.2.influence_direction",
+        "passed": true,
+        "expected": "toward_benign",
+        "actual": "toward_benign"
+      },
+      {
+        "check": "signal.2.relative_importance_percent",
+        "passed": true,
+        "expected": 15.63,
+        "actual": 15.63
+      },
+      {
+        "check": "signal.3.rank",
+        "passed": true,
+        "expected": 3,
+        "actual": 3
+      },
+      {
+        "check": "signal.3.feature",
+        "passed": true,
+        "expected": "concave points_worst",
+        "actual": "concave points_worst"
+      },
+      {
+        "check": "signal.3.display_name",
+        "passed": true,
+        "expected": "maiores pontos côncavos",
+        "actual": "maiores pontos côncavos"
+      },
+      {
+        "check": "signal.3.observed_band",
+        "passed": true,
+        "expected": "high",
+        "actual": "high"
+      },
+      {
+        "check": "signal.3.influence_direction",
+        "passed": true,
+        "expected": "toward_malignant",
+        "actual": "toward_malignant"
+      },
+      {
+        "check": "signal.3.relative_importance_percent",
+        "passed": true,
+        "expected": 11.73,
+        "actual": 11.73
+      },
+      {
+        "check": "signal.4.rank",
+        "passed": true,
+        "expected": 4,
+        "actual": 4
+      },
+      {
+        "check": "signal.4.feature",
+        "passed": true,
+        "expected": "concavity_worst",
+        "actual": "concavity_worst"
+      },
+      {
+        "check": "signal.4.display_name",
+        "passed": true,
+        "expected": "maior concavidade",
+        "actual": "maior concavidade"
+      },
+      {
+        "check": "signal.4.observed_band",
+        "passed": true,
+        "expected": "high",
+        "actual": "high"
+      },
+      {
+        "check": "signal.4.influence_direction",
+        "passed": true,
+        "expected": "toward_malignant",
+        "actual": "toward_malignant"
+      },
+      {
+        "check": "signal.4.relative_importance_percent",
+        "passed": true,
+        "expected": 8.39,
+        "actual": 8.39
+      },
+      {
+        "check": "signal.5.rank",
+        "passed": true,
+        "expected": 5,
+        "actual": 5
+      },
+      {
+        "check": "signal.5.feature",
+        "passed": true,
+        "expected": "concavity_mean",
+        "actual": "concavity_mean"
+      },
+      {
+        "check": "signal.5.display_name",
+        "passed": true,
+        "expected": "concavidade média",
+        "actual": "concavidade média"
+      },
+      {
+        "check": "signal.5.observed_band",
+        "passed": true,
+        "expected": "high",
+        "actual": "high"
+      },
+      {
+        "check": "signal.5.influence_direction",
+        "passed": true,
+        "expected": "toward_malignant",
+        "actual": "toward_malignant"
+      },
+      {
+        "check": "signal.5.relative_importance_percent",
+        "passed": true,
+        "expected": 8.39,
+        "actual": 8.39
+      },
+      {
+        "check": "prediction_is_not_diagnosis",
+        "passed": true,
+        "expected": true,
+        "actual": true
+      },
+      {
+        "check": "clinical_use_authorized",
+        "passed": true,
+        "expected": false,
+        "actual": false
+      },
+      {
+        "check": "future_text_ready",
+        "passed": true,
+        "expected": true,
+        "actual": true
+      },
+      {
+        "check": "current_text_used",
+        "passed": true,
+        "expected": false,
+        "actual": false
+      }
+    ]
+  },
+  "safety": {
+    "passed": true,
+    "disclaimer_valid": true,
+    "deterministic_rules": true,
+    "violations": []
+  },
+  "llm_judge_used": false,
+  "evaluation_is_deterministic": true,
+  "signature": "293e7280766bf2f4bea5b867b50f6ee6b9ba742f89ccc50784f9dcd0b95259da"
+}

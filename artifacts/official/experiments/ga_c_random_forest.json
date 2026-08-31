@@ -1,0 +1,824 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "official_ga_experiment",
+  "generated_at_utc": "2026-08-19T12:40:32.044137+00:00",
+  "disclaimer": "Uso academico; nao substitui diagnostico medico.",
+  "identity": {
+    "model": "random_forest",
+    "config_label": "C",
+    "configuration": {
+      "name": "C_exploratory",
+      "population_size": 60,
+      "max_generations": 30,
+      "crossover_rate": 0.75,
+      "mutation_rate": 0.3,
+      "elite_count": 4,
+      "tournament_size": 4,
+      "seed": 42,
+      "cv_splits": 5,
+      "cv_seed": 42,
+      "estimator_seed": 42,
+      "instability_weight": 0.1,
+      "stagnation_generations": null,
+      "min_improvement": 1e-12
+    },
+    "dataset_sha256": "1425d9affa78ba8e53afc81d0ef8a19069ee10c4b21fe89b3cf514071b12ee33",
+    "development_indices_sha256": "e7b0bfbc870a7cb2f8a61d9918d994dfa3a05878b82f4f8e475fc4e225ec7f75",
+    "code_sha256": "ba729d4dc48958ad8c35e105804790c259dd739d9752d08d4b7c8edb12149c31",
+    "project_version": "0.3.0",
+    "official_schema_version": "1.0",
+    "sha256": "d82a4e4681d4a9039d47b6d4e98788d66bac0bd9d0ff30cdda0fb9da099bfb23"
+  },
+  "dataset": {
+    "sha256": "1425d9affa78ba8e53afc81d0ef8a19069ee10c4b21fe89b3cf514071b12ee33",
+    "source_rows": 569,
+    "feature_count": 30,
+    "target_mapping": {
+      "B": 0,
+      "M": 1
+    }
+  },
+  "data_scope": {
+    "scope": "development_only",
+    "development_rows": 455,
+    "held_out_rows": 114,
+    "holdout_used": false,
+    "holdout_accessible_to_fitness": false,
+    "cv_splits": 5,
+    "cv_seed": 42,
+    "split_seed": 42,
+    "classification_threshold": 0.5,
+    "development_indices_sha256": "e7b0bfbc870a7cb2f8a61d9918d994dfa3a05878b82f4f8e475fc4e225ec7f75"
+  },
+  "software_versions": {
+    "python": "3.12.13",
+    "operating_system": "macOS-26.6.2-arm64-arm-64bit",
+    "architecture": "arm64",
+    "numpy": "2.3.2",
+    "pandas": "2.3.1",
+    "scikit-learn": "1.7.1",
+    "project": "0.3.0"
+  },
+  "source_signature": {
+    "sha256": "ba729d4dc48958ad8c35e105804790c259dd739d9752d08d4b7c8edb12149c31",
+    "files": {
+      "genetic/config.py": "689cc284c2e5c51a815c78304502221a329f105d42724322a79e380b79166428",
+      "genetic/genomes.py": "152ebf1ef85dbf391a762ba7109b293076be93af5868c4e25fc5e655eac1eae6",
+      "genetic/search_spaces.py": "e08fb09738e6fa67a698cd1cc2d50877f62202cc6ac70416e8c80eb1119e7588",
+      "genetic/fitness.py": "06448108ee382b53a47fcccbbe92fa40acc1706476460c29c5dfd9c454b6a70e",
+      "genetic/operators.py": "052553debf8859d768cad422a9ad9f6a54e3e8369e3132fc5eb46ce726c5e49b",
+      "genetic/history.py": "d747d26abe09539cc7d171d1819f8f7a8e8bbca167424311c88ebab6dc52b4eb",
+      "genetic/engine.py": "a34f7fceed403a2ef6c8e8a5f69c8bc384b9479078d144847611dad4f3ef00aa",
+      "genetic/serialization.py": "66eaf592be66257f3eb703dfa734fc3e71eb4c0af71c5e6f225cc0fcbb3e112e",
+      "genetic/official.py": "bf3e7b5485f8fcb789ffdcb7152e4ffd08aa515722fd3b09487841324ed57ebb"
+    }
+  },
+  "run": {
+    "model": "random_forest",
+    "configuration": {
+      "name": "C_exploratory",
+      "population_size": 60,
+      "max_generations": 30,
+      "crossover_rate": 0.75,
+      "mutation_rate": 0.3,
+      "elite_count": 4,
+      "tournament_size": 4,
+      "seed": 42,
+      "cv_splits": 5,
+      "cv_seed": 42,
+      "estimator_seed": 42,
+      "instability_weight": 0.1,
+      "stagnation_generations": null,
+      "min_improvement": 1e-12
+    },
+    "best_individual": {
+      "genome": {
+        "model": "random_forest",
+        "n_estimators": 107,
+        "max_depth": 7,
+        "min_samples_split": 2,
+        "min_samples_leaf": 1,
+        "max_features": 0.5,
+        "class_weight": null
+      },
+      "fitness": {
+        "fitness": 0.961648019213057,
+        "base_fitness": 0.9646474424563468,
+        "mean_recall_malignant": 0.9588235294117646,
+        "std_recall_malignant": 0.029994232432898744,
+        "mean_f1_malignant": 0.964503082518886,
+        "mean_roc_auc": 0.9881836945304437,
+        "evaluation_seconds": 0.5840544589991623,
+        "fold_metrics": [
+          {
+            "fold": 1,
+            "recall_malignant": 0.9411764705882353,
+            "f1_malignant": 0.9552238805970149,
+            "roc_auc": 0.9847781217750258,
+            "train_rows": 364,
+            "validation_rows": 91
+          },
+          {
+            "fold": 2,
+            "recall_malignant": 1.0,
+            "f1_malignant": 1.0,
+            "roc_auc": 1.0,
+            "train_rows": 364,
+            "validation_rows": 91
+          },
+          {
+            "fold": 3,
+            "recall_malignant": 0.9117647058823529,
+            "f1_malignant": 0.9538461538461539,
+            "roc_auc": 0.9984520123839009,
+            "train_rows": 364,
+            "validation_rows": 91
+          },
+          {
+            "fold": 4,
+            "recall_malignant": 0.9705882352941176,
+            "f1_malignant": 0.9428571428571428,
+            "roc_auc": 0.9819401444788441,
+            "train_rows": 364,
+            "validation_rows": 91
+          },
+          {
+            "fold": 5,
+            "recall_malignant": 0.9705882352941176,
+            "f1_malignant": 0.9705882352941176,
+            "roc_auc": 0.9757481940144479,
+            "train_rows": 364,
+            "validation_rows": 91
+          }
+        ],
+        "issues": [],
+        "failure": null
+      }
+    },
+    "history": [
+      {
+        "generation": 0,
+        "best_fitness": 0.9532360237224923,
+        "global_best_fitness": 0.9532360237224923,
+        "mean_fitness": 0.9401793761859558,
+        "worst_fitness": 0.9234933469173364,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 60,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 371,
+          "max_depth": null,
+          "min_samples_split": 3,
+          "min_samples_leaf": 2,
+          "max_features": 0.5,
+          "class_weight": "balanced_subsample"
+        }
+      },
+      {
+        "generation": 1,
+        "best_fitness": 0.9553447549737872,
+        "global_best_fitness": 0.9553447549737872,
+        "mean_fitness": 0.9435451201039403,
+        "worst_fitness": 0.9212731865419734,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 115,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 328,
+          "max_depth": 17,
+          "min_samples_split": 6,
+          "min_samples_leaf": 2,
+          "max_features": 0.5,
+          "class_weight": "balanced"
+        }
+      },
+      {
+        "generation": 2,
+        "best_fitness": 0.9556377819262091,
+        "global_best_fitness": 0.9556377819262091,
+        "mean_fitness": 0.9451322187670788,
+        "worst_fitness": 0.9314433941826391,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 171,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 168,
+          "max_depth": null,
+          "min_samples_split": 2,
+          "min_samples_leaf": 2,
+          "max_features": 0.5,
+          "class_weight": null
+        }
+      },
+      {
+        "generation": 3,
+        "best_fitness": 0.9566191032909298,
+        "global_best_fitness": 0.9566191032909298,
+        "mean_fitness": 0.9452594409175001,
+        "worst_fitness": 0.9243864054363511,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 222,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 195,
+          "max_depth": 12,
+          "min_samples_split": 5,
+          "min_samples_leaf": 2,
+          "max_features": 0.5,
+          "class_weight": null
+        }
+      },
+      {
+        "generation": 4,
+        "best_fitness": 0.9566191032909298,
+        "global_best_fitness": 0.9566191032909298,
+        "mean_fitness": 0.9468254882304868,
+        "worst_fitness": 0.9247395260896466,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 275,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 195,
+          "max_depth": null,
+          "min_samples_split": 5,
+          "min_samples_leaf": 2,
+          "max_features": 0.5,
+          "class_weight": null
+        }
+      },
+      {
+        "generation": 5,
+        "best_fitness": 0.9567051977933589,
+        "global_best_fitness": 0.9567051977933589,
+        "mean_fitness": 0.9449070199501846,
+        "worst_fitness": 0.9294456245108532,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 330,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 323,
+          "max_depth": 12,
+          "min_samples_split": 2,
+          "min_samples_leaf": 2,
+          "max_features": 0.5,
+          "class_weight": "balanced"
+        }
+      },
+      {
+        "generation": 6,
+        "best_fitness": 0.9567051977933589,
+        "global_best_fitness": 0.9567051977933589,
+        "mean_fitness": 0.9445912914988644,
+        "worst_fitness": 0.9297995918359437,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 385,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 323,
+          "max_depth": 12,
+          "min_samples_split": 2,
+          "min_samples_leaf": 2,
+          "max_features": 0.5,
+          "class_weight": "balanced"
+        }
+      },
+      {
+        "generation": 7,
+        "best_fitness": 0.9567051977933589,
+        "global_best_fitness": 0.9567051977933589,
+        "mean_fitness": 0.9455511514944702,
+        "worst_fitness": 0.9270332002333819,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 441,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 323,
+          "max_depth": 12,
+          "min_samples_split": 2,
+          "min_samples_leaf": 2,
+          "max_features": 0.5,
+          "class_weight": "balanced"
+        }
+      },
+      {
+        "generation": 8,
+        "best_fitness": 0.9567051977933589,
+        "global_best_fitness": 0.9567051977933589,
+        "mean_fitness": 0.9468363591555774,
+        "worst_fitness": 0.9309896591246816,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 494,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 323,
+          "max_depth": 12,
+          "min_samples_split": 2,
+          "min_samples_leaf": 2,
+          "max_features": 0.5,
+          "class_weight": "balanced"
+        }
+      },
+      {
+        "generation": 9,
+        "best_fitness": 0.9567051977933589,
+        "global_best_fitness": 0.9567051977933589,
+        "mean_fitness": 0.946083249359442,
+        "worst_fitness": 0.9272838449242792,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 546,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 323,
+          "max_depth": 12,
+          "min_samples_split": 2,
+          "min_samples_leaf": 2,
+          "max_features": 0.5,
+          "class_weight": "balanced"
+        }
+      },
+      {
+        "generation": 10,
+        "best_fitness": 0.9567051977933589,
+        "global_best_fitness": 0.9567051977933589,
+        "mean_fitness": 0.9463530751426927,
+        "worst_fitness": 0.9309896591246816,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 600,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 323,
+          "max_depth": 12,
+          "min_samples_split": 2,
+          "min_samples_leaf": 2,
+          "max_features": 0.5,
+          "class_weight": "balanced"
+        }
+      },
+      {
+        "generation": 11,
+        "best_fitness": 0.9567051977933589,
+        "global_best_fitness": 0.9567051977933589,
+        "mean_fitness": 0.9458697100721256,
+        "worst_fitness": 0.9269610249101633,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 655,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 323,
+          "max_depth": 19,
+          "min_samples_split": 2,
+          "min_samples_leaf": 2,
+          "max_features": 0.5,
+          "class_weight": "balanced"
+        }
+      },
+      {
+        "generation": 12,
+        "best_fitness": 0.9567051977933589,
+        "global_best_fitness": 0.9567051977933589,
+        "mean_fitness": 0.9470867587370047,
+        "worst_fitness": 0.9269867606048989,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 707,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 323,
+          "max_depth": 19,
+          "min_samples_split": 2,
+          "min_samples_leaf": 2,
+          "max_features": 0.5,
+          "class_weight": "balanced"
+        }
+      },
+      {
+        "generation": 13,
+        "best_fitness": 0.9567051977933589,
+        "global_best_fitness": 0.9567051977933589,
+        "mean_fitness": 0.9471499786563894,
+        "worst_fitness": 0.930922484504214,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 762,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 323,
+          "max_depth": 19,
+          "min_samples_split": 2,
+          "min_samples_leaf": 2,
+          "max_features": 0.5,
+          "class_weight": "balanced"
+        }
+      },
+      {
+        "generation": 14,
+        "best_fitness": 0.9573872170509985,
+        "global_best_fitness": 0.9573872170509985,
+        "mean_fitness": 0.948267781444367,
+        "worst_fitness": 0.9326846583119407,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 816,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 107,
+          "max_depth": 10,
+          "min_samples_split": 2,
+          "min_samples_leaf": 6,
+          "max_features": 0.5,
+          "class_weight": "balanced"
+        }
+      },
+      {
+        "generation": 15,
+        "best_fitness": 0.9573872170509985,
+        "global_best_fitness": 0.9573872170509985,
+        "mean_fitness": 0.9469829291700874,
+        "worst_fitness": 0.9296004232724631,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 870,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 107,
+          "max_depth": 10,
+          "min_samples_split": 2,
+          "min_samples_leaf": 6,
+          "max_features": 0.5,
+          "class_weight": "balanced"
+        }
+      },
+      {
+        "generation": 16,
+        "best_fitness": 0.9573872170509985,
+        "global_best_fitness": 0.9573872170509985,
+        "mean_fitness": 0.947455232446721,
+        "worst_fitness": 0.9309896591246816,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 923,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 107,
+          "max_depth": 10,
+          "min_samples_split": 2,
+          "min_samples_leaf": 6,
+          "max_features": 0.5,
+          "class_weight": "balanced"
+        }
+      },
+      {
+        "generation": 17,
+        "best_fitness": 0.9573872170509985,
+        "global_best_fitness": 0.9573872170509985,
+        "mean_fitness": 0.9465349841922127,
+        "worst_fitness": 0.9277533627734501,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 976,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 107,
+          "max_depth": 10,
+          "min_samples_split": 2,
+          "min_samples_leaf": 6,
+          "max_features": 0.5,
+          "class_weight": "balanced"
+        }
+      },
+      {
+        "generation": 18,
+        "best_fitness": 0.9574026969271595,
+        "global_best_fitness": 0.9574026969271595,
+        "mean_fitness": 0.94760362611959,
+        "worst_fitness": 0.9276082632105179,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 1028,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 107,
+          "max_depth": 6,
+          "min_samples_split": 2,
+          "min_samples_leaf": 6,
+          "max_features": 0.5,
+          "class_weight": "balanced"
+        }
+      },
+      {
+        "generation": 19,
+        "best_fitness": 0.9574026969271595,
+        "global_best_fitness": 0.9574026969271595,
+        "mean_fitness": 0.9471360960401155,
+        "worst_fitness": 0.9221447279869852,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 1079,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 107,
+          "max_depth": 6,
+          "min_samples_split": 2,
+          "min_samples_leaf": 6,
+          "max_features": 0.5,
+          "class_weight": "balanced"
+        }
+      },
+      {
+        "generation": 20,
+        "best_fitness": 0.9587106574897103,
+        "global_best_fitness": 0.9587106574897103,
+        "mean_fitness": 0.9464271186044605,
+        "worst_fitness": 0.9213014753541243,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 1129,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 107,
+          "max_depth": 10,
+          "min_samples_split": 2,
+          "min_samples_leaf": 2,
+          "max_features": "log2",
+          "class_weight": null
+        }
+      },
+      {
+        "generation": 21,
+        "best_fitness": 0.961648019213057,
+        "global_best_fitness": 0.961648019213057,
+        "mean_fitness": 0.9474977726325856,
+        "worst_fitness": 0.9273148046766012,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 1182,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 107,
+          "max_depth": 7,
+          "min_samples_split": 2,
+          "min_samples_leaf": 1,
+          "max_features": 0.5,
+          "class_weight": null
+        }
+      },
+      {
+        "generation": 22,
+        "best_fitness": 0.961648019213057,
+        "global_best_fitness": 0.961648019213057,
+        "mean_fitness": 0.9471887815882066,
+        "worst_fitness": 0.9310555895897256,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 1232,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 107,
+          "max_depth": 7,
+          "min_samples_split": 2,
+          "min_samples_leaf": 1,
+          "max_features": 0.5,
+          "class_weight": null
+        }
+      },
+      {
+        "generation": 23,
+        "best_fitness": 0.961648019213057,
+        "global_best_fitness": 0.961648019213057,
+        "mean_fitness": 0.947227386137284,
+        "worst_fitness": 0.9282308236421557,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 1282,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 107,
+          "max_depth": 7,
+          "min_samples_split": 2,
+          "min_samples_leaf": 1,
+          "max_features": 0.5,
+          "class_weight": null
+        }
+      },
+      {
+        "generation": 24,
+        "best_fitness": 0.961648019213057,
+        "global_best_fitness": 0.961648019213057,
+        "mean_fitness": 0.9458705525278589,
+        "worst_fitness": 0.9221447279869852,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 1335,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 107,
+          "max_depth": 7,
+          "min_samples_split": 2,
+          "min_samples_leaf": 1,
+          "max_features": 0.5,
+          "class_weight": null
+        }
+      },
+      {
+        "generation": 25,
+        "best_fitness": 0.961648019213057,
+        "global_best_fitness": 0.961648019213057,
+        "mean_fitness": 0.945107740309661,
+        "worst_fitness": 0.926673399373061,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 1389,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 107,
+          "max_depth": 7,
+          "min_samples_split": 2,
+          "min_samples_leaf": 1,
+          "max_features": 0.5,
+          "class_weight": null
+        }
+      },
+      {
+        "generation": 26,
+        "best_fitness": 0.961648019213057,
+        "global_best_fitness": 0.961648019213057,
+        "mean_fitness": 0.9461616582812614,
+        "worst_fitness": 0.9213259453219548,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 1440,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 107,
+          "max_depth": 7,
+          "min_samples_split": 2,
+          "min_samples_leaf": 1,
+          "max_features": 0.5,
+          "class_weight": null
+        }
+      },
+      {
+        "generation": 27,
+        "best_fitness": 0.961648019213057,
+        "global_best_fitness": 0.961648019213057,
+        "mean_fitness": 0.9453151746964041,
+        "worst_fitness": 0.9221009592986733,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 1490,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 107,
+          "max_depth": 7,
+          "min_samples_split": 2,
+          "min_samples_leaf": 1,
+          "max_features": 0.5,
+          "class_weight": null
+        }
+      },
+      {
+        "generation": 28,
+        "best_fitness": 0.961648019213057,
+        "global_best_fitness": 0.961648019213057,
+        "mean_fitness": 0.9462782603258992,
+        "worst_fitness": 0.9274386436858891,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 1538,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 107,
+          "max_depth": 7,
+          "min_samples_split": 2,
+          "min_samples_leaf": 1,
+          "max_features": 0.5,
+          "class_weight": null
+        }
+      },
+      {
+        "generation": 29,
+        "best_fitness": 0.961648019213057,
+        "global_best_fitness": 0.961648019213057,
+        "mean_fitness": 0.9460129618346933,
+        "worst_fitness": 0.9265959999922561,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 1590,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 107,
+          "max_depth": 7,
+          "min_samples_split": 2,
+          "min_samples_leaf": 1,
+          "max_features": 0.5,
+          "class_weight": null
+        }
+      },
+      {
+        "generation": 30,
+        "best_fitness": 0.961648019213057,
+        "global_best_fitness": 0.961648019213057,
+        "mean_fitness": 0.9458099176601886,
+        "worst_fitness": 0.9274678638842327,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 60,
+        "cache_size": 1638,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 107,
+          "max_depth": 7,
+          "min_samples_split": 2,
+          "min_samples_leaf": 1,
+          "max_features": 0.5,
+          "class_weight": null
+        }
+      }
+    ],
+    "stop_reason": "max_generations",
+    "total_candidate_requests": 1860,
+    "total_unique_evaluations": 1638,
+    "unique_individuals": 1638,
+    "failure_count": 0,
+    "issue_count": 0,
+    "cache_hits": 222,
+    "invalid_before_repair": 0,
+    "repaired_individuals": 0,
+    "total_seconds": 1962.2849183750004,
+    "total_model_fits": 8190,
+    "reproducibility_signature": "50e8a2f89db82f1a459965c8ed1604b30b717b56e5d2f1ab288a7b23afa62d94"
+  }
+}

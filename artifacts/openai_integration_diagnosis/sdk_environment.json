@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_sdk_environment",
+  "generated_at_utc": "2026-08-24T19:41:54.957681+00:00",
+  "python_version": "3.12.13",
+  "openai_sdk_installed": false,
+  "openai_sdk_version": null,
+  "transport": "python_stdlib_urllib",
+  "sdk_upgrade_required": false,
+  "reason": "The integration sends the documented HTTP payload directly; no OpenAI SDK is imported.",
+  "signature": "8578ae7e51cfeabb2a5b774d6f14300a1d7e415b62b2617904f589e3be3ecc02"
+}

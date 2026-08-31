@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_failure_report",
+  "generated_at_utc": "2026-08-24T20:01:24.693724+00:00",
+  "run_identity": "56fbfb080300146426040b0e0c569211dcd55c4670f696e855de715fbad30ed0",
+  "stage": "technical_probe_output_extraction",
+  "reason": "Resposta recebida sem output_text; probe nao aprovado.",
+  "severity": "mission72_scientific_call_blocked",
+  "cause_classification": "response_without_output_text",
+  "field_level_api_error_available": false,
+  "sanitized_api_error": null,
+  "automatic_retry_performed": false,
+  "prompt_changed": false,
+  "original_evidence_preserved": true,
+  "scientific_call_performed": false,
+  "signature": "8a269be61ecb04630ee3f5c714a72414fb199083be6db76cc1e4e546b68abff7"
+}

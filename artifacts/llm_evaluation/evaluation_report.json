@@ -1,0 +1,766 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "llm_evaluation_report",
+  "generated_at_utc": "2026-08-24T17:52:57.481465+00:00",
+  "run_identity": "5f94b3568689b01be5a413d449a898efe1fe4c702724348d520eddd5e52fbe66",
+  "approved": true,
+  "overall_score": 1.0,
+  "dimensions": {
+    "factuality": {
+      "score": 1.0,
+      "passed": true
+    },
+    "completeness": {
+      "score": 1.0,
+      "passed": true,
+      "checks": {
+        "selected_model": true,
+        "three_model_families": true,
+        "ga": true,
+        "random_search": true,
+        "uncertainty": true,
+        "limitations": true,
+        "selection_rationale": true,
+        "non_clinical_warning": true
+      }
+    },
+    "clarity": {
+      "score": 1.0,
+      "passed": true,
+      "checks": {
+        "reasonable_length": true,
+        "sentence_length": true,
+        "structured_sections": true,
+        "limited_unexplained_jargon": true
+      },
+      "word_count": 275,
+      "average_sentence_words": 14.473684210526315,
+      "unexplained_jargon": []
+    },
+    "safety": {
+      "score": 1.0,
+      "passed": true
+    },
+    "scientific_calibration": {
+      "score": 1.0,
+      "passed": true,
+      "checks": {
+        "observation_language": true,
+        "statistical_inference_distinguished": true,
+        "clinical_meaning_distinguished": true,
+        "no_forbidden_certainty": true,
+        "zero_in_interval_not_called_superior": true
+      }
+    }
+  },
+  "factuality": {
+    "passed": true,
+    "checks": [
+      {
+        "check": "output_schema",
+        "passed": true,
+        "detail": "Contrato fechado satisfeito."
+      },
+      {
+        "check": "selected_model.candidate_id",
+        "passed": true,
+        "detail": "esperado=logistic_regression__random_search"
+      },
+      {
+        "check": "selected_model.model",
+        "passed": true,
+        "detail": "esperado=logistic_regression"
+      },
+      {
+        "check": "selected_model.method",
+        "passed": true,
+        "detail": "esperado=random_search"
+      },
+      {
+        "check": "logistic_regression.present",
+        "passed": true,
+        "detail": "Familia obrigatoria."
+      },
+      {
+        "check": "logistic_regression.baseline.method",
+        "passed": true,
+        "detail": "esperado=baseline"
+      },
+      {
+        "check": "logistic_regression.baseline.recall_malignant",
+        "passed": true,
+        "detail": "esperado=0.9285714285714286"
+      },
+      {
+        "check": "logistic_regression.baseline.f1_malignant",
+        "passed": true,
+        "detail": "esperado=0.9512195121951219"
+      },
+      {
+        "check": "logistic_regression.baseline.roc_auc",
+        "passed": true,
+        "detail": "esperado=0.996031746031746"
+      },
+      {
+        "check": "logistic_regression.baseline.true_positives",
+        "passed": true,
+        "detail": "esperado=39"
+      },
+      {
+        "check": "logistic_regression.baseline.true_negatives",
+        "passed": true,
+        "detail": "esperado=71"
+      },
+      {
+        "check": "logistic_regression.baseline.false_positives",
+        "passed": true,
+        "detail": "esperado=1"
+      },
+      {
+        "check": "logistic_regression.baseline.false_negatives",
+        "passed": true,
+        "detail": "esperado=3"
+      },
+      {
+        "check": "logistic_regression.ga.method",
+        "passed": true,
+        "detail": "esperado=ga"
+      },
+      {
+        "check": "logistic_regression.ga.recall_malignant",
+        "passed": true,
+        "detail": "esperado=0.9761904761904762"
+      },
+      {
+        "check": "logistic_regression.ga.f1_malignant",
+        "passed": true,
+        "detail": "esperado=0.9761904761904762"
+      },
+      {
+        "check": "logistic_regression.ga.roc_auc",
+        "passed": true,
+        "detail": "esperado=0.9976851851851852"
+      },
+      {
+        "check": "logistic_regression.ga.true_positives",
+        "passed": true,
+        "detail": "esperado=41"
+      },
+      {
+        "check": "logistic_regression.ga.true_negatives",
+        "passed": true,
+        "detail": "esperado=71"
+      },
+      {
+        "check": "logistic_regression.ga.false_positives",
+        "passed": true,
+        "detail": "esperado=1"
+      },
+      {
+        "check": "logistic_regression.ga.false_negatives",
+        "passed": true,
+        "detail": "esperado=1"
+      },
+      {
+        "check": "logistic_regression.random_search.method",
+        "passed": true,
+        "detail": "esperado=random_search"
+      },
+      {
+        "check": "logistic_regression.random_search.recall_malignant",
+        "passed": true,
+        "detail": "esperado=0.9761904761904762"
+      },
+      {
+        "check": "logistic_regression.random_search.f1_malignant",
+        "passed": true,
+        "detail": "esperado=0.9761904761904762"
+      },
+      {
+        "check": "logistic_regression.random_search.roc_auc",
+        "passed": true,
+        "detail": "esperado=0.9976851851851852"
+      },
+      {
+        "check": "logistic_regression.random_search.true_positives",
+        "passed": true,
+        "detail": "esperado=41"
+      },
+      {
+        "check": "logistic_regression.random_search.true_negatives",
+        "passed": true,
+        "detail": "esperado=71"
+      },
+      {
+        "check": "logistic_regression.random_search.false_positives",
+        "passed": true,
+        "detail": "esperado=1"
+      },
+      {
+        "check": "logistic_regression.random_search.false_negatives",
+        "passed": true,
+        "detail": "esperado=1"
+      },
+      {
+        "check": "logistic_regression.ga_recall_change",
+        "passed": true,
+        "detail": "esperado=improved"
+      },
+      {
+        "check": "logistic_regression.ga_f1_change",
+        "passed": true,
+        "detail": "esperado=improved"
+      },
+      {
+        "check": "logistic_regression.ga_auc_change",
+        "passed": true,
+        "detail": "esperado=improved"
+      },
+      {
+        "check": "logistic_regression.tradeoff",
+        "passed": true,
+        "detail": "esperado=False"
+      },
+      {
+        "check": "logistic_regression.same_threshold_different_auc",
+        "passed": true,
+        "detail": "esperado=False"
+      },
+      {
+        "check": "logistic_regression.cv_gain_confirmed",
+        "passed": true,
+        "detail": "esperado=True"
+      },
+      {
+        "check": "random_forest.present",
+        "passed": true,
+        "detail": "Familia obrigatoria."
+      },
+      {
+        "check": "random_forest.baseline.method",
+        "passed": true,
+        "detail": "esperado=baseline"
+      },
+      {
+        "check": "random_forest.baseline.recall_malignant",
+        "passed": true,
+        "detail": "esperado=0.9047619047619048"
+      },
+      {
+        "check": "random_forest.baseline.f1_malignant",
+        "passed": true,
+        "detail": "esperado=0.95"
+      },
+      {
+        "check": "random_forest.baseline.roc_auc",
+        "passed": true,
+        "detail": "esperado=0.996031746031746"
+      },
+      {
+        "check": "random_forest.baseline.true_positives",
+        "passed": true,
+        "detail": "esperado=38"
+      },
+      {
+        "check": "random_forest.baseline.true_negatives",
+        "passed": true,
+        "detail": "esperado=72"
+      },
+      {
+        "check": "random_forest.baseline.false_positives",
+        "passed": true,
+        "detail": "esperado=0"
+      },
+      {
+        "check": "random_forest.baseline.false_negatives",
+        "passed": true,
+        "detail": "esperado=4"
+      },
+      {
+        "check": "random_forest.ga.method",
+        "passed": true,
+        "detail": "esperado=ga"
+      },
+      {
+        "check": "random_forest.ga.recall_malignant",
+        "passed": true,
+        "detail": "esperado=0.9285714285714286"
+      },
+      {
+        "check": "random_forest.ga.f1_malignant",
+        "passed": true,
+        "detail": "esperado=0.9629629629629629"
+      },
+      {
+        "check": "random_forest.ga.roc_auc",
+        "passed": true,
+        "detail": "esperado=0.9914021164021164"
+      },
+      {
+        "check": "random_forest.ga.true_positives",
+        "passed": true,
+        "detail": "esperado=39"
+      },
+      {
+        "check": "random_forest.ga.true_negatives",
+        "passed": true,
+        "detail": "esperado=72"
+      },
+      {
+        "check": "random_forest.ga.false_positives",
+        "passed": true,
+        "detail": "esperado=0"
+      },
+      {
+        "check": "random_forest.ga.false_negatives",
+        "passed": true,
+        "detail": "esperado=3"
+      },
+      {
+        "check": "random_forest.random_search.method",
+        "passed": true,
+        "detail": "esperado=random_search"
+      },
+      {
+        "check": "random_forest.random_search.recall_malignant",
+        "passed": true,
+        "detail": "esperado=0.9285714285714286"
+      },
+      {
+        "check": "random_forest.random_search.f1_malignant",
+        "passed": true,
+        "detail": "esperado=0.9629629629629629"
+      },
+      {
+        "check": "random_forest.random_search.roc_auc",
+        "passed": true,
+        "detail": "esperado=0.9970238095238095"
+      },
+      {
+        "check": "random_forest.random_search.true_positives",
+        "passed": true,
+        "detail": "esperado=39"
+      },
+      {
+        "check": "random_forest.random_search.true_negatives",
+        "passed": true,
+        "detail": "esperado=72"
+      },
+      {
+        "check": "random_forest.random_search.false_positives",
+        "passed": true,
+        "detail": "esperado=0"
+      },
+      {
+        "check": "random_forest.random_search.false_negatives",
+        "passed": true,
+        "detail": "esperado=3"
+      },
+      {
+        "check": "random_forest.ga_recall_change",
+        "passed": true,
+        "detail": "esperado=improved"
+      },
+      {
+        "check": "random_forest.ga_f1_change",
+        "passed": true,
+        "detail": "esperado=improved"
+      },
+      {
+        "check": "random_forest.ga_auc_change",
+        "passed": true,
+        "detail": "esperado=worsened"
+      },
+      {
+        "check": "random_forest.tradeoff",
+        "passed": true,
+        "detail": "esperado=True"
+      },
+      {
+        "check": "random_forest.same_threshold_different_auc",
+        "passed": true,
+        "detail": "esperado=False"
+      },
+      {
+        "check": "random_forest.cv_gain_confirmed",
+        "passed": true,
+        "detail": "esperado=True"
+      },
+      {
+        "check": "knn.present",
+        "passed": true,
+        "detail": "Familia obrigatoria."
+      },
+      {
+        "check": "knn.baseline.method",
+        "passed": true,
+        "detail": "esperado=baseline"
+      },
+      {
+        "check": "knn.baseline.recall_malignant",
+        "passed": true,
+        "detail": "esperado=0.9047619047619048"
+      },
+      {
+        "check": "knn.baseline.f1_malignant",
+        "passed": true,
+        "detail": "esperado=0.9382716049382716"
+      },
+      {
+        "check": "knn.baseline.roc_auc",
+        "passed": true,
+        "detail": "esperado=0.982308201058201"
+      },
+      {
+        "check": "knn.baseline.true_positives",
+        "passed": true,
+        "detail": "esperado=38"
+      },
+      {
+        "check": "knn.baseline.true_negatives",
+        "passed": true,
+        "detail": "esperado=71"
+      },
+      {
+        "check": "knn.baseline.false_positives",
+        "passed": true,
+        "detail": "esperado=1"
+      },
+      {
+        "check": "knn.baseline.false_negatives",
+        "passed": true,
+        "detail": "esperado=4"
+      },
+      {
+        "check": "knn.ga.method",
+        "passed": true,
+        "detail": "esperado=ga"
+      },
+      {
+        "check": "knn.ga.recall_malignant",
+        "passed": true,
+        "detail": "esperado=0.9047619047619048"
+      },
+      {
+        "check": "knn.ga.f1_malignant",
+        "passed": true,
+        "detail": "esperado=0.95"
+      },
+      {
+        "check": "knn.ga.roc_auc",
+        "passed": true,
+        "detail": "esperado=0.9735449735449735"
+      },
+      {
+        "check": "knn.ga.true_positives",
+        "passed": true,
+        "detail": "esperado=38"
+      },
+      {
+        "check": "knn.ga.true_negatives",
+        "passed": true,
+        "detail": "esperado=72"
+      },
+      {
+        "check": "knn.ga.false_positives",
+        "passed": true,
+        "detail": "esperado=0"
+      },
+      {
+        "check": "knn.ga.false_negatives",
+        "passed": true,
+        "detail": "esperado=4"
+      },
+      {
+        "check": "knn.random_search.method",
+        "passed": true,
+        "detail": "esperado=random_search"
+      },
+      {
+        "check": "knn.random_search.recall_malignant",
+        "passed": true,
+        "detail": "esperado=0.9047619047619048"
+      },
+      {
+        "check": "knn.random_search.f1_malignant",
+        "passed": true,
+        "detail": "esperado=0.95"
+      },
+      {
+        "check": "knn.random_search.roc_auc",
+        "passed": true,
+        "detail": "esperado=0.9735449735449735"
+      },
+      {
+        "check": "knn.random_search.true_positives",
+        "passed": true,
+        "detail": "esperado=38"
+      },
+      {
+        "check": "knn.random_search.true_negatives",
+        "passed": true,
+        "detail": "esperado=72"
+      },
+      {
+        "check": "knn.random_search.false_positives",
+        "passed": true,
+        "detail": "esperado=0"
+      },
+      {
+        "check": "knn.random_search.false_negatives",
+        "passed": true,
+        "detail": "esperado=4"
+      },
+      {
+        "check": "knn.ga_recall_change",
+        "passed": true,
+        "detail": "esperado=unchanged"
+      },
+      {
+        "check": "knn.ga_f1_change",
+        "passed": true,
+        "detail": "esperado=improved"
+      },
+      {
+        "check": "knn.ga_auc_change",
+        "passed": true,
+        "detail": "esperado=worsened"
+      },
+      {
+        "check": "knn.tradeoff",
+        "passed": true,
+        "detail": "esperado=True"
+      },
+      {
+        "check": "knn.same_threshold_different_auc",
+        "passed": true,
+        "detail": "esperado=False"
+      },
+      {
+        "check": "knn.cv_gain_confirmed",
+        "passed": true,
+        "detail": "esperado=False"
+      },
+      {
+        "check": "logistic_regression.uncertainty_present",
+        "passed": true,
+        "detail": "Intervalos obrigatorios."
+      },
+      {
+        "check": "logistic_regression.delta_recall",
+        "passed": true,
+        "detail": "esperado=0.04761904761904756"
+      },
+      {
+        "check": "logistic_regression.mcnemar_p_value",
+        "passed": true,
+        "detail": "esperado=0.5"
+      },
+      {
+        "check": "logistic_regression.delta_ci_includes_zero",
+        "passed": true,
+        "detail": "esperado=True"
+      },
+      {
+        "check": "logistic_regression.baseline_recall_ci.lower",
+        "passed": true,
+        "detail": "esperado=0.8099057319884169"
+      },
+      {
+        "check": "logistic_regression.baseline_recall_ci.upper",
+        "passed": true,
+        "detail": "esperado=0.9754095901266941"
+      },
+      {
+        "check": "logistic_regression.baseline_recall_ci.confidence_level",
+        "passed": true,
+        "detail": "esperado=0.95"
+      },
+      {
+        "check": "logistic_regression.ga_recall_ci.lower",
+        "passed": true,
+        "detail": "esperado=0.8767879842623334"
+      },
+      {
+        "check": "logistic_regression.ga_recall_ci.upper",
+        "passed": true,
+        "detail": "esperado=0.9957845958655673"
+      },
+      {
+        "check": "logistic_regression.ga_recall_ci.confidence_level",
+        "passed": true,
+        "detail": "esperado=0.95"
+      },
+      {
+        "check": "logistic_regression.delta_recall_ci.lower",
+        "passed": true,
+        "detail": "esperado=0.0"
+      },
+      {
+        "check": "logistic_regression.delta_recall_ci.upper",
+        "passed": true,
+        "detail": "esperado=0.12195121951219512"
+      },
+      {
+        "check": "logistic_regression.delta_recall_ci.confidence_level",
+        "passed": true,
+        "detail": "esperado=0.95"
+      },
+      {
+        "check": "random_forest.uncertainty_present",
+        "passed": true,
+        "detail": "Intervalos obrigatorios."
+      },
+      {
+        "check": "random_forest.delta_recall",
+        "passed": true,
+        "detail": "esperado=0.023809523809523836"
+      },
+      {
+        "check": "random_forest.mcnemar_p_value",
+        "passed": true,
+        "detail": "esperado=1.0"
+      },
+      {
+        "check": "random_forest.delta_ci_includes_zero",
+        "passed": true,
+        "detail": "esperado=True"
+      },
+      {
+        "check": "random_forest.baseline_recall_ci.lower",
+        "passed": true,
+        "detail": "esperado=0.7793489419142897"
+      },
+      {
+        "check": "random_forest.baseline_recall_ci.upper",
+        "passed": true,
+        "detail": "esperado=0.9623377511944261"
+      },
+      {
+        "check": "random_forest.baseline_recall_ci.confidence_level",
+        "passed": true,
+        "detail": "esperado=0.95"
+      },
+      {
+        "check": "random_forest.ga_recall_ci.lower",
+        "passed": true,
+        "detail": "esperado=0.8099057319884169"
+      },
+      {
+        "check": "random_forest.ga_recall_ci.upper",
+        "passed": true,
+        "detail": "esperado=0.9754095901266941"
+      },
+      {
+        "check": "random_forest.ga_recall_ci.confidence_level",
+        "passed": true,
+        "detail": "esperado=0.95"
+      },
+      {
+        "check": "random_forest.delta_recall_ci.lower",
+        "passed": true,
+        "detail": "esperado=0.0"
+      },
+      {
+        "check": "random_forest.delta_recall_ci.upper",
+        "passed": true,
+        "detail": "esperado=0.0800270270270267"
+      },
+      {
+        "check": "random_forest.delta_recall_ci.confidence_level",
+        "passed": true,
+        "detail": "esperado=0.95"
+      },
+      {
+        "check": "knn.uncertainty_present",
+        "passed": true,
+        "detail": "Intervalos obrigatorios."
+      },
+      {
+        "check": "knn.delta_recall",
+        "passed": true,
+        "detail": "esperado=0.0"
+      },
+      {
+        "check": "knn.mcnemar_p_value",
+        "passed": true,
+        "detail": "esperado=1.0"
+      },
+      {
+        "check": "knn.delta_ci_includes_zero",
+        "passed": true,
+        "detail": "esperado=True"
+      },
+      {
+        "check": "knn.baseline_recall_ci.lower",
+        "passed": true,
+        "detail": "esperado=0.7793489419142897"
+      },
+      {
+        "check": "knn.baseline_recall_ci.upper",
+        "passed": true,
+        "detail": "esperado=0.9623377511944261"
+      },
+      {
+        "check": "knn.baseline_recall_ci.confidence_level",
+        "passed": true,
+        "detail": "esperado=0.95"
+      },
+      {
+        "check": "knn.ga_recall_ci.lower",
+        "passed": true,
+        "detail": "esperado=0.7793489419142897"
+      },
+      {
+        "check": "knn.ga_recall_ci.upper",
+        "passed": true,
+        "detail": "esperado=0.9623377511944261"
+      },
+      {
+        "check": "knn.ga_recall_ci.confidence_level",
+        "passed": true,
+        "detail": "esperado=0.95"
+      },
+      {
+        "check": "knn.delta_recall_ci.lower",
+        "passed": true,
+        "detail": "esperado=-0.06976744186046513"
+      },
+      {
+        "check": "knn.delta_recall_ci.upper",
+        "passed": true,
+        "detail": "esperado=0.06818181818181823"
+      },
+      {
+        "check": "knn.delta_recall_ci.confidence_level",
+        "passed": true,
+        "detail": "esperado=0.95"
+      },
+      {
+        "check": "holdout_selection_preserved",
+        "passed": true,
+        "detail": "Holdout confirmatorio."
+      },
+      {
+        "check": "clinical_use_not_authorized",
+        "passed": true,
+        "detail": "Uso clinico proibido."
+      },
+      {
+        "check": "no_unexpected_narrative_numbers",
+        "passed": true,
+        "detail": "numeros_nao_autorizados=[]"
+      }
+    ],
+    "unexpected_text_numbers": []
+  },
+  "safety": {
+    "passed": true,
+    "disclaimer_valid": true,
+    "deterministic_rules": true,
+    "violations": []
+  },
+  "evaluation_is_deterministic": true,
+  "llm_judge_used": false,
+  "signature": "c4959c7da6e44a21626ef104773f50a590bed03ac2fe4c7bd2eb6eb6be7403ce"
+}

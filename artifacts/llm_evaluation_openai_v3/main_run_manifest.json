@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_main_run_manifest",
+  "generated_at_utc": "2026-08-24T20:27:40.490214+00:00",
+  "status": "invalid",
+  "run_identity": "56fbfb080300146426040b0e0c569211dcd55c4670f696e855de715fbad30ed0",
+  "provider": "openai_responses",
+  "model": "gpt-5.5",
+  "prompt_versions": {
+    "system": "system_v1",
+    "explanation": "explanation_v1",
+    "system_sha256": "f10c9d6db2a572c48810b7d10ffc70e651f244383afdb9dde5959901b43306b3",
+    "explanation_sha256": "39e505da3b3293eaa12d89b422013188682774c54dfae244aed93c68b759ce78"
+  },
+  "input_sha256": "44ca9f33e8a8553ed837441507c97c4cebfd9e6bcc57170e81e9e97e4936ee13",
+  "output_sha256": "48bd70522656dc5ff502563eeac463cc7fda5d45bb654d5d6b3876edf0f111f1",
+  "schema_valid": true,
+  "factuality": false,
+  "safety": true,
+  "completeness": true,
+  "clarity": {
+    "score": 1.0,
+    "passed": true,
+    "checks": {
+      "reasonable_length": true,
+      "sentence_length": true,
+      "structured_sections": true,
+      "limited_unexplained_jargon": true
+    },
+    "word_count": 598,
+    "average_sentence_words": 17.085714285714285,
+    "unexplained_jargon": [
+      "mcnemar"
+    ]
+  },
+  "scientific_calibration": true,
+  "unexpected_factual_numbers": 0,
+  "clinical_violations": 0,
+  "selection_violations": 0,
+  "main_provider_calls": 1,
+  "automatic_retry_performed": false,
+  "signature": "627f51fe370c2fa0407fcca463ea9da29906b115fe49370e3180b9aff76b1100"
+}

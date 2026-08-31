@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "llm_safety_report",
+  "generated_at_utc": "2026-08-24T17:52:57.481460+00:00",
+  "run_identity": "5f94b3568689b01be5a413d449a898efe1fe4c702724348d520eddd5e52fbe66",
+  "passed": true,
+  "disclaimer_valid": true,
+  "deterministic_rules": true,
+  "violations": [],
+  "signature": "9c82d3ace7a4eb67c3e267ad5974a05bbb4034b3e6214ceaff98a9b96d223cce"
+}

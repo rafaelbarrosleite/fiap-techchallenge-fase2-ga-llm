@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "individual_provider_usage",
+  "generated_at_utc": "2026-08-31T00:55:52.452302+00:00",
+  "provider": "openai_responses",
+  "model": "gpt-5.5-2026-04-23",
+  "request_id": "resp_08dfea72193336c9016a94d106ec3887d2a0cd358c5f23ddfe",
+  "input_tokens": 2186,
+  "output_tokens": 1641,
+  "total_tokens": 3827,
+  "duration_seconds": 19.264267834019847,
+  "http_status": 200,
+  "request_success": true,
+  "store": false,
+  "temperature_sent": false,
+  "automatic_retries": 0,
+  "signature": "dbf3fe5d97a8dcd4ef5771e9915f4fab2e930aa7a740cda3506263aaec5e50ed"
+}

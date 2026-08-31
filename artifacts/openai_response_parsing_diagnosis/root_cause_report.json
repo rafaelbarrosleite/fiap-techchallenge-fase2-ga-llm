@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_response_parsing_root_cause",
+  "generated_at_utc": "2026-08-24T20:12:47.400380+00:00",
+  "classification": "previous_response_shape_unknown",
+  "current_probe_approved": true,
+  "current_response_nested_without_top_level": true,
+  "mission72_parser_hypothesis_supported": false,
+  "old_parser_already_traversed_output_content": true,
+  "evidence": [
+    "The current raw HTTP response contains reasoning followed by message/output_text.",
+    "The current raw response has no top-level output_text.",
+    "The Mission 7.2 parser source already iterated output[].content[].",
+    "The raw Mission 7.2 response was not preserved, so its actual status/output cannot be reconstructed."
+  ],
+  "why_not_incorrect_raw_response_parsing": "The current response shape would have been accepted by the old nested loop; causality is not demonstrated.",
+  "correction": "Defensive status/type-aware parser plus raw-response-first persistence.",
+  "ready_for_scientific_evaluation": true,
+  "signature": "d3c805fa8685d403ff0baf7ccc7510da58f4dc6954f66448b1171353a85020ed"
+}

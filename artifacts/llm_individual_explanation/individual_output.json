@@ -1,0 +1,99 @@
+{
+  "schema_version": "3.0",
+  "artifact_type": "individual_explanation_output",
+  "generated_at_utc": "2026-08-31T00:53:23.054200+00:00",
+  "run_identity": "f197a5539b06bed5040b3359e8b12caac4320bd1dbb42151f91d9e685e1b5e4b",
+  "approved": true,
+  "provider": "fake_individual",
+  "model": "deterministic-individual-explainer-v1",
+  "response_id": "offline-individual-v1",
+  "structured_output": {
+    "schema_version": "3.0",
+    "contract_version": "individual_v1",
+    "case_reference": "demo_case_001",
+    "resumo_executivo": "O modelo classificou o caso demonstrativo desidentificado como padrão maligno, com probabilidade estimada de 74.553% para a classe maligna. Essa probabilidade descreve a saída matemática do modelo e não constitui diagnóstico.",
+    "classificacao_do_modelo": {
+      "candidate_id": "logistic_regression__random_search",
+      "predicted_pattern": "malignant_pattern",
+      "probability_malignant": 0.74553,
+      "classification_threshold": 0.5,
+      "interpretation": "A classe foi definida pela comparação da probabilidade estimada com o limiar fixo de 0,5. O resultado requer revisão humana e não informa o diagnóstico real do caso."
+    },
+    "fatores_explicativos": [
+      {
+        "rank": 1,
+        "feature": "symmetry_worst",
+        "display_name": "maior simetria",
+        "observed_band": "high",
+        "influence_direction": "toward_malignant",
+        "relative_importance_percent": 55.86,
+        "explanation": "Maior simetria ficou na faixa elevada e contribuiu no sentido da classe maligna na decisão matemática. Essa associação não demonstra causa biológica."
+      },
+      {
+        "rank": 2,
+        "feature": "symmetry_se",
+        "display_name": "variação da simetria",
+        "observed_band": "high",
+        "influence_direction": "toward_benign",
+        "relative_importance_percent": 15.63,
+        "explanation": "Variação da simetria ficou na faixa elevada e contribuiu no sentido da classe benigna na decisão matemática. Essa associação não demonstra causa biológica."
+      },
+      {
+        "rank": 3,
+        "feature": "concave points_worst",
+        "display_name": "maiores pontos côncavos",
+        "observed_band": "high",
+        "influence_direction": "toward_malignant",
+        "relative_importance_percent": 11.73,
+        "explanation": "Maiores pontos côncavos ficou na faixa elevada e contribuiu no sentido da classe maligna na decisão matemática. Essa associação não demonstra causa biológica."
+      },
+      {
+        "rank": 4,
+        "feature": "concavity_worst",
+        "display_name": "maior concavidade",
+        "observed_band": "high",
+        "influence_direction": "toward_malignant",
+        "relative_importance_percent": 8.39,
+        "explanation": "Maior concavidade ficou na faixa elevada e contribuiu no sentido da classe maligna na decisão matemática. Essa associação não demonstra causa biológica."
+      },
+      {
+        "rank": 5,
+        "feature": "concavity_mean",
+        "display_name": "concavidade média",
+        "observed_band": "high",
+        "influence_direction": "toward_malignant",
+        "relative_importance_percent": 8.39,
+        "explanation": "Concavidade média ficou na faixa elevada e contribuiu no sentido da classe maligna na decisão matemática. Essa associação não demonstra causa biológica."
+      }
+    ],
+    "insights_acionaveis_para_medicos": [
+      {
+        "action": "Revisar a coerência dos cinco sinais que mais influenciaram a classificação.",
+        "rationale": "Os sinais mostram como o modelo chegou à saída e ajudam a identificar dependência excessiva de uma variável.",
+        "scope": "human_review_only",
+        "patient_care_decision": false
+      },
+      {
+        "action": "Confrontar a saída com avaliação profissional e evidências clínicas independentes.",
+        "rationale": "A classificação isolada não foi validada para orientar diagnóstico, tratamento ou decisão médica.",
+        "scope": "human_review_only",
+        "patient_care_decision": false
+      }
+    ],
+    "limitacoes": [
+      "O provider recebeu apenas uma representação parcial e desidentificada, sem valores brutos nem diagnóstico real.",
+      "As contribuições explicam a decisão matemática do modelo, não relações causais ou mecanismos biológicos.",
+      "O modelo foi avaliado academicamente e não possui validação clínica, prospectiva ou regulatória."
+    ],
+    "preparacao_modulo3": {
+      "ready_for_future_text": true,
+      "current_text_data_used": false,
+      "explanation": "O contrato reserva campos para futuros resumos textuais desidentificados de notas e laudos, sempre sujeitos a autorização, proveniência, validação de schema e revisão de segurança."
+    },
+    "conclusao": "A explicação torna auditável uma classificação individual do modelo e oferece ações de revisão humana. Ela não confirma doença, não prescreve conduta e não autoriza utilização clínica.",
+    "disclaimer": "Este resultado possui finalidade exclusivamente acadêmica e experimental. Os modelos avaliados não foram validados para uso clínico e não devem ser utilizados para diagnóstico, tratamento ou tomada de decisão médica.",
+    "predicao_nao_e_diagnostico": true,
+    "uso_clinico_autorizado": false
+  },
+  "signature": "802a93e27bf15dd37953bc53d97716f67d092b6762f7ceba99971d7ac5152597"
+}

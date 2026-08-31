@@ -1,0 +1,125 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_diagnostic_request",
+  "generated_at_utc": "2026-08-24T19:41:54.957603+00:00",
+  "provider": "openai_responses",
+  "model": "gpt-5.5",
+  "endpoint": "https://api.openai.com/v1/responses",
+  "dry_run": true,
+  "api_call_performed": false,
+  "privacy_valid": true,
+  "individual_or_scientific_data_in_minimal_request": false,
+  "store": false,
+  "original_request_hash": "bf74c2d503db2f16d267fa2295eb9f8c8801b81aaed85902f57cd520ba8e4445",
+  "original_request_safe_summary": {
+    "fields": [
+      "input",
+      "instructions",
+      "max_output_tokens",
+      "model",
+      "store",
+      "temperature",
+      "text"
+    ],
+    "schema_name": "experiment_explanation_v1",
+    "schema_bytes": 5830,
+    "content_persisted_in_diagnosis": false
+  },
+  "field_audit": {
+    "model": {
+      "current": "gpt-5.5",
+      "allowed": true,
+      "action": "preserve"
+    },
+    "input": {
+      "current": "aggregate message array",
+      "allowed": true,
+      "action": "preserve"
+    },
+    "instructions": {
+      "current": "versioned system prompt",
+      "allowed": true,
+      "action": "preserve"
+    },
+    "text.format": {
+      "current": "json_schema/strict",
+      "allowed": true,
+      "action": "preserve; not implicated by captured error"
+    },
+    "temperature": {
+      "current": 0.0,
+      "allowed": false,
+      "action": "omit for gpt-5.5",
+      "evidence": "Unsupported parameter: 'temperature' is not supported with this model."
+    },
+    "max_output_tokens": {
+      "current": 3000,
+      "allowed": true,
+      "action": "preserve"
+    },
+    "store": {
+      "current": false,
+      "allowed": true,
+      "action": "preserve"
+    },
+    "reasoning": {
+      "current": null,
+      "allowed": true,
+      "action": "omit; model default"
+    },
+    "text.verbosity": {
+      "current": null,
+      "allowed": true,
+      "action": "omit; default"
+    },
+    "top_p": {
+      "current": null,
+      "allowed": true,
+      "action": "omit"
+    },
+    "response_format": {
+      "current": null,
+      "allowed": false,
+      "action": "use text.format"
+    }
+  },
+  "minimal_request": {
+    "model": "gpt-5.5",
+    "input": "Return the status value exactly as required by the schema.",
+    "temperature": 0.0,
+    "max_output_tokens": 100,
+    "store": false,
+    "text": {
+      "format": {
+        "type": "json_schema",
+        "name": "integration_status_v1",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "ok"
+              ]
+            }
+          },
+          "required": [
+            "status"
+          ]
+        }
+      }
+    }
+  },
+  "request_hash": "4d925f6a52f6b75d8009305a97152224e4c128529ca013a8a0039b7d279c6976",
+  "credential_present": true,
+  "credential_value_recorded": false,
+  "diagnostic_outcome": {
+    "status": "rejected",
+    "cause_identified": true,
+    "request_body_preserved_as_sent": true,
+    "correction_applied_after_call": true
+  },
+  "signature": "3262c05e07033332654579439a3f0c3b99482372347708aa30c81174c30f9935"
+}

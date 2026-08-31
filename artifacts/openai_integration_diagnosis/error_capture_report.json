@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_diagnostic_error_capture",
+  "generated_at_utc": "2026-08-24T19:41:56.382298+00:00",
+  "provider": "openai_responses",
+  "model": "gpt-5.5",
+  "sanitized_request_hash": "4d925f6a52f6b75d8009305a97152224e4c128529ca013a8a0039b7d279c6976",
+  "error_captured": true,
+  "http_status": 400,
+  "error": {
+    "type": "invalid_request_error",
+    "code": null,
+    "param": "temperature",
+    "message": "Unsupported parameter: 'temperature' is not supported with this model."
+  },
+  "request_id": "req_34c092d266934b65a0b7b501d55642b2",
+  "exception_class": "HTTPError",
+  "secrets_recorded": false,
+  "headers_recorded": false,
+  "automatic_retry_performed": false,
+  "signature": "14d8ea9813b8bd8447dc8c823e12401a5e8774ac56e90ac15cd9be9ca8fbe51d"
+}

@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "final_evaluation_preflight",
+  "generated_at_utc": "2026-08-24T15:08:03.611087+00:00",
+  "approved": true,
+  "approval_with_historical_exception": true,
+  "checks": {
+    "test_suite": true,
+    "dataset_hash": true,
+    "frozen_candidates_signature": true,
+    "selection_manifest_signature": true,
+    "split_sizes": true,
+    "split_stratification": true,
+    "split_disjoint": true,
+    "candidate_count": true,
+    "pipelines_instantiated": true,
+    "threshold_fixed": true,
+    "search_components_invoked": false,
+    "no_candidates_created_after_freeze": true,
+    "selection_lineage_without_test_metrics": true,
+    "official_lineage_development_only": true
+  },
+  "test_suite": {
+    "command": "/Users/rafaelleite/Documents/Projetos/postech-fiap/fiap-techchallenge-fase2-ga-llm/.venv/bin/python3 -m pytest -q",
+    "exit_code": 0,
+    "reported_test_count": 79,
+    "summary_tail": "t_generates_six_synthetic_figures\ntests/test_final_evaluation.py::test_generates_six_synthetic_figures\ntests/test_final_evaluation.py::test_generates_six_synthetic_figures\ntests/test_final_evaluation.py::test_generates_six_synthetic_figures\ntests/test_final_evaluation.py::test_generates_six_synthetic_figures\n  /Users/rafaelleite/Documents/Projetos/postech-fiap/fiap-techchallenge-fase2-ga-llm/.venv/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:89: PyparsingDeprecationWarning: 'resetCache' deprecated - use 'reset_cache'\n    parser.resetCache()\n\ntests/test_final_evaluation.py::test_generates_six_synthetic_figures\n  /Users/rafaelleite/Documents/Projetos/postech-fiap/fiap-techchallenge-fase2-ga-llm/.venv/lib/python3.12/site-packages/matplotlib/_mathtext.py:45: PyparsingDeprecationWarning: 'enablePackrat' deprecated - use 'enable_packrat'\n    ParserElement.enablePackrat()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n79 passed, 14 warnings in 8.83s"
+  },
+  "dataset_sha256": "1425d9affa78ba8e53afc81d0ef8a19069ee10c4b21fe89b3cf514071b12ee33",
+  "source_code_signature": {
+    "sha256": "254980840c56a8ac56d871e689f687b7eb28e18e60fb3061ab837ecad6e34795",
+    "files": {
+      "config.py": "217df5917a2f607fbda00db2a9324b920823d1ae91feca8524407e461a54527a",
+      "data.py": "8adca1f3554ed59986bd1e9b2f59a211ccfcdabbc9548140d1cab4aac1fe064c",
+      "models.py": "a3c17d087a6b4da73fde0a7c04b451ea0bf464ab1adae1ccb31e52f022c247e0",
+      "comparison.py": "f76706424b4b4780a745b79d09f7a814fd332ad42f8030c96eee0f0cec37143a",
+      "genetic/search_spaces.py": "e08fb09738e6fa67a698cd1cc2d50877f62202cc6ac70416e8c80eb1119e7588",
+      "genetic/serialization.py": "66eaf592be66257f3eb703dfa734fc3e71eb4c0af71c5e6f225cc0fcbb3e112e",
+      "final_evaluation.py": "c26cdf6119b1c0ca39ffbefc33d3b4aa0240075714b18657b7fc0631616ff0ea",
+      "final_reporting.py": "88f76b537e09e789eaa3d0dc0aa4ac767753e57fe39d4d8f9294fca3c59964d2",
+      "run_final_evaluation.py": "db4b81301814eb034329c17cac26f7e84e4aa3647b0ff1346c6ad8ba70cf5dc8"
+    }
+  },
+  "frozen_candidates_signature": "7b4c6e5b1f2774a4e4d0cd60b41896389856ed3be599f07cd656a3a7aa188b54",
+  "selection_manifest_signature": "a6ed45d2b0cd2f040284564c173404f40124f373bac48a4cc174159d84b7287f",
+  "split": {
+    "development_rows": 455,
+    "test_rows": 114,
+    "development_class_counts": {
+      "0": 285,
+      "1": 170
+    },
+    "test_class_counts": {
+      "0": 72,
+      "1": 42
+    },
+    "development_indices_sha256": "e7b0bfbc870a7cb2f8a61d9918d994dfa3a05878b82f4f8e475fc4e225ec7f75",
+    "test_indices_sha256": "89d3a9a0c6f4c5a3208b7f14a7ac3381f752bfb04dc571631d4984326eaea479",
+    "combined_split_sha256": "380201b48e25595573eeac969432046af2864e7e0eb7a53360d71a095c6153a0",
+    "overlap_count": 0,
+    "source_rows": 569,
+    "feature_count": 30
+  },
+  "candidate_validation": [
+    {
+      "candidate_id": "logistic_regression__baseline",
+      "pipeline_type": "Pipeline",
+      "estimator_type": "LogisticRegression",
+      "instantiated_only": true
+    },
+    {
+      "candidate_id": "logistic_regression__ga",
+      "pipeline_type": "Pipeline",
+      "estimator_type": "LogisticRegression",
+      "instantiated_only": true
+    },
+    {
+      "candidate_id": "logistic_regression__random_search",
+      "pipeline_type": "Pipeline",
+      "estimator_type": "LogisticRegression",
+      "instantiated_only": true
+    },
+    {
+      "candidate_id": "random_forest__baseline",
+      "pipeline_type": "Pipeline",
+      "estimator_type": "RandomForestClassifier",
+      "instantiated_only": true
+    },
+    {
+      "candidate_id": "random_forest__ga",
+      "pipeline_type": "Pipeline",
+      "estimator_type": "RandomForestClassifier",
+      "instantiated_only": true
+    },
+    {
+      "candidate_id": "random_forest__random_search",
+      "pipeline_type": "Pipeline",
+      "estimator_type": "RandomForestClassifier",
+      "instantiated_only": true
+    },
+    {
+      "candidate_id": "knn__baseline",
+      "pipeline_type": "Pipeline",
+      "estimator_type": "KNeighborsClassifier",
+      "instantiated_only": true
+    },
+    {
+      "candidate_id": "knn__ga",
+      "pipeline_type": "Pipeline",
+      "estimator_type": "KNeighborsClassifier",
+      "instantiated_only": true
+    },
+    {
+      "candidate_id": "knn__random_search",
+      "pipeline_type": "Pipeline",
+      "estimator_type": "KNeighborsClassifier",
+      "instantiated_only": true
+    }
+  ],
+  "lineage": {
+    "selection_lineage_has_no_test_metrics": true,
+    "official_ga_lineage_is_development_only": true,
+    "official_ga_artifacts_validated": 9,
+    "source_artifacts_not_newer_than_freeze": true,
+    "candidate_count_after_freeze": 0,
+    "historical_baseline_exception": {
+      "present": true,
+      "path": "/Users/rafaelleite/Documents/Projetos/postech-fiap/fiap-techchallenge-fase2-ga-llm/artifacts/baseline_results.json",
+      "interpretation": "Artefato historico anterior contem metricas do holdout, mas nao integra a linhagem assinada de selecao nem foi usado para escolher candidatos."
+    }
+  },
+  "plan_signature": "b94cbc663473ab040e89961144c69600062a03a09803c73027ca4163bc4fe1f7",
+  "predict_calls_on_holdout": 0,
+  "predict_proba_calls_on_holdout": 0,
+  "score_calls_on_holdout": 0,
+  "fit_calls": 0,
+  "search_calls": 0,
+  "signature": "3e405e6b6049bd93558ef2725067753a2f9ee61ffd3948d5b3766eb45d3f2b14"
+}

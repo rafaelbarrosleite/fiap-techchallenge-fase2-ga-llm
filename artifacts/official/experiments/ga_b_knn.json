@@ -1,0 +1,570 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "official_ga_experiment",
+  "generated_at_utc": "2026-08-19T12:07:14.513616+00:00",
+  "disclaimer": "Uso academico; nao substitui diagnostico medico.",
+  "identity": {
+    "model": "knn",
+    "config_label": "B",
+    "configuration": {
+      "name": "B_balanced",
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_rate": 0.8,
+      "mutation_rate": 0.2,
+      "elite_count": 2,
+      "tournament_size": 3,
+      "seed": 42,
+      "cv_splits": 5,
+      "cv_seed": 42,
+      "estimator_seed": 42,
+      "instability_weight": 0.1,
+      "stagnation_generations": null,
+      "min_improvement": 1e-12
+    },
+    "dataset_sha256": "1425d9affa78ba8e53afc81d0ef8a19069ee10c4b21fe89b3cf514071b12ee33",
+    "development_indices_sha256": "e7b0bfbc870a7cb2f8a61d9918d994dfa3a05878b82f4f8e475fc4e225ec7f75",
+    "code_sha256": "ba729d4dc48958ad8c35e105804790c259dd739d9752d08d4b7c8edb12149c31",
+    "project_version": "0.3.0",
+    "official_schema_version": "1.0",
+    "sha256": "40c05855ded83a8d3c2c2cb3a06e6fe409bcece17ade8ac7fc7f870b1c07db0c"
+  },
+  "dataset": {
+    "sha256": "1425d9affa78ba8e53afc81d0ef8a19069ee10c4b21fe89b3cf514071b12ee33",
+    "source_rows": 569,
+    "feature_count": 30,
+    "target_mapping": {
+      "B": 0,
+      "M": 1
+    }
+  },
+  "data_scope": {
+    "scope": "development_only",
+    "development_rows": 455,
+    "held_out_rows": 114,
+    "holdout_used": false,
+    "holdout_accessible_to_fitness": false,
+    "cv_splits": 5,
+    "cv_seed": 42,
+    "split_seed": 42,
+    "classification_threshold": 0.5,
+    "development_indices_sha256": "e7b0bfbc870a7cb2f8a61d9918d994dfa3a05878b82f4f8e475fc4e225ec7f75"
+  },
+  "software_versions": {
+    "python": "3.12.13",
+    "operating_system": "macOS-26.6.2-arm64-arm-64bit",
+    "architecture": "arm64",
+    "numpy": "2.3.2",
+    "pandas": "2.3.1",
+    "scikit-learn": "1.7.1",
+    "project": "0.3.0"
+  },
+  "source_signature": {
+    "sha256": "ba729d4dc48958ad8c35e105804790c259dd739d9752d08d4b7c8edb12149c31",
+    "files": {
+      "genetic/config.py": "689cc284c2e5c51a815c78304502221a329f105d42724322a79e380b79166428",
+      "genetic/genomes.py": "152ebf1ef85dbf391a762ba7109b293076be93af5868c4e25fc5e655eac1eae6",
+      "genetic/search_spaces.py": "e08fb09738e6fa67a698cd1cc2d50877f62202cc6ac70416e8c80eb1119e7588",
+      "genetic/fitness.py": "06448108ee382b53a47fcccbbe92fa40acc1706476460c29c5dfd9c454b6a70e",
+      "genetic/operators.py": "052553debf8859d768cad422a9ad9f6a54e3e8369e3132fc5eb46ce726c5e49b",
+      "genetic/history.py": "d747d26abe09539cc7d171d1819f8f7a8e8bbca167424311c88ebab6dc52b4eb",
+      "genetic/engine.py": "a34f7fceed403a2ef6c8e8a5f69c8bc384b9479078d144847611dad4f3ef00aa",
+      "genetic/serialization.py": "66eaf592be66257f3eb703dfa734fc3e71eb4c0af71c5e6f225cc0fcbb3e112e",
+      "genetic/official.py": "bf3e7b5485f8fcb789ffdcb7152e4ffd08aa515722fd3b09487841324ed57ebb"
+    }
+  },
+  "run": {
+    "model": "knn",
+    "configuration": {
+      "name": "B_balanced",
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_rate": 0.8,
+      "mutation_rate": 0.2,
+      "elite_count": 2,
+      "tournament_size": 3,
+      "seed": 42,
+      "cv_splits": 5,
+      "cv_seed": 42,
+      "estimator_seed": 42,
+      "instability_weight": 0.1,
+      "stagnation_generations": null,
+      "min_improvement": 1e-12
+    },
+    "best_individual": {
+      "genome": {
+        "model": "knn",
+        "n_neighbors": 3,
+        "weights": "uniform",
+        "metric": "minkowski",
+        "p": 1
+      },
+      "fitness": {
+        "fitness": 0.9539899923880164,
+        "base_fitness": 0.9574199640908666,
+        "mean_recall_malignant": 0.9470588235294117,
+        "std_recall_malignant": 0.03429971702850178,
+        "mean_f1_malignant": 0.966707720140556,
+        "mean_roc_auc": 0.9833849329205366,
+        "evaluation_seconds": 0.015807040999789024,
+        "fold_metrics": [
+          {
+            "fold": 1,
+            "recall_malignant": 0.9411764705882353,
+            "f1_malignant": 0.9552238805970149,
+            "roc_auc": 0.9814241486068112,
+            "train_rows": 364,
+            "validation_rows": 91
+          },
+          {
+            "fold": 2,
+            "recall_malignant": 1.0,
+            "f1_malignant": 1.0,
+            "roc_auc": 1.0,
+            "train_rows": 364,
+            "validation_rows": 91
+          },
+          {
+            "fold": 3,
+            "recall_malignant": 0.9117647058823529,
+            "f1_malignant": 0.9538461538461539,
+            "roc_auc": 0.9829721362229104,
+            "train_rows": 364,
+            "validation_rows": 91
+          },
+          {
+            "fold": 4,
+            "recall_malignant": 0.9117647058823529,
+            "f1_malignant": 0.9393939393939394,
+            "roc_auc": 0.9680082559339526,
+            "train_rows": 364,
+            "validation_rows": 91
+          },
+          {
+            "fold": 5,
+            "recall_malignant": 0.9705882352941176,
+            "f1_malignant": 0.9850746268656716,
+            "roc_auc": 0.9845201238390094,
+            "train_rows": 364,
+            "validation_rows": 91
+          }
+        ],
+        "issues": [],
+        "failure": null
+      }
+    },
+    "history": [
+      {
+        "generation": 0,
+        "best_fitness": 0.9465591083964886,
+        "global_best_fitness": 0.9465591083964886,
+        "mean_fitness": 0.9165268975360202,
+        "worst_fitness": 0.9034474227020822,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 40,
+        "cache_size": 40,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "knn",
+          "n_neighbors": 7,
+          "weights": "distance",
+          "metric": "euclidean",
+          "p": null
+        }
+      },
+      {
+        "generation": 1,
+        "best_fitness": 0.9465591083964886,
+        "global_best_fitness": 0.9465591083964886,
+        "mean_fitness": 0.9229898072758493,
+        "worst_fitness": 0.9033855031974383,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 40,
+        "cache_size": 62,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "knn",
+          "n_neighbors": 7,
+          "weights": "distance",
+          "metric": "minkowski",
+          "p": 2
+        }
+      },
+      {
+        "generation": 2,
+        "best_fitness": 0.9539745125118554,
+        "global_best_fitness": 0.9539745125118554,
+        "mean_fitness": 0.9288686599944773,
+        "worst_fitness": 0.9030298666636486,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 40,
+        "cache_size": 73,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "knn",
+          "n_neighbors": 3,
+          "weights": "distance",
+          "metric": "manhattan",
+          "p": null
+        }
+      },
+      {
+        "generation": 3,
+        "best_fitness": 0.9539899923880164,
+        "global_best_fitness": 0.9539899923880164,
+        "mean_fitness": 0.9289841555289652,
+        "worst_fitness": 0.9030453465398096,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 40,
+        "cache_size": 87,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "knn",
+          "n_neighbors": 3,
+          "weights": "uniform",
+          "metric": "manhattan",
+          "p": null
+        }
+      },
+      {
+        "generation": 4,
+        "best_fitness": 0.9539899923880164,
+        "global_best_fitness": 0.9539899923880164,
+        "mean_fitness": 0.9290597096992805,
+        "worst_fitness": 0.9035790016494506,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 40,
+        "cache_size": 95,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "knn",
+          "n_neighbors": 3,
+          "weights": "uniform",
+          "metric": "minkowski",
+          "p": 1
+        }
+      },
+      {
+        "generation": 5,
+        "best_fitness": 0.9539899923880164,
+        "global_best_fitness": 0.9539899923880164,
+        "mean_fitness": 0.928748730619312,
+        "worst_fitness": 0.9030298666636486,
+        "diversity_ratio": 0.975,
+        "unique_individuals": 39,
+        "cache_size": 100,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "knn",
+          "n_neighbors": 3,
+          "weights": "uniform",
+          "metric": "minkowski",
+          "p": 1
+        }
+      },
+      {
+        "generation": 6,
+        "best_fitness": 0.9539899923880164,
+        "global_best_fitness": 0.9539899923880164,
+        "mean_fitness": 0.9308537887716323,
+        "worst_fitness": 0.9034474227020822,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 40,
+        "cache_size": 107,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "knn",
+          "n_neighbors": 3,
+          "weights": "uniform",
+          "metric": "minkowski",
+          "p": 1
+        }
+      },
+      {
+        "generation": 7,
+        "best_fitness": 0.9539899923880164,
+        "global_best_fitness": 0.9539899923880164,
+        "mean_fitness": 0.9291247961684542,
+        "worst_fitness": 0.9030453465398096,
+        "diversity_ratio": 0.975,
+        "unique_individuals": 39,
+        "cache_size": 108,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "knn",
+          "n_neighbors": 3,
+          "weights": "uniform",
+          "metric": "minkowski",
+          "p": 1
+        }
+      },
+      {
+        "generation": 8,
+        "best_fitness": 0.9539899923880164,
+        "global_best_fitness": 0.9539899923880164,
+        "mean_fitness": 0.9286298696056086,
+        "worst_fitness": 0.9030298666636486,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 40,
+        "cache_size": 112,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "knn",
+          "n_neighbors": 3,
+          "weights": "uniform",
+          "metric": "minkowski",
+          "p": 1
+        }
+      },
+      {
+        "generation": 9,
+        "best_fitness": 0.9539899923880164,
+        "global_best_fitness": 0.9539899923880164,
+        "mean_fitness": 0.929150118503151,
+        "worst_fitness": 0.9030453465398096,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 40,
+        "cache_size": 113,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "knn",
+          "n_neighbors": 3,
+          "weights": "uniform",
+          "metric": "minkowski",
+          "p": 1
+        }
+      },
+      {
+        "generation": 10,
+        "best_fitness": 0.9539899923880164,
+        "global_best_fitness": 0.9539899923880164,
+        "mean_fitness": 0.9263023963433614,
+        "worst_fitness": 0.9030298666636486,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 40,
+        "cache_size": 113,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "knn",
+          "n_neighbors": 3,
+          "weights": "uniform",
+          "metric": "minkowski",
+          "p": 1
+        }
+      },
+      {
+        "generation": 11,
+        "best_fitness": 0.9539899923880164,
+        "global_best_fitness": 0.9539899923880164,
+        "mean_fitness": 0.9308642983453888,
+        "worst_fitness": 0.9036254412779335,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 40,
+        "cache_size": 115,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "knn",
+          "n_neighbors": 3,
+          "weights": "uniform",
+          "metric": "minkowski",
+          "p": 1
+        }
+      },
+      {
+        "generation": 12,
+        "best_fitness": 0.9539899923880164,
+        "global_best_fitness": 0.9539899923880164,
+        "mean_fitness": 0.9307013744598496,
+        "worst_fitness": 0.9034474227020822,
+        "diversity_ratio": 0.925,
+        "unique_individuals": 37,
+        "cache_size": 116,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "knn",
+          "n_neighbors": 3,
+          "weights": "uniform",
+          "metric": "minkowski",
+          "p": 1
+        }
+      },
+      {
+        "generation": 13,
+        "best_fitness": 0.9539899923880164,
+        "global_best_fitness": 0.9539899923880164,
+        "mean_fitness": 0.9267470237054942,
+        "worst_fitness": 0.9030298666636486,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 40,
+        "cache_size": 116,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "knn",
+          "n_neighbors": 3,
+          "weights": "uniform",
+          "metric": "minkowski",
+          "p": 1
+        }
+      },
+      {
+        "generation": 14,
+        "best_fitness": 0.9539899923880164,
+        "global_best_fitness": 0.9539899923880164,
+        "mean_fitness": 0.9276822884803722,
+        "worst_fitness": 0.9030298666636486,
+        "diversity_ratio": 0.975,
+        "unique_individuals": 39,
+        "cache_size": 116,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "knn",
+          "n_neighbors": 3,
+          "weights": "uniform",
+          "metric": "minkowski",
+          "p": 1
+        }
+      },
+      {
+        "generation": 15,
+        "best_fitness": 0.9539899923880164,
+        "global_best_fitness": 0.9539899923880164,
+        "mean_fitness": 0.9269244252843686,
+        "worst_fitness": 0.9030298666636486,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 40,
+        "cache_size": 117,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "knn",
+          "n_neighbors": 3,
+          "weights": "uniform",
+          "metric": "minkowski",
+          "p": 1
+        }
+      },
+      {
+        "generation": 16,
+        "best_fitness": 0.9539899923880164,
+        "global_best_fitness": 0.9539899923880164,
+        "mean_fitness": 0.9272520646003326,
+        "worst_fitness": 0.9030453465398096,
+        "diversity_ratio": 0.975,
+        "unique_individuals": 39,
+        "cache_size": 118,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "knn",
+          "n_neighbors": 3,
+          "weights": "uniform",
+          "metric": "minkowski",
+          "p": 1
+        }
+      },
+      {
+        "generation": 17,
+        "best_fitness": 0.9539899923880164,
+        "global_best_fitness": 0.9539899923880164,
+        "mean_fitness": 0.9300845732124856,
+        "worst_fitness": 0.9030298666636486,
+        "diversity_ratio": 0.95,
+        "unique_individuals": 38,
+        "cache_size": 118,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "knn",
+          "n_neighbors": 3,
+          "weights": "uniform",
+          "metric": "minkowski",
+          "p": 1
+        }
+      },
+      {
+        "generation": 18,
+        "best_fitness": 0.9539899923880164,
+        "global_best_fitness": 0.9539899923880164,
+        "mean_fitness": 0.9264019904879334,
+        "worst_fitness": 0.9030298666636486,
+        "diversity_ratio": 0.975,
+        "unique_individuals": 39,
+        "cache_size": 118,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "knn",
+          "n_neighbors": 3,
+          "weights": "uniform",
+          "metric": "minkowski",
+          "p": 1
+        }
+      },
+      {
+        "generation": 19,
+        "best_fitness": 0.9539899923880164,
+        "global_best_fitness": 0.9539899923880164,
+        "mean_fitness": 0.9266288217111365,
+        "worst_fitness": 0.9034474227020822,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 40,
+        "cache_size": 119,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "knn",
+          "n_neighbors": 3,
+          "weights": "uniform",
+          "metric": "minkowski",
+          "p": 1
+        }
+      },
+      {
+        "generation": 20,
+        "best_fitness": 0.9539899923880164,
+        "global_best_fitness": 0.9539899923880164,
+        "mean_fitness": 0.9299336384085235,
+        "worst_fitness": 0.9030298666636486,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 40,
+        "cache_size": 119,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "knn",
+          "n_neighbors": 3,
+          "weights": "uniform",
+          "metric": "minkowski",
+          "p": 1
+        }
+      }
+    ],
+    "stop_reason": "max_generations",
+    "total_candidate_requests": 840,
+    "total_unique_evaluations": 119,
+    "unique_individuals": 119,
+    "failure_count": 0,
+    "issue_count": 0,
+    "cache_hits": 721,
+    "invalid_before_repair": 148,
+    "repaired_individuals": 148,
+    "total_seconds": 2.1162017089991423,
+    "total_model_fits": 595,
+    "reproducibility_signature": "510953fcbe75a83efeae73ed6f45eb0d92da33addd850a73e14c152a11a3478e"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_v4_failure_report",
+  "generated_at_utc": "2026-08-24T21:07:04.014950+00:00",
+  "run_identity": "daa9c09ba16b5556c93e495a465a755f607fe7388c52fedf0ecf92bb50f4be35",
+  "stage": "deterministic_scientific_validation",
+  "reason": "Uma ou mais barreiras V2 reprovaram a resposta original.",
+  "severity": "scientific_invalid",
+  "automatic_retry_performed": false,
+  "prompt_changed_after_response": false,
+  "schema_changed_after_response": false,
+  "checker_changed_after_response": false,
+  "historical_evidence_reclassified": false,
+  "signature": "eb3b548bc8baeb1105a832a8228372dd18bd02eaf3b31343dcc0844743ccc508"
+}

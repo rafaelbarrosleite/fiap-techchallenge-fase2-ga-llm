@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "individual_explanation_failure",
+  "generated_at_utc": "2026-08-31T00:54:27.751449+00:00",
+  "run_identity": "f6db414aaf7c02ed3c4dac8daff8e1e8286545e1b4e20b634b360a36ed3fcc72",
+  "error_type": "TypeError",
+  "error_message": "the JSON object must be str, bytes or bytearray, not ExtractedText",
+  "provider_called": true,
+  "automatic_retries": 0,
+  "secret_recorded": false,
+  "signature": "bbfb14af01671edb160eacd60d02594fb3aca8268b1d96c4917013ce443c8527"
+}

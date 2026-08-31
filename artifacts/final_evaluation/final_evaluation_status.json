@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "final_evaluation_status",
+  "status": "completed",
+  "plan_signature": "b94cbc663473ab040e89961144c69600062a03a09803c73027ca4163bc4fe1f7",
+  "started_at_utc": "2026-08-24T15:08:26.047943+00:00",
+  "completed_at_utc": "2026-08-24T15:09:05.702354+00:00",
+  "updated_at_utc": "2026-08-24T17:13:05.352986+00:00",
+  "manifest_signature": "57688d72accef6fe85e750f9166a4cfd15e833db43e02b80276c76e8ac4ac629",
+  "reason": "single_confirmatory_execution_completed_and_figures_visually_validated",
+  "figure_qa_completed_at_utc": "2026-08-24T17:13:05.352983+00:00"
+}

@@ -1,0 +1,187 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "ga_smoke_test",
+  "generated_at_utc": "2026-08-19T00:13:52.266567+00:00",
+  "disclaimer": "Uso academico; nao substitui diagnostico medico.",
+  "dataset": {
+    "sha256": "1425d9affa78ba8e53afc81d0ef8a19069ee10c4b21fe89b3cf514071b12ee33",
+    "source_rows": 569,
+    "feature_count": 30,
+    "target_mapping": {
+      "B": 0,
+      "M": 1
+    }
+  },
+  "data_scope": {
+    "scope": "development_only",
+    "development_rows": 455,
+    "held_out_rows": 114,
+    "holdout_used": false,
+    "cv_splits": 5,
+    "cv_seed": 42,
+    "development_indices_sha256": "e7b0bfbc870a7cb2f8a61d9918d994dfa3a05878b82f4f8e475fc4e225ec7f75"
+  },
+  "software_versions": {
+    "python": "3.12.13",
+    "numpy": "2.3.2",
+    "pandas": "2.3.1",
+    "scikit-learn": "1.7.1"
+  },
+  "run": {
+    "model": "random_forest",
+    "configuration": {
+      "name": "smoke",
+      "population_size": 4,
+      "max_generations": 2,
+      "crossover_rate": 0.8,
+      "mutation_rate": 0.35,
+      "elite_count": 1,
+      "tournament_size": 2,
+      "seed": 42,
+      "cv_splits": 5,
+      "cv_seed": 42,
+      "estimator_seed": 42,
+      "instability_weight": 0.1,
+      "stagnation_generations": null,
+      "min_improvement": 1e-12
+    },
+    "best_individual": {
+      "genome": {
+        "model": "random_forest",
+        "n_estimators": 358,
+        "max_depth": 17,
+        "min_samples_split": 9,
+        "min_samples_leaf": 9,
+        "max_features": 0.5,
+        "class_weight": "balanced"
+      },
+      "fitness": {
+        "fitness": 0.9479125043039366,
+        "base_fitness": 0.9507942569425051,
+        "mean_recall_malignant": 0.9470588235294117,
+        "std_recall_malignant": 0.028817526385684453,
+        "mean_f1_malignant": 0.9389045819495869,
+        "mean_roc_auc": 0.9855521155830754,
+        "evaluation_seconds": 1.4670145830004913,
+        "fold_metrics": [
+          {
+            "fold": 1,
+            "recall_malignant": 0.9117647058823529,
+            "f1_malignant": 0.9253731343283582,
+            "roc_auc": 0.9829721362229102,
+            "train_rows": 364,
+            "validation_rows": 91
+          },
+          {
+            "fold": 2,
+            "recall_malignant": 0.9705882352941176,
+            "f1_malignant": 0.9565217391304348,
+            "roc_auc": 0.9969040247678018,
+            "train_rows": 364,
+            "validation_rows": 91
+          },
+          {
+            "fold": 3,
+            "recall_malignant": 0.9117647058823529,
+            "f1_malignant": 0.9253731343283582,
+            "roc_auc": 0.9840041279669762,
+            "train_rows": 364,
+            "validation_rows": 91
+          },
+          {
+            "fold": 4,
+            "recall_malignant": 0.9705882352941176,
+            "f1_malignant": 0.9166666666666666,
+            "roc_auc": 0.9824561403508772,
+            "train_rows": 364,
+            "validation_rows": 91
+          },
+          {
+            "fold": 5,
+            "recall_malignant": 0.9705882352941176,
+            "f1_malignant": 0.9705882352941176,
+            "roc_auc": 0.9814241486068112,
+            "train_rows": 364,
+            "validation_rows": 91
+          }
+        ],
+        "issues": [],
+        "failure": null
+      }
+    },
+    "history": [
+      {
+        "generation": 0,
+        "best_fitness": 0.9479125043039366,
+        "global_best_fitness": 0.9479125043039366,
+        "mean_fitness": 0.9434850192642085,
+        "worst_fitness": 0.9373621429368385,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 4,
+        "cache_size": 4,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 358,
+          "max_depth": 17,
+          "min_samples_split": 9,
+          "min_samples_leaf": 9,
+          "max_features": 0.5,
+          "class_weight": "balanced"
+        }
+      },
+      {
+        "generation": 1,
+        "best_fitness": 0.9479125043039366,
+        "global_best_fitness": 0.9479125043039366,
+        "mean_fitness": 0.9435082390784499,
+        "worst_fitness": 0.9374395423176435,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 4,
+        "cache_size": 6,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 358,
+          "max_depth": 17,
+          "min_samples_split": 9,
+          "min_samples_leaf": 9,
+          "max_features": 0.5,
+          "class_weight": "balanced"
+        }
+      },
+      {
+        "generation": 2,
+        "best_fitness": 0.9479125043039366,
+        "global_best_fitness": 0.9479125043039366,
+        "mean_fitness": 0.9438226870601276,
+        "worst_fitness": 0.9364010184482766,
+        "diversity_ratio": 1.0,
+        "unique_individuals": 4,
+        "cache_size": 9,
+        "failure_count": 0,
+        "issue_count": 0,
+        "best_genome": {
+          "model": "random_forest",
+          "n_estimators": 358,
+          "max_depth": 17,
+          "min_samples_split": 9,
+          "min_samples_leaf": 9,
+          "max_features": 0.5,
+          "class_weight": "balanced"
+        }
+      }
+    ],
+    "stop_reason": "max_generations",
+    "total_candidate_requests": 12,
+    "total_unique_evaluations": 9,
+    "unique_individuals": 9,
+    "failure_count": 0,
+    "issue_count": 0,
+    "total_seconds": 14.679210375000366,
+    "total_model_fits": 45,
+    "reproducibility_signature": "2816e0646c9c28d5582eb31e1aab645e477ad1ceb30525a7a40cfa98ace16315"
+  }
+}

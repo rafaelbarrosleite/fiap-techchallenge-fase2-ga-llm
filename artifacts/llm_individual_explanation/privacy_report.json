@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "individual_privacy_report",
+  "generated_at_utc": "2026-08-31T00:53:23.052627+00:00",
+  "run_identity": "f197a5539b06bed5040b3359e8b12caac4320bd1dbb42151f91d9e685e1b5e4b",
+  "passed": true,
+  "checks": {
+    "passed": true,
+    "development_only": true,
+    "deidentified": true,
+    "patient_identifiers_sent": false,
+    "raw_feature_values_sent": false,
+    "ground_truth_sent": false,
+    "original_index_sent": false,
+    "holdout_case_sent": false
+  },
+  "signature": "2cba695a267a5df88ee2a57ad4775f1ef164c17e75882c64ba8e9bf9c6651f0d"
+}

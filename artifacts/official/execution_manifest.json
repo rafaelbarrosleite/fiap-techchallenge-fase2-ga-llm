@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "official_execution_manifest",
+  "generated_at_utc": "2026-08-19T11:49:26.770528+00:00",
+  "protocol_locked": true,
+  "models": [
+    "logistic_regression",
+    "random_forest",
+    "knn"
+  ],
+  "configuration_order": [
+    "A",
+    "B",
+    "C"
+  ],
+  "configurations": {
+    "A": {
+      "name": "A_small",
+      "population_size": 20,
+      "max_generations": 10,
+      "crossover_rate": 0.7,
+      "mutation_rate": 0.1,
+      "elite_count": 2,
+      "tournament_size": 3,
+      "seed": 42,
+      "cv_splits": 5,
+      "cv_seed": 42,
+      "estimator_seed": 42,
+      "instability_weight": 0.1,
+      "stagnation_generations": null,
+      "min_improvement": 1e-12
+    },
+    "B": {
+      "name": "B_balanced",
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_rate": 0.8,
+      "mutation_rate": 0.2,
+      "elite_count": 2,
+      "tournament_size": 3,
+      "seed": 42,
+      "cv_splits": 5,
+      "cv_seed": 42,
+      "estimator_seed": 42,
+      "instability_weight": 0.1,
+      "stagnation_generations": null,
+      "min_improvement": 1e-12
+    },
+    "C": {
+      "name": "C_exploratory",
+      "population_size": 60,
+      "max_generations": 30,
+      "crossover_rate": 0.75,
+      "mutation_rate": 0.3,
+      "elite_count": 4,
+      "tournament_size": 4,
+      "seed": 42,
+      "cv_splits": 5,
+      "cv_seed": 42,
+      "estimator_seed": 42,
+      "instability_weight": 0.1,
+      "stagnation_generations": null,
+      "min_improvement": 1e-12
+    }
+  },
+  "seeds": {
+    "split": 42,
+    "cv": 42,
+    "ga": 42,
+    "estimator": 42
+  },
+  "fitness": {
+    "recall_weight": 0.6,
+    "f1_weight": 0.25,
+    "roc_auc_weight": 0.15,
+    "recall_instability_weight": 0.1
+  },
+  "dataset": {
+    "sha256": "1425d9affa78ba8e53afc81d0ef8a19069ee10c4b21fe89b3cf514071b12ee33",
+    "source_rows": 569,
+    "development_rows": 455,
+    "held_out_rows": 114,
+    "development_indices_sha256": "e7b0bfbc870a7cb2f8a61d9918d994dfa3a05878b82f4f8e475fc4e225ec7f75"
+  },
+  "data_scope": {
+    "scope": "development_only",
+    "holdout_used": false,
+    "holdout_accessible_to_fitness": false,
+    "cv_splits": 5,
+    "classification_threshold": 0.5
+  },
+  "cost_estimate": {
+    "maximum_candidate_requests_per_model": 2920,
+    "maximum_model_fits_all_nine": 43800,
+    "estimated_seconds_by_model_from_smoke": {
+      "logistic_regression": 77.52908222235823,
+      "random_forest": 4762.588255000119,
+      "knn": 50.55806941320043
+    },
+    "estimated_total_seconds_from_smoke": 4890.675406635677,
+    "execution_policy": "serial_n_jobs_1"
+  },
+  "software_versions": {
+    "python": "3.12.13",
+    "operating_system": "macOS-26.6.2-arm64-arm-64bit",
+    "architecture": "arm64",
+    "numpy": "2.3.2",
+    "pandas": "2.3.1",
+    "scikit-learn": "1.7.1",
+    "project": "0.3.0"
+  },
+  "source_signature": {
+    "sha256": "ba729d4dc48958ad8c35e105804790c259dd739d9752d08d4b7c8edb12149c31",
+    "files": {
+      "genetic/config.py": "689cc284c2e5c51a815c78304502221a329f105d42724322a79e380b79166428",
+      "genetic/genomes.py": "152ebf1ef85dbf391a762ba7109b293076be93af5868c4e25fc5e655eac1eae6",
+      "genetic/search_spaces.py": "e08fb09738e6fa67a698cd1cc2d50877f62202cc6ac70416e8c80eb1119e7588",
+      "genetic/fitness.py": "06448108ee382b53a47fcccbbe92fa40acc1706476460c29c5dfd9c454b6a70e",
+      "genetic/operators.py": "052553debf8859d768cad422a9ad9f6a54e3e8369e3132fc5eb46ce726c5e49b",
+      "genetic/history.py": "d747d26abe09539cc7d171d1819f8f7a8e8bbca167424311c88ebab6dc52b4eb",
+      "genetic/engine.py": "a34f7fceed403a2ef6c8e8a5f69c8bc384b9479078d144847611dad4f3ef00aa",
+      "genetic/serialization.py": "66eaf592be66257f3eb703dfa734fc3e71eb4c0af71c5e6f225cc0fcbb3e112e",
+      "genetic/official.py": "bf3e7b5485f8fcb789ffdcb7152e4ffd08aa515722fd3b09487841324ed57ebb"
+    }
+  },
+  "manifest_sha256": "78c191f0be62b6bc74b1b144dd7dde12ea4e7827f1a63bf7a4f1592a44780789"
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "fake_vs_openai_comparison",
+  "generated_at_utc": "2026-08-24T20:01:24.694779+00:00",
+  "run_identity": "56fbfb080300146426040b0e0c569211dcd55c4670f696e855de715fbad30ed0",
+  "focus": "factual_content_and_safety_not_style",
+  "openai_status": "not_evaluated",
+  "rows": {
+    "schema_valid": {
+      "fake": true,
+      "openai": false
+    },
+    "factuality": {
+      "fake": true,
+      "openai": "not_evaluated"
+    },
+    "completeness": {
+      "fake": true,
+      "openai": "not_evaluated"
+    },
+    "safety": {
+      "fake": true,
+      "openai": "not_evaluated"
+    },
+    "scientific_calibration": {
+      "fake": true,
+      "openai": "not_evaluated"
+    },
+    "clarity": {
+      "fake": {
+        "score": 1.0,
+        "passed": true,
+        "checks": {
+          "reasonable_length": true,
+          "sentence_length": true,
+          "structured_sections": true,
+          "limited_unexplained_jargon": true
+        },
+        "word_count": 275,
+        "average_sentence_words": 14.473684210526315,
+        "unexplained_jargon": []
+      },
+      "openai": "not_evaluated"
+    },
+    "unexpected_numbers": {
+      "fake": [],
+      "openai": "not_evaluated"
+    },
+    "violations": {
+      "fake": [],
+      "openai": "not_evaluated"
+    },
+    "disclaimer_correct": {
+      "fake": true,
+      "openai": "not_evaluated"
+    },
+    "frozen_selection_respected": {
+      "fake": true,
+      "openai": "not_evaluated"
+    }
+  },
+  "reason": "Resposta recebida sem output_text; probe nao aprovado.",
+  "signature": "012ae9541a24a82e696ce09f9b05a3a8f9606c23fe3968a592093a68dfea2a76"
+}

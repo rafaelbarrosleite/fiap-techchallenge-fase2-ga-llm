@@ -8,11 +8,19 @@ __pycache__/
 .coverage
 htmlcov/
 
-# Saidas reproduziveis geradas pelo projeto
-artifacts/*
+# Evidencias reproduziveis publicadas; demais saidas continuam locais
+artifacts/**
 !artifacts/.gitkeep
-reports/*
+!artifacts/**/
+!artifacts/*.json
+!artifacts/**/*.json
+
+reports/**
 !reports/.gitkeep
+!reports/figures/
+!reports/figures/**/
+!reports/figures/*.png
+!reports/figures/**/*.png
 logs/*
 !logs/.gitkeep
 
@@ -26,4 +34,3 @@ notebooks/*-executed.ipynb
 # Credenciais de provedores e ferramentas
 .env.*
 !.env.example
-

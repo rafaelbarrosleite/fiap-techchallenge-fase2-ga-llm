@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "official_ga_status",
+  "status": "completed",
+  "identity": {
+    "model": "knn",
+    "config_label": "B",
+    "configuration": {
+      "name": "B_balanced",
+      "population_size": 40,
+      "max_generations": 20,
+      "crossover_rate": 0.8,
+      "mutation_rate": 0.2,
+      "elite_count": 2,
+      "tournament_size": 3,
+      "seed": 42,
+      "cv_splits": 5,
+      "cv_seed": 42,
+      "estimator_seed": 42,
+      "instability_weight": 0.1,
+      "stagnation_generations": null,
+      "min_improvement": 1e-12
+    },
+    "dataset_sha256": "1425d9affa78ba8e53afc81d0ef8a19069ee10c4b21fe89b3cf514071b12ee33",
+    "development_indices_sha256": "e7b0bfbc870a7cb2f8a61d9918d994dfa3a05878b82f4f8e475fc4e225ec7f75",
+    "code_sha256": "ba729d4dc48958ad8c35e105804790c259dd739d9752d08d4b7c8edb12149c31",
+    "project_version": "0.3.0",
+    "official_schema_version": "1.0",
+    "sha256": "40c05855ded83a8d3c2c2cb3a06e6fe409bcece17ade8ac7fc7f870b1c07db0c"
+  },
+  "started_at_utc": "2026-08-19T12:07:12.396813+00:00",
+  "updated_at_utc": "2026-08-19T12:07:14.517797+00:00",
+  "ended_at_utc": "2026-08-19T12:07:14.517795+00:00",
+  "duration_seconds": 2.1162017089991423,
+  "completed_generation": 20,
+  "reason": "max_generations"
+}

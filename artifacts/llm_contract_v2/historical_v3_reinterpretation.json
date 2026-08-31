@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "mission73_historical_reinterpretation",
+  "generated_at_utc": "2026-08-24T20:45:13.255201+00:00",
+  "analysis_only": true,
+  "provider_called": false,
+  "historical_status": {
+    "status": "invalid",
+    "approved": false,
+    "changed": false
+  },
+  "v1_result": {
+    "checks_passed": 138,
+    "checks_total": 139,
+    "failed_field": "random_forest.same_threshold_different_auc",
+    "historical_value": true,
+    "v1_expected_value": false,
+    "v1_implicit_pair": "random_forest__baseline_vs_ga"
+  },
+  "v2_explicit_pairs": {
+    "random_forest__baseline_vs_ga": {
+      "left_method": "baseline",
+      "right_method": "ga",
+      "same_confusion_matrix": false,
+      "different_roc_auc": true
+    },
+    "random_forest__ga_vs_random_search": {
+      "left_method": "ga",
+      "right_method": "random_search",
+      "same_confusion_matrix": true,
+      "different_roc_auc": true
+    },
+    "random_forest__baseline_vs_random_search": {
+      "left_method": "baseline",
+      "right_method": "random_search",
+      "same_confusion_matrix": false,
+      "different_roc_auc": true
+    }
+  },
+  "interpretation_assessment": {
+    "historical_boolean_is_correct_for": "random_forest__ga_vs_random_search",
+    "historical_boolean_is_incorrect_for": "random_forest__baseline_vs_ga",
+    "numerical_hallucination": false,
+    "semantic_ambiguity_confirmed": true
+  },
+  "still_valid": [
+    "All structured metrics and uncertainty values that passed 138 V1 checks.",
+    "Frozen selection, non-clinical status, disclaimer, safety and scientific calibration.",
+    "The RF narrative about GA and random_search is reusable only when attached to that explicit V2 comparison_id."
+  ],
+  "not_reusable_as_v2": [
+    "The V1 output object as a whole, because it does not satisfy schema 2.0.",
+    "The unscoped same_threshold_outcomes_different_auc field.",
+    "Any pairwise narrative that omits comparison_id, left_method or right_method."
+  ],
+  "retroactive_reclassification_performed": false,
+  "signature": "45f77be7dad00f4205a91fe87b8db6c7f9e89f47a06b4187d9d7cb370960a9e8"
+}

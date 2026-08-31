@@ -1,0 +1,248 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "final_master_model_results",
+  "generated_at_utc": "2026-08-24T18:11:04.460118+00:00",
+  "source_files": {
+    "final_test_results": {
+      "relative_path": "artifacts/final_evaluation/final_test_results.json",
+      "sha256": "d2f04c7343001fd599f7516d3468d47f56eb7c4e550b25ba5f72c7fc9e375ddd"
+    },
+    "frozen_candidates": {
+      "relative_path": "artifacts/selection/frozen_candidates.json",
+      "sha256": "90af3ece3dea1a8d0ead3b6cfcd68864581a42b16b4e9ddd417ac666287f2f03"
+    }
+  },
+  "data_scope": {
+    "derived_from_aggregate_artifacts_only": true,
+    "new_training_performed": false,
+    "new_optimization_performed": false,
+    "new_holdout_inference_performed": false,
+    "selection_reopened": false,
+    "classification_threshold": 0.5
+  },
+  "row_count": 9,
+  "rows": [
+    {
+      "family": "logistic_regression",
+      "family_label": "Regressão Logística",
+      "method": "baseline",
+      "method_label": "Baseline",
+      "configuration": {
+        "C": 1.0,
+        "penalty": "l2",
+        "solver": "lbfgs",
+        "class_weight": null,
+        "max_iter": 1000
+      },
+      "fitness_cv": 0.9581524474852176,
+      "recall_cv": 0.9529411764705882,
+      "recall_test": 0.9285714285714286,
+      "f1_test": 0.9512195121951219,
+      "roc_auc_test": 0.996031746031746,
+      "true_negatives": 71,
+      "false_positives": 1,
+      "false_negatives": 3,
+      "true_positives": 39,
+      "origin": "baseline_cv",
+      "selection_status": "evaluated_baseline",
+      "observation": "Referência original recalculada no protocolo final."
+    },
+    {
+      "family": "logistic_regression",
+      "family_label": "Regressão Logística",
+      "method": "ga",
+      "method_label": "GA",
+      "configuration": {
+        "log10_c": -0.7529371143704051,
+        "penalty": "l2",
+        "class_weight": "balanced"
+      },
+      "fitness_cv": 0.9731659423904974,
+      "recall_cv": 0.9705882352941178,
+      "recall_test": 0.9761904761904762,
+      "f1_test": 0.9761904761904762,
+      "roc_auc_test": 0.9976851851851852,
+      "true_negatives": 71,
+      "false_positives": 1,
+      "false_negatives": 1,
+      "true_positives": 41,
+      "origin": "GA_B",
+      "selection_status": "evaluated_comparator",
+      "observation": "GA B; mesmo resultado no holdout que a busca aleatória, sem reabrir seleção."
+    },
+    {
+      "family": "logistic_regression",
+      "family_label": "Regressão Logística",
+      "method": "random_search",
+      "method_label": "Busca aleatória",
+      "configuration": {
+        "penalty": "l2",
+        "class_weight": "balanced",
+        "C": 0.17678931080693083
+      },
+      "fitness_cv": 0.9731659423904974,
+      "recall_cv": 0.9705882352941178,
+      "recall_test": 0.9761904761904762,
+      "f1_test": 0.9761904761904762,
+      "roc_auc_test": 0.9976851851851852,
+      "true_negatives": 71,
+      "false_positives": 1,
+      "false_negatives": 1,
+      "true_positives": 41,
+      "origin": "RandomizedSearchCV",
+      "selection_status": "global_selected",
+      "observation": "Vencedor global congelado antes do holdout e modelo para demonstração."
+    },
+    {
+      "family": "random_forest",
+      "family_label": "Random Forest",
+      "method": "baseline",
+      "method_label": "Baseline",
+      "configuration": {
+        "n_estimators": 200,
+        "max_depth": null,
+        "min_samples_split": 2,
+        "min_samples_leaf": 1,
+        "max_features": "sqrt",
+        "class_weight": "balanced"
+      },
+      "fitness_cv": 0.9471382012918559,
+      "recall_cv": 0.9411764705882353,
+      "recall_test": 0.9047619047619048,
+      "f1_test": 0.95,
+      "roc_auc_test": 0.996031746031746,
+      "true_negatives": 72,
+      "false_positives": 0,
+      "false_negatives": 4,
+      "true_positives": 38,
+      "origin": "baseline_cv",
+      "selection_status": "evaluated_baseline",
+      "observation": "Referência original da família."
+    },
+    {
+      "family": "random_forest",
+      "family_label": "Random Forest",
+      "method": "ga",
+      "method_label": "GA",
+      "configuration": {
+        "n_estimators": 107,
+        "max_depth": 7,
+        "min_samples_split": 2,
+        "min_samples_leaf": 1,
+        "max_features": 0.5,
+        "class_weight": null
+      },
+      "fitness_cv": 0.961648019213057,
+      "recall_cv": 0.9588235294117646,
+      "recall_test": 0.9285714285714286,
+      "f1_test": 0.9629629629629629,
+      "roc_auc_test": 0.9914021164021164,
+      "true_negatives": 72,
+      "false_positives": 0,
+      "false_negatives": 3,
+      "true_positives": 39,
+      "origin": "GA_C",
+      "selection_status": "family_selected",
+      "observation": "Vencedor da família por CV; reduziu um falso negativo no holdout."
+    },
+    {
+      "family": "random_forest",
+      "family_label": "Random Forest",
+      "method": "random_search",
+      "method_label": "Busca aleatória",
+      "configuration": {
+        "n_estimators": 101,
+        "min_samples_split": 4,
+        "min_samples_leaf": 3,
+        "max_features": "sqrt",
+        "max_depth": 16,
+        "class_weight": "balanced"
+      },
+      "fitness_cv": 0.9582479119763826,
+      "recall_cv": 0.9588235294117646,
+      "recall_test": 0.9285714285714286,
+      "f1_test": 0.9629629629629629,
+      "roc_auc_test": 0.9970238095238095,
+      "true_negatives": 72,
+      "false_positives": 0,
+      "false_negatives": 3,
+      "true_positives": 39,
+      "origin": "RandomizedSearchCV",
+      "selection_status": "evaluated_comparator",
+      "observation": "Mesma matriz do GA no holdout, com ROC-AUC diferente."
+    },
+    {
+      "family": "knn",
+      "family_label": "KNN",
+      "method": "baseline",
+      "method_label": "Baseline",
+      "configuration": {
+        "n_neighbors": 5,
+        "weights": "uniform",
+        "metric": "minkowski",
+        "p": 2
+      },
+      "fitness_cv": 0.9329837120461287,
+      "recall_cv": 0.9176470588235294,
+      "recall_test": 0.9047619047619048,
+      "f1_test": 0.9382716049382716,
+      "roc_auc_test": 0.982308201058201,
+      "true_negatives": 71,
+      "false_positives": 1,
+      "false_negatives": 4,
+      "true_positives": 38,
+      "origin": "baseline_cv",
+      "selection_status": "evaluated_baseline",
+      "observation": "Referência original da família."
+    },
+    {
+      "family": "knn",
+      "family_label": "KNN",
+      "method": "ga",
+      "method_label": "GA",
+      "configuration": {
+        "n_neighbors": 3,
+        "weights": "uniform",
+        "metric": "minkowski",
+        "p": 1
+      },
+      "fitness_cv": 0.9539899923880164,
+      "recall_cv": 0.9470588235294117,
+      "recall_test": 0.9047619047619048,
+      "f1_test": 0.95,
+      "roc_auc_test": 0.9735449735449735,
+      "true_negatives": 72,
+      "false_positives": 0,
+      "false_negatives": 4,
+      "true_positives": 38,
+      "origin": "GA_A",
+      "selection_status": "family_selected",
+      "observation": "Vencedor serializado da família; ganho de recall em CV não se confirmou no holdout."
+    },
+    {
+      "family": "knn",
+      "family_label": "KNN",
+      "method": "random_search",
+      "method_label": "Busca aleatória",
+      "configuration": {
+        "weights": "uniform",
+        "p": 1,
+        "n_neighbors": 3,
+        "metric": "minkowski"
+      },
+      "fitness_cv": 0.9539899923880164,
+      "recall_cv": 0.9470588235294117,
+      "recall_test": 0.9047619047619048,
+      "f1_test": 0.95,
+      "roc_auc_test": 0.9735449735449735,
+      "true_negatives": 72,
+      "false_positives": 0,
+      "false_negatives": 4,
+      "true_positives": 38,
+      "origin": "RandomizedSearchCV",
+      "selection_status": "evaluated_comparator",
+      "observation": "Solução canonicamente idêntica ao GA; não é evidência independente."
+    }
+  ],
+  "signature": "ac381f57832bf55244b37c3aac74f1ed4097542faac945dcf6f8cb7676e17b3a"
+}

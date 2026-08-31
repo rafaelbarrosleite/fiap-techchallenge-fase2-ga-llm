@@ -1,0 +1,317 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_llm_input_snapshot",
+  "generated_at_utc": "2026-08-24T20:26:48.788179+00:00",
+  "run_identity": "56fbfb080300146426040b0e0c569211dcd55c4670f696e855de715fbad30ed0",
+  "input_sha256": "44ca9f33e8a8553ed837441507c97c4cebfd9e6bcc57170e81e9e97e4936ee13",
+  "input": {
+    "schema_version": "1.0",
+    "experiment_summary": {
+      "development_rows": 455,
+      "test_rows": 114,
+      "malignant_test_cases": 42,
+      "classification_threshold": 0.5,
+      "candidate_origins": 9,
+      "unique_training_groups": 8,
+      "selection_reopened": false,
+      "new_optimization_performed": false,
+      "holdout_role": "confirmatory_only; it did not reopen model selection"
+    },
+    "model_comparison": [
+      {
+        "model": "logistic_regression",
+        "baseline": {
+          "candidate_id": "logistic_regression__baseline",
+          "method": "baseline",
+          "origin": "baseline_cv",
+          "metrics": {
+            "recall_malignant": 0.9285714285714286,
+            "f1_malignant": 0.9512195121951219,
+            "roc_auc": 0.996031746031746,
+            "true_positives": 39,
+            "true_negatives": 71,
+            "false_positives": 1,
+            "false_negatives": 3
+          }
+        },
+        "ga": {
+          "candidate_id": "logistic_regression__ga",
+          "method": "ga",
+          "origin": "GA_B",
+          "metrics": {
+            "recall_malignant": 0.9761904761904762,
+            "f1_malignant": 0.9761904761904762,
+            "roc_auc": 0.9976851851851852,
+            "true_positives": 41,
+            "true_negatives": 71,
+            "false_positives": 1,
+            "false_negatives": 1
+          }
+        },
+        "random_search": {
+          "candidate_id": "logistic_regression__random_search",
+          "method": "random_search",
+          "origin": "RandomizedSearchCV",
+          "metrics": {
+            "recall_malignant": 0.9761904761904762,
+            "f1_malignant": 0.9761904761904762,
+            "roc_auc": 0.9976851851851852,
+            "true_positives": 41,
+            "true_negatives": 71,
+            "false_positives": 1,
+            "false_negatives": 1
+          }
+        },
+        "cv_recall_baseline": 0.9529411764705882,
+        "cv_recall_ga": 0.9705882352941178
+      },
+      {
+        "model": "random_forest",
+        "baseline": {
+          "candidate_id": "random_forest__baseline",
+          "method": "baseline",
+          "origin": "baseline_cv",
+          "metrics": {
+            "recall_malignant": 0.9047619047619048,
+            "f1_malignant": 0.95,
+            "roc_auc": 0.996031746031746,
+            "true_positives": 38,
+            "true_negatives": 72,
+            "false_positives": 0,
+            "false_negatives": 4
+          }
+        },
+        "ga": {
+          "candidate_id": "random_forest__ga",
+          "method": "ga",
+          "origin": "GA_C",
+          "metrics": {
+            "recall_malignant": 0.9285714285714286,
+            "f1_malignant": 0.9629629629629629,
+            "roc_auc": 0.9914021164021164,
+            "true_positives": 39,
+            "true_negatives": 72,
+            "false_positives": 0,
+            "false_negatives": 3
+          }
+        },
+        "random_search": {
+          "candidate_id": "random_forest__random_search",
+          "method": "random_search",
+          "origin": "RandomizedSearchCV",
+          "metrics": {
+            "recall_malignant": 0.9285714285714286,
+            "f1_malignant": 0.9629629629629629,
+            "roc_auc": 0.9970238095238095,
+            "true_positives": 39,
+            "true_negatives": 72,
+            "false_positives": 0,
+            "false_negatives": 3
+          }
+        },
+        "cv_recall_baseline": 0.9411764705882353,
+        "cv_recall_ga": 0.9588235294117646
+      },
+      {
+        "model": "knn",
+        "baseline": {
+          "candidate_id": "knn__baseline",
+          "method": "baseline",
+          "origin": "baseline_cv",
+          "metrics": {
+            "recall_malignant": 0.9047619047619048,
+            "f1_malignant": 0.9382716049382716,
+            "roc_auc": 0.982308201058201,
+            "true_positives": 38,
+            "true_negatives": 71,
+            "false_positives": 1,
+            "false_negatives": 4
+          }
+        },
+        "ga": {
+          "candidate_id": "knn__ga",
+          "method": "ga",
+          "origin": "GA_A",
+          "metrics": {
+            "recall_malignant": 0.9047619047619048,
+            "f1_malignant": 0.95,
+            "roc_auc": 0.9735449735449735,
+            "true_positives": 38,
+            "true_negatives": 72,
+            "false_positives": 0,
+            "false_negatives": 4
+          }
+        },
+        "random_search": {
+          "candidate_id": "knn__random_search",
+          "method": "random_search",
+          "origin": "RandomizedSearchCV",
+          "metrics": {
+            "recall_malignant": 0.9047619047619048,
+            "f1_malignant": 0.95,
+            "roc_auc": 0.9735449735449735,
+            "true_positives": 38,
+            "true_negatives": 72,
+            "false_positives": 0,
+            "false_negatives": 4
+          }
+        },
+        "cv_recall_baseline": 0.9176470588235294,
+        "cv_recall_ga": 0.9470588235294117
+      }
+    ],
+    "uncertainty_summary": [
+      {
+        "model": "logistic_regression",
+        "baseline_recall_ci": {
+          "lower": 0.8099057319884169,
+          "upper": 0.9754095901266941,
+          "confidence_level": 0.95
+        },
+        "ga_recall_ci": {
+          "lower": 0.8767879842623334,
+          "upper": 0.9957845958655673,
+          "confidence_level": 0.95
+        },
+        "delta_recall": 0.04761904761904756,
+        "delta_recall_ci": {
+          "lower": 0.0,
+          "upper": 0.12195121951219512,
+          "confidence_level": 0.95
+        },
+        "delta_ci_includes_zero": true,
+        "mcnemar_p_value": 0.5
+      },
+      {
+        "model": "random_forest",
+        "baseline_recall_ci": {
+          "lower": 0.7793489419142897,
+          "upper": 0.9623377511944261,
+          "confidence_level": 0.95
+        },
+        "ga_recall_ci": {
+          "lower": 0.8099057319884169,
+          "upper": 0.9754095901266941,
+          "confidence_level": 0.95
+        },
+        "delta_recall": 0.023809523809523836,
+        "delta_recall_ci": {
+          "lower": 0.0,
+          "upper": 0.0800270270270267,
+          "confidence_level": 0.95
+        },
+        "delta_ci_includes_zero": true,
+        "mcnemar_p_value": 1.0
+      },
+      {
+        "model": "knn",
+        "baseline_recall_ci": {
+          "lower": 0.7793489419142897,
+          "upper": 0.9623377511944261,
+          "confidence_level": 0.95
+        },
+        "ga_recall_ci": {
+          "lower": 0.7793489419142897,
+          "upper": 0.9623377511944261,
+          "confidence_level": 0.95
+        },
+        "delta_recall": 0.0,
+        "delta_recall_ci": {
+          "lower": -0.06976744186046513,
+          "upper": 0.06818181818181823,
+          "confidence_level": 0.95
+        },
+        "delta_ci_includes_zero": true,
+        "mcnemar_p_value": 1.0
+      }
+    ],
+    "selected_model": {
+      "candidate_id": "logistic_regression__random_search",
+      "model": "logistic_regression",
+      "method": "random_search",
+      "origin": "RandomizedSearchCV",
+      "frozen_before_holdout": true,
+      "authority": "Mission 4 frozen documentation, checked against maximum CV fitness in the signed plan",
+      "authority_limitation": "The four priority structured artifacts do not expose an explicit global-selected-model field; the documented frozen decision is auxiliary and was not inferred from holdout performance."
+    },
+    "selection_rationale": "The candidate was selected from development cross-validation before the holdout. The confirmatory holdout did not reopen selection, even if another candidate tied there.",
+    "limitations": [
+      "Only 42 malignant cases are present in the confirmatory holdout, so uncertainty remains broad.",
+      "Intervals that include zero do not provide enough evidence for statistical superiority.",
+      "This is an academic experiment and not a clinical validation.",
+      "The structured Mission 4 artifacts omit an explicit global-selected-model field; documented frozen provenance is auxiliary."
+    ],
+    "safety_context": {
+      "academic_experimental_only": true,
+      "individual_data_included": false,
+      "clinical_use_authorized": false,
+      "diagnosis_allowed": false,
+      "medical_recommendation_allowed": false,
+      "required_disclaimer": "Este resultado possui finalidade exclusivamente acadêmica e experimental. Os modelos avaliados não foram validados para uso clínico e não devem ser utilizados para diagnóstico, tratamento ou tomada de decisão médica."
+    },
+    "source_provenance": {
+      "artifacts": [
+        {
+          "filename": "final_test_results.json",
+          "sha256": "d2f04c7343001fd599f7516d3468d47f56eb7c4e550b25ba5f72c7fc9e375ddd",
+          "signature": "6c5f8fc0ecc727639b1c5e35a61ab0ab3c9cba30d3d5bccc44f90cfdddf52808"
+        },
+        {
+          "filename": "uncertainty_results.json",
+          "sha256": "7eff199ab9af318e98a179ebb871e0373d33daf8732e52a43c440e5aeb78f6c4",
+          "signature": "3ad8d9f100a62c963cdba05265eb2539b91a625fd19b5c7a6b7cc45460fbf067"
+        },
+        {
+          "filename": "final_manifest.json",
+          "sha256": "121eb2c581a3620bc6c53cbfe85b0d920f5ddb24cf65b7e8ee1db1b976db6940",
+          "signature": "57688d72accef6fe85e750f9166a4cfd15e833db43e02b80276c76e8ac4ac629"
+        },
+        {
+          "filename": "final_evaluation_plan.json",
+          "sha256": "44348f5cea15589d97b5a205949a6c025c7ff3ebf5bb56396cb582d34d4033a4",
+          "signature": "b94cbc663473ab040e89961144c69600062a03a09803c73027ca4163bc4fe1f7"
+        }
+      ],
+      "documentation_auxiliary": {
+        "filename": "docs/decisoes_tecnicas.md",
+        "sha256": "b5fbded834c427b47fdf03d740327fb38ac1b7c5c9daf82577a6deb0424ae4f2"
+      },
+      "all_sources_aggregate": true,
+      "mission4_artifacts_unchanged": true
+    }
+  },
+  "prompt_versions": {
+    "system": "system_v1",
+    "explanation": "explanation_v1",
+    "system_sha256": "f10c9d6db2a572c48810b7d10ffc70e651f244383afdb9dde5959901b43306b3",
+    "explanation_sha256": "39e505da3b3293eaa12d89b422013188682774c54dfae244aed93c68b759ce78"
+  },
+  "provider_configuration": {
+    "provider": "openai_responses",
+    "model": "gpt-5.5",
+    "temperature": 0.0,
+    "max_output_tokens": 3000,
+    "store": false,
+    "retry_count": 0,
+    "structured_output": true
+  },
+  "privacy_validation": {
+    "passed": true,
+    "individual_data_included": false,
+    "forbidden_fields_found": [],
+    "validated_before_provider": true,
+    "final_predictions_included": false
+  },
+  "credential_validation": {
+    "credential_present": true,
+    "model_explicitly_configured": true,
+    "secret_value_recorded": false,
+    "environment_file_recorded": false
+  },
+  "baseline_fake": {
+    "manifest_signature": "31979041778531e488586204a5cdabc712350bd66051c2d0ed8ca94e02d1f6cf",
+    "input_sha256": "44ca9f33e8a8553ed837441507c97c4cebfd9e6bcc57170e81e9e97e4936ee13",
+    "preserved": true
+  },
+  "signature": "15115fd7a0f91eb0d130dfa76c5c4cd1217819bfe3d5d2eb13d9f0c7904c181a"
+}

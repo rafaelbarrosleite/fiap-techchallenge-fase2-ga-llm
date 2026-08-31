@@ -1,0 +1,1000 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "llm_v1_factual_checks_audit",
+  "generated_at_utc": "2026-08-24T20:45:13.254746+00:00",
+  "checks_audited": 139,
+  "classification_counts": {
+    "unambiguous": 99,
+    "needs_explicit_pair": 39,
+    "redundant": 1,
+    "needs_more_evidence": 0,
+    "unsafe_to_require": 0
+  },
+  "checks_changed": 39,
+  "checks_removed": 0,
+  "supplementary_requirements": [
+    {
+      "requirement": "Declare low McNemar power because discordances are few.",
+      "v1_classification": "needs_more_evidence",
+      "v1_issue": "The V1 LLM payload exposed p-values but omitted aggregate discordance counts.",
+      "v2_resolution": "Strategy A: signed aggregate counts and low_count_warning are included per explicit pair.",
+      "unsafe_to_require_without_v2_evidence": true
+    }
+  ],
+  "checks": [
+    {
+      "v1_check": "output_schema",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "selected_model.candidate_id",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "selected_model.model",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "selected_model.method",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.present",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.baseline.method",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.baseline.recall_malignant",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.baseline.f1_malignant",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.baseline.roc_auc",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.baseline.true_positives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.baseline.true_negatives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.baseline.false_positives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.baseline.false_negatives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.ga.method",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.ga.recall_malignant",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.ga.f1_malignant",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.ga.roc_auc",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.ga.true_positives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.ga.true_negatives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.ga.false_positives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.ga.false_negatives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.random_search.method",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.random_search.recall_malignant",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.random_search.f1_malignant",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.random_search.roc_auc",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.random_search.true_positives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.random_search.true_negatives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.random_search.false_positives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.random_search.false_negatives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.ga_recall_change",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "logistic_regression.ga_f1_change",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "logistic_regression.ga_auc_change",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "logistic_regression.tradeoff",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "logistic_regression.same_threshold_different_auc",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "logistic_regression.cv_gain_confirmed",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "random_forest.present",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.baseline.method",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.baseline.recall_malignant",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.baseline.f1_malignant",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.baseline.roc_auc",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.baseline.true_positives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.baseline.true_negatives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.baseline.false_positives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.baseline.false_negatives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.ga.method",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.ga.recall_malignant",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.ga.f1_malignant",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.ga.roc_auc",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.ga.true_positives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.ga.true_negatives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.ga.false_positives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.ga.false_negatives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.random_search.method",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.random_search.recall_malignant",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.random_search.f1_malignant",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.random_search.roc_auc",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.random_search.true_positives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.random_search.true_negatives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.random_search.false_positives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.random_search.false_negatives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.ga_recall_change",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "random_forest.ga_f1_change",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "random_forest.ga_auc_change",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "random_forest.tradeoff",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "random_forest.same_threshold_different_auc",
+      "v1_passed_in_mission73": false,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "random_forest.cv_gain_confirmed",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "knn.present",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.baseline.method",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.baseline.recall_malignant",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.baseline.f1_malignant",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.baseline.roc_auc",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.baseline.true_positives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.baseline.true_negatives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.baseline.false_positives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.baseline.false_negatives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.ga.method",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.ga.recall_malignant",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.ga.f1_malignant",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.ga.roc_auc",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.ga.true_positives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.ga.true_negatives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.ga.false_positives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.ga.false_negatives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.random_search.method",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.random_search.recall_malignant",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.random_search.f1_malignant",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.random_search.roc_auc",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.random_search.true_positives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.random_search.true_negatives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.random_search.false_positives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.random_search.false_negatives",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.ga_recall_change",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "knn.ga_f1_change",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "knn.ga_auc_change",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "knn.tradeoff",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "knn.same_threshold_different_auc",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "knn.cv_gain_confirmed",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "logistic_regression.uncertainty_present",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "logistic_regression.delta_recall",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "logistic_regression.mcnemar_p_value",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "logistic_regression.delta_ci_includes_zero",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "logistic_regression.baseline_recall_ci.lower",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.baseline_recall_ci.upper",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.baseline_recall_ci.confidence_level",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.ga_recall_ci.lower",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.ga_recall_ci.upper",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.ga_recall_ci.confidence_level",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "logistic_regression.delta_recall_ci.lower",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "logistic_regression.delta_recall_ci.upper",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "logistic_regression.delta_recall_ci.confidence_level",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "random_forest.uncertainty_present",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "random_forest.delta_recall",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "random_forest.mcnemar_p_value",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "random_forest.delta_ci_includes_zero",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "random_forest.baseline_recall_ci.lower",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.baseline_recall_ci.upper",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.baseline_recall_ci.confidence_level",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.ga_recall_ci.lower",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.ga_recall_ci.upper",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.ga_recall_ci.confidence_level",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "random_forest.delta_recall_ci.lower",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "random_forest.delta_recall_ci.upper",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "random_forest.delta_recall_ci.confidence_level",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "knn.uncertainty_present",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "knn.delta_recall",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "knn.mcnemar_p_value",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "knn.delta_ci_includes_zero",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "knn.baseline_recall_ci.lower",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.baseline_recall_ci.upper",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.baseline_recall_ci.confidence_level",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.ga_recall_ci.lower",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.ga_recall_ci.upper",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.ga_recall_ci.confidence_level",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "knn.delta_recall_ci.lower",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "knn.delta_recall_ci.upper",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "knn.delta_recall_ci.confidence_level",
+      "v1_passed_in_mission73": true,
+      "classification": "needs_explicit_pair",
+      "v2_action": "replaced_by_comparison_id_scoped_check",
+      "rationale": "O V1 depende de baseline_vs_ga implicito; o V2 fixa comparison_id, left_method e right_method."
+    },
+    {
+      "v1_check": "holdout_selection_preserved",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "clinical_use_not_authorized",
+      "v1_passed_in_mission73": true,
+      "classification": "unambiguous",
+      "v2_action": "retained_or_versioned_equivalent",
+      "rationale": "O sujeito, metodo ou campo verificado ja e explicito no nome e na estrutura."
+    },
+    {
+      "v1_check": "no_unexpected_narrative_numbers",
+      "v1_passed_in_mission73": true,
+      "classification": "redundant",
+      "v2_action": "retained_as_defense_in_depth",
+      "rationale": "Duplica parcialmente os checks numericos estruturados, mas ainda detecta numeros inventados em narrativa."
+    }
+  ],
+  "signature": "7de76c0cf76d89670dbbb5342ed4c65c3008f54524eb6af509ee551a9754c9c5"
+}

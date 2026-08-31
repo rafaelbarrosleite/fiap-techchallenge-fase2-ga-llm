@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_adversarial_results",
+  "generated_at_utc": "2026-08-24T20:27:40.495032+00:00",
+  "status": "not_run_main_invalid",
+  "run_identity": "56fbfb080300146426040b0e0c569211dcd55c4670f696e855de715fbad30ed0",
+  "provider_calls": 0,
+  "maximum_authorized_calls": 3,
+  "all_inputs_aggregate": true,
+  "individual_data_sent": false,
+  "scenarios": [],
+  "blocked_by": "scientific_main",
+  "signature": "d29232f2a31c2ddd2c19ce77405ec4abad46ef986d6af445b80eccab17cd84b1"
+}

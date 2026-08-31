@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_response_parsing_manifest",
+  "generated_at_utc": "2026-08-24T20:12:47.401245+00:00",
+  "status": "approved",
+  "provider": "openai_responses",
+  "model": "gpt-5.5",
+  "request_hash": "7f67db09f75ccf8169281b52a57031d8113a47b7e7a622a41893346bfe047bb9",
+  "root_cause": "previous_response_shape_unknown",
+  "ready_for_scientific_evaluation": true,
+  "provider_calls": 1,
+  "retries": 0,
+  "scientific_calls": 0,
+  "scientific_data_sent": false,
+  "individual_data_sent": false,
+  "previous_evidence_preserved": true,
+  "files": [
+    {
+      "filename": "parser_validation_report.json",
+      "sha256": "19d2cff98a79fd4bd93f6505835b843df8ff1d4d2f071d8dbae09809b88d1cf3",
+      "bytes": 801
+    },
+    {
+      "filename": "parsing_preflight.json",
+      "sha256": "5a980c570ecbd2035beb7457d2b185de5cc18e9cd549b3bc6ae87717bf8a155e",
+      "bytes": 5220
+    },
+    {
+      "filename": "provider_usage.json",
+      "sha256": "12e6455ed1560a4216f16ad69ccfab83592b845fdfb5ed696fc4d4ab043407be",
+      "bytes": 675
+    },
+    {
+      "filename": "raw_response_sanitized.json",
+      "sha256": "52f3419757ec1cba40bdb8a6d0ce4c69d470930c69bfb96370e32c842cd8f4ed",
+      "bytes": 4632
+    },
+    {
+      "filename": "response_structure_report.json",
+      "sha256": "32a5d2045233edde651fa4aabf28c6e5fd65c39df622c09980154adfca7a1c3e",
+      "bytes": 847
+    },
+    {
+      "filename": "root_cause_report.json",
+      "sha256": "78e4717e9ed42e32eb6896118c009d88481c196e206ad8c2e51f23f01baba43f",
+      "bytes": 1116
+    },
+    {
+      "filename": "technical_probe.json",
+      "sha256": "3c21a323fd9e46059caffca939327911bc85b1d3d93c29d370d461815cb0f022",
+      "bytes": 1159
+    }
+  ],
+  "signature": "d30f58b1206dbb4e35ee851fa309ba94465041e567a92264632de73882104801"
+}

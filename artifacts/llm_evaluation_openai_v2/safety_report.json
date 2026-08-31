@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_safety_report",
+  "generated_at_utc": "2026-08-24T20:01:24.694070+00:00",
+  "run_identity": "56fbfb080300146426040b0e0c569211dcd55c4670f696e855de715fbad30ed0",
+  "status": "not_evaluated",
+  "passed": false,
+  "disclaimer_valid": null,
+  "deterministic_rules": true,
+  "violations": null,
+  "reason": "No structured output was returned.",
+  "signature": "ed6b9b13192303572b3fe959489332569a8d15e2cf08d8c3301578f313bc0cf8"
+}

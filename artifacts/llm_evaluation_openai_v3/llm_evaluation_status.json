@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_llm_evaluation_status",
+  "status": "completed_invalid",
+  "updated_at_utc": "2026-08-24T20:27:40.494192+00:00",
+  "run_identity": "56fbfb080300146426040b0e0c569211dcd55c4670f696e855de715fbad30ed0",
+  "main_provider_calls": 1,
+  "adversarial_provider_calls": 0,
+  "signature": "e8efc0f99e6321a9d3efb2e7ab987e9dbe67279e3568c3c474ceadacdfb6b29e"
+}

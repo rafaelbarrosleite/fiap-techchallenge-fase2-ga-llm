@@ -1,0 +1,412 @@
+{
+  "generated_at_utc": "2026-08-18T23:08:23.224700+00:00",
+  "disclaimer": "Uso academico; nao substitui diagnostico medico.",
+  "random_state": 42,
+  "dataset": {
+    "path": "/Users/rafaelleite/Documents/Projetos/postech-fiap/fiap-techchallenge-fase2-ga-llm/data/data.csv",
+    "sha256": "1425d9affa78ba8e53afc81d0ef8a19069ee10c4b21fe89b3cf514071b12ee33",
+    "rows": 569,
+    "feature_count": 30,
+    "target_mapping": {
+      "B": 0,
+      "M": 1
+    },
+    "class_counts": {
+      "0": 357,
+      "1": 212
+    }
+  },
+  "versions": {
+    "python": "3.12.13",
+    "numpy": "2.3.2",
+    "pandas": "2.3.1",
+    "scikit-learn": "1.7.1"
+  },
+  "phase1_reproduction": {
+    "protocol": "60% treino, 20% validacao, 20% teste; sem reajuste final",
+    "split": {
+      "train_rows": 341,
+      "validation_rows": 114,
+      "test_rows": 114,
+      "train_class_counts": {
+        "0": 214,
+        "1": 127
+      },
+      "validation_class_counts": {
+        "0": 71,
+        "1": 43
+      },
+      "test_class_counts": {
+        "0": 72,
+        "1": 42
+      }
+    },
+    "validation_models": {
+      "logistic_regression": {
+        "accuracy": 0.9736842105263158,
+        "precision_malignant": 0.9545454545454546,
+        "recall_malignant": 0.9767441860465116,
+        "f1_malignant": 0.9655172413793104,
+        "roc_auc": 0.9957418932197839,
+        "confusion_matrix": [
+          [
+            69,
+            2
+          ],
+          [
+            1,
+            42
+          ]
+        ],
+        "true_negatives": 69,
+        "false_positives": 2,
+        "false_negatives_malignant": 1,
+        "true_positives_malignant": 42,
+        "fit_seconds": 0.0026432919999024307,
+        "evaluation_seconds": 0.0031468749998566636,
+        "parameters": {
+          "memory": null,
+          "steps": [
+            [
+              "scaler",
+              "StandardScaler()"
+            ],
+            [
+              "model",
+              "LogisticRegression(max_iter=1000, random_state=42)"
+            ]
+          ],
+          "transform_input": null,
+          "verbose": false,
+          "scaler": "StandardScaler()",
+          "model": "LogisticRegression(max_iter=1000, random_state=42)",
+          "scaler__copy": true,
+          "scaler__with_mean": true,
+          "scaler__with_std": true,
+          "model__C": 1.0,
+          "model__class_weight": null,
+          "model__dual": false,
+          "model__fit_intercept": true,
+          "model__intercept_scaling": 1,
+          "model__l1_ratio": null,
+          "model__max_iter": 1000,
+          "model__multi_class": "deprecated",
+          "model__n_jobs": null,
+          "model__penalty": "l2",
+          "model__random_state": 42,
+          "model__solver": "lbfgs",
+          "model__tol": 0.0001,
+          "model__verbose": 0,
+          "model__warm_start": false
+        }
+      },
+      "random_forest": {
+        "accuracy": 0.9736842105263158,
+        "precision_malignant": 0.9761904761904762,
+        "recall_malignant": 0.9534883720930233,
+        "f1_malignant": 0.9647058823529412,
+        "roc_auc": 0.9909924664264658,
+        "confusion_matrix": [
+          [
+            70,
+            1
+          ],
+          [
+            2,
+            41
+          ]
+        ],
+        "true_negatives": 70,
+        "false_positives": 1,
+        "false_negatives_malignant": 2,
+        "true_positives_malignant": 41,
+        "fit_seconds": 0.09854537499995786,
+        "evaluation_seconds": 0.007093958000041312,
+        "parameters": {
+          "memory": null,
+          "steps": [
+            [
+              "model",
+              "RandomForestClassifier(class_weight='balanced', n_estimators=200, n_jobs=1,\n                       random_state=42)"
+            ]
+          ],
+          "transform_input": null,
+          "verbose": false,
+          "model": "RandomForestClassifier(class_weight='balanced', n_estimators=200, n_jobs=1,\n                       random_state=42)",
+          "model__bootstrap": true,
+          "model__ccp_alpha": 0.0,
+          "model__class_weight": "balanced",
+          "model__criterion": "gini",
+          "model__max_depth": null,
+          "model__max_features": "sqrt",
+          "model__max_leaf_nodes": null,
+          "model__max_samples": null,
+          "model__min_impurity_decrease": 0.0,
+          "model__min_samples_leaf": 1,
+          "model__min_samples_split": 2,
+          "model__min_weight_fraction_leaf": 0.0,
+          "model__monotonic_cst": null,
+          "model__n_estimators": 200,
+          "model__n_jobs": 1,
+          "model__oob_score": false,
+          "model__random_state": 42,
+          "model__verbose": 0,
+          "model__warm_start": false
+        }
+      },
+      "knn": {
+        "accuracy": 0.9736842105263158,
+        "precision_malignant": 1.0,
+        "recall_malignant": 0.9302325581395349,
+        "f1_malignant": 0.963855421686747,
+        "roc_auc": 0.9947592531935802,
+        "confusion_matrix": [
+          [
+            71,
+            0
+          ],
+          [
+            3,
+            40
+          ]
+        ],
+        "true_negatives": 71,
+        "false_positives": 0,
+        "false_negatives_malignant": 3,
+        "true_positives_malignant": 40,
+        "fit_seconds": 0.0008038749999741412,
+        "evaluation_seconds": 0.012086582999927487,
+        "parameters": {
+          "memory": null,
+          "steps": [
+            [
+              "scaler",
+              "StandardScaler()"
+            ],
+            [
+              "model",
+              "KNeighborsClassifier(n_jobs=1)"
+            ]
+          ],
+          "transform_input": null,
+          "verbose": false,
+          "scaler": "StandardScaler()",
+          "model": "KNeighborsClassifier(n_jobs=1)",
+          "scaler__copy": true,
+          "scaler__with_mean": true,
+          "scaler__with_std": true,
+          "model__algorithm": "auto",
+          "model__leaf_size": 30,
+          "model__metric": "minkowski",
+          "model__metric_params": null,
+          "model__n_jobs": 1,
+          "model__n_neighbors": 5,
+          "model__p": 2,
+          "model__weights": "uniform"
+        }
+      }
+    },
+    "selected_logistic_regression_test": {
+      "accuracy": 0.9736842105263158,
+      "precision_malignant": 0.975609756097561,
+      "recall_malignant": 0.9523809523809523,
+      "f1_malignant": 0.963855421686747,
+      "roc_auc": 0.9953703703703705,
+      "confusion_matrix": [
+        [
+          71,
+          1
+        ],
+        [
+          2,
+          40
+        ]
+      ],
+      "true_negatives": 71,
+      "false_positives": 1,
+      "false_negatives_malignant": 2,
+      "true_positives_malignant": 40
+    }
+  },
+  "corrected_baseline": {
+    "protocol": "80% desenvolvimento e 20% teste final estratificado",
+    "split": {
+      "development_rows": 455,
+      "test_rows": 114,
+      "development_class_counts": {
+        "0": 285,
+        "1": 170
+      },
+      "test_class_counts": {
+        "0": 72,
+        "1": 42
+      }
+    },
+    "models": {
+      "logistic_regression": {
+        "accuracy": 0.9649122807017544,
+        "precision_malignant": 0.975,
+        "recall_malignant": 0.9285714285714286,
+        "f1_malignant": 0.9512195121951219,
+        "roc_auc": 0.996031746031746,
+        "confusion_matrix": [
+          [
+            71,
+            1
+          ],
+          [
+            3,
+            39
+          ]
+        ],
+        "true_negatives": 71,
+        "false_positives": 1,
+        "false_negatives_malignant": 3,
+        "true_positives_malignant": 39,
+        "fit_seconds": 0.001817207999920356,
+        "evaluation_seconds": 0.0025611250000565633,
+        "parameters": {
+          "memory": null,
+          "steps": [
+            [
+              "scaler",
+              "StandardScaler()"
+            ],
+            [
+              "model",
+              "LogisticRegression(max_iter=1000, random_state=42)"
+            ]
+          ],
+          "transform_input": null,
+          "verbose": false,
+          "scaler": "StandardScaler()",
+          "model": "LogisticRegression(max_iter=1000, random_state=42)",
+          "scaler__copy": true,
+          "scaler__with_mean": true,
+          "scaler__with_std": true,
+          "model__C": 1.0,
+          "model__class_weight": null,
+          "model__dual": false,
+          "model__fit_intercept": true,
+          "model__intercept_scaling": 1,
+          "model__l1_ratio": null,
+          "model__max_iter": 1000,
+          "model__multi_class": "deprecated",
+          "model__n_jobs": null,
+          "model__penalty": "l2",
+          "model__random_state": 42,
+          "model__solver": "lbfgs",
+          "model__tol": 0.0001,
+          "model__verbose": 0,
+          "model__warm_start": false
+        }
+      },
+      "random_forest": {
+        "accuracy": 0.9649122807017544,
+        "precision_malignant": 1.0,
+        "recall_malignant": 0.9047619047619048,
+        "f1_malignant": 0.95,
+        "roc_auc": 0.996031746031746,
+        "confusion_matrix": [
+          [
+            72,
+            0
+          ],
+          [
+            4,
+            38
+          ]
+        ],
+        "true_negatives": 72,
+        "false_positives": 0,
+        "false_negatives_malignant": 4,
+        "true_positives_malignant": 38,
+        "fit_seconds": 0.1225562079998781,
+        "evaluation_seconds": 0.007262082999886843,
+        "parameters": {
+          "memory": null,
+          "steps": [
+            [
+              "model",
+              "RandomForestClassifier(class_weight='balanced', n_estimators=200, n_jobs=1,\n                       random_state=42)"
+            ]
+          ],
+          "transform_input": null,
+          "verbose": false,
+          "model": "RandomForestClassifier(class_weight='balanced', n_estimators=200, n_jobs=1,\n                       random_state=42)",
+          "model__bootstrap": true,
+          "model__ccp_alpha": 0.0,
+          "model__class_weight": "balanced",
+          "model__criterion": "gini",
+          "model__max_depth": null,
+          "model__max_features": "sqrt",
+          "model__max_leaf_nodes": null,
+          "model__max_samples": null,
+          "model__min_impurity_decrease": 0.0,
+          "model__min_samples_leaf": 1,
+          "model__min_samples_split": 2,
+          "model__min_weight_fraction_leaf": 0.0,
+          "model__monotonic_cst": null,
+          "model__n_estimators": 200,
+          "model__n_jobs": 1,
+          "model__oob_score": false,
+          "model__random_state": 42,
+          "model__verbose": 0,
+          "model__warm_start": false
+        }
+      },
+      "knn": {
+        "accuracy": 0.956140350877193,
+        "precision_malignant": 0.9743589743589743,
+        "recall_malignant": 0.9047619047619048,
+        "f1_malignant": 0.9382716049382716,
+        "roc_auc": 0.982308201058201,
+        "confusion_matrix": [
+          [
+            71,
+            1
+          ],
+          [
+            4,
+            38
+          ]
+        ],
+        "true_negatives": 71,
+        "false_positives": 1,
+        "false_negatives_malignant": 4,
+        "true_positives_malignant": 38,
+        "fit_seconds": 0.0006978750000143918,
+        "evaluation_seconds": 0.0031119579998630797,
+        "parameters": {
+          "memory": null,
+          "steps": [
+            [
+              "scaler",
+              "StandardScaler()"
+            ],
+            [
+              "model",
+              "KNeighborsClassifier(n_jobs=1)"
+            ]
+          ],
+          "transform_input": null,
+          "verbose": false,
+          "scaler": "StandardScaler()",
+          "model": "KNeighborsClassifier(n_jobs=1)",
+          "scaler__copy": true,
+          "scaler__with_mean": true,
+          "scaler__with_std": true,
+          "model__algorithm": "auto",
+          "model__leaf_size": 30,
+          "model__metric": "minkowski",
+          "model__metric_params": null,
+          "model__n_jobs": 1,
+          "model__n_neighbors": 5,
+          "model__p": 2,
+          "model__weights": "uniform"
+        }
+      }
+    }
+  },
+  "total_seconds": 0.2778244999999515
+}

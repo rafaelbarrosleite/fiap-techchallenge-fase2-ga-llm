@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_v4_hallucination_report",
+  "generated_at_utc": "2026-08-24T21:07:04.007085+00:00",
+  "run_identity": "daa9c09ba16b5556c93e495a465a755f607fe7388c52fedf0ecf92bb50f4be35",
+  "unexpected_numbers": {
+    "from_authoritative_data": [
+      "0",
+      "0.0",
+      "0.023809523809523836",
+      "0.04761904761904756",
+      "0.5",
+      "1",
+      "1.0",
+      "114",
+      "2",
+      "2.0",
+      "3",
+      "4",
+      "42",
+      "95%"
+    ],
+    "structural_legitimate": [],
+    "potentially_invented": []
+  },
+  "unexpected_model_names": [],
+  "unsupported_claims": [],
+  "clinical_claims": [],
+  "statistical_overclaims": [
+    {
+      "category": "observation_language",
+      "pattern": "deterministic_calibration_check"
+    },
+    {
+      "category": "statistical_inference_distinguished",
+      "pattern": "deterministic_calibration_check"
+    },
+    {
+      "category": "clinical_meaning_distinguished",
+      "pattern": "deterministic_calibration_check"
+    }
+  ],
+  "selection_violations": [],
+  "comparison_pair_violations": [],
+  "mcnemar_violations": [],
+  "signature": "4f580cb844b430f38447489e9fef93d459588085c27d43e12285acf24c78f39c"
+}

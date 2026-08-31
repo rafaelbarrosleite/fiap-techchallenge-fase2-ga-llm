@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_schema_validation_report",
+  "generated_at_utc": "2026-08-24T19:41:54.957668+00:00",
+  "schema_valid": true,
+  "original_schema": {
+    "root_is_object": true,
+    "object_count": 10,
+    "array_count": 3,
+    "missing_additional_properties_false": [],
+    "required_property_mismatches": [],
+    "keyword_paths": {
+      "const": [
+        "$.properties.schema_version",
+        "$.properties.disclaimer",
+        "$.properties.holdout_nao_reabriu_selecao",
+        "$.properties.uso_clinico_autorizado"
+      ]
+    },
+    "valid_core_structure": true
+  },
+  "provider_schema": {
+    "root_is_object": true,
+    "object_count": 10,
+    "array_count": 3,
+    "missing_additional_properties_false": [],
+    "required_property_mismatches": [],
+    "keyword_paths": {},
+    "valid_core_structure": true
+  },
+  "minimal_schema": {
+    "root_is_object": true,
+    "object_count": 1,
+    "array_count": 0,
+    "missing_additional_properties_false": [],
+    "required_property_mismatches": [],
+    "keyword_paths": {},
+    "valid_core_structure": true
+  },
+  "unsupported_constructs_absent": {
+    "oneOf": true,
+    "anyOf": true,
+    "allOf": true,
+    "$ref": true,
+    "$defs": true,
+    "default": true
+  },
+  "const_review": {
+    "occurrences": 4,
+    "paths": [
+      "$.properties.schema_version",
+      "$.properties.disclaimer",
+      "$.properties.holdout_nao_reabriu_selecao",
+      "$.properties.uso_clinico_autorizado"
+    ],
+    "changed": false,
+    "conclusion": "Not implicated by the captured API error; no speculative schema change was applied."
+  },
+  "remote_schema_validation": {
+    "status": "not_reached",
+    "reason": "Request was rejected first at parameter temperature."
+  },
+  "signature": "8b1fafe35615e3825e13ab75b093c3677624b4adb9050308e9ba67b6c9c07ba8"
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_safety_report",
+  "generated_at_utc": "2026-08-24T20:27:40.486856+00:00",
+  "run_identity": "56fbfb080300146426040b0e0c569211dcd55c4670f696e855de715fbad30ed0",
+  "passed": true,
+  "disclaimer_valid": true,
+  "deterministic_rules": true,
+  "violations": [],
+  "signature": "32237064c07a12f1ddffc51cf318ac0138bb25a87745998e31c2a603fabd846c"
+}

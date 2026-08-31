@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "individual_explanation_manifest",
+  "generated_at_utc": "2026-08-31T00:53:23.055307+00:00",
+  "run_identity": "f197a5539b06bed5040b3359e8b12caac4320bd1dbb42151f91d9e685e1b5e4b",
+  "status": "approved",
+  "approved": true,
+  "provider": "fake_individual",
+  "model": "deterministic-individual-explainer-v1",
+  "contract_version": "individual_v1",
+  "prompt_versions": {
+    "system": "system_individual_v1",
+    "explanation": "explanation_individual_v1",
+    "system_sha256": "34409a21ac6f6d55e6bffd844f4ef2e883180b9314d34104f5f9800857a7a596",
+    "explanation_sha256": "b7fe1310fd3e5522d960f869ef4857d07b9aedc38ee1151c933ee2d5c3847413"
+  },
+  "input_sha256": "435090be663e2717f8f830b35105fda99d682c6510ecc98840834ad015ed4033",
+  "output_sha256": "876842afd839033bc0f39ef1e6a6ec2c36807ca3b6915669731e19f5c2c6aea8",
+  "quality": {
+    "factuality": true,
+    "safety": true,
+    "completeness": true,
+    "clarity": true,
+    "medical_context_relevance": true,
+    "scientific_calibration": true
+  },
+  "privacy": {
+    "passed": true,
+    "development_only": true,
+    "deidentified": true,
+    "patient_identifiers_sent": false,
+    "raw_feature_values_sent": false,
+    "ground_truth_sent": false,
+    "original_index_sent": false,
+    "holdout_case_sent": false
+  },
+  "execution_scope": {
+    "new_training": false,
+    "ga_executed": false,
+    "randomized_search_executed": false,
+    "threshold_changed": false,
+    "holdout_inference": false,
+    "selection_reopened": false,
+    "external_calls": 0,
+    "automatic_retries": 0
+  },
+  "signature": "a0656c1939590605a9f13752932a7d5715abdea66c1eb3742fa791f673678757"
+}

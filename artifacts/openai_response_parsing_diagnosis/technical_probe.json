@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_response_parsing_probe",
+  "generated_at_utc": "2026-08-24T20:11:59.069456+00:00",
+  "status": "approved",
+  "provider": "openai_responses",
+  "requested_model": "gpt-5.5",
+  "http_status": 200,
+  "request_id": "req_345377926f7f4a1eb087bf176ab76228",
+  "response_id": "resp_0859b4798d7fc887016a8ca58dace887d2b507fc8568b6bde0",
+  "response_status": "completed",
+  "duration_seconds": 1.8939363750396296,
+  "temperature_sent": false,
+  "store_requested": false,
+  "message_found": true,
+  "output_text_found": true,
+  "text_source": "output.message.content.output_text",
+  "structured_output": {
+    "status": "ok"
+  },
+  "json_valid": true,
+  "schema_valid": true,
+  "content_validation": true,
+  "sanitized_parsing_error": null,
+  "usage": {
+    "input_tokens": 46,
+    "output_tokens": 39,
+    "total_tokens": 85,
+    "cached_tokens": 0,
+    "reasoning_tokens": 22
+  },
+  "provider_calls": 1,
+  "retries": 0,
+  "scientific_data_sent": false,
+  "individual_data_sent": false,
+  "ready_for_scientific_evaluation": true,
+  "signature": "00a16912e8fd01478540611d31810212d2214b1c4d3420b0e7649daf123329fc"
+}

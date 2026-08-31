@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_failure_report",
+  "generated_at_utc": "2026-08-24T20:27:40.490970+00:00",
+  "run_identity": "56fbfb080300146426040b0e0c569211dcd55c4670f696e855de715fbad30ed0",
+  "stage": "deterministic_validation",
+  "reason": "Uma ou mais barreiras reprovaram a resposta original.",
+  "severity": "mission7_main_not_approved",
+  "cause_classification": "deterministic_validation",
+  "field_level_api_error_available": null,
+  "sanitized_api_error": null,
+  "automatic_retry_performed": false,
+  "prompt_changed": false,
+  "original_evidence_preserved": true,
+  "signature": "c27057f72de722208593814a807f55f38f28fe22255535a6e4f6557bf3248764"
+}

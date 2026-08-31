@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_hallucination_report",
+  "generated_at_utc": "2026-08-24T18:43:22.586508+00:00",
+  "run_identity": "56fbfb080300146426040b0e0c569211dcd55c4670f696e855de715fbad30ed0",
+  "status": "not_evaluated",
+  "passed": false,
+  "unexpected_numbers": {
+    "from_data": null,
+    "structural_legitimate": null,
+    "potentially_invented": null,
+    "factuality_checker_tokens": null
+  },
+  "unexpected_model_names": null,
+  "unsupported_claims": null,
+  "clinical_claims": null,
+  "statistical_overclaims": null,
+  "selection_violations": null,
+  "reason": "No structured output was returned.",
+  "signature": "713b01ec31981a40b792addea4140a962e0f7d7d8b8286e48093285c068d363a"
+}

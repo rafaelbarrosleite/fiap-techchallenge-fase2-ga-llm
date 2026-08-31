@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_factuality_report",
+  "generated_at_utc": "2026-08-24T18:43:22.586487+00:00",
+  "run_identity": "56fbfb080300146426040b0e0c569211dcd55c4670f696e855de715fbad30ed0",
+  "status": "not_evaluated",
+  "passed": false,
+  "checks": [],
+  "reason": "No structured output was returned.",
+  "unexpected_text_numbers": null,
+  "signature": "8514893f7e1e6d070fb911b90431252345d28021224dabc61554f55b6a63b5f4"
+}

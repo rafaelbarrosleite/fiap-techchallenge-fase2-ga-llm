@@ -1,0 +1,162 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_llm_evaluation_manifest",
+  "generated_at_utc": "2026-08-24T20:01:24.696493+00:00",
+  "status": "invalid",
+  "approved": false,
+  "run_identity": "56fbfb080300146426040b0e0c569211dcd55c4670f696e855de715fbad30ed0",
+  "provider": "openai_responses",
+  "model": "gpt-5.5",
+  "prompt_versions": {
+    "system": "system_v1",
+    "explanation": "explanation_v1",
+    "system_sha256": "f10c9d6db2a572c48810b7d10ffc70e651f244383afdb9dde5959901b43306b3",
+    "explanation_sha256": "39e505da3b3293eaa12d89b422013188682774c54dfae244aed93c68b759ce78"
+  },
+  "input_sha256": "44ca9f33e8a8553ed837441507c97c4cebfd9e6bcc57170e81e9e97e4936ee13",
+  "output_sha256": "4cd31aed09d4403bcb64ed651e02281a1e1fa463c010b8509e0e38fdc6f01311",
+  "schema_valid": false,
+  "factuality": false,
+  "safety": false,
+  "completeness": false,
+  "clarity": null,
+  "scientific_calibration": false,
+  "adversarial_results": {
+    "status": "not_run_technical_probe_invalid",
+    "provider_calls": 0,
+    "scenarios": []
+  },
+  "usage": {
+    "schema_version": "1.0",
+    "artifact_type": "openai_provider_usage",
+    "generated_at_utc": "2026-08-24T20:01:24.693899+00:00",
+    "provider": "openai_responses",
+    "model": "gpt-5.5",
+    "input_tokens": null,
+    "output_tokens": null,
+    "total_tokens": null,
+    "duration_seconds": null,
+    "request_success": null,
+    "response_id": null,
+    "store_requested": false,
+    "cost_estimate": null,
+    "scientific_call_performed": false,
+    "reason": "Probe process ended before response metadata was persisted; null is not zero.",
+    "signature": "09619058ee281e9ffcbf3ec5d7d349ea1183f8a0e8bb6fc043e3592d98787f70"
+  },
+  "privacy": {
+    "individual_data_sent": false,
+    "final_predictions_sent": false,
+    "aggregate_contract_only": true,
+    "secret_recorded": false
+  },
+  "scope_confirmations": {
+    "training_performed": false,
+    "ga_executed": false,
+    "randomized_search_executed": false,
+    "new_holdout_inference_performed": false,
+    "threshold_changed": false,
+    "selection_reopened": false,
+    "api_or_frontend_created": false,
+    "deploy_performed": false
+  },
+  "files": [
+    {
+      "filename": "adversarial_results.json",
+      "sha256": "60b55267ae5696e4daa547d01398dbd6c9b504ee1841195549be19a7a2800812",
+      "bytes": 426
+    },
+    {
+      "filename": "comparison_with_fake.json",
+      "sha256": "f37c53ac5f7a5d109730484d8f7ed2bbf07e042bc8cb3a6832c9ae107a2437ec",
+      "bytes": 1647
+    },
+    {
+      "filename": "evaluation_report.json",
+      "sha256": "5191ddfec74b4630845e76b3c74b5d52adca8abae5fabb139781730b25290279",
+      "bytes": 1039
+    },
+    {
+      "filename": "factuality_report.json",
+      "sha256": "f5a72d059cb8f2de97e4b93b61f21090b0aefb8134adcd4a20468fe6b03b0f08",
+      "bytes": 453
+    },
+    {
+      "filename": "failure_report.json",
+      "sha256": "e39f019b14a224ea4b87447331008df606fb6008baf9f6194ffe50bc384f37fd",
+      "bytes": 745
+    },
+    {
+      "filename": "hallucination_report.json",
+      "sha256": "dc96067e9b36f216c0c6a606e0a4d1a52bb5484b0ce44125583b58600bc92249",
+      "bytes": 723
+    },
+    {
+      "filename": "llm_input_snapshot.json",
+      "sha256": "5e20f85e45fde29ea161df07e66ede77983929d80f7109f973646015df66f8dc",
+      "bytes": 11384
+    },
+    {
+      "filename": "llm_output.json",
+      "sha256": "4cd31aed09d4403bcb64ed651e02281a1e1fa463c010b8509e0e38fdc6f01311",
+      "bytes": 630
+    },
+    {
+      "filename": "mission72_preflight.json",
+      "sha256": "9143d84b94a6d9cefbc988d90f28179edc165e8ebef6584ccf7c3a577a4ca7d5",
+      "bytes": 3441
+    },
+    {
+      "filename": "preflight_report.json",
+      "sha256": "bfbb3dc2a3a71c0fc691288016ecb0068f53986a715faed666df5b88685fbe82",
+      "bytes": 734
+    },
+    {
+      "filename": "provider_usage.json",
+      "sha256": "8ac37dd0e359341cfdac69ae268062d4c4c4147220a7629f70a0e8c9572ca8c3",
+      "bytes": 606
+    },
+    {
+      "filename": "safety_report.json",
+      "sha256": "f658e000a52b1a4f03ffd4f6c636f0752731df30a36b3b8ee9ef84671c805836",
+      "bytes": 479
+    },
+    {
+      "filename": "technical_probe.json",
+      "sha256": "84f950d228a932717e8f901febe331aa8e992524d2fea9e1bdaa39011cac7b6c",
+      "bytes": 1315
+    }
+  ],
+  "software": {
+    "python": "3.12.13"
+  },
+  "mission_version": "7.2",
+  "technical_probe": {
+    "status": "invalid",
+    "request_id": null,
+    "duration_seconds": null,
+    "usage": {
+      "input_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null
+    },
+    "temperature_sent": false,
+    "retries": 0
+  },
+  "call_budget": {
+    "technical": 1,
+    "scientific_main": 0,
+    "adversarial": 0,
+    "total": 1,
+    "maximum": 5,
+    "automatic_retries": 0
+  },
+  "repository": {
+    "mission_start_commit": "1ed89fa4f3034a0f6f480d10c88c72f46aaa8525",
+    "head_at_finalization": "1ed89fa4f3034a0f6f480d10c88c72f46aaa8525",
+    "automatic_commit_performed": false,
+    "env_ignored": true
+  },
+  "previous_evidence_preserved": true,
+  "signature": "31c13b0e5bc34b9b472ef3125f8bd25b10f02e8fefcb887ff1e762bd1583048d"
+}

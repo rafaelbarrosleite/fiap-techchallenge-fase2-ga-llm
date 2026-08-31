@@ -1,0 +1,356 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "final_delivery_manifest",
+  "generated_at_utc": "2026-08-31T01:06:32.975945+00:00",
+  "status": "completed",
+  "project_version": "0.7.0",
+  "tests": {
+    "command": "uv run pytest",
+    "status": "passed",
+    "passed_count": 182
+  },
+  "authority_references": {
+    "mission4_plan_signature": "b94cbc663473ab040e89961144c69600062a03a09803c73027ca4163bc4fe1f7",
+    "mission4_manifest_signature": "57688d72accef6fe85e750f9166a4cfd15e833db43e02b80276c76e8ac4ac629",
+    "mission5_manifest_signature": "31979041778531e488586204a5cdabc712350bd66051c2d0ed8ca94e02d1f6cf",
+    "mission74_contract_signature": "f91ea698ea1dd018f4dccdc063a5ce0cf888ae201fa99126c8faa7eae72d4ae8",
+    "mission75_manifest_signature": "a60a30636bb3e88d90c570dc8a5690cab78b273b13fd63faf0411b27cfe568a6",
+    "individual_fake_manifest_signature": "a0656c1939590605a9f13752932a7d5715abdea66c1eb3742fa791f673678757",
+    "individual_openai_manifest_signature": "6fd2e59df6b0fd955b37866087d57346ea512c5cbb427f7755b54d943f4db360",
+    "frozen_candidates_signature": "7b4c6e5b1f2774a4e4d0cd60b41896389856ed3be599f07cd656a3a7aa188b54"
+  },
+  "scope_confirmations": {
+    "new_training_performed": false,
+    "new_optimization_performed": false,
+    "new_holdout_inference_performed": false,
+    "threshold_changed": false,
+    "selection_reopened": false,
+    "real_llm_provider_called": true,
+    "real_llm_scientific_evaluation_approved": false,
+    "deidentified_individual_explanation_sent_to_llm": true,
+    "raw_individual_record_sent_to_llm": false,
+    "patient_identifier_sent_to_llm": false,
+    "api_frontend_cloud_created": false,
+    "deploy_performed": false
+  },
+  "supplementary_real_llm_evaluation": {
+    "provider": "openai_responses",
+    "requested_model": "gpt-5.5",
+    "status": "methodologically_complete_not_approved",
+    "scientific_evaluation_approved": false,
+    "factuality": "327/327",
+    "safety": true,
+    "completeness": true,
+    "clarity": true,
+    "scientific_calibration": false,
+    "individual_data_sent": false,
+    "provider_calls": 1,
+    "automatic_retries": 0
+  },
+  "individual_llm_evaluation": {
+    "provider": "openai_responses",
+    "model": "gpt-5.5-2026-04-23",
+    "status": "approved",
+    "approved": true,
+    "factuality": "40/40",
+    "safety": true,
+    "completeness": true,
+    "clarity": true,
+    "medical_context_relevance": true,
+    "scientific_calibration": true,
+    "development_only": true,
+    "raw_individual_record_sent": false,
+    "patient_identifiers_sent": false,
+    "holdout_case_sent": false,
+    "external_calls": 2,
+    "automatic_retries": 0
+  },
+  "files": {
+    "documents": [
+      {
+        "relative_path": "README.md",
+        "sha256": "1bd6a45c26026e128b98384ad3c10b0a73b09074cdeec7ac9b4e3ef4cdcc74cc",
+        "bytes": 10055
+      },
+      {
+        "relative_path": "docs/relatorio_final.md",
+        "sha256": "97188b4dc33de73be36b982e62977eed571c5e70cbda247f3d3adba5df03e86d",
+        "bytes": 20196
+      },
+      {
+        "relative_path": "docs/resumo_executivo.md",
+        "sha256": "55cac11166189b345c4fde16b685608bedd8865c1ceb65b16b0beda140ba15a4",
+        "bytes": 3892
+      },
+      {
+        "relative_path": "docs/roteiro_apresentacao.md",
+        "sha256": "953d566eca4d68a972a0dc5e1cb5db4bb1eb176c0f1f83bff9a95a8eb3aefd3d",
+        "bytes": 6199
+      },
+      {
+        "relative_path": "docs/demo_guide.md",
+        "sha256": "b7e49259673e49c0e671bdd75b3d0e1ca5869a48c4db67268313d58adc9e1653",
+        "bytes": 5161
+      },
+      {
+        "relative_path": "docs/mapa_evidencias.md",
+        "sha256": "091e296d86a308a6ff286d37354c7e4439f22058f17885aed7ce60e7aa96026c",
+        "bytes": 6268
+      },
+      {
+        "relative_path": "docs/matriz_rastreabilidade_final.md",
+        "sha256": "1d9225f6b2a0f2a013919d1b3a2124b0312512dc3e7193da2dc57c2c1d48d79d",
+        "bytes": 5589
+      },
+      {
+        "relative_path": "docs/auditoria_documental_final.md",
+        "sha256": "15b10debb7cb1e3eb483db25ecfbc2f6190024be5c780e17d56357dc93c9dbfd",
+        "bytes": 6402
+      },
+      {
+        "relative_path": "docs/camada_llm_segura.md",
+        "sha256": "8d60166650fc9fdf7e52254bf027295668d08964af44c10dc55fb74cc716b658",
+        "bytes": 13191
+      },
+      {
+        "relative_path": "docs/avaliacao_final.md",
+        "sha256": "cb13d38f824f98ac364fba16357c813e696157e0940ae3b73a1cd69ee16de6a2",
+        "bytes": 9222
+      },
+      {
+        "relative_path": "docs/limitacoes_e_validade.md",
+        "sha256": "2c2849b654a71a2e26d318747fbadf3b37e288aa9f42c2570e072a15e6ab2778",
+        "bytes": 5124
+      },
+      {
+        "relative_path": "docs/contrato_llm_v2.md",
+        "sha256": "bcb947694277954132482fd55dc4bf8675681cdbd884d5266c4f62dc44a99e6f",
+        "bytes": 7989
+      },
+      {
+        "relative_path": "docs/avaliacao_provider_real_v4.md",
+        "sha256": "8a5519cb50e61b159bd2991f07669b3ab66ca25a88f05d729f35db31df377227",
+        "bytes": 8539
+      },
+      {
+        "relative_path": "docs/explicacao_individual_llm.md",
+        "sha256": "914f3986865693667de76778bf8093df72425676c532b947394e5a308db7dcb1",
+        "bytes": 6934
+      },
+      {
+        "relative_path": "docs/examples/individual_explanation_v1.json",
+        "sha256": "f255c28bffdf921a1f3cc109a50f4b816e6f766606b5e373dd26daab86756dc5",
+        "bytes": 4796
+      }
+    ],
+    "artifacts": [
+      {
+        "relative_path": "artifacts/final_summary/model_results.csv",
+        "sha256": "f86f67d55767a3c79e6105115410e483974c3d72d0fb750a20fd371dc258b290",
+        "bytes": 3340
+      },
+      {
+        "relative_path": "artifacts/final_summary/model_results.json",
+        "sha256": "b6be43417a4e3f3dbb2e843040b6ed15c866a846611fad42881d10b5890392f7",
+        "bytes": 7932
+      },
+      {
+        "relative_path": "reports/figures/final_presentation/figure_qa_report.json",
+        "sha256": "0d62fbd4c0fe800f232a8007d5fe93cb3da8f2c5a7307a0fee347fd766952516",
+        "bytes": 3978
+      },
+      {
+        "relative_path": "artifacts/llm_evaluation_openai_v4/adversarial_results.json",
+        "sha256": "fc76eef89977262b7ed49ab4f2c90d06cadb623ec869ab9bcc7410892a811000",
+        "bytes": 463
+      },
+      {
+        "relative_path": "artifacts/llm_evaluation_openai_v4/comparison_with_fake_v2.json",
+        "sha256": "1192fd80673c632e2a8163f132984444eed19d77c71881aff9a75d2b3c854d63",
+        "bytes": 1354
+      },
+      {
+        "relative_path": "artifacts/llm_evaluation_openai_v4/evaluation_report.json",
+        "sha256": "5dde943eb7747a868d737fd93ed0853cde34c3f9edf523cf5cc72c5a154bd416",
+        "bytes": 59888
+      },
+      {
+        "relative_path": "artifacts/llm_evaluation_openai_v4/factuality_report.json",
+        "sha256": "03b50d01b1d375abf826f88852546c8ed38ffd718daa2d648a2a820409b92ecf",
+        "bytes": 53825
+      },
+      {
+        "relative_path": "artifacts/llm_evaluation_openai_v4/failure_report.json",
+        "sha256": "63c60249bf5bde12a005be1e74fffcf6b377e96ec381dd087e288120f8417b2b",
+        "bytes": 672
+      },
+      {
+        "relative_path": "artifacts/llm_evaluation_openai_v4/hallucination_report.json",
+        "sha256": "92849dafd4baaa1d4eb6757deb5715f4585dc29cbbaf9970e5882c8ef94a7f1a",
+        "bytes": 1204
+      },
+      {
+        "relative_path": "artifacts/llm_evaluation_openai_v4/llm_evaluation_manifest.json",
+        "sha256": "75ed0612784c3514ed83516fddf8048c79deb46d2919e597f373aa90379df418",
+        "bytes": 6344
+      },
+      {
+        "relative_path": "artifacts/llm_evaluation_openai_v4/llm_input_snapshot.json",
+        "sha256": "963fd0981a04a4e997f833c15866359257bcd41eb8726a565464ecbda63e73df",
+        "bytes": 20028
+      },
+      {
+        "relative_path": "artifacts/llm_evaluation_openai_v4/llm_output.json",
+        "sha256": "20ce37bf0163f4603ccfbe2aec3445334c1656ab341fea9857bae39ee2475e9d",
+        "bytes": 43444
+      },
+      {
+        "relative_path": "artifacts/llm_evaluation_openai_v4/mission75_preflight.json",
+        "sha256": "fd4be7190813f86c8d4528a84ece18340e67d0f869bd90c48b2f8c7a751c73ce",
+        "bytes": 9169
+      },
+      {
+        "relative_path": "artifacts/llm_evaluation_openai_v4/provider_usage.json",
+        "sha256": "ad9072dc129dfc986d0b983e874c3736a85141878cbba6913ab01a29c60ec5b4",
+        "bytes": 901
+      },
+      {
+        "relative_path": "artifacts/llm_evaluation_openai_v4/raw_response_sanitized.json",
+        "sha256": "6c7c45f932928dce9660c5e447dce23a90b3a6c4c50fcbbad8cc52fbc9327100",
+        "bytes": 45202
+      },
+      {
+        "relative_path": "artifacts/llm_evaluation_openai_v4/safety_report.json",
+        "sha256": "a313411a8f9fe034fbf1bc96831c1a1aa831f495468c7f5073cf83147d6994c6",
+        "bytes": 400
+      },
+      {
+        "relative_path": "artifacts/llm_individual_explanation/evaluation_report.json",
+        "sha256": "cd67fbc7949e3c3396e1e19b9ef79208229543faae4d0f4a219c8c63ab52ec2a",
+        "bytes": 7823
+      },
+      {
+        "relative_path": "artifacts/llm_individual_explanation/factuality_report.json",
+        "sha256": "8c665262f51ce3eb5c60c7f5a74cd0a21ddc0818cce671a27e6cefec65b0405c",
+        "bytes": 5804
+      },
+      {
+        "relative_path": "artifacts/llm_individual_explanation/individual_explanation_manifest.json",
+        "sha256": "e9461437e368ea5d26ca5c5fef2ace3c508593258e7c6556cc69b1dff9cc34ec",
+        "bytes": 1674
+      },
+      {
+        "relative_path": "artifacts/llm_individual_explanation/individual_input_snapshot.json",
+        "sha256": "9f3dbed43e20525dd164795a6ab582a7b1911f98ecca9ec1cd6f3faf8cd755a0",
+        "bytes": 5081
+      },
+      {
+        "relative_path": "artifacts/llm_individual_explanation/individual_output.json",
+        "sha256": "03bbcaef20328f1585d893ae10ed31d0b67927d5bfeb28ec06b6fe45d0599091",
+        "bytes": 5449
+      },
+      {
+        "relative_path": "artifacts/llm_individual_explanation/privacy_report.json",
+        "sha256": "305cbea5e9d440eb83142c537ca9a59c7e1862eb634b1c168b09c1a04cd3bb5e",
+        "bytes": 592
+      },
+      {
+        "relative_path": "artifacts/llm_individual_explanation/provider_usage.json",
+        "sha256": "2a51201398e00ea0076c5d7cd9a85d732df4742ca55f875681b68d10082abfae",
+        "bytes": 578
+      },
+      {
+        "relative_path": "artifacts/llm_individual_explanation/safety_report.json",
+        "sha256": "d500b1c293a5fb0fc3e2485264a8b65ac63ce28b6a9e314266f7ddd1587d6cb7",
+        "bytes": 401
+      },
+      {
+        "relative_path": "artifacts/llm_individual_explanation_openai/evaluation_report.json",
+        "sha256": "15cdba2a014ea094f55e1269d4f366a65d59e227ddb7af7a660c1b5295675855",
+        "bytes": 8082
+      },
+      {
+        "relative_path": "artifacts/llm_individual_explanation_openai/evaluation_report_before_semantic_fix.json",
+        "sha256": "b4cc9edc4c03ac395468568c41bb0d140ed199cb8ab53b6038512cb598314ec5",
+        "bytes": 7842
+      },
+      {
+        "relative_path": "artifacts/llm_individual_explanation_openai/factuality_report.json",
+        "sha256": "6f6685a54b67cf2df2734fd9a5f4a2b8027f8809d0a81c6d20444d28821084f3",
+        "bytes": 5804
+      },
+      {
+        "relative_path": "artifacts/llm_individual_explanation_openai/failure_report.json",
+        "sha256": "a5c48f0f55eb0824152d9019b32a579a609abb210b893f28b5a92e816dfeaa4d",
+        "bytes": 509
+      },
+      {
+        "relative_path": "artifacts/llm_individual_explanation_openai/individual_explanation_manifest.json",
+        "sha256": "c644552aee8b5111f5946611d0f020a5bcd7c11a1d806bc289245b53868321f1",
+        "bytes": 1926
+      },
+      {
+        "relative_path": "artifacts/llm_individual_explanation_openai/individual_input_snapshot.json",
+        "sha256": "d13012abdd95b8b07772a1b6f45c689c36f7edfc548a780387019a43c89695f7",
+        "bytes": 5063
+      },
+      {
+        "relative_path": "artifacts/llm_individual_explanation_openai/individual_output.json",
+        "sha256": "113ceaac3c07290ff699c914c2c77a52e0fd17ad83440f1915f7e7827abe4307",
+        "bytes": 7754
+      },
+      {
+        "relative_path": "artifacts/llm_individual_explanation_openai/privacy_report.json",
+        "sha256": "e3937b230962fc964eeab8a70cda0faea2ffa5b9dc728812eaa229523f38bce8",
+        "bytes": 592
+      },
+      {
+        "relative_path": "artifacts/llm_individual_explanation_openai/provider_usage.json",
+        "sha256": "900a2108b920c71e33e4221420fcd066af25d1f79132656cadebac64ab89fbe4",
+        "bytes": 598
+      },
+      {
+        "relative_path": "artifacts/llm_individual_explanation_openai/safety_report.json",
+        "sha256": "f0137760e99ddca8b4bf230996b933436e40afbfec71973763ce0ba390a4941a",
+        "bytes": 401
+      }
+    ],
+    "figures": [
+      {
+        "relative_path": "reports/figures/final_presentation/01_recall_baseline_vs_ga.png",
+        "sha256": "ea7d02062fe3fda78cafd237a2c2033e57435de2cbae34a1fe4c2afe60346f7a",
+        "bytes": 59518
+      },
+      {
+        "relative_path": "reports/figures/final_presentation/02_falsos_negativos_baseline_vs_ga.png",
+        "sha256": "c047fbc345070666a2bc1456e731b46e81c58124f5cb2e8347e820531025b56a",
+        "bytes": 57085
+      },
+      {
+        "relative_path": "reports/figures/final_presentation/03_roc_auc_por_metodo.png",
+        "sha256": "2121567d94af3fcb90eee7684cdf2f570ba8c5ee6eb60f7abc3db0d20cd89469",
+        "bytes": 81975
+      },
+      {
+        "relative_path": "reports/figures/final_presentation/04_recall_cv_vs_holdout.png",
+        "sha256": "3fc542f1f712bbddf880776c97d8e742159dc6cf0bb33bfd712e1a9918036774",
+        "bytes": 85071
+      },
+      {
+        "relative_path": "reports/figures/final_presentation/05_intervalos_recall.png",
+        "sha256": "793c0ab89c1833eaad696d7a4ac1bc41919c68bb40ac9286e4dfd4e0fa464308",
+        "bytes": 89688
+      },
+      {
+        "relative_path": "reports/figures/final_presentation/06_fitness_ga_vs_busca_aleatoria.png",
+        "sha256": "ab91642b146039cfa35e26348eea07dbb8140a113544ee64774bd4d9d14fc0d2",
+        "bytes": 61546
+      }
+    ]
+  },
+  "validation_preflight": {
+    "status": "passed",
+    "check_count": 54
+  },
+  "signature": "491b1055e3d12c54ac957cf6f2dd99a84ddece9d3c0f0154f4559e144555c290"
+}

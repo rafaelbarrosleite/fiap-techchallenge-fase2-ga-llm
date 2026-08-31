@@ -1,0 +1,139 @@
+{
+  "schema_version": "3.0",
+  "artifact_type": "individual_explanation_input",
+  "generated_at_utc": "2026-08-31T00:53:39.098409+00:00",
+  "run_identity": "f6db414aaf7c02ed3c4dac8daff8e1e8286545e1b4e20b634b360a36ed3fcc72",
+  "provider_configuration": {
+    "provider": "openai_responses",
+    "model": "gpt-5.5",
+    "store": false,
+    "temperature_sent": false,
+    "max_output_tokens": 5000,
+    "automatic_retries": 0,
+    "structured_output": true
+  },
+  "prompt_versions": {
+    "system": "system_individual_v1",
+    "explanation": "explanation_individual_v1",
+    "system_sha256": "34409a21ac6f6d55e6bffd844f4ef2e883180b9314d34104f5f9800857a7a596",
+    "explanation_sha256": "b7fe1310fd3e5522d960f869ef4857d07b9aedc38ee1151c933ee2d5c3847413"
+  },
+  "privacy": {
+    "passed": true,
+    "development_only": true,
+    "deidentified": true,
+    "patient_identifiers_sent": false,
+    "raw_feature_values_sent": false,
+    "ground_truth_sent": false,
+    "original_index_sent": false,
+    "holdout_case_sent": false
+  },
+  "input_sha256": "435090be663e2717f8f830b35105fda99d682c6510ecc98840834ad015ed4033",
+  "input": {
+    "schema_version": "3.0",
+    "contract_version": "individual_v1",
+    "case_context": {
+      "case_reference": "demo_case_001",
+      "source_scope": "development_only",
+      "deidentified": true,
+      "source_record_reconstructible": false,
+      "raw_feature_values_included": false,
+      "ground_truth_included": false,
+      "predicted_pattern": "malignant_pattern",
+      "probability_malignant": 0.74553,
+      "classification_threshold": 0.5,
+      "distance_from_threshold_band": "moderate_distance"
+    },
+    "model_context": {
+      "candidate_id": "logistic_regression__random_search",
+      "model_family": "logistic_regression",
+      "method": "random_search",
+      "training_group_id": "a144f3a5ef7581cc",
+      "trained_on_development_rows": 455,
+      "model_artifact_sha256": "78d3c6bb3bc53db1bb47f3ba52ff6b9a663c712f3ca814062bdaed999f23e590",
+      "new_training_performed": false,
+      "holdout_inference_performed": false,
+      "aggregate_validation_context": {
+        "recall_malignant": 0.9761904761904762,
+        "f1_malignant": 0.9761904761904762,
+        "roc_auc": 0.9976851851851852,
+        "false_negatives": 1,
+        "scope": "confirmatory_holdout_aggregate_only"
+      }
+    },
+    "explanation_signals": [
+      {
+        "rank": 1,
+        "feature": "symmetry_worst",
+        "display_name": "maior simetria",
+        "observed_band": "high",
+        "influence_direction": "toward_malignant",
+        "relative_importance_percent": 55.86
+      },
+      {
+        "rank": 2,
+        "feature": "symmetry_se",
+        "display_name": "variação da simetria",
+        "observed_band": "high",
+        "influence_direction": "toward_benign",
+        "relative_importance_percent": 15.63
+      },
+      {
+        "rank": 3,
+        "feature": "concave points_worst",
+        "display_name": "maiores pontos côncavos",
+        "observed_band": "high",
+        "influence_direction": "toward_malignant",
+        "relative_importance_percent": 11.73
+      },
+      {
+        "rank": 4,
+        "feature": "concavity_worst",
+        "display_name": "maior concavidade",
+        "observed_band": "high",
+        "influence_direction": "toward_malignant",
+        "relative_importance_percent": 8.39
+      },
+      {
+        "rank": 5,
+        "feature": "concavity_mean",
+        "display_name": "concavidade média",
+        "observed_band": "high",
+        "influence_direction": "toward_malignant",
+        "relative_importance_percent": 8.39
+      }
+    ],
+    "medical_context": {
+      "intended_audience": "health_professionals_and_non_specialists",
+      "action_scope": "human_review_and_model_interpretation_only",
+      "clinical_use_authorized": false,
+      "diagnosis_claim_allowed": false,
+      "treatment_recommendation_allowed": false,
+      "required_disclaimer": "Este resultado possui finalidade exclusivamente acadêmica e experimental. Os modelos avaliados não foram validados para uso clínico e não devem ser utilizados para diagnóstico, tratamento ou tomada de decisão médica."
+    },
+    "future_text_integration": {
+      "contract_ready": true,
+      "text_data_included": false,
+      "planned_fields": [
+        "clinical_note_summary",
+        "exam_report_summary"
+      ],
+      "required_safeguards": [
+        "explicit_authorization",
+        "deidentification",
+        "source_provenance",
+        "schema_validation",
+        "clinical_safety_review"
+      ]
+    },
+    "source_provenance": {
+      "dataset_sha256": "1425d9affa78ba8e53afc81d0ef8a19069ee10c4b21fe89b3cf514071b12ee33",
+      "model_artifact_relative_path": "artifacts/final_evaluation/models/pipeline_a144f3a5ef7581cc.joblib",
+      "development_only": true,
+      "test_or_holdout_case_used": false,
+      "patient_identifiers_included": false,
+      "original_row_index_included": false
+    }
+  },
+  "signature": "7ee66ae210104a4ed17cc16068a1fcfaf9ac0a4fd1d8e80a277c8060ff1bbed1"
+}

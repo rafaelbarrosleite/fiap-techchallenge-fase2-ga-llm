@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "llm_evaluation_status",
+  "status": "completed",
+  "updated_at_utc": "2026-08-24T17:52:57.483081+00:00",
+  "run_identity": "5f94b3568689b01be5a413d449a898efe1fe4c702724348d520eddd5e52fbe66",
+  "manifest_signature": "31979041778531e488586204a5cdabc712350bd66051c2d0ed8ca94e02d1f6cf",
+  "approved": true,
+  "signature": "2d630503892af701d0fe0c31be1ebe425bcc75b09816ebc1b94d62ce7fc96e0d"
+}

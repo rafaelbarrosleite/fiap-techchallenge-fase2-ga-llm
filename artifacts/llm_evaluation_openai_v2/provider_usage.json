@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_provider_usage",
+  "generated_at_utc": "2026-08-24T20:01:24.693899+00:00",
+  "provider": "openai_responses",
+  "model": "gpt-5.5",
+  "input_tokens": null,
+  "output_tokens": null,
+  "total_tokens": null,
+  "duration_seconds": null,
+  "request_success": null,
+  "response_id": null,
+  "store_requested": false,
+  "cost_estimate": null,
+  "scientific_call_performed": false,
+  "reason": "Probe process ended before response metadata was persisted; null is not zero.",
+  "signature": "09619058ee281e9ffcbf3ec5d7d349ea1183f8a0e8bb6fc043e3592d98787f70"
+}

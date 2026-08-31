@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_v2_technical_probe",
+  "generated_at_utc": "2026-08-24T20:01:24.693168+00:00",
+  "status": "invalid",
+  "provider": "openai_responses",
+  "requested_model": "gpt-5.5",
+  "response_model": null,
+  "http_status": null,
+  "request_id": null,
+  "response_status": null,
+  "duration_seconds": null,
+  "store_requested": false,
+  "store_returned": null,
+  "temperature_sent": false,
+  "request_hash": "7f67db09f75ccf8169281b52a57031d8113a47b7e7a622a41893346bfe047bb9",
+  "schema_valid": false,
+  "structured_output": null,
+  "sanitized_local_error": {
+    "class": "ProviderRealEvaluationError",
+    "message": "Resposta real nao contem output_text."
+  },
+  "transport_observation": {
+    "http_error_raised": false,
+    "json_response_body_received": true,
+    "response_body_persisted": false,
+    "note": "The original process ended before response metadata could be persisted; unavailable values remain null."
+  },
+  "usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "total_tokens": null
+  },
+  "provider_calls": 1,
+  "retries": 0,
+  "scientific_data_sent": false,
+  "medical_content_sent": false,
+  "individual_data_sent": false,
+  "secret_recorded": false,
+  "signature": "91844f606ee197e0d0a76fa8a93665819bc8eb33e7a187b70e7aec15eae6ace7"
+}

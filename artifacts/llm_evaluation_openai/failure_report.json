@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "openai_failure_report",
+  "generated_at_utc": "2026-08-24T18:41:18.452293+00:00",
+  "run_identity": "56fbfb080300146426040b0e0c569211dcd55c4670f696e855de715fbad30ed0",
+  "stage": "provider_call",
+  "reason": "Provider real retornou HTTP 400; nenhuma repeticao automatica foi feita.",
+  "severity": "mission7_main_not_approved",
+  "automatic_retry_performed": false,
+  "prompt_changed": false,
+  "original_evidence_preserved": true,
+  "signature": "392b7a8e90cec8df17e77d0b00a582b757e2eab5380f1030e022f2e6eb036bc1"
+}

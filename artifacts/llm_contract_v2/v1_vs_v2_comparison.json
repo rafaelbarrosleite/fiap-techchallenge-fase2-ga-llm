@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "llm_contract_v1_vs_v2_comparison",
+  "generated_at_utc": "2026-08-24T20:45:13.254883+00:00",
+  "v1": {
+    "schema_version": "1.0",
+    "prompt_versions": [
+      "system_v1",
+      "explanation_v1"
+    ],
+    "pair_semantics": "implicit in derived field names",
+    "mcnemar_discordances_in_payload": false,
+    "historical_reproduction_supported": true,
+    "files_sha256": {
+      "schemas_v1": "38da5a0e7f74b5ca3709bd8482fa11080dbb090b64320e9267c7e1db6454449d",
+      "factuality_v1": "25e1dbc320113a7205f69013d890d3100810fed82e0edc0cfcce5f6b9fd167b5",
+      "providers_v1": "4080798f5eacae2754b3e27958125467ed6482c98a6b05cf1243f0bc64cc0ca0",
+      "system_v1": "f10c9d6db2a572c48810b7d10ffc70e651f244383afdb9dde5959901b43306b3",
+      "explanation_v1": "39e505da3b3293eaa12d89b422013188682774c54dfae244aed93c68b759ce78"
+    }
+  },
+  "v2": {
+    "schema_version": "2.0",
+    "prompt_versions": [
+      "system_v2",
+      "explanation_v2"
+    ],
+    "pair_semantics": "comparison_id plus left_method plus right_method",
+    "comparison_pairs": 9,
+    "delta_direction": "right_minus_left",
+    "mcnemar_discordances_in_payload": true,
+    "silent_default": false
+  },
+  "breaking_changes_are_explicit": true,
+  "v1_modified": false,
+  "signature": "cf203fd28429c2a0c6b454e88382ba76adde4c2df54d1461a13a3e1be6800c1a"
+}
