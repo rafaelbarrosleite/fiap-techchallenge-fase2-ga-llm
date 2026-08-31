@@ -175,7 +175,7 @@ O mock determinístico V1 produziu saída aprovada nas cinco dimensões, com not
 
 A avaliação complementar real V2 fez uma única chamada ao provider OpenAI. Ela retornou HTTP 200, status `completed`, 327/327 fatos, segurança, completude e clareza aprovadas, zero números inesperados, zero claims clínicos, zero violações de seleção/par/McNemar e disclaimer correto. A calibração científica foi reprovada em três checks lexicais que não reconheceram paráfrases semanticamente adequadas. O resultado original permaneceu não aprovado; não houve retry, adversariais ou alteração posterior de prompt, schema ou checker.
 
-A suíte consolidada aprovou 182 testes. Os avisos são depreciações já existentes em dependências do Matplotlib durante testes de figuras; não houve falha. A repetição das execuções offline com a mesma identidade preserva os artefatos sem chamar provider.
+A suíte consolidada aprovou 184 testes a partir de um clone limpo. Os avisos são depreciações já existentes em dependências do Matplotlib durante testes de figuras; não houve falha. A repetição das execuções offline com a mesma identidade preserva os artefatos sem chamar provider.
 
 ## 14. Limitações
 
@@ -198,17 +198,19 @@ A saída inclui explicação natural, fatores, insights acionáveis com `scope=h
 Offline, sem rede ou tokens:
 
 ```bash
-uv run prepare-llm-evaluation
-uv run run-llm-evaluation
 uv run evaluate-llm-output
 uv run pytest
 ```
+
+`prepare-llm-evaluation` e `run-llm-evaluation` pertencem à execução histórica e não reaproveitam o artefato congelado: a assinatura de código que compõe a identidade V1 mudou quando o contrato V2 foi acrescentado ao pacote `llm/`, e o engine recusa a sobrescrita. A limitação está registrada em [`limitacoes_e_validade.md`](limitacoes_e_validade.md).
 
 Validação da evidência real preservada, sem nova chamada:
 
 ```bash
 uv run validate-openai-evaluation-v4
 ```
+
+O comando encerra com código de saída `1` por projeto, refletindo a reprovação lexical de calibração preservada, não uma falha de execução.
 
 Esse validador retorna status científico não aprovado por desenho. O comando de execução real não faz parte da demonstração e não deve ser repetido sobre a evidência congelada.
 

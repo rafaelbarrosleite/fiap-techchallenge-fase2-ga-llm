@@ -21,7 +21,7 @@ uv run pytest
 
 Explique que os testes de consolidação comparam a tabela mestre aos JSONs congelados e inspecionam o código para proibir treino, inferência e rede.
 
-Resultado esperado desta entrega: `182 passed`. Avisos de depreciação de `pyparsing`/Matplotlib podem aparecer, sem afetar o status.
+Resultado esperado desta entrega, a partir de um clone limpo: `184 passed`. Avisos de depreciação de `pyparsing`/Matplotlib podem aparecer, sem afetar o status.
 
 ## 3. Abrir as evidências principais
 
@@ -45,13 +45,16 @@ Com manifesto íntegro e status `completed`, o comando somente valida hashes e c
 ## 5. Demonstrar a LLM offline
 
 ```bash
-uv run run-llm-evaluation
 uv run evaluate-llm-output
 ```
 
-O primeiro comando reutiliza a execução mock concluída para a mesma identidade. O segundo recalcula factualidade, segurança e as cinco dimensões sem chamar provider.
+O comando recalcula factualidade, segurança e as cinco dimensões sobre a execução mock congelada, sem chamar provider e sem rede.
+
+Não execute `run-llm-evaluation` na demonstração. A identidade da execução mock V1 inclui a assinatura do código que a produziu, e a adição posterior do contrato V2 ao pacote `llm/` alterou essa assinatura, de modo que o engine se recusa a reaproveitar o artefato e levanta `ManualInterventionRequired`. Se alguém da banca perguntar, essa recusa é a salvaguarda pretendida contra sobrescrever silenciosamente uma execução congelada; a evidência não foi re-selada para contornar a verificação.
 
 Como evidência complementar, abra `docs/avaliacao_provider_real_v4.md` e mostre que a única resposta real V2 obteve 327/327 fatos e zero violações clínicas, mas permaneceu não aprovada pelo gate lexical de calibração. Não execute novamente o provider real durante a demonstração.
+
+`validate-openai-evaluation-v4` encerra com código de saída `1` por projeto: ele reflete essa reprovação lexical preservada, não uma falha de execução. Os demais checks do mesmo relatório aparecem como `passed`.
 
 Abra:
 
@@ -76,12 +79,12 @@ Mostre a classe e a probabilidade, os cinco fatores, os insights com `scope=huma
 ## 6. Demonstrar idempotência
 
 ```bash
-shasum -a 256 artifacts/llm_evaluation/llm_evaluation_manifest.json
-uv run run-llm-evaluation
-shasum -a 256 artifacts/llm_evaluation/llm_evaluation_manifest.json
+shasum -a 256 artifacts/final_evaluation/final_manifest.json
+uv run run-final-evaluation
+shasum -a 256 artifacts/final_evaluation/final_manifest.json
 ```
 
-Os hashes devem ser idênticos. O mesmo raciocínio vale para `run-final-evaluation`: estado concluído íntegro é carregado, não recalculado.
+Os hashes devem ser idênticos: estado concluído íntegro é carregado, não recalculado. O mesmo vale para `run-individual-explanation`, que preserva `individual_explanation_manifest.json` byte a byte.
 
 ## 7. Provar ausência de nova otimização ou inferência
 
@@ -111,4 +114,4 @@ Não execute `run-ga-battery`, `run-ga-experiment`, `run-ga-analysis`, `run-base
 
 ## Plano de contingência
 
-Se `uv sync` exigir rede no ambiente da banca, use o `.venv` já preparado e execute `.venv/bin/pytest`, `.venv/bin/run-final-evaluation`, `.venv/bin/run-llm-evaluation` e `.venv/bin/validate-deliverable`. Não instale dependências durante a fala. Se qualquer manifesto falhar, interrompa a demo e mostre o relatório; não regenere resultados no palco.
+Se `uv sync` exigir rede no ambiente da banca, use o `.venv` já preparado e execute `.venv/bin/pytest`, `.venv/bin/run-final-evaluation`, `.venv/bin/evaluate-llm-output` e `.venv/bin/validate-deliverable`. Não instale dependências durante a fala. Se qualquer manifesto falhar, interrompa a demo e mostre o relatório; não regenere resultados no palco.

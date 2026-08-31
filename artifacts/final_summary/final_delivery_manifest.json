@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
   "artifact_type": "final_delivery_manifest",
-  "generated_at_utc": "2026-08-31T01:06:32.975945+00:00",
+  "generated_at_utc": "2026-08-31T02:14:49.089386+00:00",
   "status": "completed",
   "project_version": "0.7.0",
   "tests": {
     "command": "uv run pytest",
     "status": "passed",
-    "passed_count": 182
+    "passed_count": 184
   },
   "authority_references": {
     "mission4_plan_signature": "b94cbc663473ab040e89961144c69600062a03a09803c73027ca4163bc4fe1f7",
@@ -69,13 +69,13 @@
     "documents": [
       {
         "relative_path": "README.md",
-        "sha256": "1bd6a45c26026e128b98384ad3c10b0a73b09074cdeec7ac9b4e3ef4cdcc74cc",
-        "bytes": 10055
+        "sha256": "afbda7e2ac4af0e47238ef51dfcaab136a01fbd48c056ac83245fc5422d0c69f",
+        "bytes": 10627
       },
       {
         "relative_path": "docs/relatorio_final.md",
-        "sha256": "97188b4dc33de73be36b982e62977eed571c5e70cbda247f3d3adba5df03e86d",
-        "bytes": 20196
+        "sha256": "19c7b8164be4ad14ff82b008e5cc07147f2529faf360459fa0f15d1d5a558fbb",
+        "bytes": 20223
       },
       {
         "relative_path": "docs/resumo_executivo.md",
@@ -89,8 +89,8 @@
       },
       {
         "relative_path": "docs/demo_guide.md",
-        "sha256": "b7e49259673e49c0e671bdd75b3d0e1ca5869a48c4db67268313d58adc9e1653",
-        "bytes": 5161
+        "sha256": "7d9680a18a7748459025f1e6eb42a938a62cffcf1403a45d777652438183ee08",
+        "bytes": 5905
       },
       {
         "relative_path": "docs/mapa_evidencias.md",
@@ -109,8 +109,8 @@
       },
       {
         "relative_path": "docs/camada_llm_segura.md",
-        "sha256": "8d60166650fc9fdf7e52254bf027295668d08964af44c10dc55fb74cc716b658",
-        "bytes": 13191
+        "sha256": "6faa03d143d790e2cebef0c9ce7312e9df5fe102ac0e81c1e14bb3169be43a24",
+        "bytes": 13675
       },
       {
         "relative_path": "docs/avaliacao_final.md",
@@ -119,8 +119,8 @@
       },
       {
         "relative_path": "docs/limitacoes_e_validade.md",
-        "sha256": "2c2849b654a71a2e26d318747fbadf3b37e288aa9f42c2570e072a15e6ab2778",
-        "bytes": 5124
+        "sha256": "279c7260abc4255c946e36c8287f40a90aa032142dd640762d996f3ea2d70039",
+        "bytes": 5963
       },
       {
         "relative_path": "docs/contrato_llm_v2.md",
@@ -352,5 +352,5 @@
     "status": "passed",
     "check_count": 54
   },
-  "signature": "491b1055e3d12c54ac957cf6f2dd99a84ddece9d3c0f0154f4559e144555c290"
+  "signature": "aaedcb3a19e5fd7effa6a687c748f1de9da27402b7114c682c7b62d9d4fecf8a"
 }

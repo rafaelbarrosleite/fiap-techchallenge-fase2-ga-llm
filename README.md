@@ -62,18 +62,18 @@ O dataset local e as dependências estão identificados por hashes/lock. Segredo
 uv run pytest
 uv run validate-deliverable
 uv run run-final-evaluation
-uv run run-llm-evaluation
 uv run evaluate-llm-output
 ```
 
 Com os manifestos íntegros e status `completed`:
 
 - `run-final-evaluation` apenas valida e carrega resultados existentes;
-- `run-llm-evaluation` reutiliza o provider mock concluído;
-- `evaluate-llm-output` recalcula as verificações determinísticas;
+- `evaluate-llm-output` recalcula as verificações determinísticas da execução mock congelada;
 - `validate-deliverable` é somente leitura.
 
-Estado validado da entrega: **182 testes aprovados**. Os avisos observados são de depreciação interna de `pyparsing`/Matplotlib e não representam falha funcional ou alteração de resultado.
+Estado validado da entrega em clone limpo: **184 testes aprovados**. Os avisos observados são de depreciação interna de `pyparsing`/Matplotlib e não representam falha funcional ou alteração de resultado.
+
+`run-llm-evaluation` não faz parte do fluxo oficial. A identidade da execução mock V1 inclui a assinatura do código que a produziu, e a adição posterior do contrato V2 ao pacote `llm/` alterou essa assinatura. O engine então se recusa a reaproveitar o artefato congelado e levanta `ManualInterventionRequired`. Esse é o comportamento pretendido: a salvaguarda existe para impedir que uma execução congelada seja silenciosamente sobrescrita depois que o código muda. A evidência não foi re-selada para contornar a verificação; consulte [docs/limitacoes_e_validade.md](docs/limitacoes_e_validade.md).
 
 Não execute os comandos históricos de GA, busca ou baseline durante a demonstração. Eles permanecem no projeto para reprodução metodológica deliberada, não fazem parte do fluxo oficial da Missão 6.
 
