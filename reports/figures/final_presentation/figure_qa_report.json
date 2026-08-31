@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "final_presentation_figure_qa",
+  "generated_at_utc": "2026-08-24T18:14:23.293986+00:00",
+  "source_scope": "aggregate_artifacts_only",
+  "new_training_performed": false,
+  "new_inference_performed": false,
+  "automated_checks": {
+    "all_files_exist": true,
+    "all_files_nonempty": true,
+    "titles_axes_and_context_present": true,
+    "explicit_palette_used": true
+  },
+  "visual_review": {
+    "status": "approved",
+    "reviewed_at_utc": "2026-08-24T18:14:35.712191+00:00",
+    "reviewer": "Codex visual inspection",
+    "notes": [
+      "Seis figuras inspecionadas em resolução original.",
+      "Títulos, subtítulos, eixos, rótulos, legendas e valores estão legíveis.",
+      "Escalas focadas estão declaradas e as barras de magnitude começam em zero.",
+      "Nenhuma sobreposição ou corte material permaneceu após a correção de layout."
+    ]
+  },
+  "figures": [
+    {
+      "filename": "01_recall_baseline_vs_ga.png",
+      "question": "Como o recall no holdout mudou do baseline para o GA?",
+      "family": "Comparison & Ranking",
+      "type": "grouped bar",
+      "source": "final_test_results.json",
+      "supported_claim": "LR e RF aumentaram recall; KNN permaneceu igual.",
+      "sha256": "ea7d02062fe3fda78cafd237a2c2033e57435de2cbae34a1fe4c2afe60346f7a",
+      "bytes": 59518,
+      "width_px": 1361,
+      "height_px": 868
+    },
+    {
+      "filename": "02_falsos_negativos_baseline_vs_ga.png",
+      "question": "Quantos falsos negativos foram observados?",
+      "family": "Comparison & Ranking",
+      "type": "grouped bar",
+      "source": "final_test_results.json",
+      "supported_claim": "LR passou de 3 para 1, RF de 4 para 3 e KNN manteve 4.",
+      "sha256": "c047fbc345070666a2bc1456e731b46e81c58124f5cb2e8347e820531025b56a",
+      "bytes": 57085,
+      "width_px": 1338,
+      "height_px": 868
+    },
+    {
+      "filename": "03_roc_auc_por_metodo.png",
+      "question": "Como baseline, GA e busca aleatória se comparam em ROC-AUC?",
+      "family": "Comparison & Ranking",
+      "type": "faceted dot",
+      "source": "final_test_results.json",
+      "supported_claim": "RF e KNN mostram trade-off: AUC do GA caiu mesmo quando outras métricas melhoraram.",
+      "sha256": "2121567d94af3fcb90eee7684cdf2f570ba8c5ee6eb60f7abc3db0d20cd89469",
+      "bytes": 81975,
+      "width_px": 1530,
+      "height_px": 928
+    },
+    {
+      "filename": "04_recall_cv_vs_holdout.png",
+      "question": "Os ganhos de recall em CV apareceram no holdout?",
+      "family": "Uncertainty & Benchmark",
+      "type": "paired dot",
+      "source": "final_test_results.json",
+      "supported_claim": "O ganho apareceu em LR e RF, mas não se confirmou para KNN.",
+      "sha256": "3fc542f1f712bbddf880776c97d8e742159dc6cf0bb33bfd712e1a9918036774",
+      "bytes": 85071,
+      "width_px": 1558,
+      "height_px": 1001
+    },
+    {
+      "filename": "05_intervalos_recall.png",
+      "question": "Quão precisas são as estimativas de recall?",
+      "family": "Uncertainty & Benchmark",
+      "type": "dot and interval",
+      "source": "uncertainty_results.json",
+      "supported_claim": "Os IC95% são amplos e se sobrepõem.",
+      "sha256": "793c0ab89c1833eaad696d7a4ac1bc41919c68bb40ac9286e4dfd4e0fa464308",
+      "bytes": 89688,
+      "width_px": 1674,
+      "height_px": 1000
+    },
+    {
+      "filename": "06_fitness_ga_vs_busca_aleatoria.png",
+      "question": "O GA superou a busca aleatória no objetivo de CV?",
+      "family": "Uncertainty & Benchmark",
+      "type": "paired dot",
+      "source": "final_test_results.json",
+      "supported_claim": "LR e KNN empataram nas métricas agregadas; RF teve fitness maior com GA.",
+      "sha256": "ab91642b146039cfa35e26348eea07dbb8140a113544ee64774bd4d9d14fc0d2",
+      "bytes": 61546,
+      "width_px": 1530,
+      "height_px": 926
+    }
+  ],
+  "signature": "8b20196a15f24b4142531088c4fe5ffa1549973a9f30ecd431d2886355ff0256"
+}
