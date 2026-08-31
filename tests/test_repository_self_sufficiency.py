@@ -78,3 +78,33 @@ def test_referenced_evidence_is_versioned_and_not_only_local() -> None:
         "evidencias referenciadas mas fora do controle de versao; um clone limpo "
         "as perderia: " + "; ".join(untracked)
     )
+
+
+def test_demonstration_notebook_is_valid_read_only_and_unexecuted() -> None:
+    """O notebook de demonstração não pode treinar, ir à rede ou vir com saídas.
+
+    Saídas gravadas incham o diff e envelhecem em silêncio: um número exibido
+    no notebook deixaria de corresponder aos artefatos sem que nada falhasse.
+    """
+
+    import json
+
+    notebook = json.loads(
+        (PROJECT_ROOT / "notebooks" / "demonstracao.ipynb").read_text(encoding="utf-8")
+    )
+    assert notebook["nbformat"] >= 4
+
+    code_cells = [cell for cell in notebook["cells"] if cell["cell_type"] == "code"]
+    assert code_cells, "o notebook precisa ter células de código"
+
+    for cell in code_cells:
+        assert not cell.get("outputs"), "o notebook foi versionado com saídas gravadas"
+        assert cell.get("execution_count") is None
+
+    source = "\n".join("".join(cell["source"]) for cell in code_cells)
+    forbidden = (
+        "RandomizedSearchCV", "run_genetic", ".fit(", "urllib", "requests.",
+        "run_load_benchmark", "prepare_evaluation", "OPENAI_API_KEY",
+    )
+    for term in forbidden:
+        assert term not in source, f"o notebook usa primitiva fora do escopo somente leitura: {term}"

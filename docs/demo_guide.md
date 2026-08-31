@@ -21,7 +21,7 @@ uv run pytest
 
 Explique que os testes de consolidação comparam a tabela mestre aos JSONs congelados e inspecionam o código para proibir treino, inferência e rede.
 
-Resultado esperado desta entrega, a partir de um clone limpo: `211 passed`. Avisos de depreciação de `pyparsing`/Matplotlib podem aparecer, sem afetar o status.
+Resultado esperado desta entrega, a partir de um clone limpo: `212 passed`. Avisos de depreciação de `pyparsing`/Matplotlib podem aparecer, sem afetar o status.
 
 ## 3. Abrir as evidências principais
 
@@ -102,6 +102,14 @@ PY
 ```
 
 Não execute `run-ga-battery`, `run-ga-experiment`, `run-ga-analysis`, `run-baseline` ou provider `openai_responses` durante a apresentação.
+
+## Alternativa: notebook somente leitura
+
+`notebooks/demonstracao.ipynb` cobre os mesmos passos em um único artefato executável, útil quando a banca prefere ver o percurso completo sem alternar entre terminal e arquivos.
+
+```bash
+uv run --with jupyter jupyter lab notebooks/demonstracao.ipynb
+```
 
 ## Demonstração em 5 minutos
 

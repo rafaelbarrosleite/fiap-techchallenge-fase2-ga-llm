@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
   "artifact_type": "final_delivery_manifest",
-  "generated_at_utc": "2026-08-31T04:27:02.961342+00:00",
+  "generated_at_utc": "2026-08-31T04:32:38.202054+00:00",
   "status": "completed",
   "project_version": "0.7.0",
   "tests": {
     "command": "uv run pytest",
     "status": "passed",
-    "passed_count": 211
+    "passed_count": 212
   },
   "authority_references": {
     "mission4_plan_signature": "b94cbc663473ab040e89961144c69600062a03a09803c73027ca4163bc4fe1f7",
@@ -69,12 +69,12 @@
     "documents": [
       {
         "relative_path": "README.md",
-        "sha256": "19743167a6140170cccb2c5e538bb1e82db15d534aa847a21bba158ebfa668eb",
-        "bytes": 12248
+        "sha256": "61fe40f9a058c39c2ce8f880558e6ed43f1134c4d06c8c5d68c22b1daad8cc15",
+        "bytes": 12547
       },
       {
         "relative_path": "docs/relatorio_final.md",
-        "sha256": "44862558075347f8be3ddc1d7b9935a315f12a60f54b4f5c04bf09fdfe582dfb",
+        "sha256": "6a8acb3b6b33acaeeda3888495b768b8c5a44a1c5ad3969157a0e234a53cf3ba",
         "bytes": 22613
       },
       {
@@ -89,8 +89,8 @@
       },
       {
         "relative_path": "docs/demo_guide.md",
-        "sha256": "aaa8d6298962d96c820e55fe0d63818907644a3d2f30fa6c899e031bed6714ae",
-        "bytes": 5905
+        "sha256": "1fb9f88dc63e524c1a93c1257e682f975da17e36be8406ceb96db3d311d22b44",
+        "bytes": 6206
       },
       {
         "relative_path": "docs/mapa_evidencias.md",
@@ -109,7 +109,7 @@
       },
       {
         "relative_path": "docs/camada_llm_segura.md",
-        "sha256": "5f7b64f0e1434da9245a6f4705068d8fbddf08523c1013bedd3424f592bb87b8",
+        "sha256": "3fa96a319d2f2dc728b67803a502073351185074c31c462b62e87a9d8acd606f",
         "bytes": 13675
       },
       {
@@ -362,5 +362,5 @@
     "status": "passed",
     "check_count": 55
   },
-  "signature": "bf22b55edd7b1952c0612f4f1563c98440022cd41a06d60544c9246eca02f8d5"
+  "signature": "e9c0147c25376d10c50d5abffe8f48315caa1fa013696a7736c418954c1c8d0d"
 }

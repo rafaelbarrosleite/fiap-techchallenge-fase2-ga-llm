@@ -175,7 +175,7 @@ O mock determinístico V1 produziu saída aprovada nas cinco dimensões, com not
 
 A avaliação complementar real V2 fez uma única chamada ao provider OpenAI. Ela retornou HTTP 200, status `completed`, 327/327 fatos, segurança, completude e clareza aprovadas, zero números inesperados, zero claims clínicos, zero violações de seleção/par/McNemar e disclaimer correto. A calibração científica foi reprovada em três checks lexicais que não reconheceram paráfrases semanticamente adequadas. O resultado original permaneceu não aprovado; não houve retry, adversariais ou alteração posterior de prompt, schema ou checker.
 
-A suíte consolidada aprovou 211 testes a partir de um clone limpo. Os avisos são depreciações já existentes em dependências do Matplotlib durante testes de figuras; não houve falha. A repetição das execuções offline com a mesma identidade preserva os artefatos sem chamar provider.
+A suíte consolidada aprovou 212 testes a partir de um clone limpo. Os avisos são depreciações já existentes em dependências do Matplotlib durante testes de figuras; não houve falha. A repetição das execuções offline com a mesma identidade preserva os artefatos sem chamar provider.
 
 ## 14. Limitações
 

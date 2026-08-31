@@ -1,5 +1,7 @@
 # Tech Challenge — Fase 2 — Algoritmo Genético e LLM
 
+[![CI](https://github.com/rafaelbarrosleite/fiap-techchallenge-fase2-ga-llm/actions/workflows/ci.yml/badge.svg)](https://github.com/rafaelbarrosleite/fiap-techchallenge-fase2-ga-llm/actions/workflows/ci.yml)
+
 Projeto acadêmico da Pós Tech FIAP que otimiza Regressão Logística, Random Forest e KNN com um algoritmo genético autoral e transforma resultados agregados e classificações individuais desidentificadas em explicações controladas por uma camada LLM segura.
 
 O projeto está consolidado para reprodução e demonstração offline. Não oferece diagnóstico, tratamento ou recomendação médica.
@@ -71,7 +73,7 @@ Com os manifestos íntegros e status `completed`:
 - `evaluate-llm-output` recalcula as verificações determinísticas da execução mock congelada;
 - `validate-deliverable` é somente leitura.
 
-Estado validado da entrega em clone limpo: **211 testes aprovados**. Os avisos observados são de depreciação interna de `pyparsing`/Matplotlib e não representam falha funcional ou alteração de resultado.
+Estado validado da entrega em clone limpo: **212 testes aprovados**. Os avisos observados são de depreciação interna de `pyparsing`/Matplotlib e não representam falha funcional ou alteração de resultado.
 
 `run-llm-evaluation` não faz parte do fluxo oficial. A identidade da execução mock V1 inclui a assinatura do código que a produziu, e a adição posterior do contrato V2 ao pacote `llm/` alterou essa assinatura. O engine então se recusa a reaproveitar o artefato congelado e levanta `ManualInterventionRequired`. Esse é o comportamento pretendido: a salvaguarda existe para impedir que uma execução congelada seja silenciosamente sobrescrita depois que o código muda. A evidência não foi re-selada para contornar a verificação; consulte [docs/limitacoes_e_validade.md](docs/limitacoes_e_validade.md).
 
@@ -159,6 +161,7 @@ Detalhes em [docs/escalabilidade_e_monitoramento.md](docs/escalabilidade_e_monit
 
 ## Demonstração
 
+- notebook somente leitura: [notebooks/demonstracao.ipynb](notebooks/demonstracao.ipynb);
 - roteiro de 10–15 minutos: [docs/roteiro_apresentacao.md](docs/roteiro_apresentacao.md);
 - guia completo e versão de 5 minutos: [docs/demo_guide.md](docs/demo_guide.md);
 - resumo para leitura rápida: [docs/resumo_executivo.md](docs/resumo_executivo.md).

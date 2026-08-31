@@ -1,0 +1,80 @@
+# Prova externa de que um clone limpo reproduz a entrega.
+#
+# O modo de falha que este projeto ja sofreu foi o repositorio parecer completo
+# na maquina de quem desenvolveu e quebrar para quem apenas clonava. O CI existe
+# para que essa divergencia apareca em cada push, e nao na banca.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  suite:
+    name: Suite em clone limpo (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # Os extremos da faixa declarada em requires-python.
+        python-version: ["3.11", "3.13"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.8.17"
+          enable-cache: true
+
+      - name: Sincronizar dependencias travadas
+        run: uv sync --frozen
+
+      - name: Executar a suite
+        run: uv run pytest -q
+
+      - name: Validar a entrega consolidada
+        run: uv run validate-deliverable
+
+      - name: Validar o contrato LLM V2
+        run: uv run validate-llm-contract-v2
+
+  escalabilidade:
+    name: Benchmark de escalabilidade
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.8.17"
+          enable-cache: true
+
+      - name: Sincronizar dependencias travadas
+        run: uv sync --frozen
+
+      # A medicao depende do hardware do runner, entao o benchmark roda para
+      # provar que executa e permanece em escopo; os numeros do relatorio nao
+      # sao comparados com os versionados.
+      - name: Medir sob demanda variavel
+        run: uv run run-load-benchmark
+
+      - name: Validar escopo e ausencia de dado individual
+        run: uv run validate-scalability
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: relatorio-de-escalabilidade
+          path: artifacts/scalability/
+          retention-days: 14
