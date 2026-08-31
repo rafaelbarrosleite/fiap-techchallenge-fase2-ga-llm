@@ -8,28 +8,32 @@ __pycache__/
 .coverage
 htmlcov/
 
-# Evidencias reproduziveis publicadas; demais saidas continuam locais
-artifacts/**
-!artifacts/.gitkeep
-!artifacts/**/
-!artifacts/*.json
-!artifacts/**/*.json
-
-reports/**
-!reports/.gitkeep
-!reports/figures/
-!reports/figures/**/
-!reports/figures/*.png
-!reports/figures/**/*.png
-logs/*
-!logs/.gitkeep
-
-# Modelos, notebooks executados e arquivos temporarios
+# Modelos serializados, notebooks executados e arquivos temporarios
 *.joblib
 *.pkl
 *.log
 .ipynb_checkpoints/
 notebooks/*-executed.ipynb
+
+# Evidencias reproduziveis publicadas; demais saidas continuam locais
+artifacts/**
+!artifacts/.gitkeep
+!artifacts/**/
+!artifacts/**/*.json
+!artifacts/**/*.csv
+
+# Pipelines congelados da avaliacao final (1,5 MB): exigidos pela trilha
+# de explicacao individual e pela verificacao de hashes dos manifestos.
+!artifacts/final_evaluation/models/*.joblib
+
+reports/**
+!reports/.gitkeep
+!reports/figures/
+!reports/figures/**/
+!reports/figures/**/*.png
+
+logs/*
+!logs/.gitkeep
 
 # Credenciais de provedores e ferramentas
 .env.*
