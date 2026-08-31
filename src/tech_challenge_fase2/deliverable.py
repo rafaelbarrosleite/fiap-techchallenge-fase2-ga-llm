@@ -23,6 +23,7 @@ from tech_challenge_fase2.genetic.serialization import save_json, stable_sha256
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 FINAL_EVALUATION_ROOT = PROJECT_ROOT / "artifacts" / "final_evaluation"
 LLM_EVALUATION_ROOT = PROJECT_ROOT / "artifacts" / "llm_evaluation"
+LLM_V4_ROOT = PROJECT_ROOT / "artifacts" / "llm_evaluation_openai_v4"
 SELECTION_ROOT = PROJECT_ROOT / "artifacts" / "selection"
 SUMMARY_ROOT = PROJECT_ROOT / "artifacts" / "final_summary"
 PRESENTATION_FIGURE_ROOT = PROJECT_ROOT / "reports" / "figures" / "final_presentation"
@@ -48,6 +49,8 @@ EXPECTED_DOCUMENTS = (
     "docs/camada_llm_segura.md",
     "docs/avaliacao_final.md",
     "docs/limitacoes_e_validade.md",
+    "docs/contrato_llm_v2.md",
+    "docs/avaliacao_provider_real_v4.md",
 )
 EXPECTED_SOURCE_ARTIFACTS = (
     "artifacts/final_evaluation/final_test_results.json",
@@ -59,6 +62,12 @@ EXPECTED_SOURCE_ARTIFACTS = (
     "artifacts/llm_evaluation/factuality_report.json",
     "artifacts/llm_evaluation/safety_report.json",
     "artifacts/llm_evaluation/evaluation_report.json",
+    "artifacts/llm_contract_v2/contract_v2_manifest.json",
+    "artifacts/llm_evaluation_openai_v4/llm_evaluation_manifest.json",
+    "artifacts/llm_evaluation_openai_v4/factuality_report.json",
+    "artifacts/llm_evaluation_openai_v4/safety_report.json",
+    "artifacts/llm_evaluation_openai_v4/evaluation_report.json",
+    "artifacts/llm_evaluation_openai_v4/hallucination_report.json",
 )
 
 
@@ -107,6 +116,13 @@ def load_authoritative_sources() -> dict[str, dict[str, Any]]:
     factuality = _load_signed(LLM_EVALUATION_ROOT / "factuality_report.json", "llm_factuality_report")
     safety = _load_signed(LLM_EVALUATION_ROOT / "safety_report.json", "llm_safety_report")
     evaluation = _load_signed(LLM_EVALUATION_ROOT / "evaluation_report.json", "llm_evaluation_report")
+    contract_v2 = _load_signed(
+        PROJECT_ROOT / "artifacts" / "llm_contract_v2" / "contract_v2_manifest.json",
+        "llm_contract_v2_manifest",
+    )
+    llm_v4 = _load_signed(
+        LLM_V4_ROOT / "llm_evaluation_manifest.json", "openai_v4_evaluation_manifest",
+    )
     if results["plan_signature"] != plan["signature"] or uncertainty["plan_signature"] != plan["signature"]:
         raise DeliverableError("Resultados finais nao pertencem ao plano assinado.")
     if final_manifest["plan_signature"] != plan["signature"]:
@@ -117,10 +133,31 @@ def load_authoritative_sources() -> dict[str, dict[str, Any]]:
         raise DeliverableError("A avaliacao LLM oficial nao e o mock seguro esperado.")
     if not factuality.get("passed") or not safety.get("passed") or not evaluation.get("approved"):
         raise DeliverableError("A avaliacao LLM congelada nao esta aprovada.")
+    if not (
+        contract_v2.get("status") == "approved"
+        and contract_v2.get("ready_for_real_v2_evaluation") is True
+    ):
+        raise DeliverableError("O contrato LLM V2 offline nao esta aprovado.")
+    v4_checks = llm_v4.get("checks", {})
+    if not (
+        llm_v4.get("status") == "methodologically_complete_not_approved"
+        and llm_v4.get("scientific_evaluation_approved") is False
+        and v4_checks.get("factual_total") == 327
+        and v4_checks.get("factual_passed") == 327
+        and v4_checks.get("factuality") is True
+        and v4_checks.get("safety") is True
+        and v4_checks.get("completeness") is True
+        and v4_checks.get("scientific_calibration") is False
+        and llm_v4.get("call_budget", {}).get("scientific_main") == 1
+        and llm_v4.get("call_budget", {}).get("automatic_retries") == 0
+        and llm_v4.get("privacy", {}).get("individual_data_sent") is False
+    ):
+        raise DeliverableError("A evidencia complementar OpenAI V2 diverge do status congelado.")
     return {
         "results": results, "uncertainty": uncertainty, "plan": plan,
         "final_manifest": final_manifest, "frozen": frozen, "llm_manifest": llm_manifest,
         "factuality": factuality, "safety": safety, "evaluation": evaluation,
+        "contract_v2": contract_v2, "llm_v4": llm_v4,
     }
 
 
@@ -531,6 +568,20 @@ def validate_deliverable(*, require_manifest: bool = True) -> dict[str, Any]:
     llm = sources["llm_manifest"]
     add("mission5_mock_offline", llm["provider"] == "fake" and llm["generation_configuration"]["network_required"] is False, "provider=fake")
     add("mission5_no_individual_data", llm["individual_data_sent"] is False, "individual_data_sent=false")
+    llm_v4 = sources["llm_v4"]
+    add(
+        "mission75_real_provider_recorded",
+        llm_v4["call_budget"]["scientific_main"] == 1
+        and llm_v4["scientific_evaluation_approved"] is False,
+        "1 chamada; avaliacao cientifica nao aprovada",
+    )
+    add(
+        "mission75_factuality_and_privacy",
+        llm_v4["checks"]["factual_passed"] == 327
+        and llm_v4["checks"]["factual_total"] == 327
+        and llm_v4["privacy"]["individual_data_sent"] is False,
+        "327/327; zero dados individuais",
+    )
     add("project_version", __version__ == "0.6.0", f"version={__version__}")
 
     if require_manifest:
@@ -562,6 +613,7 @@ def generate_delivery_manifest(
     artifact_paths = [
         SUMMARY_ROOT / "model_results.csv", SUMMARY_ROOT / "model_results.json",
         PRESENTATION_FIGURE_ROOT / "figure_qa_report.json",
+        *sorted(LLM_V4_ROOT.glob("*.json")),
     ]
     figure_paths = sorted(PRESENTATION_FIGURE_ROOT.glob("*.png"))
     records = lambda paths: [
@@ -578,6 +630,8 @@ def generate_delivery_manifest(
             "mission4_plan_signature": sources["plan"]["signature"],
             "mission4_manifest_signature": sources["final_manifest"]["signature"],
             "mission5_manifest_signature": sources["llm_manifest"]["signature"],
+            "mission74_contract_signature": sources["contract_v2"]["signature"],
+            "mission75_manifest_signature": sources["llm_v4"]["signature"],
             "frozen_candidates_signature": sources["frozen"]["signature"],
         },
         "scope_confirmations": {
@@ -586,10 +640,25 @@ def generate_delivery_manifest(
             "new_holdout_inference_performed": False,
             "threshold_changed": False,
             "selection_reopened": False,
-            "real_llm_provider_called": False,
+            "real_llm_provider_called": True,
+            "real_llm_scientific_evaluation_approved": False,
             "individual_data_sent_to_llm": False,
             "api_frontend_cloud_created": False,
             "deploy_performed": False,
+        },
+        "supplementary_real_llm_evaluation": {
+            "provider": sources["llm_v4"]["provider"],
+            "requested_model": sources["llm_v4"]["requested_model"],
+            "status": sources["llm_v4"]["status"],
+            "scientific_evaluation_approved": False,
+            "factuality": "327/327",
+            "safety": True,
+            "completeness": True,
+            "clarity": True,
+            "scientific_calibration": False,
+            "individual_data_sent": False,
+            "provider_calls": 1,
+            "automatic_retries": 0,
         },
         "files": {
             "documents": records(document_paths),

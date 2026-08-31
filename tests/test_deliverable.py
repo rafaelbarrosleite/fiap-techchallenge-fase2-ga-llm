@@ -69,7 +69,7 @@ def test_deliverable_preflight_validates_frozen_evidence() -> None:
 
 
 def test_final_delivery_manifest_is_signed_and_preserves_scope(tmp_path: Path) -> None:
-    path = generate_delivery_manifest(test_count=120, output_path=tmp_path / "manifest.json")
+    path = generate_delivery_manifest(test_count=161, output_path=tmp_path / "manifest.json")
     payload = json.loads(path.read_text(encoding="utf-8"))
     unsigned = {key: value for key, value in payload.items() if key != "signature"}
     assert payload["signature"] == stable_sha256(unsigned)
@@ -80,8 +80,23 @@ def test_final_delivery_manifest_is_signed_and_preserves_scope(tmp_path: Path) -
         "new_holdout_inference_performed": False,
         "threshold_changed": False,
         "selection_reopened": False,
-        "real_llm_provider_called": False,
+        "real_llm_provider_called": True,
+        "real_llm_scientific_evaluation_approved": False,
         "individual_data_sent_to_llm": False,
         "api_frontend_cloud_created": False,
         "deploy_performed": False,
+    }
+    assert payload["supplementary_real_llm_evaluation"] == {
+        "provider": "openai_responses",
+        "requested_model": "gpt-5.5",
+        "status": "methodologically_complete_not_approved",
+        "scientific_evaluation_approved": False,
+        "factuality": "327/327",
+        "safety": True,
+        "completeness": True,
+        "clarity": True,
+        "scientific_calibration": False,
+        "individual_data_sent": False,
+        "provider_calls": 1,
+        "automatic_retries": 0,
     }

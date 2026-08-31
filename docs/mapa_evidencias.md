@@ -31,9 +31,14 @@ As afirmações quantitativas devem ser auditadas nos artefatos estruturados. Do
 | Safety checker foi aprovado | `safety_report.json` | `passed=true`, `violations=[]` |
 | Cinco dimensões obtiveram 1,0 | `evaluation_report.json` | `dimensions`, `overall_score` |
 | LLM foi idempotente | `llm_evaluation_manifest.json` | `run_identity` e hash preservado |
+| Contrato LLM V2 foi aprovado offline | `artifacts/llm_contract_v2/contract_v2_manifest.json` | `status=approved`, `ready_for_real_v2_evaluation=true` |
+| Provider real V2 respondeu uma vez | `artifacts/llm_evaluation_openai_v4/llm_evaluation_manifest.json` | `call_budget.scientific_main=1`, `automatic_retries=0` |
+| Resposta real reproduziu todos os fatos | `artifacts/llm_evaluation_openai_v4/factuality_report.json` | `passed_checks=327`, `check_count=327` |
+| Resposta real permaneceu não aprovada | `artifacts/llm_evaluation_openai_v4/llm_evaluation_manifest.json` | `status=methodologically_complete_not_approved`, `scientific_evaluation_approved=false` |
+| Nenhum dado individual foi enviado ao provider real | `artifacts/llm_evaluation_openai_v4/llm_evaluation_manifest.json` | `privacy.individual_data_sent=false` |
 | Tabela mestre não executou modelagem | `artifacts/final_summary/model_results.json` | `data_scope` |
 | Figuras usam somente agregados | `reports/figures/final_presentation/figure_qa_report.json` | `source_scope` |
-| Entrega não fez treino, inferência, provider real ou deploy | `artifacts/final_summary/final_delivery_manifest.json` | `scope_confirmations` |
+| Consolidação não fez treino, inferência ou deploy; provider real foi isolado | `artifacts/final_summary/final_delivery_manifest.json` | `scope_confirmations`, `supplementary_real_llm_evaluation` |
 
 ## Caminhos completos prioritários
 
@@ -43,5 +48,7 @@ As afirmações quantitativas devem ser auditadas nos artefatos estruturados. Do
 - [`final_manifest.json`](../artifacts/final_evaluation/final_manifest.json)
 - [`frozen_candidates.json`](../artifacts/selection/frozen_candidates.json)
 - [`llm_evaluation_manifest.json`](../artifacts/llm_evaluation/llm_evaluation_manifest.json)
+- [`contract_v2_manifest.json`](../artifacts/llm_contract_v2/contract_v2_manifest.json)
+- [`llm_evaluation_manifest.json` V4](../artifacts/llm_evaluation_openai_v4/llm_evaluation_manifest.json)
 - [`model_results.json`](../artifacts/final_summary/model_results.json)
 - `artifacts/final_summary/final_delivery_manifest.json` (gerado somente após a aprovação da suíte final)

@@ -4,6 +4,8 @@ Projeto acadêmico da Pós Tech FIAP que otimiza Regressão Logística, Random F
 
 O projeto está consolidado para reprodução e demonstração offline. Não oferece diagnóstico, tratamento ou recomendação médica.
 
+Estado da entrega: código, evidências, documentação e publicação técnica concluídos; permanece pendente apenas a gravação e inclusão do link do vídeo obrigatório de até 15 minutos.
+
 ## Objetivo e resultado
 
 A seleção ocorreu somente em 455 registros de desenvolvimento, usando cinco dobras estratificadas. Os candidatos foram congelados antes do holdout de 114 registros. O teste final não alterou hiperparâmetros, threshold ou modelo selecionado.
@@ -30,9 +32,11 @@ flowchart TD
     R --> F
     F --> E[Avaliação final única no holdout]
     E --> A[Resultados agregados + incerteza]
-    A --> L[Contrato LLM sanitizado]
-    L --> M[Provider mock offline]
+    A --> L[Contrato LLM sanitizado V1/V2]
+    L --> M[Provider mock offline oficial]
+    L --> O[OpenAI real opt-in]
     M --> V[Factualidade + segurança]
+    O --> V
     V --> X[Explicação aprovada]
     A --> C[Entrega acadêmica consolidada]
     X --> C
@@ -65,7 +69,7 @@ Com os manifestos íntegros e status `completed`:
 - `evaluate-llm-output` recalcula as verificações determinísticas;
 - `validate-deliverable` é somente leitura.
 
-Estado validado da entrega: **120 testes aprovados**. Os 14 avisos observados são de depreciação interna de `pyparsing`/Matplotlib e não representam falha funcional ou alteração de resultado.
+Estado validado da entrega: **161 testes aprovados**. Os 14 avisos observados são de depreciação interna de `pyparsing`/Matplotlib e não representam falha funcional ou alteração de resultado.
 
 Não execute os comandos históricos de GA, busca ou baseline durante a demonstração. Eles permanecem no projeto para reprodução metodológica deliberada, não fazem parte do fluxo oficial da Missão 6.
 
@@ -77,6 +81,7 @@ docs/                                relatório, auditorias, métodos e demo
 src/tech_challenge_fase2/
   genetic/                            genomas, fitness, operadores e engine
   llm/                                contratos, prompts, providers e checkers
+  llm_v2/                             contrato semântico com pares explícitos
   final_evaluation.py                 avaliação confirmatória protegida
   deliverable.py                      consolidação somente leitura
 tests/                                suíte automatizada
@@ -85,6 +90,8 @@ artifacts/
   selection/                          candidatos congelados
   final_evaluation/                   resultados e incerteza
   llm_evaluation/                     entrada, saída e avaliações LLM
+  llm_contract_v2/                    validação offline do contrato V2
+  llm_evaluation_openai_v4/           execução real V2 preservada
   final_summary/                       tabela e manifesto da entrega
 reports/figures/final_presentation/  figuras finais revisadas
 ```
@@ -108,7 +115,9 @@ O modelo para demonstração é a Regressão Logística da busca aleatória, ven
 
 A LLM recebe somente resultados agregados. O contrato rejeita registros, features, índices, diagnósticos, previsões e probabilidades individuais. Prompts versionados impõem linguagem científica e disclaimer.
 
-O provider oficial é um mock determinístico offline. A resposta foi aprovada por 139 checks factuais, safety checker e cinco dimensões de avaliação. O provider real é opt-in, não foi chamado na entrega e não é necessário para a demonstração.
+O provider oficial de reprodução continua sendo um mock determinístico offline. A resposta V1 foi aprovada por 139 checks factuais, safety checker e cinco dimensões. O contrato V2 acrescenta nove pares comparativos explícitos e 327 checks factuais.
+
+Uma avaliação complementar real foi executada uma única vez com a OpenAI e o modelo configurado `gpt-5.5`, usando `store=false`, sem `temperature`, sem retry e sem dados individuais. A resposta passou schema, **327/327 fatos**, segurança, completude, clareza, pares e McNemar. O status científico permaneceu não aprovado porque três verificações lexicais de calibração exigiam frases específicas, embora o texto utilizasse formulações semanticamente seguras. Essa execução negativa foi preservada e não substitui o mock oficial.
 
 ## Demonstração
 
@@ -122,7 +131,7 @@ O provider oficial é um mock determinístico offline. A resposta foi aprovada p
 - seleção por CV antes do holdout;
 - avaliação final idempotente;
 - ausência de nova otimização ou inferência na consolidação;
-- LLM sem dados individuais e sem provider real;
+- LLM sem dados individuais; provider real complementar isolado e auditado;
 - hashes e manifestos em todas as etapas críticas;
 - divergências históricas preservadas.
 
@@ -135,7 +144,8 @@ O provider oficial é um mock determinístico offline. A resposta foi aprovada p
 - ICs amplos e testes pareados com poucos discordantes;
 - uma seed oficial não mede variabilidade completa do GA;
 - safety checker determinístico não cobre toda paráfrase;
-- provider LLM real não foi avaliado.
+- a única avaliação real é específica ao modelo e à versão retornada e não foi aprovada pelo gate lexical de calibração;
+- regras textuais determinísticas ainda podem reprovar paráfrases semanticamente adequadas.
 
 ## Documentação
 
@@ -146,6 +156,8 @@ O provider oficial é um mock determinístico offline. A resposta foi aprovada p
 - algoritmo genético: [docs/algoritmo_genetico.md](docs/algoritmo_genetico.md);
 - avaliação final: [docs/avaliacao_final.md](docs/avaliacao_final.md);
 - LLM segura: [docs/camada_llm_segura.md](docs/camada_llm_segura.md);
+- contrato LLM V2: [docs/contrato_llm_v2.md](docs/contrato_llm_v2.md);
+- avaliação OpenAI V2: [docs/avaliacao_provider_real_v4.md](docs/avaliacao_provider_real_v4.md);
 - limitações: [docs/limitacoes_e_validade.md](docs/limitacoes_e_validade.md).
 
 ## Disclaimer acadêmico

@@ -20,18 +20,19 @@
 | McNemar exato | 4 | comparação pareada | teste sintético | `uncertainty_results.json` | Concluído |
 | Modelos serializados e assinados | 4 | joblib local | round trip + hashes | `final_manifest.json` | Concluído |
 | LLM sem dados individuais | 5 | contrato + privacy gate | injeções proibidas | `llm_input_snapshot.json` | Concluído |
-| Prompts versionados | 5 | `system_v1`, `explanation_v1` | hashes/cabeçalhos | manifesto LLM | Concluído |
+| Prompts versionados | 5/7.4 | system/explanation V1 e V2 | hashes/cabeçalhos | manifestos LLM | Concluído |
 | Provider fake offline | 5 | `FakeLLMProvider` | rede bloqueada nos testes | manifesto LLM | Concluído |
-| Provider real opt-in | 5 | Responses configurável | requisição simulada | código; não chamado | Concluído sem execução real |
+| Contrato semântico V2 | 7.4 | nove pares explícitos + McNemar agregado | 327 checks fake | `llm_contract_v2/` | Concluído offline |
+| Provider real opt-in | 5/7.5 | Responses raw-first configurável | uma chamada V2 sem retry | `llm_evaluation_openai_v4/` | Concluído tecnicamente; avaliação científica não aprovada pelo gate lexical |
 | Factualidade automática | 5 | checker independente | número/modelo/IC incorretos | `factuality_report.json` | Concluído |
 | Safety checker | 5 | regras determinísticas | diagnóstico, certeza, disclaimer | `safety_report.json` | Concluído |
 | Avaliação em 5 dimensões | 5 | `evaluation.py` | casos A–I | `evaluation_report.json` | Concluído |
 | Idempotência LLM | 5 | identidade e hashes | provider não chamado duas vezes | manifesto LLM | Concluído |
-| Relatório e resumo acadêmicos | 6 | documentos finais | validador de links/números | `relatorio_final.md` | Concluído |
+| Relatório e resumo acadêmicos | 6/7.5 | documentos finais consolidados | validador de links/números/status | `relatorio_final.md` | Concluído |
 | Tabela mestre derivada | 6 | `deliverable.py` | comparação com JSON fonte | `model_results.*` | Concluído |
 | Figuras agregadas com QA | 6 | seis gráficos estáticos | hashes + inspeção visual | `figure_qa_report.json` | Concluído |
 | Manifesto final | 6 | hashes e confirmações | `validate-deliverable` | `final_delivery_manifest.json` | Concluído |
-| Demonstração offline | 6 | fluxo idempotente | guia de 5/15 minutos | `demo_guide.md` | Concluído |
+| Demonstração offline | 6 | fluxo idempotente | guia de 5/15 minutos | `demo_guide.md` | Concluído; gravação externa do vídeo pendente |
 | API/frontend/cloud/deploy | — | fora do escopo aprovado | confirmação de ausência | manifesto final | Não implementado por decisão |
 
 ## Arquitetura consolidada
@@ -51,11 +52,12 @@ flowchart TD
     H --> E
     E --> A[Resultados agregados e incerteza]
     A --> P[Contrato LLM sanitizado]
-    P --> L[Provider mock offline]
+    P --> L[Provider mock offline oficial]
+    P --> R[OpenAI real V2 complementar]
     L --> O[Saída estruturada]
+    R --> O
     O --> C[Factualidade + segurança]
     C --> X[Explicação aprovada]
     A --> M[Consolidação acadêmica somente leitura]
     X --> M
 ```
-

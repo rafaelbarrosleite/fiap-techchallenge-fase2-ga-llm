@@ -77,9 +77,9 @@ Convenção: Regressão Logística (LR), Random Forest (RF), KNN, baseline, GA, 
 ## Slide 10 — Camada LLM (70 s)
 
 - **Mensagem principal:** a LLM explica apenas agregados sob contrato.
-- **Dados:** 139 checks, cinco dimensões, score 1,0, provider fake.
+- **Dados:** mock V1 com 139 checks; mock V2 com 327; execução real V2 com 327/327 fatos, mas gate lexical de calibração não aprovado.
 - **Figura:** fluxo LLM de `camada_llm_segura.md`.
-- **Fala sugerida:** “O provider gera; código independente decide se a saída pode ser aprovada.”
+- **Fala sugerida:** “O provider gera; código independente decide se a saída pode ser aprovada. A execução real acertou todos os fatos, mas foi preservada como não aprovada porque o gate lexical é conservador.”
 - **Risco:** sugerir que outro LLM valida a resposta; as barreiras oficiais são determinísticas.
 
 ## Slide 11 — Segurança, divergências e limitações (75 s)
@@ -97,4 +97,3 @@ Convenção: Regressão Logística (LR), Random Forest (RF), KNN, baseline, GA, 
 - **Figura:** checklist da matriz de rastreabilidade.
 - **Fala sugerida:** “A contribuição é otimização reproduzível mais explicação segura, com limites explícitos.”
 - **Risco:** prometer API, cloud ou deploy; não fazem parte desta missão.
-

@@ -50,6 +50,14 @@ Os Pipelines foram serializados com joblib e scikit-learn 1.7.1. Arquivos pickle
 
 Tempos de parede refletem o Mac mini M4 e a carga do momento. Não são benchmarks universais.
 
+## Validade da camada LLM
+
+O provider fake V1/V2 é a referência oficial offline porque é determinístico e não depende de rede. A avaliação complementar real representa uma única resposta do modelo retornado `gpt-5.5-2026-04-23`; ela não generaliza para outras versões, providers ou execuções.
+
+Essa resposta obteve 327/327 fatos e passou segurança, completude e clareza, mas permaneceu não aprovada porque três checks de calibração exigiam formulações lexicais específicas. O caso mostra duas limitações simultâneas: respostas reais variam e regras determinísticas estreitas podem reprovar paráfrases semanticamente adequadas. O resultado histórico foi preservado sem retry ou ajuste retrospectivo.
+
+Nenhuma avaliação LLM — fake ou real — acrescenta validade clínica, nova evidência estatística ou autorização de uso em pacientes.
+
 ## Escopo de uso
 
 Este projeto é acadêmico. Não substitui profissional de saúde, não emite diagnóstico, não foi validado para decisão clínica e não estabelece segurança, eficácia médica ou conformidade regulatória.

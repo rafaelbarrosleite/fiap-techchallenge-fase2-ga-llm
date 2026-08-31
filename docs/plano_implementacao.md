@@ -133,15 +133,25 @@ Entregas:
 - checklist da matriz de requisitos;
 - instruções de reprodução em ambiente limpo.
 
-Validação concluída: relatório e resumo autocontidos, roteiro de 10–15 minutos, demo de 5 minutos, mapa de evidências, tabela mestre, seis figuras revisadas, matriz final, validador somente leitura e manifesto da entrega. A suíte completa aprovou 120 testes; tudo foi derivado dos artefatos congelados, sem treino, busca ou inferência.
+Validação concluída naquele marco: relatório e resumo autocontidos, roteiro de 10–15 minutos, demo de 5 minutos, mapa de evidências, tabela mestre, seis figuras revisadas, matriz final, validador somente leitura e manifesto da entrega. A suíte da Missão 6 aprovou 120 testes; após as missões complementares de LLM, o total consolidado passou a 161, sem novo treino, busca ou inferência.
 
-### Etapa 7 - Avaliação complementar do provider real: concluída com limitação observada
+### Etapa 7 - Avaliação complementar do provider real: concluída metodologicamente, não aprovada cientificamente
 
-Foi preparada uma execução isolada em `artifacts/llm_evaluation_openai/`, com o mesmo payload e prompts da Missão 5. O preflight aprovou privacidade, schema, hashes e `store=false`. A única chamada principal ao `openai_responses` com o modelo configurado foi rejeitada com HTTP 400 antes de produzir saída; não houve retry nem cenários adversariais. A evidência foi preservada como execução inválida e está documentada em `docs/avaliacao_provider_real.md`.
+As Missões 7.1–7.3 diagnosticaram o parâmetro `temperature`, validaram o parsing raw-first e preservaram a resposta V1 com 138/139 checks. A Missão 7.4 criou o contrato V2 com pares explícitos, McNemar agregado e 327 checks, aprovado integralmente com o provider fake.
 
-O provider fake continua sendo o caminho oficial de reprodução offline. Não foi removida a limitação de que um provider real ainda não possui resposta aprovada.
+Na Missão 7.5, uma única chamada científica real em `artifacts/llm_evaluation_openai_v4/` retornou HTTP 200 e `completed`. O payload continha somente agregados, usou `store=false`, omitiu `temperature` e não teve retry. A resposta passou schema, 327/327 fatos, segurança, completude, clareza, pares comparativos e McNemar. O status final permaneceu `methodologically_complete_not_approved` porque três checks lexicais de calibração não reconheceram paráfrases semanticamente adequadas. Não houve ajuste posterior nem chamadas adversariais.
 
-### Etapa 8 - Extras, somente após aprovação
+O provider fake V2 continua sendo o caminho oficial de reprodução offline. A execução real é evidência complementar e não pode ser apresentada como aprovação científica integral.
+
+### Etapa 8 - Consolidação e publicação: concluída, exceto vídeo
+
+- documentação consolidada com o resultado negativo da avaliação real;
+- manifesto final atualizado com hashes e escopo correto;
+- suíte e validadores executados offline;
+- código e documentação versionados e publicados sem segredos;
+- vídeo de até 15 minutos permanece como único entregável externo pendente.
+
+### Extras opcionais
 
 - API, se trouxer valor à demonstração;
 - container;

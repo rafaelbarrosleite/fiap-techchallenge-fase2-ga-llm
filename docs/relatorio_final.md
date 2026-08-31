@@ -122,6 +122,14 @@ O checker factual recalcula 139 verificações contra o input: modelo, método, 
 
 Nove cenários adversariais cobrem ganho, piora, IC incluindo zero, trade-offs, matriz empatada com AUC diferente, preservação do modelo congelado, KNN não generalizado e indução clínica. A execução oficial mock obteve nota `1,0`, factualidade e segurança aprovadas, zero dados individuais e idempotência por hash.
 
+### 7.1 Avaliação complementar do provider real
+
+As Missões 7.1–7.3 diagnosticaram parâmetros incompatíveis e o parsing da Responses API e preservaram uma primeira resposta real V1 que obteve 138/139 checks. A falha revelou que um booleano sobre matriz de confusão e AUC não identificava explicitamente qual par de métodos estava sendo comparado; o resultado histórico não foi reclassificado.
+
+A Missão 7.4 criou o contrato `2.0`, validado offline, com nove `comparison_id`, deltas `right_minus_left` e contagens agregadas de McNemar. Na Missão 7.5, uma única chamada científica real com `gpt-5.5` retornou HTTP 200 e `completed`, sem `temperature`, com `store=false`, zero retry e zero dado individual. A resposta passou schema, factualidade **327/327**, segurança, completude, clareza, todos os pares, McNemar, disclaimer e as 14 conclusões críticas.
+
+O gate científico permaneceu não aprovado porque três verificações lexicais de calibração exigiam frases específicas. O texto real empregou formulações semanticamente calibradas — observações experimentais, ausência de suporte para superioridade estatística e proibição de uso clínico — mas não as variantes literais esperadas. A evidência foi preservada como `methodologically_complete_not_approved`; prompts, schema e checker não foram ajustados depois da resposta, não houve retry e os adversariais reais ficaram bloqueados. O mock V2 continua sendo o caminho oficial de reprodução offline.
+
 ## 8. Discussão — utilidade depende da família e do custo
 
 ![Fitness GA versus busca aleatória](../reports/figures/final_presentation/06_fitness_ga_vs_busca_aleatoria.png)
@@ -144,14 +152,15 @@ A robustez do projeto está mais forte na engenharia experimental do que na infe
 - O fitness representa prioridade acadêmica, não função de utilidade clínica; não incorpora calibração, prevalência local ou desfechos.
 - Safety checkers determinísticos não cobrem toda paráfrase possível.
 - Clareza automática não substitui avaliação com usuários.
-- O provider LLM real não foi avaliado; somente o mock offline foi aprovado.
+- O provider real foi avaliado uma única vez com o contrato V2, mas não foi aprovado pelo gate lexical de calibração; o resultado não generaliza para outras versões/modelos.
+- A execução real mostrou que critérios lexicais determinísticos podem reprovar paráfrases semanticamente adequadas.
 - Modelos joblib só devem ser carregados localmente após conferir hashes.
 
 ## 10. Validação da entrega consolidada
 
-A suíte completa encerrou com **120 testes aprovados** em execução offline. Sete testes específicos da Missão 6 validam as nove linhas da tabela mestre, a seleção global congelada, as seis figuras agregadas, a ausência de primitivas de treino/inferência/rede no consolidador, todos os links locais, o preflight das evidências e o manifesto assinado. Os 14 avisos emitidos são de depreciação interna de `pyparsing`/Matplotlib; não houve falha funcional.
+A suíte completa encerrou com **161 testes aprovados** em execução offline. Os testes validam as nove linhas da tabela mestre, a seleção global congelada, as seis figuras agregadas, a ausência de primitivas de treino/inferência/rede no consolidador, todos os links locais, o preflight das evidências, os contratos V1/V2, o transporte raw-first e os manifestos assinados. Os 14 avisos emitidos são de depreciação interna de `pyparsing`/Matplotlib; não houve falha funcional.
 
-A execução idempotente da Missão 5 também foi repetida com `FakeLLMProvider` e retornou `approved=true`, sem rede. O validador final é somente leitura e confere assinaturas, hashes, métricas principais, divergências documentadas, QA visual e confirmações de escopo.
+A execução idempotente da Missão 5 também foi repetida com `FakeLLMProvider` e retornou `approved=true`, sem rede. O validador consolidado confere adicionalmente o status não aprovado da execução real V2, 327/327 fatos, zero dados individuais e um único request sem retry. O validador final é somente leitura e confere assinaturas, hashes, métricas principais, divergências documentadas, QA visual e confirmações de escopo.
 
 ## 11. Conclusão — o projeto está pronto para defesa acadêmica, não para uso clínico
 
@@ -160,3 +169,5 @@ O GA foi útil para LR e RF no objetivo descritivo prioritário e útil como obj
 A camada LLM acrescentou explicação estruturada, privacidade, factualidade, segurança e demonstração offline. Ela não altera modelos nem evidência. É permitido concluir que o projeto implementou e auditou um GA reproduzível, observou redução de falsos negativos em duas famílias e construiu explicação segura de agregados. Não é permitido concluir superioridade estatística geral, eficácia clínica, segurança diagnóstica, substituição médica ou adequação para pacientes.
 
 Com documentação consolidada, tabela mestre, mapa de evidências, figuras revisadas, manifesto e validador somente leitura, a pergunta central recebe resposta positiva: a entrega está suficientemente consolidada e demonstrável para avaliação acadêmica, desde que as limitações e divergências históricas permaneçam visíveis.
+
+O código, os relatórios e a publicação técnica estão concluídos. O único entregável externo ainda pendente é a gravação/publicação do vídeo de até 15 minutos e a inclusão de seu link na submissão.

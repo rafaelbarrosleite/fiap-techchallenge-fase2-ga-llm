@@ -51,6 +51,8 @@ uv run evaluate-llm-output
 
 O primeiro comando reutiliza a execução mock concluída para a mesma identidade. O segundo recalcula factualidade, segurança e as cinco dimensões sem chamar provider.
 
+Como evidência complementar, abra `docs/avaliacao_provider_real_v4.md` e mostre que a única resposta real V2 obteve 327/327 fatos e zero violações clínicas, mas permaneceu não aprovada pelo gate lexical de calibração. Não execute novamente o provider real durante a demonstração.
+
 Abra:
 
 ```bash

@@ -37,9 +37,9 @@ Responsabilidades:
 - `evaluation.py`: factualidade, completude, clareza, segurança e calibração científica;
 - `engine.py`: identidade, idempotência, execução e artefatos.
 
-## 3. Contrato de entrada
+## 3. Contratos de entrada
 
-O contrato `1.0` contém:
+O contrato V1 (`1.0`) contém:
 
 - `experiment_summary`: tamanhos agregados, threshold congelado e papel confirmatório do holdout;
 - `model_comparison`: métricas agregadas de baseline, GA e busca aleatória para LR, RF e KNN;
@@ -59,7 +59,9 @@ Inconsistência preservada: esses quatro artefatos não têm um campo explícito
 
 **Clarificação da consolidação:** o recorte prioritário acima é específico da entrada LLM. Fora dele, `artifacts/selection/frozen_candidates.json`, produzido na Missão 3, contém `global_provisional_winner` de forma estruturada e confirma a mesma Regressão Logística da busca aleatória. A ausência existe nos quatro arquivos prioritários da Missão 4, não no conjunto inteiro de evidências do projeto.
 
-## 4. Contrato de saída
+O contrato V2 (`2.0`) preserva os agregados e acrescenta nove pares identificados por `comparison_id`, direção fixa `right_minus_left` e três blocos de incerteza `baseline_vs_ga` com contagens agregadas de McNemar. V1 e V2 são selecionados explicitamente; nenhuma migração histórica ocorre de forma silenciosa.
+
+## 4. Contratos de saída
 
 A saída `1.0` bloqueia campos extras e exige:
 
@@ -75,6 +77,8 @@ A saída `1.0` bloqueia campos extras e exige:
 
 Foi adotado um validador fechado próprio, acompanhado de JSON Schema estrito, porque Pydantic não fazia parte do ambiente congelado e uma dependência nova seria desnecessária para contratos pequenos. `LLMRequest` e `LLMResponse` são dataclasses tipadas. A validação recursiva rejeita campos ausentes, extras, tipos, faixas ou enums inválidos.
 
+No V2, cada finding repete o par, os candidatos, as relações e o delta. Assim, uma propriedade verdadeira em `ga_vs_random_search` não pode ser atribuída silenciosamente a `baseline_vs_ga`.
+
 ## 5. Privacidade
 
 Antes da chamada ao provider, ocorrem duas barreiras:
@@ -89,6 +93,8 @@ São rejeitados, entre outros: `patient_id`, diagnóstico individual, features, 
 - sistema: `system_v1`;
 - tarefa: `explanation_v1`.
 
+O V2 usa separadamente `system_v2` e `explanation_v2`.
+
 Cada arquivo declara versão, finalidade, entrada, saída, segurança, factualidade e linguagem científica. Seus SHA-256 integram a identidade da execução e o manifesto. Os prompts exigem linguagem como “foi observado” e proíbem causalidade, diagnóstico, superioridade clínica e interpretações incorretas de valor p.
 
 ## 7. Providers
@@ -98,7 +104,7 @@ Cada arquivo declara versão, finalidade, entrada, saída, segurança, factualid
 - `FakeLLMProvider`: determinístico, offline, zero tokens pagos e adequado à suíte;
 - `OpenAIResponsesProvider`: opt-in, lê `OPENAI_API_KEY` e `OPENAI_MODEL` de ambiente/`.env`, usa Structured Outputs e `store=false`.
 
-O `.env` local contém somente placeholders e é ignorado pelo Git. Chave e modelo reais devem ser preenchidos manualmente. Ausência ou placeholder bloqueia o provider real antes da rede. Segredos nunca entram em logs ou artefatos.
+O `.env` local é ignorado pelo Git. Chave e modelo reais são configuração explícita do usuário; ausência ou placeholder bloqueia o provider antes da rede. Segredos nunca entram em logs, artefatos ou documentação.
 
 ## 8. Factualidade independente
 
@@ -163,17 +169,20 @@ As fixtures sintéticas agregadas cobrem:
 
 Todos os JSONs principais são assinados. A identidade combina entrada, prompts, provider/modelo, geração e código. Mesma identidade concluída apenas reutiliza artefatos íntegros. Identidade diferente ou execução parcial no mesmo diretório bloqueia sobrescrita e exige revisão manual.
 
-## 13. Resultado da execução oficial da missão
+## 13. Resultados das execuções
 
-O mock determinístico produziu saída aprovada nas cinco dimensões, com nota `1.0`, sem violações factuais ou de segurança. Foram aprovados 139 checks factuais; clareza registrou 275 palavras, média de 14,47 palavras por sentença e nenhum jargão não explicado. A factualidade confirmou LR, RF e KNN, os três métodos, métricas, falsos negativos, intervalos e deltas. A segurança confirmou o disclaimer e ausência de orientação clínica. A identidade oficial é `5f94b3568689b01be5a413d449a898efe1fe4c702724348d520eddd5e52fbe66`. Nenhuma chamada real foi feita.
+O mock determinístico V1 produziu saída aprovada nas cinco dimensões, com nota `1.0`, sem violações factuais ou de segurança. Foram aprovados 139 checks factuais; clareza registrou 275 palavras, média de 14,47 palavras por sentença e nenhum jargão não explicado. O Fake V2 também foi aprovado integralmente, com 327 checks e os nove pares explícitos.
 
-A suíte completa aprovou 113 testes. Os 14 avisos são depreciações já existentes em dependências do Matplotlib durante testes de figuras; não houve falha. A repetição da execução com a mesma identidade preservou exatamente o hash do manifesto, comprovando idempotência.
+A avaliação complementar real V2 fez uma única chamada ao provider OpenAI. Ela retornou HTTP 200, status `completed`, 327/327 fatos, segurança, completude e clareza aprovadas, zero números inesperados, zero claims clínicos, zero violações de seleção/par/McNemar e disclaimer correto. A calibração científica foi reprovada em três checks lexicais que não reconheceram paráfrases semanticamente adequadas. O resultado original permaneceu não aprovado; não houve retry, adversariais ou alteração posterior de prompt, schema ou checker.
+
+A suíte consolidada aprovou 161 testes. Os 14 avisos são depreciações já existentes em dependências do Matplotlib durante testes de figuras; não houve falha. A repetição das execuções offline com a mesma identidade preserva os artefatos sem chamar provider.
 
 ## 14. Limitações
 
 - regras textuais determinísticas não cobrem toda paráfrase possível; o schema e a revisão humana continuam importantes;
 - a clareza automática é uma aproximação por critérios objetivos, não estudo com usuários;
-- o provider real pode variar e deve ser reavaliado por identidade/modelo;
+- o provider real varia por identidade/modelo e a única execução V2 não foi aprovada pelo gate lexical;
+- critérios lexicais determinísticos podem reprovar formulações semanticamente equivalentes;
 - o estudo de origem tem holdout pequeno e não é validação clínica;
 - a ausência de `selected_model` explícito nos quatro artefatos estruturados da Missão 4 permanece documentada;
 - a camada explica o experimento, não casos individuais.
@@ -189,12 +198,12 @@ uv run evaluate-llm-output
 uv run pytest
 ```
 
-Provider real, somente após preencher `.env`, em diretório próprio:
+Validação da evidência real preservada, sem nova chamada:
 
 ```bash
-uv run run-llm-evaluation \
-  --provider openai_responses \
-  --artifact-dir artifacts/llm_evaluation_openai
+uv run validate-openai-evaluation-v4
 ```
+
+Esse validador retorna status científico não aprovado por desenho. O comando de execução real não faz parte da demonstração e não deve ser repetido sobre a evidência congelada.
 
 Esta camada não executa diagnóstico, não produz recomendação médica, não recebe dados individuais, não altera modelos, não altera seleção, não reabre o holdout e não substitui validação clínica.

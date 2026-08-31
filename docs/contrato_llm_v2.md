@@ -159,11 +159,11 @@ O `FakeLLMProviderV2` é determinístico, não usa rede e registra zero tokens p
 
 Os testes adversariais reproduzem a classe de erro da 7.3 e comprovam que o evaluator detecta valores atribuídos ao par errado.
 
-## 10. Critérios para futura chamada real
+## 10. Aplicação na chamada real
 
-O manifesto V2 registra `ready_for_real_v2_evaluation=true`. Isso autoriza apenas o planejamento de uma missão futura; nenhuma avaliação real V2 ocorreu nesta etapa.
+O manifesto V2 registrou `ready_for_real_v2_evaluation=true` ao final da Missão 7.4. A Missão 7.5 consumiu esse gate em uma única avaliação real isolada, sem alterar este contrato.
 
-Uma futura chamada deve:
+A execução real:
 
 1. selecionar `contract_version="v2"` explicitamente;
 2. usar `system_v2` e `explanation_v2` sem alteração silenciosa;
@@ -172,7 +172,9 @@ Uma futura chamada deve:
 5. persistir a resposta raw-first;
 6. executar os 327 checks factuais V2 e as demais barreiras independentes;
 7. preservar a resposta original diante de qualquer falha;
-8. não reclassificar a Missão 7.3.
+8. não reclassificou a Missão 7.3.
+
+O resultado passou schema, 327/327 fatos, segurança, completude, clareza, pares e McNemar. A avaliação científica permaneceu não aprovada por três checks lexicais de calibração. A resposta foi preservada sem retry ou ajuste posterior; consulte `docs/avaliacao_provider_real_v4.md`.
 
 Comandos offline:
 

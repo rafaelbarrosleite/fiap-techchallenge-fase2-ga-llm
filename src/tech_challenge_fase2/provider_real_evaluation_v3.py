@@ -168,11 +168,11 @@ def prepare_v3(
     if model != "gpt-5.5":
         raise Mission73Error("OPENAI_MODEL deve ser gpt-5.5.")
     head = _git("rev-parse", "HEAD")
-    if head != V3_START_COMMIT:
+    official_root = root.resolve() == V3_ARTIFACT_ROOT.resolve()
+    if official_root and head != V3_START_COMMIT:
         raise Mission73Error("HEAD divergiu do commit limpo registrado no inicio da Missao 7.3.")
     if not _git("check-ignore", ".env"):
         raise Mission73Error(".env nao esta ignorado pelo Git.")
-    official_root = root.resolve() == V3_ARTIFACT_ROOT.resolve()
     unexpected_paths = sorted(_worktree_paths().difference(EXPECTED_V3_PATHS)) if official_root else []
     if unexpected_paths:
         raise Mission73Error(f"Alteracoes inesperadas antes da chamada: {unexpected_paths}")
