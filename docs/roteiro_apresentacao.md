@@ -6,7 +6,7 @@ O que o enunciado exige, e onde cada item é atendido:
 
 | Exigência | Bloco |
 |---|---|
-| Upload no YouTube ou Vimeo, até 15 minutos | ver *Publicação*, no fim |
+| Upload no YouTube ou Vimeo, até 15 minutos | ver *Depois de gravar*, no fim |
 | Demonstração do sistema em execução | 2, 4, 5, 6, 7 |
 | Explicação dos diferentes componentes da solução | 1, 3, 5, 6 |
 | Apresentação dos resultados da otimização via algoritmos genéticos | 3, 4 |
